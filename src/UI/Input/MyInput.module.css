@@ -1,0 +1,32 @@
+.npt{
+    font-size: 25px;
+    border-bottom-width: 2px ;
+    border-bottom-style: solid;
+    border-bottom-color: black;
+    width: 100px;
+    -moz-appearance: textfield;
+
+}
+
+input{
+    border: none;
+    margin-left: 5px;
+}
+
+/*Скрытие поля ввода*/
+
+[contenteditable="true"]:focus,
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+
