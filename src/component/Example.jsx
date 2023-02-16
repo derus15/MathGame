@@ -12,7 +12,7 @@ const Example = ({number, refresh}) => {
             onInput={(e) => {
                 if(e.target.value === answer){
                     refresh();
-                    e.target.value = '';}
+                    e.target.value = ''}
             }}
             />
         </div>

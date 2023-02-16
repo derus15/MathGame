@@ -1,16 +1,21 @@
 .npt{
-    font-size: 25px;
+    font-size: 30px;
     border-bottom-width: 2px ;
     border-bottom-style: solid;
-    border-bottom-color: black;
+    border-bottom-color: white;
     width: 100px;
     -moz-appearance: textfield;
 
 }
 
 input{
+    text-align: center;
     border: none;
     margin-left: 5px;
+    background-color: #646669;
+    color: white;
+    padding: 5px;
+    cursor: pointer;
 }
 
 /*Скрытие поля ввода*/

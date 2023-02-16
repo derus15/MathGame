@@ -1,11 +1,25 @@
 * {
   margin: 0;
   padding: 0;
+  background-color: #646669;
+}
+
+.App{
+  text-align: center;
+  position: relative;
+  top: 300px;
 }
 
 .example{
+  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 30px;
+  font-size: 35px;
+}
+
+.answer{
+  font-size: 22px;
+  margin-top: 15px;
+  color: white;
 }
