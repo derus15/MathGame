@@ -1,7 +1,7 @@
 import './App.css';
 import Example from "./component/Example";
 import React, {useState} from "react";
-import MyInput from "./UI/Input/MyInput";
+import Timer from "./component/Timer";
 
 
 function App() {
@@ -10,14 +10,18 @@ function App() {
 // Прикрутить стили
 // Алгоритм для неповторяющихся чисел генерировать через set два списка или заносить уже сгенерированные и проверять их
 // наличие при генерации
+// Очистка поля при завершении сессии
+// Таймер сверху экрана
 
+    const [inputExample, setInputExample] = useState(true);
+    const [buttonStart, setButtonStart] = useState(false)
 
     const [number, setNumbers] = useState({
         num_1: Math.floor(Math.random() * 100),
         num_2: Math.floor(Math.random() * 100)
     })
 
-    function refresh(max = 100, min = 1){
+    function refresh(){
         const refreshNum = {
             num_1: Math.floor(Math.random() * 100),
             num_2: Math.floor(Math.random() * 100)
@@ -25,23 +29,24 @@ function App() {
         setNumbers(refreshNum);
     }
 
+    function startSession(){
+        refresh()
+        console.log('начало');
+        setInputExample(false);
+        setTimeout(endSession, 10000);
+    }
 
-
-    function timer(){
-
+    function endSession(){
+        console.log('конец');
+        setInputExample(true);
     }
 
 
   return (
     <div className={'App'}>
-      <div style={{position: 'absolute', left:'47%', top:'200px'}}>
-            <button
-                style={{color:"white", fontSize:'25px', borderColor: 'white', padding:'5px 10px' }}
-                onClick={() => {console.log('asd')}}>Start
-            </button>
-      </div>
-      <Example number={number} refresh={refresh}/>
-      <div className={'answer'} >Ответ: {number.num_1 + number.num_2}</div>
+      <Timer timer={startSession} disabled = {buttonStart}/>
+      <Example disabled={inputExample} number={number} refresh={refresh}/>
+      <div className={'answer'}>Ответ: {number.num_1 + number.num_2}</div>
     </div>
   );
 }

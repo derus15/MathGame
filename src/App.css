@@ -23,3 +23,9 @@
   margin-top: 15px;
   color: white;
 }
+
+.timerContainer{
+  position: absolute;
+  left: 47%;
+  top: 200px;
+}
