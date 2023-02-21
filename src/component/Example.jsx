@@ -1,20 +1,20 @@
-import React, {useState} from 'react';
+import React from 'react';
 import MyInput from "../UI/Input/MyInput";
 
-const Example = ({number, refresh, endSession, setEnd, ...props}) => {
+const Example = ({number, refresh, endSession, setEnd, counter, resetCounter, ...props}) => {
 let answer = String(number.num_1 + number.num_2);
 
-
 function startSession(){
+    resetCounter()
     setEnd(false)
     console.log('начало');
-    setTimeout(endSession, 2000);
+    setTimeout(endSession, 5000);
 }
-
 
 function answered(e){
     if(e.target.value === answer){
         refresh();
+        counter();
         e.target.value = ''}
     }
 

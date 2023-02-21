@@ -1,7 +1,12 @@
 * {
   margin: 0;
   padding: 0;
-  background-color: #646669;
+  background-color: #424245;
+}
+
+.container{
+  padding-left: 100px;
+  padding-right: 100px;
 }
 
 .App{
@@ -18,6 +23,12 @@
   font-size: 35px;
 }
 
+.result{
+  font-size: 25px;
+  color:white;
+  text-align: center;
+}
+
 .answer{
   font-size: 22px;
   margin-top: 15px;
@@ -28,4 +39,11 @@
   position: absolute;
   left: 47%;
   top: 200px;
+}
+
+.header{
+  margin: 25px 25px;
+  font-size: 40px;
+  position: absolute;
+  color: white;
 }
