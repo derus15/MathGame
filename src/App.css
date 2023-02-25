@@ -1,8 +1,8 @@
 * {
   margin: 0;
   padding: 0;
+  background-color: #424245;
 }
-
 
 .container{
   padding-left: 100px;
@@ -12,7 +12,7 @@
 .App{
   text-align: center;
   position: relative;
-  top: 330px;
+  top: 300px;
 }
 
 .example{
@@ -20,7 +20,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 45px;
+  font-size: 35px;
 }
 
 .result{
@@ -30,14 +30,14 @@
 }
 
 .answer{
-  font-size: 20px;
+  font-size: 22px;
   margin-top: 15px;
   color: white;
 }
 
 .timerContainer{
   position: absolute;
-  left: 50%;
+  left: 47%;
   top: 200px;
 }
 
@@ -46,5 +46,4 @@
   font-size: 40px;
   position: absolute;
   color: white;
-  background-color: #424245;
 }
