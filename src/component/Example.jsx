@@ -3,17 +3,30 @@ import MyInput from "../UI/Input/MyInput";
 import Timer from "./Timer";
 
 
-const Example = ({number, refresh, endSession, counter, resetCounter, ...props}) => {
+const Example = ({endSession, counter, resetCounter, ...props}) => {
 
-let answer = String(number.num_1 + number.num_2);
 const[time, setTime] = useState(5);
 
+const [number, setNumbers] = useState({
+    num_1: Math.floor(Math.random() * 100),
+    num_2: Math.floor(Math.random() * 100),
+})
+
+let answer = String(number.num_1 + number.num_2);
+
+
+function refresh(){
+    const refreshNum = {
+        num_1: Math.floor(Math.random() * 100),
+        num_2: Math.floor(Math.random() * 100),
+    }
+    setNumbers(refreshNum);
+}
 
 function startTime() {
     let start = setInterval(() => {
         setTime((time) => {
             if (time <= 0){
-                console.log('скока?', time);
                 clearInterval(start)
             }else{
             return time - 1}
@@ -46,10 +59,10 @@ function answered(e){
             onInput={answered}
             />
         </div>
+            <div>{answer}</div>
         </div>
     );
 };
-
 
 
 export default Example;
