@@ -1,10 +1,8 @@
 import './App.css';
 import Example from "./component/Example";
 import React, {useState} from "react";
-import MyModal from "./UI/Modal/MyModal";
-import MyInput from "./UI/Input/MyInput";
-import MyButton from "./UI/Button/MyButton";
-
+import Result from "./component/Result";
+import Interface from "./UI/Interface/Interface";
 
 function App() {
 
@@ -16,7 +14,6 @@ function App() {
 // Таймер сверху экрана
 // Увеличении числа при прокрутке колесиком, поскольку это input type number
 
-    const [end, setEnd] = useState(false);
     const [modal, setModal] = useState(false);
     const [counter, setCounter] = useState(0);
 
@@ -24,10 +21,6 @@ function App() {
         num_1: Math.floor(Math.random() * 100),
         num_2: Math.floor(Math.random() * 100),
     })
-
-    function resetCounter(){
-        setCounter(0);
-    }
 
     function refresh(){
         const refreshNum = {
@@ -37,33 +30,38 @@ function App() {
         setNumbers(refreshNum);
     }
 
+
+    function resetCounter(){
+        setCounter(0);
+    }
+
     function counterExample(){
         setCounter(counter+1);
     }
 
     function endSession(){
         console.log('конец');
-        setEnd(true);
         setModal(true);
+    }
+
+    function closeModal(){
+        setModal(false);
     }
 
   return (
       <div className={'container'}>
-          <h1 className={'header'} >MathGame</h1>
+          <h1 className={'header'}>MGame</h1>
+          <Interface/>
           <div className={'App'}>
               {modal
                   ?
-              <div className={'result'}>
-                Примеров решено: {counter}
-                  <MyButton onClick={() => setModal(false)}>Хорошо</MyButton>
-              </div>
+                    <Result counter={counter} closeModal={closeModal}/>
                   :<>
-                      <Example setEnd={setEnd} number={number} endSession={endSession} refresh={refresh}
-                       resetCounter={resetCounter} counter={counterExample}/>
-                      <div className={'answer'}>Ответ: {number.num_1 + number.num_2}</div>
+                    <Example number={number} endSession={endSession} refresh={refresh}
+                     resetCounter={resetCounter} counter={counterExample}/>
+                    <div className={'answer'}>Ответ: {number.num_1 + number.num_2}</div>
                   </>
               }
-
           </div>
       </div>
   );
