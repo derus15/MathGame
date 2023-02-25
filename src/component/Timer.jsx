@@ -1,15 +1,11 @@
 import React from 'react';
 
-const Timer = ({timer, ...props}) => {
+const Timer = ({time}) => {
+
     return (
-      <div className={'timerContainer'}>
-            <button
-                {...props}
-                style={{color:"white", fontSize:'25px', borderColor: 'white', padding:'5px 10px' }}
-                onClick={timer}>
-                Start
-            </button>
-      </div>
+        <div>
+           <div style={{fontSize:'30px', color:'white', position: 'absolute', bottom: '170px', left: '250px'}}>{time}</div>
+        </div>
     );
 };
 

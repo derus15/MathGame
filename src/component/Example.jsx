@@ -1,14 +1,31 @@
-import React from 'react';
+import React, {useState} from 'react';
 import MyInput from "../UI/Input/MyInput";
+import Timer from "./Timer";
 
-const Example = ({number, refresh, endSession, setEnd, counter, resetCounter, ...props}) => {
+
+const Example = ({number, refresh, endSession, counter, resetCounter, ...props}) => {
+
 let answer = String(number.num_1 + number.num_2);
+const[time, setTime] = useState(5);
+
+
+function startTime() {
+    let start = setInterval(() => {
+        setTime((time) => {
+            if (time <= 0){
+                console.log('скока?', time);
+                clearInterval(start)
+            }else{
+            return time - 1}
+        })
+    }, 1000)
+}
 
 function startSession(){
-    resetCounter()
-    setEnd(false)
+    resetCounter();
+    startTime();
     console.log('начало');
-    setTimeout(endSession, 5000);
+    setTimeout(endSession, time * 1000);
 }
 
 function answered(e){
@@ -19,6 +36,8 @@ function answered(e){
     }
 
     return (
+        <div>
+            <Timer time={time}/>
         <div className={'example'}>
             <div> {number.num_1} + {number.num_2} = </div>
             <MyInput
@@ -26,6 +45,7 @@ function answered(e){
             onClick={startSession}
             onInput={answered}
             />
+        </div>
         </div>
     );
 };
