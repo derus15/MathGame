@@ -5,7 +5,7 @@ import Timer from "./Timer";
 
 const Example = ({endSession, counter, resetCounter, ...props}) => {
 
-const[time, setTime] = useState(5);
+const[time, setTime] = useState(15);
 
 const [number, setNumbers] = useState({
     num_1: Math.floor(Math.random() * 100),

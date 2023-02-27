@@ -1,0 +1,121 @@
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.mainContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: dimgray;
+    border-radius: 10px;
+    width: 940px;
+    height: 25px;
+}
+
+/*Режимы*/
+
+.containerPositionModes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+
+.containerModes{
+    display: flex;
+    gap: 150px;
+    flex-direction: row;
+    background-color: transparent;
+    z-index: 2;
+}
+
+.modes{
+    background-color: inherit;
+}
+
+.modes:hover{
+    color:white;
+    cursor: pointer;
+}
+
+/**/
+
+
+/*Вертикальные линии*/
+
+
+.containerLines{
+    position: absolute;
+    display: flex;
+    background-color: dimgray;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 650px;
+    z-index: 1;
+}
+
+.verticalLine{
+    height: 19px;
+    width: 4px;
+    border-radius: 20px;
+    background-color: #424245;
+}
+
+/**/
+
+
+/*Числа*/
+
+.containerNumber{
+    background-color: transparent;
+    position: absolute;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    left: 1110px;
+    top: 10px;
+    flex-direction: row;
+    z-index: 2;
+    gap:10px;
+}
+
+.number{
+    background-color: inherit;
+    cursor: pointer;
+}
+
+.number:hover{
+    color:white;
+}
+
+/**/
+
+
+/*Знаки*/
+
+.containerSigns{
+    background-color: transparent;
+    position: absolute;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    right: 1132px;
+    top: 10px;
+    flex-direction: row;
+    z-index: 2;
+    gap:10px;
+}
+
+.signs{
+    background-color: inherit;
+    cursor: pointer
+}
+
+.signs:hover{
+    color:white;
+}
+
+/**/
