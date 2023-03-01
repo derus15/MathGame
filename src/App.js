@@ -35,13 +35,13 @@ function App() {
 
   return (
       <div className={'container'}>
-          <Interface/>
           <h1 className={'header'} >MathGame</h1>
           <div className={'App'}>
               {modal
                   ?
                     <Result counter={counter} closeModal={closeModal}/>
                   :<div>
+                    <Interface/>
                     <Example endSession={endSession} resetCounter={resetCounter} counter={counterExample}/>
                   </div>
               }

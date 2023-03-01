@@ -47,3 +47,11 @@
   position: absolute;
   color: white;
 }
+
+.timer{
+  font-size: 30px;
+  color:white;
+  position: absolute;
+  bottom: 100px;
+  left: 200px;
+}

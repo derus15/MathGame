@@ -1,3 +1,9 @@
+.position{
+    position: absolute;
+    top:-200px;
+    left:200px;
+}
+
 .center{
     display: flex;
     justify-content: center;
@@ -13,6 +19,7 @@
     border-radius: 10px;
     width: 940px;
     height: 25px;
+    user-select: none;
 }
 
 /*Режимы*/
@@ -26,7 +33,7 @@
 
 .containerModes{
     display: flex;
-    gap: 150px;
+    gap: 160px;
     flex-direction: row;
     background-color: transparent;
     z-index: 2;
@@ -34,11 +41,15 @@
 
 .modes{
     background-color: inherit;
+    cursor: pointer;
 }
 
 .modes:hover{
+    color: darkgrey;
+}
+
+.modesActive{
     color:white;
-    cursor: pointer;
 }
 
 /**/
@@ -51,7 +62,6 @@
     position: absolute;
     display: flex;
     background-color: dimgray;
-    justify-content: space-between;
     flex-direction: row;
     gap: 650px;
     z-index: 1;
@@ -67,19 +77,18 @@
 /**/
 
 
+
 /*Числа*/
 
 .containerNumber{
-    background-color: transparent;
     position: absolute;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    left: 1110px;
-    top: 10px;
-    flex-direction: row;
-    z-index: 2;
+    margin-left:800px;
+    margin-bottom:3px;
     gap:10px;
+    display: flex;
+    background-color: dimgray;
+    flex-direction: row;
+    z-index: 1;
 }
 
 .number{
@@ -88,7 +97,7 @@
 }
 
 .number:hover{
-    color:white;
+    color: darkgrey;
 }
 
 /**/
@@ -97,16 +106,13 @@
 /*Знаки*/
 
 .containerSigns{
-    background-color: transparent;
     position: absolute;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    right: 1132px;
-    top: 10px;
-    flex-direction: row;
-    z-index: 2;
+    margin-right: 800px;
+    font-size: 18px;
     gap:10px;
+    display: flex;
+    background-color: dimgray;
+    z-index: 1;
 }
 
 .signs{
@@ -115,7 +121,7 @@
 }
 
 .signs:hover{
-    color:white;
+    color: darkgrey;
 }
 
 /**/
