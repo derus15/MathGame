@@ -3,6 +3,7 @@ import Example from "./component/Example";
 import React, {useState} from "react";
 import Result from "./component/Result";
 import Interface from "./UI/Interface/Interface";
+import Footer from "./component/Footer";
 
 function App() {
 
@@ -34,19 +35,20 @@ function App() {
     }
 
   return (
-      <div className={'container'}>
-          <h1 className={'header'} >MathGame</h1>
-          <div className={'App'}>
-              {modal
-                  ?
-                    <Result counter={counter} closeModal={closeModal}/>
-                  :<div>
-                    <Interface/>
-                    <Example endSession={endSession} resetCounter={resetCounter} counter={counterExample}/>
-                  </div>
-              }
+          <div className={'container'}>
+              <h1 className={'header'} >MathGame</h1>
+              <div className={'App'}>
+                  {modal
+                      ?
+                        <Result counter={counter} closeModal={closeModal}/>
+                      :<div>
+                        <Interface/>
+                        <Example endSession={endSession} resetCounter={resetCounter} counter={counterExample}/>
+                      </div>
+                  }
+              </div>
+              <Footer/>
           </div>
-      </div>
   );
 }
 

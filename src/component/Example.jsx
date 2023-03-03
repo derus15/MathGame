@@ -4,7 +4,6 @@ import Timer from "./Timer";
 
 
 const Example = ({endSession, counter, resetCounter, ...props}) => {
-
 const[time, setTime] = useState(15);
 
 const [number, setNumbers] = useState({
@@ -53,11 +52,7 @@ function answered(e){
             <Timer time={time}/>
         <div className={'example'}>
             <div> {number.num_1} + {number.num_2} = </div>
-            <MyInput
-            {...props}
-            onClick={startSession}
-            onInput={answered}
-            />
+            <MyInput {...props} onClick={startSession} onInput={answered}/>
         </div>
             <div>{answer}</div>
         </div>

@@ -13,7 +13,7 @@ const Interface = () => {
         <div className={classes.position}>
             <div className={classes.center}>
                 <div className={classes.mainContainer}>
-                  <Modes onClick={(event) => console.log(event.target.className)} active={active} setActive={setActive}/>
+                  <Modes onClick={() => setActive(true)} active={active} setActive={setActive}/>
                   <Lines/>
                   <Number/>
                   <Signs/>
