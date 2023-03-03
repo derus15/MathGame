@@ -5,10 +5,15 @@ const MyInput = ({...props}) => {
     return (
         <div>
             <input
-                type={"number"}
+                onChange={(e) => {
+                    const value = e.target.value;
+                    const isNumber = /^[0-9]+$/.test(value);
+                    if (!isNumber) {
+                        e.target.value = '';}
+                    }
+                }
                 className={style.npt}
-                {...props}
-            />
+                {...props}/>
         </div>
     );
 };
