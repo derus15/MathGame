@@ -7,7 +7,7 @@ const Signs = () => {
             <div className={classes.signs}>+</div>
             <div className={classes.signs}>-</div>
             <div className={classes.signs}>*</div>
-            <div className={classes.signs}>/</div>
+            <div className={[classes.signs, classes.signsActive].join(' ')}>/</div>
         </div>
     );
 };

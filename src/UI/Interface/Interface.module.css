@@ -100,6 +100,10 @@
     color: darkgrey;
 }
 
+.numberActive{
+    color:white;
+}
+
 /**/
 
 
@@ -122,6 +126,10 @@
 
 .signs:hover{
     color: darkgrey;
+}
+
+.signsActive {
+    color: white;
 }
 
 /**/

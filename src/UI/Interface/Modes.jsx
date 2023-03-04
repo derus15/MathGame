@@ -13,7 +13,7 @@ const Modes = ({setActive, active, ...props}) => {
          <div className={classes.containerPositionModes}>
             <div className={classes.containerModes}>
                 <div className={activeClasses.join(' ')} {...props}>Спринт</div>
-                <div className={activeClasses.join(' ')} {...props}>Стандарт</div>
+                <div className={[classes.modes, classes.modesActive].join(' ')} {...props}>Стандарт</div>
                 <div className={activeClasses.join(' ')} {...props}>Дзен</div>
             </div>
          </div>
