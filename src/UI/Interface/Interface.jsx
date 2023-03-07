@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import classes from './Interface.module.css'
 import Modes from "./Modes";
-import Number from "./Number";
+import Number_Time from "./Number_Time";
 import Signs from "./Signs";
 import Lines from "./Lines";
 
-const Interface = () => {
+const Interface = ({...props}) => {
 
     const [active, setActive] = useState(false);
 
@@ -15,7 +15,7 @@ const Interface = () => {
                 <div className={classes.mainContainer}>
                   <Modes onClick={() => setActive(true)} active={active} setActive={setActive}/>
                   <Lines/>
-                  <Number/>
+                  <Number_Time/>
                   <Signs/>
                 </div>
             </div>

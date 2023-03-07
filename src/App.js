@@ -7,11 +7,6 @@ import Footer from "./component/Footer";
 
 function App() {
 
-// Алгоритм для неповторяющихся чисел генерировать через set два списка или заносить уже сгенерированные и проверять их
-// наличие при генерации
-// Увеличении числа при прокрутке колесиком, поскольку это input type number
-
-    const [end, setEnd] = useState(false);
     const [modal, setModal] = useState(false);
     const [counter, setCounter] = useState(0);
 
@@ -25,8 +20,6 @@ function App() {
     }
 
     function endSession(){
-        console.log('конец');
-        setEnd(true);
         setModal(true);
     }
 

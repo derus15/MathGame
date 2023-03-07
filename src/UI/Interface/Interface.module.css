@@ -100,6 +100,10 @@
     color: darkgrey;
 }
 
+.number:active{
+    color: white
+}
+
 .numberActive{
     color:white;
 }
