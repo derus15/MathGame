@@ -5,7 +5,7 @@ import Number_Time from "./Number_Time";
 import Signs from "./Signs";
 import Lines from "./Lines";
 
-const Interface = ({...props}) => {
+const Interface = ({changeTime_15, changeTime_30, changeTime_00, ...props}) => {
 
     const [active, setActive] = useState(false);
 
@@ -15,7 +15,7 @@ const Interface = ({...props}) => {
                 <div className={classes.mainContainer}>
                   <Modes onClick={() => setActive(true)} active={active} setActive={setActive}/>
                   <Lines/>
-                  <Number_Time/>
+                  <Number_Time changeTime_15={changeTime_15} changeTime_30={changeTime_30} changeTime_00={changeTime_00}/>
                   <Signs/>
                 </div>
             </div>

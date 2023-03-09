@@ -3,11 +3,10 @@ import MyInput from "../UI/Input/MyInput";
 import Timer from "./Timer";
 
 
-const Example = ({endSession, counter, resetCounter, ...props}) => {
+const Example = ({endSession, counter, resetCounter, duration, time, setTime, ...props}) => {
 const [sign, SetSign] = useState('-');
-const [time, setTime] = useState(5);
-let answer;
 
+let answer;
 
 const signFunction = {
     '+': (a,b) => a + b,
@@ -20,6 +19,8 @@ const [number, setNumbers] = useState({
     num_1: Math.floor(Math.random() * 100),
     num_2: Math.floor(Math.random() * 100),
 })
+
+useEffect(() => {if (time === undefined) {setTime(duration)}},  [time])
 
 function changeSign() {
     let signNumber = (Math.floor(Math.random() * 100));
@@ -79,6 +80,7 @@ function startSession(){
     resetCounter();
     startTime();
     setTimeout(endSession, time * 1000);
+
 }
 
 function answered(e){
