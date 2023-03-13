@@ -1,6 +1,6 @@
 import './App.css';
 import Example from "./component/Example";
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import Result from "./component/Result";
 import Interface from "./UI/Interface/Interface";
 import Footer from "./component/Footer";
@@ -12,26 +12,16 @@ function App() {
     const [duration, setDuration] = useState(15);
     const [time, setTime] = useState(15);
 
-    function changeTime_15(){
-        setTime(15);
-        setDuration(15);
-    }
-
-    function changeTime_30(){
-        setTime(30);
-        setDuration(30);
-    }
-
-    function changeTime_00(){
-        setTime(60);
-        setDuration(60);
+    function changeTimeInterface(id){
+        setTime(id);
+        setDuration(id);
     }
 
     function resetCounter(){
         setCounter(0);
     }
 
-    function counterExample(){
+    function incrementCounter(){
         setCounter(counter+1);
     }
 
@@ -39,7 +29,7 @@ function App() {
         setModal(true);
     }
 
-    function closeModal(){
+    function closeResult(){
         setModal(false);
     }
 
@@ -49,10 +39,10 @@ function App() {
               <div className={'App'}>
                   {modal
                       ?
-                        <Result counter={counter} closeModal={closeModal}/>
+                        <Result counter={counter} closeResult={closeResult}/>
                       :<div>
-                        <Interface changeTime_15={changeTime_15} changeTime_30={changeTime_30} changeTime_00={changeTime_00}/>
-                        <Example endSession={endSession} resetCounter={resetCounter} counter={counterExample}
+                        <Interface changeTimeInterface={changeTimeInterface}/>
+                        <Example endSession={endSession} resetCounter={resetCounter} incrementCounter={incrementCounter}
                                  duration={duration} time={time} setTime={setTime}/>
                       </div>
                   }

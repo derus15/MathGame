@@ -3,8 +3,8 @@ import MyInput from "../UI/Input/MyInput";
 import Timer from "./Timer";
 
 
-const Example = ({endSession, counter, resetCounter, duration, time, setTime, ...props}) => {
-const [sign, SetSign] = useState('-');
+const Example = ({endSession, incrementCounter, resetCounter, duration, time, setTime, ...props}) => {
+const [sign, SetSign] = useState('+');
 
 let answer;
 
@@ -52,10 +52,10 @@ function generateExample(num_1, num_2){
         [num_1, num_2] = [num_2, num_1];
     }
     while ((sign === '/') && (num_1 % num_2 !== 0)){
-        if (num_1 > 0){
+        if (num_1 > 1 && num_2 > 0) {
             num_1++;
         }
-        if (num_1 > 0){
+        if (num_1 > 0 && num_2 > 1){
             num_2--;
         }
     }
@@ -68,8 +68,9 @@ function startTime() {
     if (time > 0){
     let start = setInterval(() => {
         setTime((time) => {
-            if (time <= 0){
-                clearInterval(start)
+            if (time <= 1){
+                endSession();
+                clearInterval(start);
             }else{
                 return time - 1}
         })
@@ -79,15 +80,13 @@ function startTime() {
 function startSession(){
     resetCounter();
     startTime();
-    setTimeout(endSession, time * 1000);
-
 }
 
 function answered(e){
     if(e.target.value === answer){
         changeSign();
         refresh();
-        counter();
+        incrementCounter();
         e.target.value = ''}
     }
 

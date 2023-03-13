@@ -7,6 +7,7 @@
 .container{
   padding-left: 100px;
   padding-right: 100px;
+  user-select: none;
 }
 
 .App{
@@ -35,6 +36,7 @@
   font-size: 35px;
   position: absolute;
   color: white;
+  cursor: pointer;
 }
 
 .answer{

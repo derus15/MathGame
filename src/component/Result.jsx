@@ -1,11 +1,11 @@
 import React from 'react';
 import MyButton from "../UI/Button/MyButton";
 
-const Result = ({counter, closeModal}) => {
+const Result = ({counter, closeResult}) => {
     return (
       <div className={'result'}>
            Примеров решено: {counter}
-          <MyButton onClick={closeModal}>Хорошо</MyButton>
+          <MyButton onClick={closeResult}>Хорошо</MyButton>
       </div>
     );
 };
