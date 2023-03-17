@@ -11,6 +11,7 @@ function App() {
     const [counter, setCounter] = useState(0);
     const [duration, setDuration] = useState(15);
     const [time, setTime] = useState(15);
+    const [sessionProgress, setSessionProgress] = useState(false);
 
     function changeTimeInterface(id){
         if (!sessionProgress) {
