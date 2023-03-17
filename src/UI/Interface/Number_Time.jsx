@@ -2,15 +2,12 @@ import React, {useEffect, useState} from 'react';
 import classes from "./Interface.module.css";
 
 const Number_Time = ({changeTimeInterface, ...props}) => {
-    const [kashActiveId, setKashActiveId] = useState(15);
-    const [activeId, setActiveId] = useState(kashActiveId);
-
+    const [activeId, setActiveId] = useState('15');
 
     const handleOnClick = (id) => {
         changeTimeInterface(id);
         setActiveId(id);
     }
-
 
     const getClassName = (id) => {
         if (activeId === id) {

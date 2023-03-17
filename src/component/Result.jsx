@@ -5,7 +5,7 @@ const Result = ({counter, closeResult}) => {
     return (
       <div className={'result'}>
            Примеров решено: {counter}
-          <MyButton onClick={closeResult}>Хорошо</MyButton>
+          <MyButton onClick={closeResult}></MyButton>
       </div>
     );
 };

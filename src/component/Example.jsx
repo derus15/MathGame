@@ -3,7 +3,7 @@ import MyInput from "../UI/Input/MyInput";
 import Timer from "./Timer";
 
 
-const Example = ({endSession, incrementCounter, resetCounter, duration, time, setTime, ...props}) => {
+const Example = ({endSession, incrementCounter, resetCounter, duration, time, setTime, sessionProgress, setSessionProgress, signList, ...props}) => {
 const [sign, SetSign] = useState('+');
 
 let answer;
@@ -69,8 +69,8 @@ function startTime() {
     let start = setInterval(() => {
         setTime((time) => {
             if (time <= 1){
-                endSession();
                 clearInterval(start);
+                endSession();
             }else{
                 return time - 1}
         })
@@ -78,8 +78,11 @@ function startTime() {
 }
 
 function startSession(){
-    resetCounter();
-    startTime();
+    if (!sessionProgress) {
+        setSessionProgress(true);
+        resetCounter();
+        startTime();
+    }
 }
 
 function answered(e){
@@ -93,10 +96,10 @@ function answered(e){
     return (
         <div>
             <Timer time={time}/>
-        <div className={'example'}>
-            {generateExample(number.num_1, number.num_2)}
-            <MyInput {...props} onClick={startSession} onInput={answered}/>
-        </div>
+            <div className={'example'}>
+                {generateExample(number.num_1, number.num_2)}
+                <MyInput {...props} onClick={startSession} onInput={answered}/>
+            </div>
             <div>{answer}</div>
         </div>
     );
