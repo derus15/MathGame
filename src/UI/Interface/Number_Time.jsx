@@ -1,16 +1,16 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import classes from "./Interface.module.css";
 
-const Number_Time = ({changeTimeInterface, ...props}) => {
+const Number_Time = ({changeTimeInterface, time, ...props}) => {
     const [activeId, setActiveId] = useState('15');
 
     const handleOnClick = (id) => {
-        changeTimeInterface(id);
         setActiveId(id);
+        changeTimeInterface(id);
     }
 
     const getClassName = (id) => {
-        if (activeId === id) {
+        if (time === id) {
             return `${classes.number} ${classes.numberActive}`;
         }
         return classes.number;

@@ -1,6 +1,6 @@
 import './App.css';
 import Example from "./component/Example";
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import Result from "./component/Result";
 import Interface from "./UI/Interface/Interface";
 import Footer from "./component/Footer";
@@ -12,6 +12,17 @@ function App() {
     const [duration, setDuration] = useState(15);
     const [time, setTime] = useState(15);
     const [sessionProgress, setSessionProgress] = useState(false);
+    const [signList, setSignList] = useState(['+','-']);
+
+    function addSignInSession(id){
+        if (!sessionProgress) {
+            if (!signList.includes(id)) {
+                setSignList([...signList, id])
+            } else {
+                setSignList(signList.filter((sign) => sign !== id));
+            }
+        }
+    }
 
     function changeTimeInterface(id){
         if (!sessionProgress) {
@@ -33,7 +44,6 @@ function App() {
         setResult(!result);
     }
 
-
   return (
           <div className={'container'}>
               <h1 className={'header'} >MathGame</h1>
@@ -42,9 +52,11 @@ function App() {
                       ?
                         <Result counter={counter} closeResult={endSession}/>
                       :<div>
-                        <Interface changeTimeInterface={changeTimeInterface}/>
+                        <Interface changeTimeInterface={changeTimeInterface} addSignInSession={addSignInSession}
+                                   signList={signList} time={duration}/>
                         <Example endSession={endSession} resetCounter={resetCounter} incrementCounter={incrementCounter}
-                                 duration={duration} time={time} setTime={setTime}/>
+                                 duration={duration} time={time} setTime={setTime} setSessionProgress={setSessionProgress}
+                                 sessionProgress={sessionProgress} signList={signList}/>
                       </div>
                   }
               </div>

@@ -5,7 +5,7 @@ import Number_Time from "./Number_Time";
 import Signs from "./Signs";
 import Lines from "./Lines";
 
-const Interface = ({changeTimeInterface, addSignInSession, ...props}) => {
+const Interface = ({changeTimeInterface, addSignInSession, signList, time, ...props}) => {
 
     return (
         <div className={classes.position}>
@@ -13,8 +13,8 @@ const Interface = ({changeTimeInterface, addSignInSession, ...props}) => {
                 <div className={classes.mainContainer}>
                   <Modes/>
                   <Lines/>
-                  <Number_Time changeTimeInterface={changeTimeInterface}/>
-                  <Signs/>
+                  <Number_Time changeTimeInterface={changeTimeInterface} time={time}/>
+                  <Signs addSignInSession={addSignInSession} signList={signList}/>
                 </div>
             </div>
         </div>

@@ -4,7 +4,7 @@ import Timer from "./Timer";
 
 
 const Example = ({endSession, incrementCounter, resetCounter, duration, time, setTime, sessionProgress, setSessionProgress, signList, ...props}) => {
-const [sign, SetSign] = useState('+');
+const [sign, SetSign] = useState(signList[Math.floor(Math.random() * signList.length)]);
 
 let answer;
 
@@ -20,23 +20,11 @@ const [number, setNumbers] = useState({
     num_2: Math.floor(Math.random() * 100),
 })
 
-useEffect(() => {if (time === undefined) {setTime(duration)}},  [time])
+useEffect(() => {if (time === undefined) {setTime(duration)}},  [time]);
 
 function changeSign() {
-    let signNumber = (Math.floor(Math.random() * 100));
-
-    if (signNumber <= 25) {
-        return SetSign('-')
-    }
-    else if ((signNumber > 25) && (signNumber <= 50)) {
-        return SetSign('+')
-    }
-    else if ((signNumber > 50) && (signNumber <= 75)) {
-        return SetSign('*')
-    }
-    else if ((signNumber > 75) && (signNumber <= 99)) {
-        return SetSign('/')
-    }
+    let signNumber = signList[Math.floor(Math.random() * signList.length)];
+    SetSign(signNumber);
 }
 
 function refresh(){
@@ -62,7 +50,6 @@ function generateExample(num_1, num_2){
     answer = String(signFunction[sign](num_1, num_2));
     return (<div>{num_1} {sign} {num_2} =</div>)
 }
-
 
 function startTime() {
     if (time > 0){
