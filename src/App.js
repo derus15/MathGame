@@ -14,12 +14,12 @@ function App() {
     const [sessionProgress, setSessionProgress] = useState(false);
     const [signList, setSignList] = useState(['+','-']);
 
-    function addSignInSession(id){
+    function addSignInSession(id) {
         if (!sessionProgress) {
-            if (!signList.includes(id)) {
-                setSignList([...signList, id])
-            } else {
-                setSignList(signList.filter((sign) => sign !== id));
+            if (signList.includes(id) && signList.length > 1) {
+                setSignList(signList.filter(sign => sign !== id));
+            } else if (!signList.includes(id)) {
+                setSignList([...signList, id]);
             }
         }
     }
@@ -46,7 +46,7 @@ function App() {
 
   return (
           <div className={'container'}>
-              <h1 className={'header'} >MathGame</h1>
+              <h1 className={'header'}>MathGame</h1>
               <div className={'App'}>
                   {result
                       ?

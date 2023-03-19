@@ -11,7 +11,7 @@ const Footer = () => {
             </div>
             <div className={'rightBlock'}>
                 <div>Темная</div>
-                <div>v 0.11.3</div>
+                <div>v 0.12.3</div>
             </div>
         </div>
     );

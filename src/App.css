@@ -55,7 +55,7 @@
   font-size: 20px;
   color:white;
   position: absolute;
-  bottom: 140px;
+  bottom: 120px;
   left: 200px;
   height: 5px;
 }
@@ -102,5 +102,10 @@ a:active{
   gap:100px;
   width:100%;
 }
+
+.git::before {
+  background-image: url("/media/GitHub Icon.svg");
+}
+
 
 /**/

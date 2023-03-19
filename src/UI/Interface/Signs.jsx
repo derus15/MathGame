@@ -1,13 +1,21 @@
-import React from 'react';
+import React, {useState} from 'react';
 import classes from "./Interface.module.css";
 
-const Signs = () => {
+const Signs = ({signList, addSignInSession, ...props}) => {
+
+    const getClassName = (id) => {
+        if (signList.includes(id)){
+            return `${classes.signs} ${classes.signsActive}`;
+            }
+        return classes.number;
+    }
+
     return (
         <div className={classes.containerSigns}>
-            <div className={classes.signs}>+</div>
-            <div className={classes.signs}>-</div>
-            <div className={classes.signs}>*</div>
-            <div className={[classes.signs, classes.signsActive].join(' ')}>/</div>
+            <div className={getClassName('+')} onClick={() => (addSignInSession('+'))}>+</div>
+            <div className={getClassName('-')} onClick={() => (addSignInSession('-'))}>-</div>
+            <div className={getClassName('*')} onClick={() => (addSignInSession('*'))}>*</div>
+            <div className={getClassName('/')} onClick={() => (addSignInSession('/'))}>/</div>
         </div>
     );
 };

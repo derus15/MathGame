@@ -21,6 +21,7 @@ const [number, setNumbers] = useState({
 })
 
 useEffect(() => {if (time === undefined) {setTime(duration)}},  [time]);
+useEffect(() => {changeSign(); refresh();},[signList])
 
 function changeSign() {
     let signNumber = signList[Math.floor(Math.random() * signList.length)];
@@ -87,7 +88,6 @@ function answered(e){
                 {generateExample(number.num_1, number.num_2)}
                 <MyInput {...props} onClick={startSession} onInput={answered}/>
             </div>
-            <div>{answer}</div>
         </div>
     );
 };
