@@ -52,10 +52,16 @@ function App() {
                       ?
                         <Result counter={counter} closeResult={endSession}/>
                       :<div>
-                        <Interface changeTimeInterface={changeTimeInterface} addSignInSession={addSignInSession}
+                        <Interface changeTimeInterface={changeTimeInterface}
+                                   addSignInSession={addSignInSession}
                                    signList={signList} time={duration}/>
-                        <Example endSession={endSession} resetCounter={resetCounter} incrementCounter={incrementCounter}
-                                 duration={duration} time={time} setTime={setTime} setSessionProgress={setSessionProgress}
+
+                        <Example endSession={endSession}
+                                 resetCounter={resetCounter}
+                                 incrementCounter={incrementCounter}
+                                 duration={duration}
+                                 time={time} setTime={setTime}
+                                 setSessionProgress={setSessionProgress}
                                  sessionProgress={sessionProgress} signList={signList}/>
                       </div>
                   }

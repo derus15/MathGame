@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import classes from "./Interface.module.css";
 
 const Signs = ({signList, addSignInSession, ...props}) => {
@@ -7,14 +7,14 @@ const Signs = ({signList, addSignInSession, ...props}) => {
         if (signList.includes(id)){
             return `${classes.signs} ${classes.signsActive}`;
             }
-        return classes.number;
+        return classes.signs;
     }
 
     return (
         <div className={classes.containerSigns}>
             <div className={getClassName('+')} onClick={() => (addSignInSession('+'))}>+</div>
             <div className={getClassName('-')} onClick={() => (addSignInSession('-'))}>-</div>
-            <div className={getClassName('*')} onClick={() => (addSignInSession('*'))}>*</div>
+            <div className={getClassName('*')} onClick={() => (addSignInSession('*'))}>x</div>
             <div className={getClassName('/')} onClick={() => (addSignInSession('/'))}>/</div>
         </div>
     );

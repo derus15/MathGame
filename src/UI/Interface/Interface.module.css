@@ -91,20 +91,21 @@
     z-index: 1;
 }
 
-.number{
+.time{
+    font-size: 16px;
     background-color: inherit;
     cursor: pointer;
 }
 
-.number:hover{
+.time:hover{
     color: darkgrey;
 }
 
-.number:active{
-    color: white
+.time:active{
+    color: white;
 }
 
-.numberActive{
+.timeActive{
     color:white;
 }
 
@@ -125,11 +126,15 @@
 
 .signs{
     background-color: inherit;
-    cursor: pointer
+    cursor: pointer;
 }
 
 .signs:hover{
     color: darkgrey;
+}
+
+.signs:active{
+    color: white;
 }
 
 .signsActive {

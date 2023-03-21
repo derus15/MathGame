@@ -11,15 +11,15 @@ const Number_Time = ({changeTimeInterface, time, ...props}) => {
 
     const getClassName = (id) => {
         if (time === id) {
-            return `${classes.number} ${classes.numberActive}`;
+            return `${classes.time} ${classes.timeActive}`;
         }
-        return classes.number;
+        return classes.time;
     }
 
 
     return (
-     <div className={classes.containerNumber}>
-       <div className={`${classes.number} ${activeId === '15' ? classes.numberActive : ''}`} onClick={() => handleOnClick('15')}>0:15</div>
+     <div className={classes.containerTime}>
+       <div className={`${classes.time} ${activeId === '15' ? classes.timeActive : ''}`} onClick={() => handleOnClick('15')}>0:15</div>
        <div className={getClassName('30')} onClick={() => handleOnClick('30')}>0:30</div>
        <div className={getClassName('60')} onClick={() => handleOnClick('60')}>1:00</div>
     </div>

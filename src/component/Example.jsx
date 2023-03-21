@@ -21,7 +21,7 @@ const [number, setNumbers] = useState({
 })
 
 useEffect(() => {if (time === undefined) {setTime(duration)}},  [time]);
-useEffect(() => {changeSign(); refresh();},[signList])
+useEffect(() => {refresh(); changeSign();},[signList])
 
 function changeSign() {
     let signNumber = signList[Math.floor(Math.random() * signList.length)];
@@ -40,36 +40,25 @@ function generateExample(num_1, num_2){
     if ((sign === '-') && (num_1 < num_2)){
         [num_1, num_2] = [num_2, num_1];
     }
-    while ((sign === '/') && (num_1 % num_2 !== 0)){
-        if (num_1 > 1 && num_2 > 0) {
-            num_1++;
+    if (sign === '/'){
+        if (num_1 === 0){
+            num_1 += 1;
         }
-        if (num_1 > 0 && num_2 > 1){
-            num_2--;
+
+        if (num_1 > 10 && num_1 < 100){
+            num_2 = Math.floor(num_2 / 10) + 1;
         }
+    answer = num_1 * num_2;
+    [num_1, answer] = [answer, num_1];
     }
     answer = String(signFunction[sign](num_1, num_2));
     return (<div>{num_1} {sign} {num_2} =</div>)
-}
-
-function startTime() {
-    if (time > 0){
-    let start = setInterval(() => {
-        setTime((time) => {
-            if (time <= 1){
-                clearInterval(start);
-                endSession();
-            }else{
-                return time - 1}
-        })
-    }, 1000)}
 }
 
 function startSession(){
     if (!sessionProgress) {
         setSessionProgress(true);
         resetCounter();
-        startTime();
     }
 }
 
@@ -83,7 +72,7 @@ function answered(e){
 
     return (
         <div>
-            <Timer time={time}/>
+            <Timer time={time} sessionProgress={sessionProgress} end={endSession} setTime={setTime}/>
             <div className={'example'}>
                 {generateExample(number.num_1, number.num_2)}
                 <MyInput {...props} onClick={startSession} onInput={answered}/>
