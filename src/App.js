@@ -1,9 +1,9 @@
 import './App.css';
-import Example from "./component/Example";
+import ExampleArea from "./component/ExampleArea";
 import React, {useState} from "react";
 import Result from "./component/Result";
 import Interface from "./UI/Interface/Interface";
-import Footer from "./component/Footer";
+import Footer from "./component/Footer/Footer";
 
 function App() {
 
@@ -56,13 +56,13 @@ function App() {
                                    addSignInSession={addSignInSession}
                                    signList={signList} time={duration}/>
 
-                        <Example endSession={endSession}
-                                 resetCounter={resetCounter}
-                                 incrementCounter={incrementCounter}
-                                 duration={duration}
-                                 time={time} setTime={setTime}
-                                 setSessionProgress={setSessionProgress}
-                                 sessionProgress={sessionProgress} signList={signList}/>
+                        <ExampleArea endSession={endSession}
+                                     resetCounter={resetCounter}
+                                     incrementCounter={incrementCounter}
+                                     duration={duration}
+                                     time={time} setTime={setTime}
+                                     setSessionProgress={setSessionProgress}
+                                     sessionProgress={sessionProgress} signList={signList}/>
                       </div>
                   }
               </div>

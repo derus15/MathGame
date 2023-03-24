@@ -8,40 +8,35 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 8px;
 }
 
 .mainContainer{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: dimgray;
-    border-radius: 10px;
-    width: 940px;
-    height: 25px;
+    background-color: rgba(26, 26, 29, 0.49);
+    border-radius: 12px;
+    width: 900px;
+    height: 31px;
     user-select: none;
 }
 
 /*Режимы*/
 
-.containerPositionModes{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: transparent;
-}
-
 .containerModes{
+    position: absolute;
     display: flex;
-    gap: 160px;
+    gap: 150px;
     flex-direction: row;
+    color: gray;
     background-color: transparent;
-    z-index: 2;
 }
 
 .modes{
-    background-color: inherit;
+    font-size: 15px;
     cursor: pointer;
+    background-color: transparent;
 }
 
 .modes:hover{
@@ -57,38 +52,40 @@
 
 /*Вертикальные линии*/
 
-
 .containerLines{
     position: absolute;
     display: flex;
-    background-color: dimgray;
-    flex-direction: row;
-    gap: 650px;
-    z-index: 1;
+    background-color: transparent;
+    gap: 585px;
 }
 
 .verticalLine{
-    height: 19px;
+    height: 21px;
     width: 4px;
     border-radius: 20px;
     background-color: #424245;
+    transition-property: transform;
+    transition-duration: 0.3s;
+}
+
+.rotateLine{
+    transform: rotate(90deg);
 }
 
 /**/
 
 
+/*Время*/
 
-/*Числа*/
-
-.containerNumber{
+.containerTime{
     position: absolute;
-    margin-left:800px;
-    margin-bottom:3px;
-    gap:10px;
+    margin-left: 745px;
+    margin-bottom: 0;
+    gap: 15px;
     display: flex;
-    background-color: dimgray;
+    background-color: transparent;
     flex-direction: row;
-    z-index: 1;
+    color: grey;
 }
 
 .time{
@@ -116,12 +113,13 @@
 
 .containerSigns{
     position: absolute;
-    margin-right: 800px;
-    font-size: 18px;
-    gap:10px;
+    margin-right: 750px;
+    margin-top: 2px;
+    font-size: 19px;
+    gap: 22px;
+    background-color: transparent;
     display: flex;
-    background-color: dimgray;
-    z-index: 1;
+    color: grey;
 }
 
 .signs{

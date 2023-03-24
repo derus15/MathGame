@@ -1,18 +1,17 @@
 .npt{
+    font-family: inherit;
     font-size: 30px;
-    border-bottom-width: 2px ;
+    border-bottom-width: 2px;
     border-bottom-style: solid;
     border-bottom-color: white;
-    width: 100px;
-    -moz-appearance: textfield;
-
+    width: 90px;
 }
 
 input{
     text-align: center;
     border: none;
     margin-left: 5px;
-    background-color: #424245;
+    background-color: inherit;
     color: white;
     padding: 5px;
     cursor: pointer;

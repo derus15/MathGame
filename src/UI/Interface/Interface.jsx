@@ -11,10 +11,10 @@ const Interface = ({changeTimeInterface, addSignInSession, signList, time, ...pr
         <div className={classes.position}>
             <div className={classes.center}>
                 <div className={classes.mainContainer}>
-                  <Modes/>
-                  <Lines/>
                   <Number_Time changeTimeInterface={changeTimeInterface} time={time}/>
                   <Signs addSignInSession={addSignInSession} signList={signList}/>
+                  <Lines/>
+                  <Modes/>
                 </div>
             </div>
         </div>

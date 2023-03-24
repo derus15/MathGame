@@ -3,7 +3,7 @@ import MyInput from "../UI/Input/MyInput";
 import Timer from "./Timer";
 
 
-const Example = ({endSession, incrementCounter, resetCounter, duration, time, setTime, sessionProgress, setSessionProgress, signList, ...props}) => {
+const ExampleArea = ({endSession, incrementCounter, resetCounter, duration, time, setTime, sessionProgress, setSessionProgress, signList, ...props}) => {
 const [sign, SetSign] = useState(signList[Math.floor(Math.random() * signList.length)]);
 
 let answer;
@@ -40,11 +40,11 @@ function generateExample(num_1, num_2){
     if ((sign === '-') && (num_1 < num_2)){
         [num_1, num_2] = [num_2, num_1];
     }
+
     if (sign === '/'){
         if (num_1 === 0){
             num_1 += 1;
         }
-
         if (num_1 > 10 && num_1 < 100){
             num_2 = Math.floor(num_2 / 10) + 1;
         }
@@ -67,8 +67,9 @@ function answered(e){
         changeSign();
         refresh();
         incrementCounter();
-        e.target.value = ''}
+        e.target.value = ''
     }
+}
 
     return (
         <div>
@@ -82,4 +83,4 @@ function answered(e){
 };
 
 
-export default Example;
+export default ExampleArea;

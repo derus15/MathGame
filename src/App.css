@@ -1,10 +1,11 @@
 * {
   margin: 0;
   padding: 0;
-  background-color: #424245;
+  background-color: #2C2E31;
 }
 
 .container{
+  font-family: 'Montserrat', sans-serif;
   padding-left: 100px;
   padding-right: 100px;
   user-select: none;
@@ -17,6 +18,8 @@
 }
 
 .example{
+  position: relative;
+  top: 20px;
   color: white;
   display: flex;
   justify-content: center;
@@ -26,10 +29,9 @@
 
 .result{
   font-size: 25px;
-  color:white;
+  color: white;
   text-align: center;
 }
-
 
 .header{
   margin: 25px 25px;
@@ -37,12 +39,6 @@
   position: absolute;
   color: white;
   cursor: pointer;
-}
-
-.answer{
-  font-size: 20px;
-  margin-top: 15px;
-  color: white;
 }
 
 .timerContainer{
@@ -53,59 +49,59 @@
 
 .timer{
   font-size: 20px;
-  color:white;
+  color: whitesmoke;
   position: absolute;
-  bottom: 120px;
-  left: 200px;
+  bottom: 100px;
+  left: 205px;
   height: 5px;
 }
 
 /*Футер*/
 
-.footer{
-  padding-left: 130px;
-  padding-right: 50px;
-  margin-bottom: 25px;
+.footer {
+  padding-left: 125px;
+  padding-right: 125px;
+  margin-bottom: 15px;
   display: flex;
   position: fixed;
   left: 0;
   bottom: 0;
-  width: 1450px;
-  color: white;
+  width: 100%;
+  color: gray;
   justify-content: center;
-  font-size: 19px;
+  font-size: 18px;
+}
+
+a:active{
+  color: gray;
 }
 
 a{
   text-decoration: none;
-  color: white;
-}
-
-a:hover{
   color: gray;
 }
 
-a:active{
-  color:white;
+.extra:hover{
+  cursor: pointer;
+  color: white;
+}
+
+.extra:active{
+  color: gray;
 }
 
 .leftBlock{
   justify-content: flex-start;
   display: flex;
   gap: 60px;
-  width: 100%;
+  width: inherit;
 }
 
 .rightBlock{
   display: flex;
   justify-content: center;
-  gap:100px;
-  width:100%;
+  gap: 100px;
+  width: inherit;
 }
-
-.git::before {
-  background-image: url("/media/GitHub Icon.svg");
-}
-
 
 /**/
