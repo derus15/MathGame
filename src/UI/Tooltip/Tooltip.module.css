@@ -6,23 +6,26 @@
 }
 
 .support{
-    padding: 3px 10px;
-    border-radius: 9px;
+    padding: 8px 10px;
+    border-radius: 20px;
     background-color: rgba(26, 26, 29, 0.49);
-    animation-duration: 1.7s;
+    animation-duration: 2.4s;
     animation-name: init;
 }
 
 @keyframes init {
     0% {
        opacity: 0;
+       transform: translateY(15px);
     }
 
     50%{
         opacity: 1;
+        transform: translateY(10px);
     }
 
     100% {
       opacity: 0;
+      transform: translateY(15px);
     }
 }

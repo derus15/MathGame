@@ -2,6 +2,8 @@ import React from 'react';
 import Support from "./Support";
 import Error from "./Error";
 import Base from "./Base";
+import Theme from "./Theme";
+import Version from "./Version";
 
 const Footer = () => {
 
@@ -14,8 +16,8 @@ const Footer = () => {
                 <Base/>
             </div>
             <div className={'rightBlock'}>
-                <div className={'extra'}>Темная</div>
-                <div className={'extra'}>v 0.12.3</div>
+                <Theme/>
+                <Version/>
             </div>
         </div>
     );
