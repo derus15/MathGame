@@ -6,7 +6,7 @@
 
 .container{
   font-family: 'Montserrat', sans-serif;
-  padding-left: 100px;
+  padding-left: 6vw;
   padding-right: 100px;
   user-select: none;
 }
@@ -18,13 +18,16 @@
 }
 
 .example{
-  position: relative;
-  top: 20px;
+  position: fixed;
+  top: 320px;
+  left: 0;
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 35px;
+  width: 100%;
+  background: transparent;
 }
 
 .result{
@@ -41,17 +44,11 @@
   cursor: pointer;
 }
 
-.timerContainer{
-  position: absolute;
-  left: 47%;
-  top: 200px;
-}
-
 .timer{
   font-size: 20px;
   color: whitesmoke;
   position: absolute;
-  bottom: 100px;
+  bottom: 54px;
   left: 205px;
   height: 5px;
 }
@@ -91,17 +88,17 @@ a{
 }
 
 .leftBlock{
-  justify-content: flex-start;
+  justify-content: space-between;
   display: flex;
-  gap: 60px;
-  width: inherit;
+  width: 100%;
 }
 
 .rightBlock{
   display: flex;
   justify-content: center;
   gap: 100px;
-  width: inherit;
+  width: 100%;
 }
+
 
 /**/

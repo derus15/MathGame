@@ -1,6 +1,8 @@
 import React, {useEffect} from 'react';
 
-const Timer = ({time, sessionProgress, end, setTime, ...props}) => {
+const Timer = ({time, sessionProgress, end, setTime, duration, ...props}) => {
+
+    useEffect(() => {if (time === undefined) {setTime(localStorage.getItem('time'))}},  [time]);
 
     useEffect(() => {
 

@@ -15,7 +15,8 @@ const Tooltip = ({children, condition, depend, setShow, style={}, ...props}) => 
 
     return (
 
-        <div style={{bottom:style.bottom, left:style.left}} className={classes.container} >
+        <div className={classes.container}
+             style={{bottom: style.bottom, left: style.left, position: style.position, textAlign: style.textalign}}>
             <div className={classes.support}>{children}</div>
         </div>
     );

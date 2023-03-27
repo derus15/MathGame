@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import classes from "./Interface.module.css";
 
 const Number_Time = ({changeTimeInterface, time, ...props}) => {

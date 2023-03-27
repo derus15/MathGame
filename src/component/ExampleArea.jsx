@@ -20,8 +20,7 @@ const [number, setNumbers] = useState({
     num_2: Math.floor(Math.random() * 100),
 })
 
-useEffect(() => {if (time === undefined) {setTime(duration)}},  [time]);
-useEffect(() => {refresh(); changeSign();},[signList])
+useEffect(() => {refresh(); changeSign();},[signList]);
 
 function changeSign() {
     let signNumber = signList[Math.floor(Math.random() * signList.length)];
@@ -41,7 +40,7 @@ function generateExample(num_1, num_2){
         [num_1, num_2] = [num_2, num_1];
     }
 
-    if (sign === '/'){
+    else if (sign === '/'){
         if (num_1 === 0){
             num_1 += 1;
         }

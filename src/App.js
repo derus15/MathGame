@@ -2,7 +2,7 @@ import './App.css';
 import ExampleArea from "./component/ExampleArea";
 import React, {useState} from "react";
 import Result from "./component/Result";
-import Interface from "./UI/Interface/Interface";
+import Interface from "./component/Interface/Interface";
 import Footer from "./component/Footer/Footer";
 
 function App() {

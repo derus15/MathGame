@@ -5,6 +5,7 @@
 }
 
 .center{
+    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,6 +21,7 @@
     width: 900px;
     height: 31px;
     user-select: none;
+    margin-right: 125px;
 }
 
 /*Режимы*/
