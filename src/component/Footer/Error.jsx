@@ -5,7 +5,7 @@ const Error = () => {
 
     const [modalError, setModalError] = useState(false);
 
-    function showModalError(){
+    function showModalError() {
         setModalError(true);
     }
 

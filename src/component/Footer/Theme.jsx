@@ -4,13 +4,14 @@ import Tooltip from "../../UI/Tooltip/Tooltip";
 const Theme = () => {
 
     const [tooltipTheme, setTooltipTheme] = useState(false);
+
     const style = {
-        bottom: '45px',
-        left: '1070px',
-        backgroundColor: 'white'
+        bottom: '200%',
+        left: '64%',
+        position:'absolute',
     }
 
-    function showTheme(){
+    function showTheme() {
         setTooltipTheme(true);
     }
 

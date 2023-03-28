@@ -2,73 +2,74 @@ import React, {useEffect, useState} from 'react';
 import MyInput from "../UI/Input/MyInput";
 import Timer from "./Timer";
 
-
 const ExampleArea = ({endSession, incrementCounter, resetCounter, duration, time, setTime, sessionProgress, setSessionProgress, signList, ...props}) => {
-const [sign, SetSign] = useState(signList[Math.floor(Math.random() * signList.length)]);
 
-let answer;
+    const [sign, SetSign] = useState(signList[Math.floor(Math.random() * signList.length)]);
 
-const signFunction = {
-    '+': (a,b) => a + b,
-    '-': (a,b) => a - b,
-    '*': (a,b) => a * b,
-    '/': (a,b) => a / b,
-}
+    let answer;
 
-const [number, setNumbers] = useState({
-    num_1: Math.floor(Math.random() * 100),
-    num_2: Math.floor(Math.random() * 100),
-})
+    const signFunction = {
+        '+': (a,b) => a + b,
+        '-': (a,b) => a - b,
+        '*': (a,b) => a * b,
+        '/': (a,b) => a / b,
+    }
 
-useEffect(() => {refresh(); changeSign();},[signList]);
-
-function changeSign() {
-    let signNumber = signList[Math.floor(Math.random() * signList.length)];
-    SetSign(signNumber);
-}
-
-function refresh(){
-    const refreshNum = {
+    const [number, setNumbers] = useState({
         num_1: Math.floor(Math.random() * 100),
         num_2: Math.floor(Math.random() * 100),
-    }
-    setNumbers(refreshNum);
-}
+    })
 
-function generateExample(num_1, num_2){
-    if ((sign === '-') && (num_1 < num_2)){
-        [num_1, num_2] = [num_2, num_1];
+    useEffect(() => {refresh(); changeSign();},[signList]);
+
+    function changeSign() {
+        let signNumber = signList[Math.floor(Math.random() * signList.length)];
+        SetSign(signNumber);
     }
 
-    else if (sign === '/'){
-        if (num_1 === 0){
-            num_1 += 1;
+    function refresh() {
+        const refreshNum = {
+            num_1: Math.floor(Math.random() * 100),
+            num_2: Math.floor(Math.random() * 100),
         }
-        if (num_1 > 10 && num_1 < 100){
-            num_2 = Math.floor(num_2 / 10) + 1;
+        setNumbers(refreshNum);
+    }
+
+    function generateExample(num_1, num_2){
+        if ((sign === '-') && (num_1 < num_2)){
+            [num_1, num_2] = [num_2, num_1];
         }
-    answer = num_1 * num_2;
-    [num_1, answer] = [answer, num_1];
-    }
-    answer = String(signFunction[sign](num_1, num_2));
-    return (<div>{num_1} {sign} {num_2} =</div>)
-}
 
-function startSession(){
-    if (!sessionProgress) {
-        setSessionProgress(true);
-        resetCounter();
-    }
-}
+        else if (sign === '/') {
+            if (num_1 === 0){
+                num_1 += 1;
+            }
+            if (num_1 > 10 && num_1 < 100) {
+                num_2 = Math.floor(num_2 / 10) + 1;
+            }
+        answer = num_1 * num_2;
+        [num_1, answer] = [answer, num_1];
+        }
 
-function answered(e){
-    if(e.target.value === answer){
-        changeSign();
-        refresh();
-        incrementCounter();
-        e.target.value = ''
+        answer = String(signFunction[sign](num_1, num_2));
+        return (<div>{num_1} {sign} {num_2} =</div>)
     }
-}
+
+    function startSession() {
+        if (!sessionProgress) {
+            setSessionProgress(true);
+            resetCounter();
+        }
+    }
+
+    function answered(e) {
+        if(e.target.value === answer){
+            changeSign();
+            refresh();
+            incrementCounter();
+            e.target.value = ''
+        }
+    }
 
     return (
         <div>
@@ -80,6 +81,5 @@ function answered(e){
         </div>
     );
 };
-
 
 export default ExampleArea;

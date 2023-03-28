@@ -9,34 +9,43 @@ function App() {
 
     const [result, setResult] = useState(false);
     const [counter, setCounter] = useState(0);
-    const [duration, setDuration] = useState(15);
-    const [time, setTime] = useState(15);
+    const [time, setTime] = useState(localStorage.getItem('time') || localStorage.setItem('time', 15));
+    const [selectedTime, setSelectedTime] = useState(time);
     const [sessionProgress, setSessionProgress] = useState(false);
-    const [signList, setSignList] = useState(['+','-']);
+
+    const [signList, setSignList] = useState(() => {
+        const storedSignList = localStorage.getItem('signList');
+        return storedSignList ? JSON.parse(storedSignList) : ['+', '-'];
+    });
 
     function addSignInSession(id) {
         if (!sessionProgress) {
             if (signList.includes(id) && signList.length > 1) {
-                setSignList(signList.filter(sign => sign !== id));
+                const updatedSignList = signList.filter(sign => sign !== id)
+                setSignList(updatedSignList);
+                localStorage.setItem('signList', JSON.stringify(updatedSignList));
             } else if (!signList.includes(id)) {
-                setSignList([...signList, id]);
+                const updatedSignList = [...signList, id];
+                setSignList(updatedSignList);
+                localStorage.setItem('signList', JSON.stringify(updatedSignList));
             }
         }
     }
 
-    function changeTimeInterface(id){
+    function changeTimeInSession(id) {
         if (!sessionProgress) {
             setTime(id);
-            setDuration(id);
+            setSelectedTime(id);
+            localStorage.setItem('time', id);
         }
     }
 
-    function resetCounter(){
+    function resetCounter() {
         setCounter(0);
     }
 
-    function incrementCounter(){
-        setCounter(counter+1);
+    function incrementCounter() {
+        setCounter(counter + 1);
     }
 
     function endSession(){
@@ -52,21 +61,20 @@ function App() {
                       ?
                         <Result counter={counter} closeResult={endSession}/>
                       :<div>
-                        <Interface changeTimeInterface={changeTimeInterface}
+                        <Interface changeTimeInSession={changeTimeInSession}
                                    addSignInSession={addSignInSession}
-                                   signList={signList} time={duration}/>
+                                   signList={signList} time={selectedTime}/>
 
                         <ExampleArea endSession={endSession}
                                      resetCounter={resetCounter}
                                      incrementCounter={incrementCounter}
-                                     duration={duration}
                                      time={time} setTime={setTime}
                                      setSessionProgress={setSessionProgress}
                                      sessionProgress={sessionProgress} signList={signList}/>
                       </div>
                   }
               </div>
-              <Footer/>
+              <Footer />
           </div>
   );
 }

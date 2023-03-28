@@ -4,7 +4,7 @@ import classes from "./Interface.module.css";
 const Signs = ({signList, addSignInSession, ...props}) => {
 
     const getClassName = (id) => {
-        if (signList.includes(id)){
+        if (signList.includes(id)) {
             return `${classes.signs} ${classes.signsActive}`;
             }
         return classes.signs;

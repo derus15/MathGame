@@ -5,7 +5,7 @@ const Support = () => {
 
     const [tooltipSupport, setTooltipSupport] = useState(false);
 
-    function showTooltipSupport(){
+    function showTooltipSupport() {
         setTooltipSupport(true);
     }
 
@@ -21,7 +21,7 @@ const Support = () => {
                 Спасибо за поддержку
             </Tooltip>
             :
-                <></>
+            <></>
             }
         </div>
     );

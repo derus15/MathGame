@@ -9,8 +9,8 @@ const Lines = () => {
         setRotate(!rotate);
     }
 
-    function rotation(){
-        if (rotate){
+    function rotation() {
+        if (rotate) {
             return `${classes.verticalLine} ${classes.rotateLine}`
         }
         return classes.verticalLine

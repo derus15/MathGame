@@ -5,20 +5,20 @@ const Version = () => {
 
     const [modalVersion, setModalVersion] = useState(false);
 
-    function showModalVersion(){
+    function showModalVersion() {
         setModalVersion(true);
     }
 
     return (
         <div>
-            <div className={'extra'} onClick={showModalVersion}>v 0.12.3</div>
+            <div className={'extra'} onClick={showModalVersion}>v 1.0</div>
             {(modalVersion)
             ?
             <MyModal
                 visible={modalVersion} setVisible={setModalVersion}>
                 <span style={{color:'white', fontSize:'20px'}}>v 1.0 </span>
                 Первая рабочая версия приложения
-                 </MyModal>
+            </MyModal>
             :
             <></>}
         </div>

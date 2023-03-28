@@ -5,7 +5,7 @@ const Base = () => {
 
     const [modalBase, setModalBase] = useState(false);
 
-    function showModalBase(){
+    function showModalBase() {
         setModalBase(true);
     }
 

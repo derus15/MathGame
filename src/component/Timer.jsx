@@ -6,21 +6,21 @@ const Timer = ({time, sessionProgress, end, setTime, duration, ...props}) => {
 
     useEffect(() => {
 
-    if (time > 0 && sessionProgress){
+    if (time > 0 && sessionProgress) {
 
     let start = setInterval(() => {
         setTime((time) => {
-            if (time <= 1){
+            if (time <= 1) {
                 clearInterval(start);
                 end();
             }else{
                 return time - 1}
         })
-    }, 1000)}}, [sessionProgress])
+    }, 1000)}}, [sessionProgress]);
 
     return (
         <div>
-           <div className={'timer'}>{time}</div>
+            <div className={'timer'}>{time}</div>
         </div>
     );
 };
