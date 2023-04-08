@@ -5,19 +5,19 @@ import Base from "./Base";
 import Theme from "./Theme";
 import Version from "./Version";
 
-const Footer = () => {
+const Footer = ({changeTheme, theme}) => {
 
     return (
         <div className={'footer'}>
             <div className={'leftBlock'}>
-                <Support/>
-                <a href="https://github.com/derus15/MathGame" className={'extra'} target="_blank">ГитХаб</a>
-                <Error/>
-                <Base/>
+                <Support />
+                <a href="https://github.com/derus15/MathGame" className={'extra'} target="_blank" >ГитХаб</a>
+                <Error />
+                <Base />
             </div>
             <div className={'rightBlock'}>
-                <Theme/>
-                <Version/>
+                <Theme changeTheme={changeTheme} theme={theme}/>
+                <Version />
             </div>
         </div>
     );

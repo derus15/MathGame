@@ -1,4 +1,5 @@
 import './App.css';
+import './UI/Themes/Themes.css'
 import ExampleArea from "./component/ExampleArea";
 import React, {useState} from "react";
 import Result from "./component/Result";
@@ -10,8 +11,8 @@ function App() {
     const [result, setResult] = useState(false);
     const [counter, setCounter] = useState(0);
     const [time, setTime] = useState(localStorage.getItem('time') || localStorage.setItem('time', 15));
-    const [selectedTime, setSelectedTime] = useState(time);
     const [sessionProgress, setSessionProgress] = useState(false);
+    const [theme, setTheme] = useState( localStorage.getItem('theme') || localStorage.setItem('theme', 'Темная'));
 
     const [signList, setSignList] = useState(() => {
         const storedSignList = localStorage.getItem('signList');
@@ -35,9 +36,15 @@ function App() {
     function changeTimeInSession(id) {
         if (!sessionProgress) {
             setTime(id);
-            setSelectedTime(id);
             localStorage.setItem('time', id);
         }
+    }
+
+    function changeTheme(themesList){
+      const currentIndex = themesList.findIndex(new_theme => new_theme === theme);
+      const nextIndex = (currentIndex + 1) % themesList.length;
+      setTheme(themesList[nextIndex]);
+      localStorage.setItem('theme', themesList[nextIndex]);
     }
 
     function resetCounter() {
@@ -54,7 +61,7 @@ function App() {
     }
 
   return (
-          <div className={'container'}>
+          <div className={'container'} datatheme={theme}>
               <h1 className={'header'}>MathGame</h1>
               <div className={'App'}>
                   {result
@@ -63,7 +70,7 @@ function App() {
                       :<div>
                         <Interface changeTimeInSession={changeTimeInSession}
                                    addSignInSession={addSignInSession}
-                                   signList={signList} time={selectedTime}/>
+                                   signList={signList}/>
 
                         <ExampleArea endSession={endSession}
                                      resetCounter={resetCounter}
@@ -74,7 +81,7 @@ function App() {
                       </div>
                   }
               </div>
-              <Footer />
+              <Footer changeTheme={changeTheme} theme={theme} />
           </div>
   );
 }

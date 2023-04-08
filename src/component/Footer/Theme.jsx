@@ -1,35 +1,12 @@
-import React, {useState} from 'react';
-import Tooltip from "../../UI/Tooltip/Tooltip";
+import React from 'react';
 
-const Theme = () => {
+const Theme = ({changeTheme, theme}) => {
 
-    const [tooltipTheme, setTooltipTheme] = useState(false);
-
-    const style = {
-        bottom: '200%',
-        left: '64%',
-        position:'absolute',
-    }
-
-    function showTheme() {
-        setTooltipTheme(true);
-    }
+    const themesList = ['Темная', 'PP']
 
     return (
         <div>
-            <div onClick={showTheme} className={'extra'}>Темная</div>
-            {(tooltipTheme)
-            ?
-            <Tooltip
-                style={style}
-                setShow={setTooltipTheme}
-                condition={tooltipTheme}
-                depend={showTheme}>
-                Пока доступна одна тема
-            </Tooltip>
-            :
-                <></>
-            }
+            <div onClick={() => {changeTheme(themesList)}} className={'extra'}>{theme}</div>
         </div>
     );
 };

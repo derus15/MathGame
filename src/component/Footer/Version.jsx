@@ -11,13 +11,19 @@ const Version = () => {
 
     return (
         <div>
-            <div className={'extra'} onClick={showModalVersion}>v 1.0</div>
+            <div className={'extra'} onClick={showModalVersion}>v 1.1</div>
             {(modalVersion)
             ?
             <MyModal
                 visible={modalVersion} setVisible={setModalVersion}>
-                <span style={{color:'white', fontSize:'20px'}}>v 1.0 </span>
-                Первая рабочая версия приложения
+                <span style={{fontSize:'25px'}}>v 1.0 </span>
+                <p style={{color:'white'}} >- Первая рабочая версия приложения</p>
+                <br/>
+                <span style={{fontSize:'25px'}}>v 1.1 </span>
+                <p style={{color:'white'}}>
+                    - Добавлена новая тема <br/>
+                    - Исправление мелких ошибок и багов
+                </p>
             </MyModal>
             :
             <></>}
