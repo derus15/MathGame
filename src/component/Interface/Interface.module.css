@@ -1,7 +1,7 @@
 .position{
     position: absolute;
-    top:-200px;
-    left:200px;
+    top: -200px;
+    left: 200px;
 }
 
 .center{
@@ -16,7 +16,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(26, 26, 29, 0.49);
+    background-color: var(--interface-color);
     border-radius: 12px;
     width: 900px;
     height: 31px;
@@ -31,7 +31,7 @@
     display: flex;
     gap: 150px;
     flex-direction: row;
-    color: gray;
+    color: var(--base-color);
     background-color: transparent;
 }
 
@@ -42,11 +42,15 @@
 }
 
 .modes:hover{
-    color: #bbbcbe;
+    color: white;
+}
+
+.modes:active{
+    color: var(--base-color);
 }
 
 .modesActive{
-    color:white;
+    color: var(--active-color);;
 }
 
 /**/
@@ -64,9 +68,9 @@
     height: 21px;
     width: 4px;
     border-radius: 20px;
-    background-color: #424245;
+    background-color: var(--line-color);
     transition-property: transform;
-    transition-duration: 0.3s;
+    transition-duration: 0.5s;
 }
 
 .rotateLine{
@@ -85,7 +89,7 @@
     display: flex;
     background-color: transparent;
     flex-direction: row;
-    color: grey;
+    color: var(--base-color);
 }
 
 .time{
@@ -95,15 +99,15 @@
 }
 
 .time:hover{
-    color: darkgrey;
-}
-
-.time:active{
     color: white;
 }
 
+.time:active{
+    color: var(--base-color);;
+}
+
 .timeActive{
-    color:white;
+    color:var(--active-color);;
 }
 
 /**/
@@ -118,7 +122,7 @@
     gap: 22px;
     background-color: transparent;
     display: flex;
-    color: grey;
+    color: var(--base-color);
 }
 
 .signs{
@@ -127,15 +131,15 @@
 }
 
 .signs:hover{
-    color: darkgrey;
+    color: white;
 }
 
 .signs:active{
-    color: white;
+    color: var(--base-color);;
 }
 
 .signsActive {
-    color: white;
+    color: var(--active-color);;
 }
 
 /**/

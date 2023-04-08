@@ -5,17 +5,17 @@
     bottom: 0;
     top: 0;
     display: none;
-    background-color: rgba(0,0,0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 5;
 }
 
 .myModalContent{
     padding: 20px;
-    background-color: #303033;
+    background-color: var(--modal-color);
     border-radius: 15px;
     max-height: 1000px;
     min-width: 200px;
-    color: darkgrey;
+    color: var(--base-color);
 }
 
 .myModalActive{

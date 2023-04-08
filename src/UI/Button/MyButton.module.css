@@ -1,9 +1,9 @@
 .btn{
     padding: 5px;
     background-color: inherit;
-    border: white solid 2px;
+    border: var(--active-color) solid 2px;
     font-size: 20px;
-    color: white;
+    color: var(--active-color);
     margin-top: 15px;
 }
 

@@ -1,14 +1,14 @@
 import React, {useState} from 'react';
 import classes from "./Interface.module.css";
 
-const Number_Time = ({changeTimeInSession, time, ...props}) => {
+const Number_Time = ({changeTimeInSession, ...props}) => {
 
     const handleOnClick = (id) => {
         changeTimeInSession(id);
     }
 
     const getClassName = (id) => {
-        if (time === id) {
+        if (localStorage.getItem('time') === id) {
             return `${classes.time} ${classes.timeActive}`;
         }
         return classes.time;
