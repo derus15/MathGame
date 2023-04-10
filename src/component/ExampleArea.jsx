@@ -1,19 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import MyInput from "../UI/Input/MyInput";
 import Timer from "./Timer";
+import Example from "./Example";
 
 const ExampleArea = ({endSession, incrementCounter, resetCounter, duration, time, setTime, sessionProgress, setSessionProgress, signList, ...props}) => {
 
     const [sign, SetSign] = useState(signList[Math.floor(Math.random() * signList.length)]);
-
-    let answer;
-
-    const signFunction = {
-        '+': (a,b) => a + b,
-        '-': (a,b) => a - b,
-        '*': (a,b) => a * b,
-        '/': (a,b) => a / b,
-    }
+    const [answer, setAnswer] = useState();
 
     const [number, setNumbers] = useState({
         num_1: Math.floor(Math.random() * 100),
@@ -33,26 +26,6 @@ const ExampleArea = ({endSession, incrementCounter, resetCounter, duration, time
             num_2: Math.floor(Math.random() * 100),
         }
         setNumbers(refreshNum);
-    }
-
-    function generateExample(num_1, num_2){
-        if ((sign === '-') && (num_1 < num_2)){
-            [num_1, num_2] = [num_2, num_1];
-        }
-
-        else if (sign === '/') {
-            if (num_1 === 0){
-                num_1 += 1;
-            }
-            if (num_1 > 10 && num_1 < 100) {
-                num_2 = Math.floor(num_2 / 10) + 1;
-            }
-        answer = num_1 * num_2;
-        [num_1, answer] = [answer, num_1];
-        }
-
-        answer = String(signFunction[sign](num_1, num_2));
-        return (<div>{num_1} {sign} {num_2} =</div>)
     }
 
     function startSession() {
@@ -75,7 +48,7 @@ const ExampleArea = ({endSession, incrementCounter, resetCounter, duration, time
         <div>
             <Timer time={time} sessionProgress={sessionProgress} end={endSession} setTime={setTime}/>
             <div className={'example'}>
-                {generateExample(number.num_1, number.num_2)}
+                <Example number={number} sign={sign} setAnswer={setAnswer}/>
                 <MyInput {...props} onClick={startSession} onInput={answered}/>
             </div>
         </div>

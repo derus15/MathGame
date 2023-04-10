@@ -19,7 +19,7 @@ const Number_Time = ({changeTimeInSession, ...props}) => {
          <div className={getClassName('15')} onClick={() => handleOnClick('15')}>0:15</div>
          <div className={getClassName('30')} onClick={() => handleOnClick('30')}>0:30</div>
          <div className={getClassName('60')} onClick={() => handleOnClick('60')}>1:00</div>
-    </div>
+     </div>
     );
 };
 

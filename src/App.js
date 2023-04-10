@@ -40,7 +40,7 @@ function App() {
         }
     }
 
-    function changeTheme(themesList){
+    function changeTheme(themesList) {
       const currentIndex = themesList.findIndex(new_theme => new_theme === theme);
       const nextIndex = (currentIndex + 1) % themesList.length;
       setTheme(themesList[nextIndex]);
@@ -55,7 +55,7 @@ function App() {
         setCounter(counter + 1);
     }
 
-    function endSession(){
+    function endSession() {
         setSessionProgress(false);
         setResult(!result);
     }
@@ -81,7 +81,7 @@ function App() {
                       </div>
                   }
               </div>
-              <Footer changeTheme={changeTheme} theme={theme} />
+              <Footer changeTheme={changeTheme} />
           </div>
   );
 }

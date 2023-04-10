@@ -12,7 +12,7 @@ input{
     border: none;
     margin-left: 5px;
     background-color: inherit;
-    color: var(--base-color);
+    color: var(--header-timer-example);
     padding: 5px;
     cursor: pointer;
 }
