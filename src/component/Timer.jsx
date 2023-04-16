@@ -1,14 +1,16 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 
-const Timer = ({time, sessionProgress, end, setTime, duration, ...props}) => {
+const Timer = ({duration, sessionProgress, end, ...props}) => {
 
-    useEffect(() => {if (time === undefined) {setTime(localStorage.getItem('time'))}},  [time]);
+    const [time, setTime] = useState(duration);
+
+    useEffect(() => {setTime(duration)}, [duration])
 
     useEffect(() => {
 
     if (time > 0 && sessionProgress) {
 
-    let start = setInterval(() => {
+    const start = setInterval(() => {
         setTime((time) => {
             if (time <= 1) {
                 clearInterval(start);

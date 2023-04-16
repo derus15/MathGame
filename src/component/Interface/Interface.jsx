@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './Interface.module.css'
 import Modes from "./Modes";
-import Number_Time from "./Number_Time";
+import Time from "./Time";
 import Signs from "./Signs";
 import Lines from "./Lines";
 
@@ -11,7 +11,7 @@ const Interface = ({changeTimeInSession, addSignInSession, signList, ...props}) 
         <div className={classes.position}>
             <div className={classes.center}>
                 <div className={classes.mainContainer}>
-                  <Number_Time changeTimeInSession={changeTimeInSession}/>
+                  <Time changeTimeInSession={changeTimeInSession}/>
                   <Signs addSignInSession={addSignInSession} signList={signList}/>
                   <Lines />
                   <Modes />

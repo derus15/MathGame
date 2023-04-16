@@ -1,14 +1,14 @@
 import React, {useState} from 'react';
 import classes from "./Interface.module.css";
 
-const Number_Time = ({changeTimeInSession, ...props}) => {
+const Time = ({changeTimeInSession, ...props}) => {
 
     const handleOnClick = (id) => {
         changeTimeInSession(id);
     }
 
     const getClassName = (id) => {
-        if (localStorage.getItem('time') === id) {
+        if (localStorage.getItem('duration') === id) {
             return `${classes.time} ${classes.timeActive}`;
         }
         return classes.time;
@@ -23,6 +23,6 @@ const Number_Time = ({changeTimeInSession, ...props}) => {
     );
 };
 
-export default Number_Time;
+export default Time;
 
 

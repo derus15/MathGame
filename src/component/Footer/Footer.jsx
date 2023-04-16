@@ -5,7 +5,7 @@ import Base from "./Base";
 import Theme from "./Theme";
 import Version from "./Version";
 
-const Footer = ({changeTheme}) => {
+const Footer = ({changeTheme, theme}) => {
 
     return (
         <div className={'footer'}>
@@ -16,7 +16,7 @@ const Footer = ({changeTheme}) => {
                 <Base />
             </div>
             <div className={'rightBlock'}>
-                <Theme changeTheme={changeTheme} />
+                <Theme changeTheme={changeTheme} theme={theme} />
                 <Version />
             </div>
         </div>

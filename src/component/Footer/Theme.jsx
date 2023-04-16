@@ -1,9 +1,8 @@
 import React from 'react';
 
-const Theme = ({changeTheme}) => {
+const Theme = ({changeTheme, theme}) => {
 
     const themesList = ['Темная', 'PP'];
-    const theme = localStorage.getItem('theme');
 
     return (
         <div>

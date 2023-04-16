@@ -3,7 +3,7 @@ import MyInput from "../UI/Input/MyInput";
 import Timer from "./Timer";
 import Example from "./Example";
 
-const ExampleArea = ({endSession, incrementCounter, resetCounter, duration, time, setTime, sessionProgress, setSessionProgress, signList, ...props}) => {
+const ExampleArea = ({endSession, incrementCounter, resetCounter, duration, sessionProgress, setSessionProgress, signList, ...props}) => {
 
     const [sign, SetSign] = useState(signList[Math.floor(Math.random() * signList.length)]);
     const [answer, setAnswer] = useState();
@@ -46,7 +46,7 @@ const ExampleArea = ({endSession, incrementCounter, resetCounter, duration, time
 
     return (
         <div>
-            <Timer time={time} sessionProgress={sessionProgress} end={endSession} setTime={setTime}/>
+            <Timer duration={duration} sessionProgress={sessionProgress} end={endSession}/>
             <div className={'example'}>
                 <Example number={number} sign={sign} setAnswer={setAnswer}/>
                 <MyInput {...props} onClick={startSession} onInput={answered}/>

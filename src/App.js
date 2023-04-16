@@ -1,7 +1,7 @@
 import './App.css';
 import './UI/Themes/Themes.css'
 import ExampleArea from "./component/ExampleArea";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import Result from "./component/Result";
 import Interface from "./component/Interface/Interface";
 import Footer from "./component/Footer/Footer";
@@ -10,14 +10,16 @@ function App() {
 
     const [result, setResult] = useState(false);
     const [counter, setCounter] = useState(0);
-    const [time, setTime] = useState(localStorage.getItem('time') || localStorage.setItem('time', 15));
+    const [duration, setDuration] = useState(localStorage.getItem('duration') || 15);
     const [sessionProgress, setSessionProgress] = useState(false);
-    const [theme, setTheme] = useState( localStorage.getItem('theme') || localStorage.setItem('theme', 'Темная'));
+    const [theme, setTheme] = useState( localStorage.getItem('theme') || 'Темная');
 
     const [signList, setSignList] = useState(() => {
         const storedSignList = localStorage.getItem('signList');
         return storedSignList ? JSON.parse(storedSignList) : ['+', '-'];
     });
+
+    useEffect(() => localStorage.setItem('duration', duration), localStorage.setItem('theme', theme), []);
 
     function addSignInSession(id) {
         if (!sessionProgress) {
@@ -35,8 +37,8 @@ function App() {
 
     function changeTimeInSession(id) {
         if (!sessionProgress) {
-            setTime(id);
-            localStorage.setItem('time', id);
+            setDuration(id);
+            localStorage.setItem('duration', id);
         }
     }
 
@@ -75,13 +77,12 @@ function App() {
                         <ExampleArea endSession={endSession}
                                      resetCounter={resetCounter}
                                      incrementCounter={incrementCounter}
-                                     time={time} setTime={setTime}
-                                     setSessionProgress={setSessionProgress}
+                                     duration={duration} setSessionProgress={setSessionProgress}
                                      sessionProgress={sessionProgress} signList={signList}/>
                       </div>
                   }
               </div>
-              <Footer changeTheme={changeTheme} />
+              <Footer changeTheme={changeTheme} theme={theme} />
           </div>
   );
 }
