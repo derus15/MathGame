@@ -1,11 +1,16 @@
 import React from 'react';
 import MyButton from "../UI/Button/MyButton";
 
-const Result = ({counter, closeResult}) => {
+const Result = ({counter, gameMode, closeResult}) => {
 
     return (
         <div className={'result'}>
-            Примеров решено: {counter}
+            {(gameMode === 'Спринт')
+                ?
+                <div>Ваше время: {localStorage.getItem('time')} </div>
+                :
+                <div>Примеров решено: {counter}</div>
+            }
             <MyButton onClick={closeResult}></MyButton>
         </div>
     );

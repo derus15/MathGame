@@ -18,8 +18,8 @@ const Lines = () => {
 
     return (
         <div className={classes.containerLines}>
-            <div className={rotation()} onClick={handleClick}></div>
-            <div className={rotation()} onClick={handleClick}></div>
+            <div className={[classes.verticalLine, classes.rightLine].join(' ')} onClick={handleClick}></div>
+            <div className={[classes.verticalLine, classes.leftLine].join(' ')} onClick={handleClick}></div>
         </div>
     );
 };

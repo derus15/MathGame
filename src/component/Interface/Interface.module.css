@@ -22,6 +22,7 @@
     height: 31px;
     user-select: none;
     margin-right: 125px;
+    transition-duration: .5s;
 }
 
 /*Режимы*/
@@ -29,7 +30,7 @@
 .containerModes{
     position: absolute;
     display: flex;
-    gap: 150px;
+    gap: 140px;
     flex-direction: row;
     color: var(--base-color);
     background-color: transparent;
@@ -61,7 +62,18 @@
     position: absolute;
     display: flex;
     background-color: transparent;
-    gap: 585px;
+}
+
+.rightLine{
+    position: absolute;
+    right: 270px;
+    top: -10px;
+}
+
+.leftLine{
+    position: absolute;
+    left: 255px;
+    top: -10px;
 }
 
 .verticalLine{
@@ -79,23 +91,23 @@
 
 /**/
 
-/*Время*/
+/*Выбор времени*/
 
 .containerTime{
     position: absolute;
-    margin-left: 745px;
+    margin-left: 705px;
     margin-bottom: 0;
-    gap: 15px;
+    gap: 16px;
     display: flex;
-    background-color: transparent;
     flex-direction: row;
     color: var(--base-color);
+    background-color: transparent;
 }
 
 .time{
     font-size: 16px;
-    background-color: inherit;
     cursor: pointer;
+    background-color: transparent;
 }
 
 .time:hover{
@@ -110,16 +122,58 @@
     color:var(--active-color);;
 }
 
+.modalInput{
+    font-size: 21px;
+    width: 60px;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: var(--active-color);
+    color: var(--active-color);
+}
+
+/**/
+
+/*Выбор кол-ва*/
+
+.containerNumber{
+    position: absolute;
+    margin-left: 705px;
+    margin-bottom: 0;
+    gap: 27px;
+    display: flex;
+    background-color: transparent;
+    flex-direction: row;
+    color: var(--base-color);
+}
+
+.number{
+    font-size: 17px;
+    background-color: inherit;
+    cursor: pointer;
+}
+
+.number:hover{
+    color: white;
+}
+
+.number:active{
+    color: var(--base-color);;
+}
+
+.numberActive{
+    color:var(--active-color);;
+}
+
 /**/
 
 /*Знаки*/
 
 .containerSigns{
     position: absolute;
-    margin-right: 750px;
+    margin-right: 720px;
     margin-top: 2px;
     font-size: 19px;
-    gap: 22px;
+    gap: 26px;
     background-color: transparent;
     display: flex;
     color: var(--base-color);

@@ -2,8 +2,9 @@ import React, {useEffect, useState} from 'react';
 import MyInput from "../UI/Input/MyInput";
 import Timer from "./Timer";
 import Example from "./Example";
+import SprintTimer from "./SprintTimer";
 
-const ExampleArea = ({endSession, incrementCounter, resetCounter, duration, sessionProgress, setSessionProgress, signList, ...props}) => {
+const ExampleArea = ({endSession, gameMode, counter, incrementCounter, resetCounter, durationTime, durationNumber, sessionProgress, setSessionProgress, signList, ...props}) => {
 
     const [sign, SetSign] = useState(signList[Math.floor(Math.random() * signList.length)]);
     const [answer, setAnswer] = useState();
@@ -36,7 +37,7 @@ const ExampleArea = ({endSession, incrementCounter, resetCounter, duration, sess
     }
 
     function answered(e) {
-        if(e.target.value === answer){
+        if (e.target.value === answer) {
             changeSign();
             refresh();
             incrementCounter();
@@ -46,7 +47,12 @@ const ExampleArea = ({endSession, incrementCounter, resetCounter, duration, sess
 
     return (
         <div>
-            <Timer duration={duration} sessionProgress={sessionProgress} end={endSession}/>
+            {(gameMode === 'Стандарт')
+            ?
+              <Timer duration={durationTime} sessionProgress={sessionProgress} end={endSession} />
+            :
+              <SprintTimer duration={durationNumber} counter={counter} sessionProgress={sessionProgress} end={endSession} />
+            }
             <div className={'example'}>
                 <Example number={number} sign={sign} setAnswer={setAnswer}/>
                 <MyInput {...props} onClick={startSession} onInput={answered}/>

@@ -1,16 +1,23 @@
 import React from 'react';
 import classes from "./Interface.module.css";
 
-const Modes = ({...props}) => {
+const Modes = ({gameMode, changeGameMode, ...props}) => {
 
-    function getClassName() {
-        return `${classes.modes} ${classes.modesActive}`
+    const handleOnClick = (id) => {
+        changeGameMode(id);
+    }
+
+    function getClassName(id) {
+        if (gameMode === id) {
+            return `${classes.modes} ${classes.modesActive}`
+        }
+        return `${classes.modes}`
     }
 
     return (
         <div className={classes.containerModes}>
-            <div className={classes.modes} {...props} >Скоро...</div>
-            <div className={getClassName()} >Стандарт</div>
+            <div className={getClassName('Спринт')} onClick={() => handleOnClick('Спринт')} {...props} >Спринт</div>
+            <div className={getClassName('Стандарт')}  onClick={() => handleOnClick('Стандарт')}>Стандарт</div>
             <div className={classes.modes} {...props} >Скоро...</div>
         </div>
     );

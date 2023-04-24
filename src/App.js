@@ -10,16 +10,21 @@ function App() {
 
     const [result, setResult] = useState(false);
     const [counter, setCounter] = useState(0);
-    const [duration, setDuration] = useState(localStorage.getItem('duration') || 15);
+    const [durationTime, setDurationTime] = useState(localStorage.getItem('durationTime') || 15);
+    const [durationNumber, setDurationNumber] = useState(localStorage.getItem('durationNumber') || 10);
     const [sessionProgress, setSessionProgress] = useState(false);
     const [theme, setTheme] = useState( localStorage.getItem('theme') || 'Темная');
+    const [gameMode, setGameMode] = useState(localStorage.getItem('mode') || 'Стандарт');
 
     const [signList, setSignList] = useState(() => {
         const storedSignList = localStorage.getItem('signList');
         return storedSignList ? JSON.parse(storedSignList) : ['+', '-'];
     });
 
-    useEffect(() => localStorage.setItem('duration', duration), localStorage.setItem('theme', theme), []);
+    useEffect(() =>
+        localStorage.setItem('durationTime', durationTime),
+        localStorage.setItem('theme', theme),
+        localStorage.setItem('durationNumber', durationNumber), []);
 
     function addSignInSession(id) {
         if (!sessionProgress) {
@@ -35,10 +40,24 @@ function App() {
         }
     }
 
+    function changeGameModeInSession(id){
+        if (!sessionProgress) {
+            setGameMode(id);
+            localStorage.setItem('mode', id);
+        }
+    }
+
     function changeTimeInSession(id) {
         if (!sessionProgress) {
-            setDuration(id);
-            localStorage.setItem('duration', id);
+            setDurationTime(id);
+            localStorage.setItem('durationTime', id);
+        }
+    }
+
+    function changeNumberInSession(id){
+        if (!sessionProgress) {
+            setDurationNumber(id);
+            localStorage.setItem('durationNumber', id);
         }
     }
 
@@ -60,6 +79,9 @@ function App() {
     function endSession() {
         setSessionProgress(false);
         setResult(!result);
+        if (gameMode === 'Спринт') {
+            resetCounter();
+        }
     }
 
   return (
@@ -68,17 +90,21 @@ function App() {
               <div className={'App'}>
                   {result
                       ?
-                        <Result counter={counter} closeResult={endSession}/>
+                        <Result counter={counter} closeResult={endSession} gameMode={gameMode}/>
                       :<div>
                         <Interface changeTimeInSession={changeTimeInSession}
+                                   changeNumberInSession={changeNumberInSession}
                                    addSignInSession={addSignInSession}
-                                   signList={signList}/>
+                                   durationNumber={durationNumber} signList={signList}
+                                   durationTime={durationTime} gameMode={gameMode}
+                                   changeGameMode={changeGameModeInSession}/>
 
                         <ExampleArea endSession={endSession}
                                      resetCounter={resetCounter}
                                      incrementCounter={incrementCounter}
-                                     duration={duration} setSessionProgress={setSessionProgress}
-                                     sessionProgress={sessionProgress} signList={signList}/>
+                                     durationTime={durationTime} setSessionProgress={setSessionProgress}
+                                     sessionProgress={sessionProgress} signList={signList}
+                                     counter={counter} gameMode={gameMode} durationNumber={durationNumber}/>
                       </div>
                   }
               </div>
