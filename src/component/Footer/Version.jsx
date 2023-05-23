@@ -11,22 +11,22 @@ const Version = () => {
 
     return (
         <div>
-            <div className={'extra'} onClick={showModalVersion}>v 1.2.0</div>
+            <div className={'extra'} onClick={showModalVersion}>v 1.2.1</div>
             {(modalVersion)
             ?
             <MyModal
                 visible={modalVersion} setVisible={setModalVersion}>
-                <span style={{fontSize:'25px'}}>v 1.0 </span>
-                <p style={{color:'white'}} >- Первая рабочая версия приложения</p>
+                <span style={{fontSize:'25px', backgroundColor:'var(--modal-color)'}}>v 1.0 </span>
+                <p style={{color:'white', backgroundColor:'var(--modal-color)'}} >- Первая рабочая версия приложения</p>
                 <br/>
-                <span style={{fontSize:'25px'}}>v 1.1 </span>
-                <p style={{color:'white'}}>
+                <span style={{fontSize:'25px', backgroundColor:'var(--modal-color)'}}>v 1.1 </span>
+                <p style={{color:'white', backgroundColor:'var(--modal-color)'}}>
                     - Добавлена новая тема <br/>
                     - Исправление мелких ошибок и багов
                 </p>
                 <br/>
-                <span style={{fontSize:'25px'}}>v 1.2 </span>
-                <p style={{color:'white'}}>
+                <span style={{fontSize:'25px', backgroundColor:'var(--modal-color)'}}>v 1.2 </span>
+                <p style={{color:'white', backgroundColor:'var(--modal-color)'}}>
                     - Добавлен новый режим игры <br/>
                     - Добавлено поле для установки собственного времени<br/>
                     - Исправление мелких ошибок и багов

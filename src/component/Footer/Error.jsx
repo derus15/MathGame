@@ -17,7 +17,7 @@ const Error = () => {
             <MyModal
                 visible={modalError} setVisible={setModalError}>
                 Если вы нашли ошибку, то пишите на почту
-                <span style={{color:'white', userSelect:'text'}}> mathgame.problem@gmail.com</span>
+                <span style={{color:'white', userSelect:'text', backgroundColor:'var(--modal-color)'}}> mathgame.problem@gmail.com</span>
             </MyModal>
             :
             <></>}

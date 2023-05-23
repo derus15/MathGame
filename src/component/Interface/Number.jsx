@@ -27,21 +27,24 @@ const Number = ({duration, changeNumberInSession}) => {
          <div className={getClassName('10')} onClick={() => handleOnClick('10')}>10</div>
          <div className={getClassName('15')} onClick={() => handleOnClick('15')}>15</div>
          <div className={getClassName('20')} onClick={() => handleOnClick('20')}>20</div>
-         <div className={classes.time} onClick={showModalMyNumber}>__</div>
+         <div className={classes.number} onClick={showModalMyNumber}>__</div>
          {(modalMyNumber)
             ?
             <MyModal
                 visible={modalMyNumber} setVisible={setMyNumber}>
-                Задайте собственное время сессии:
+                Задайте собственное количество примеров:
                 <input className={[classes.time, classes.modalInput].join(' ')} type="input"
-                       onInput={(e) => {
+                   onInput={(e) => {
+
                        const value = e.target.value;
                        const isNumber = /^(?!0$)\d+$|^(?:[1-9]\d*|0\d+)$/.test(value);
+
                        if (!isNumber) {
                            e.target.value = ''; }
                        else {
                             handleOnClick(value)}}
-                       }/>
+                   }
+                />
             </MyModal>
             :
          <></>}

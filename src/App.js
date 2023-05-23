@@ -44,6 +44,7 @@ function App() {
         if (!sessionProgress) {
             setGameMode(id);
             localStorage.setItem('mode', id);
+            resetCounter();
         }
     }
 
@@ -84,7 +85,7 @@ function App() {
         }
     }
 
-  return (
+    return (
           <div className={'container'} datatheme={theme}>
               <h1 className={'header'}>MathGame</h1>
               <div className={'App'}>
@@ -110,7 +111,7 @@ function App() {
               </div>
               <Footer changeTheme={changeTheme} theme={theme} />
           </div>
-  );
+    );
 }
 
 export default App;

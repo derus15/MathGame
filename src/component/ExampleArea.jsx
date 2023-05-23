@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useMemo, useState} from 'react';
 import MyInput from "../UI/Input/MyInput";
 import Timer from "./Timer";
 import Example from "./Example";
@@ -14,7 +14,7 @@ const ExampleArea = ({endSession, gameMode, counter, incrementCounter, resetCoun
         num_2: Math.floor(Math.random() * 100),
     })
 
-    useEffect(() => {refresh(); changeSign();},[signList]);
+    useMemo(() => {refresh(); changeSign();},[signList]);
 
     function changeSign() {
         let signNumber = signList[Math.floor(Math.random() * signList.length)];
