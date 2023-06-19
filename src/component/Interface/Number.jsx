@@ -1,13 +1,20 @@
 import React, {useState} from 'react';
 import classes from "./Interface.module.css";
 import MyModal from "../../UI/Modal/MyModal";
+import {useDispatch, useSelector} from "react-redux";
+import {changeNumber} from "../../redux/interfaceSlice/interfaceSlice";
 
-const Number = ({duration, changeNumberInSession}) => {
+const Number = ({sessionProgress}) => {
 
     const [modalMyNumber, setMyNumber] = useState(false);
+    const duration = useSelector(state => state.interface.number);
+    const dispatch = useDispatch();
 
-    const handleOnClick = (id) => {
-        changeNumberInSession(id);
+    function changeNumberInSession(number){
+        if (!sessionProgress) {
+            dispatch(changeNumber(number));
+            localStorage.setItem('durationNumber', number);
+        }
     }
 
     const getClassName = (id) => {
@@ -21,12 +28,11 @@ const Number = ({duration, changeNumberInSession}) => {
         setMyNumber(true);
     }
 
-
     return (
      <div className={classes.containerNumber}>
-         <div className={getClassName('10')} onClick={() => handleOnClick('10')}>10</div>
-         <div className={getClassName('15')} onClick={() => handleOnClick('15')}>15</div>
-         <div className={getClassName('20')} onClick={() => handleOnClick('20')}>20</div>
+         <div className={getClassName('10')} onClick={() => changeNumberInSession('10')}>10</div>
+         <div className={getClassName('15')} onClick={() => changeNumberInSession('15')}>15</div>
+         <div className={getClassName('20')} onClick={() => changeNumberInSession('20')}>20</div>
          <div className={classes.number} onClick={showModalMyNumber}>__</div>
          {(modalMyNumber)
             ?
@@ -42,7 +48,7 @@ const Number = ({duration, changeNumberInSession}) => {
                        if (!isNumber) {
                            e.target.value = ''; }
                        else {
-                            handleOnClick(value)}}
+                            changeNumberInSession(value)}}
                    }
                 />
             </MyModal>

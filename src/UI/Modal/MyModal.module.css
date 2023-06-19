@@ -19,8 +19,20 @@
     font-size: 20px;
 }
 
+@keyframes init {
+    0% {
+       opacity: 0;
+    }
+
+    100% {
+      opacity: 100;
+    }
+}
+
 .myModalActive{
     display: flex;
     justify-content: center;
     align-items: center;
+    animation-duration: .2s;
+    animation-name: init;
 }

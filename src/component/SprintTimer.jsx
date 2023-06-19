@@ -1,14 +1,18 @@
 import React, {useEffect, useState} from 'react';
+import {useSelector} from "react-redux";
 
-const SprintTimer = ({duration, counter, sessionProgress, end, ...props}) => {
+const SprintTimer = ({counter, sessionProgress, end}) => {
 
+    const duration = useSelector(state => state.interface.number);
     const [time, setTime] = useState(0);
 
     useEffect(() => {
         const durationNum = Number(duration);
+
         if (durationNum <= counter){
             end();
         }
+
     }, [counter]);
 
 

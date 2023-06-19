@@ -5,13 +5,12 @@ import React, {useEffect, useState} from "react";
 import Result from "./component/Result";
 import Interface from "./component/Interface/Interface";
 import Footer from "./component/Footer/Footer";
+import {useSelector} from "react-redux";
 
 function App() {
 
     const [result, setResult] = useState(false);
     const [counter, setCounter] = useState(0);
-    const [durationTime, setDurationTime] = useState(localStorage.getItem('durationTime') || 15);
-    const [durationNumber, setDurationNumber] = useState(localStorage.getItem('durationNumber') || 10);
     const [sessionProgress, setSessionProgress] = useState(false);
     const [theme, setTheme] = useState( localStorage.getItem('theme') || 'Темная');
     const [gameMode, setGameMode] = useState(localStorage.getItem('mode') || 'Стандарт');
@@ -21,10 +20,13 @@ function App() {
         return storedSignList ? JSON.parse(storedSignList) : ['+', '-'];
     });
 
+    const time = useSelector(state => state.interface.time);
+    const number = useSelector(state => state.interface.number);
+
     useEffect(() =>
-        localStorage.setItem('durationTime', durationTime),
+        localStorage.setItem('durationTime', time),
         localStorage.setItem('theme', theme),
-        localStorage.setItem('durationNumber', durationNumber), []);
+        localStorage.setItem('durationNumber', number ), []);
 
     function addSignInSession(id) {
         if (!sessionProgress) {
@@ -45,20 +47,6 @@ function App() {
             setGameMode(id);
             localStorage.setItem('mode', id);
             resetCounter();
-        }
-    }
-
-    function changeTimeInSession(id) {
-        if (!sessionProgress) {
-            setDurationTime(id);
-            localStorage.setItem('durationTime', id);
-        }
-    }
-
-    function changeNumberInSession(id){
-        if (!sessionProgress) {
-            setDurationNumber(id);
-            localStorage.setItem('durationNumber', id);
         }
     }
 
@@ -93,19 +81,17 @@ function App() {
                       ?
                         <Result counter={counter} closeResult={endSession} gameMode={gameMode}/>
                       :<div>
-                        <Interface changeTimeInSession={changeTimeInSession}
-                                   changeNumberInSession={changeNumberInSession}
+                        <Interface sessionProgress={sessionProgress}
                                    addSignInSession={addSignInSession}
-                                   durationNumber={durationNumber} signList={signList}
-                                   durationTime={durationTime} gameMode={gameMode}
+                                   signList={signList} gameMode={gameMode}
                                    changeGameMode={changeGameModeInSession}/>
 
                         <ExampleArea endSession={endSession}
                                      resetCounter={resetCounter}
                                      incrementCounter={incrementCounter}
-                                     durationTime={durationTime} setSessionProgress={setSessionProgress}
+                                     setSessionProgress={setSessionProgress}
                                      sessionProgress={sessionProgress} signList={signList}
-                                     counter={counter} gameMode={gameMode} durationNumber={durationNumber}/>
+                                     counter={counter} gameMode={gameMode}/>
                       </div>
                   }
               </div>

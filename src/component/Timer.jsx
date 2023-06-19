@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from 'react';
+import {useSelector} from "react-redux";
 
-const Timer = ({duration, sessionProgress, end, ...props}) => {
+const Timer = ({sessionProgress, end}) => {
 
+    const duration = useSelector(state => state.interface.time);
     const [time, setTime] = useState(duration);
 
     useEffect(() => {setTime(duration)}, [duration])

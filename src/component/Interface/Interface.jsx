@@ -6,7 +6,7 @@ import Signs from "./Signs";
 import Lines from "./Lines";
 import Number from "./Number";
 
-const Interface = ({gameMode, changeGameMode, durationTime, durationNumber, changeTimeInSession, changeNumberInSession, addSignInSession, signList, ...props}) => {
+const Interface = ({gameMode, changeGameMode, sessionProgress, addSignInSession, signList }) => {
 
     return (
         <div className={classes.position}>
@@ -14,9 +14,9 @@ const Interface = ({gameMode, changeGameMode, durationTime, durationNumber, chan
                 <div className={classes.mainContainer} >
                     {(gameMode === 'Стандарт')
                     ?
-                      <Time changeTimeInSession={changeTimeInSession} duration={durationTime} gameMode={gameMode} />
+                      <Time sessionProgress={sessionProgress} />
                     :
-                      <Number changeNumberInSession={changeNumberInSession} duration={durationNumber} gameMode={gameMode} />
+                      <Number sessionProgress={sessionProgress} />
                     }
                   <Signs addSignInSession={addSignInSession} signList={signList}/>
                   <Lines />

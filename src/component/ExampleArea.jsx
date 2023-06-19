@@ -4,7 +4,7 @@ import Timer from "./Timer";
 import Example from "./Example";
 import SprintTimer from "./SprintTimer";
 
-const ExampleArea = ({endSession, gameMode, counter, incrementCounter, resetCounter, durationTime, durationNumber, sessionProgress, setSessionProgress, signList, ...props}) => {
+const ExampleArea = ({endSession, gameMode, counter, incrementCounter, resetCounter, sessionProgress, setSessionProgress, signList, ...props}) => {
 
     const [sign, SetSign] = useState(signList[Math.floor(Math.random() * signList.length)]);
     const [answer, setAnswer] = useState();
@@ -49,9 +49,9 @@ const ExampleArea = ({endSession, gameMode, counter, incrementCounter, resetCoun
         <div>
             {(gameMode === 'Стандарт')
             ?
-              <Timer duration={durationTime} sessionProgress={sessionProgress} end={endSession} />
+              <Timer sessionProgress={sessionProgress} end={endSession} />
             :
-              <SprintTimer duration={durationNumber} counter={counter} sessionProgress={sessionProgress} end={endSession} />
+              <SprintTimer counter={counter} sessionProgress={sessionProgress} end={endSession} />
             }
             <div className={'example'}>
                 <Example number={number} sign={sign} setAnswer={setAnswer}/>

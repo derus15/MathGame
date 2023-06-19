@@ -1,13 +1,20 @@
 .btn{
-    padding: 5px;
-    background-color: inherit;
-    border: var(--active-color) solid 2px;
+    padding: 11px;
+    padding-left: 13px;
+    padding-right: 13px;
+    background-color: var(--interface-color);
+    border-radius: 15px;
+    border: var(--interface-color), solid, 1px;
     font-size: 20px;
-    color: var(--active-color);
-    margin-top: 15px;
+    color: var(--base-color);
+    margin-top: 20px;
 }
 
 .btn:hover{
-    opacity: 50%;
+    color: white;
+}
+
+.btn:active{
+    color:var(--base-color)
 }
 
