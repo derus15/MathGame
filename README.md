@@ -1,4 +1,4 @@
-[![img_1.png](img_1.png)](https://math-game-sepia.vercel.app/)
+[![img_1.png](./public/Logo.png)](https://math-game-sepia.vercel.app/)
 
 **React, Redux, CSS, JS**
 

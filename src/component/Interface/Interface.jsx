@@ -6,7 +6,7 @@ import Signs from "./Signs";
 import Lines from "./Lines";
 import Number from "./Number";
 
-const Interface = ({gameMode, changeGameMode, sessionProgress, addSignInSession, signList }) => {
+const Interface = ({gameMode, changeGameMode, sessionProgress}) => {
 
     return (
         <div className={classes.position}>
@@ -18,7 +18,7 @@ const Interface = ({gameMode, changeGameMode, sessionProgress, addSignInSession,
                     :
                       <Number sessionProgress={sessionProgress} />
                     }
-                  <Signs addSignInSession={addSignInSession} signList={signList}/>
+                  <Signs sessionProgress={sessionProgress}/>
                   <Lines />
                   <Modes gameMode={gameMode} changeGameMode={changeGameMode}/>
                 </div>

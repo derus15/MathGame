@@ -1,6 +1,5 @@
 import React from 'react';
 import {useEffect} from "react";
-import style from './Tooltip.module.css'
 import classes from './Tooltip.module.css'
 
 const Tooltip = ({children, condition, depend, setShow, style={}, ...props}) => {

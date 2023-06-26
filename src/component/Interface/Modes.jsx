@@ -3,8 +3,8 @@ import classes from "./Interface.module.css";
 
 const Modes = ({gameMode, changeGameMode, ...props}) => {
 
-    const handleOnClick = (id) => {
-        changeGameMode(id);
+    const handleOnClick = (mode) => {
+        changeGameMode(mode);
     }
 
     function getClassName(id) {

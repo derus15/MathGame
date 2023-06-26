@@ -3,9 +3,11 @@ import MyInput from "../UI/Input/MyInput";
 import Timer from "./Timer";
 import Example from "./Example";
 import SprintTimer from "./SprintTimer";
+import {useSelector} from "react-redux";
 
-const ExampleArea = ({endSession, gameMode, counter, incrementCounter, resetCounter, sessionProgress, setSessionProgress, signList, ...props}) => {
+const ExampleArea = ({endSession, gameMode, counter, incrementCounter, resetCounter, sessionProgress, setSessionProgress}) => {
 
+    const signList = useSelector(state => state.interface.signList);
     const [sign, SetSign] = useState(signList[Math.floor(Math.random() * signList.length)]);
     const [answer, setAnswer] = useState();
 
@@ -55,7 +57,7 @@ const ExampleArea = ({endSession, gameMode, counter, incrementCounter, resetCoun
             }
             <div className={'example'}>
                 <Example number={number} sign={sign} setAnswer={setAnswer}/>
-                <MyInput {...props} onClick={startSession} onInput={answered}/>
+                <MyInput onClick={startSession} onInput={answered}/>
             </div>
         </div>
     );

@@ -14,10 +14,14 @@ const Timer = ({sessionProgress, end}) => {
 
         const start = setInterval(() => {
             setTime((time) => {
+
                 if (time <= 1) {
+
                     clearInterval(start);
                     end();
+
                 }else{
+
                     return time - 1}
             })
         }, 1000)}}, [sessionProgress]);
