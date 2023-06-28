@@ -57,7 +57,6 @@ const ExampleArea = ({endSession, sessionProgress, setSessionProgress}) => {
             <div className={'example'}>
                 <Example number={number} sign={sign} setAnswer={setAnswer}/>
                 <MyInput onClick={startSession} onInput={answered}/>
-                <div>{answer}</div>
             </div>
         </div>
     );
