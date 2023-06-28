@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import {useSelector} from "react-redux";
 
-const Timer = ({sessionProgress, end}) => {
+const Timer = ({answer, sessionProgress, end}) => {
 
     const duration = useSelector(state => state.interface.time);
     const [time, setTime] = useState(duration);
+    const [standardCounter, setStandardCounter] = useState(0);
 
     useEffect(() => {setTime(duration)}, [duration])
 
@@ -20,11 +21,21 @@ const Timer = ({sessionProgress, end}) => {
                     clearInterval(start);
                     end();
 
-                }else{
+                } else {
 
                     return time - 1}
             })
         }, 1000)}}, [sessionProgress]);
+
+    useEffect(() => {
+
+        if(sessionProgress){
+
+            setStandardCounter(prevCounter => prevCounter + 1);
+            localStorage.setItem('counter', standardCounter + 1);
+        }
+
+    },[answer]);
 
     return (
         <div>

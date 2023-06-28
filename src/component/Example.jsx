@@ -43,11 +43,7 @@ const Example = ({number, sign, setAnswer}) => {
         )
     }
 
-    return (
-        <div>
-            {generateExample()}
-        </div>
-    );
+    return (generateExample());
 };
 
 export default Example;

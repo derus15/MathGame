@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {changeNumber} from "../../redux/interfaceSlice/interfaceSlice";
 import MyNumber from "./MyNumber";
 
-const Number = ({sessionProgress}) => {
+const ChangeNumber = ({sessionProgress}) => {
 
     const [modalMyNumber, setMyNumber] = useState(false);
     const duration = useSelector(state => state.interface.number);
@@ -38,4 +38,4 @@ const Number = ({sessionProgress}) => {
     );
 };
 
-export default Number;
+export default ChangeNumber;

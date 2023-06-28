@@ -14,13 +14,13 @@ const Base = () => {
             <div onClick={showModalBase} className={'extra'}>База знаний</div>
             {(modalBase)
             ?
-            <MyModal
-                setVisible={setModalBase}
-                visible={modalBase}>
-                Здесь будут публиковаться приемы и принципы быстрого счета
-            </MyModal>
+                <MyModal
+                    setVisible={setModalBase}
+                    visible={modalBase}>
+                    Здесь будут публиковаться приемы и принципы быстрого счета
+                </MyModal>
             :
-            <></>
+                <></>
             }
         </div>
     );

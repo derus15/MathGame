@@ -9,32 +9,11 @@ import Footer from "./component/Footer/Footer";
 function App() {
 
     const [result, setResult] = useState(false);
-    const [counter, setCounter] = useState(0);
     const [sessionProgress, setSessionProgress] = useState(false);
-    const [gameMode, setGameMode] = useState(localStorage.getItem('mode') || 'Стандарт');
-
-    function changeGameModeInSession(mode) {
-        if (!sessionProgress) {
-            setGameMode(mode);
-            localStorage.setItem('mode', mode);
-            resetCounter();
-        }
-    }
-
-    function resetCounter() {
-        setCounter(0);
-    }
-
-    function incrementCounter() {
-        setCounter(counter + 1);
-    }
 
     function endSession() {
         setSessionProgress(false);
         setResult(!result);
-        if (gameMode === 'Спринт') {
-            resetCounter();
-        }
     }
 
     return (
@@ -43,18 +22,14 @@ function App() {
               <div className={'App'}>
                   {result
                       ?
-                        <Result counter={counter} closeResult={endSession} gameMode={gameMode}/>
-                      :<div>
-                        <Interface sessionProgress={sessionProgress}
-                                   gameMode={gameMode}
-                                   changeGameMode={changeGameModeInSession}/>
+                        <Result closeResult={endSession} />
+                      :
+                      <div>
+                        <Interface sessionProgress={sessionProgress} />
 
                         <ExampleArea endSession={endSession}
-                                     resetCounter={resetCounter}
-                                     incrementCounter={incrementCounter}
                                      setSessionProgress={setSessionProgress}
-                                     sessionProgress={sessionProgress}
-                                     counter={counter} gameMode={gameMode}/>
+                                     sessionProgress={sessionProgress} />
                       </div>
                   }
               </div>

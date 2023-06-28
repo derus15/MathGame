@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {changeTime} from "../../redux/interfaceSlice/interfaceSlice";
 import MyTime from "./MyTime";
 
-const Time = ({sessionProgress}) => {
+const ChangeTime = ({sessionProgress}) => {
 
     const [modalMyTime, setMyTime] = useState(false);
     const duration = useSelector(state => state.interface.time);
@@ -33,11 +33,11 @@ const Time = ({sessionProgress}) => {
              <div className={getClassName('30')} onClick={() => changeTimeInSession('30')}>0:30</div>
              <div className={getClassName('60')} onClick={() => changeTimeInSession('60')}>1:00</div>
              <div className={getClassName()} onClick={showModalMyTime}>__</div>
-             <MyTime modalMyTime={modalMyTime} setMyTime={setMyTime} sessionProgress={sessionProgress} />
+                <MyTime modalMyTime={modalMyTime} setMyTime={setMyTime} sessionProgress={sessionProgress} />
          </div>
     );
 };
 
-export default Time;
+export default ChangeTime;
 
 

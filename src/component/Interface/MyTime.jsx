@@ -21,7 +21,7 @@ const MyTime = ({modalMyTime, setMyTime, sessionProgress}) => {
                  <MyModal
                     visible={modalMyTime} setVisible={setMyTime} >
                     Задайте собственное время сессии:
-                        <input className={[classes.time, classes.modalInput].join(' ')} type="input"
+                        <input autoFocus={true} className={[classes.time, classes.modalInput].join(' ')} type="input"
                             onInput={(e) => {
 
                                const value = e.target.value;

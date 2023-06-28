@@ -21,7 +21,7 @@ const MyNumber = ({modalMyNumber, setMyNumber, sessionProgress}) => {
                 <MyModal
                     visible={modalMyNumber} setVisible={setMyNumber}>
                     Задайте собственное количество примеров:
-                        <input className={[classes.time, classes.modalInput].join(' ')} type="input"
+                        <input autoFocus={true} className={[classes.time, classes.modalInput].join(' ')} type="input"
                            onInput={(e) => {
 
                                const value = e.target.value;

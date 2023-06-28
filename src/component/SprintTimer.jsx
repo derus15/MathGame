@@ -1,20 +1,29 @@
 import React, {useEffect, useState} from 'react';
 import {useSelector} from "react-redux";
 
-const SprintTimer = ({counter, sessionProgress, end}) => {
+const SprintTimer = ({answer, sessionProgress, end}) => {
 
     const duration = useSelector(state => state.interface.number);
     const [time, setTime] = useState(0);
+    const [sprintCounter, setSprintCounter] = useState(0);
 
     useEffect(() => {
         const durationNum = Number(duration);
 
-        if (durationNum <= counter){
+        if (durationNum <= sprintCounter){
             end();
         }
 
-    }, [counter]);
+    }, [sprintCounter]);
 
+
+    useEffect(() => {
+
+        if(sessionProgress){
+            setSprintCounter(sprintCounter + 1)
+        }
+
+    },[answer]);
 
     useEffect(() => {
 
@@ -33,7 +42,7 @@ const SprintTimer = ({counter, sessionProgress, end}) => {
 
     return (
         <div>
-            <div className={'timer'}>{counter} | {duration}</div>
+            <div className={'timer'}>{sprintCounter} | {duration}</div>
         </div>
     );
 };

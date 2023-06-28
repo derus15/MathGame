@@ -3,6 +3,7 @@ import {createSlice} from "@reduxjs/toolkit";
 const initialState = {
   time: localStorage.getItem('durationTime') || 15,
   number: localStorage.getItem('durationNumber') || 10,
+  mode: localStorage.getItem('mode') || 'Стандарт',
   signList: JSON.parse(localStorage.getItem('signList')) || ['+', '-'],
 }
 
@@ -31,9 +32,13 @@ export const interfaceSlice = createSlice({
       localStorage.setItem('signList', JSON.stringify(state.signList));
     },
 
+    changeGameMode: (state, action) => {
+      state.mode = action.payload;
+      localStorage.setItem('mode', action.payload);
+    }
   },
 })
 
-export const { changeTime, changeNumber, addSign, deleteSign } = interfaceSlice.actions
+export const { changeTime, changeNumber, addSign, deleteSign, changeGameMode } = interfaceSlice.actions
 
 export default interfaceSlice.reducer
