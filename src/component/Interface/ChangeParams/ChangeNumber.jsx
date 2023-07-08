@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import classes from "./Interface.module.css";
+import classes from "../Interface.module.css";
 import {useDispatch, useSelector} from "react-redux";
-import {changeNumber} from "../../redux/interfaceSlice/interfaceSlice";
-import MyNumber from "./MyNumber";
+import {changeNumber} from "../../../redux/Slices/interfaceSlice";
+import MyNumber from "../MyParams/MyNumber";
 
 const ChangeNumber = ({sessionProgress}) => {
 

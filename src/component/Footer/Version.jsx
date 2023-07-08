@@ -11,7 +11,7 @@ const Version = () => {
 
     return (
         <div>
-            <div className={'extra'} onClick={showModalVersion}>v 1.2.4</div>
+            <div className={'extra'} onClick={showModalVersion}>v 1.2.5</div>
             {(modalVersion)
             ?
             <MyModal

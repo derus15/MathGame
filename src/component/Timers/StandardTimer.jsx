@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {incrementStandardCounter, resetStandardCounter} from "../../redux/Slices/dataSlice";
 
-const Timer = ({answer, sessionProgress, end}) => {
+const StandardTimer = ({answer, sessionProgress, end}) => {
 
     const duration = useSelector(state => state.interface.time);
     const [time, setTime] = useState(duration);
-    const [standardCounter, setStandardCounter] = useState(0);
+    const dispatch = useDispatch();
 
     useEffect(() => {setTime(duration)}, [duration])
 
@@ -13,6 +14,7 @@ const Timer = ({answer, sessionProgress, end}) => {
 
     if (time > 0 && sessionProgress) {
 
+        dispatch(resetStandardCounter());
         const start = setInterval(() => {
             setTime((time) => {
 
@@ -31,8 +33,7 @@ const Timer = ({answer, sessionProgress, end}) => {
 
         if(sessionProgress){
 
-            setStandardCounter(prevCounter => prevCounter + 1);
-            localStorage.setItem('counter', standardCounter + 1);
+            dispatch(incrementStandardCounter());
         }
 
     },[answer]);
@@ -44,4 +45,4 @@ const Timer = ({answer, sessionProgress, end}) => {
     );
 };
 
-export default Timer;
+export default StandardTimer;

@@ -1,7 +1,7 @@
 import React from 'react';
-import classes from "./Interface.module.css";
+import classes from "../Interface.module.css";
 import {useDispatch, useSelector} from "react-redux";
-import {changeGameMode} from "../../redux/interfaceSlice/interfaceSlice";
+import {changeGameMode} from "../../../redux/Slices/interfaceSlice";
 
 const ChangeModes = ({sessionProgress}) => {
 

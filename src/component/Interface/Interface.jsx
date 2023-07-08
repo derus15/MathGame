@@ -1,9 +1,9 @@
 import React from 'react';
 import classes from './Interface.module.css'
-import ChangeModes from "./ChangeModes";
-import ChangeSigns from "./ChangeSigns";
-import Lines from "./Lines";
-import ChangeTimeNumber from "./ChangeTimeNumber";
+import ChangeModes from "./ChangeParams/ChangeModes";
+import ChangeSigns from "./ChangeParams/ChangeSigns";
+import Lines from "./Lines/Lines";
+import ChangeTimeNumber from "./ChangeParams/ChangeTimeNumber";
 
 const Interface = ({sessionProgress}) => {
 

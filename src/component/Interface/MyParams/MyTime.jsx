@@ -1,7 +1,7 @@
 import React from 'react';
-import classes from "./Interface.module.css";
-import MyModal from "../../UI/Modal/MyModal";
-import {changeTime} from "../../redux/interfaceSlice/interfaceSlice";
+import classes from "../Interface.module.css";
+import MyModal from "../../../UI/Modal/MyModal";
+import {changeTime} from "../../../redux/Slices/interfaceSlice";
 import {useDispatch} from "react-redux";
 
 const MyTime = ({modalMyTime, setMyTime, sessionProgress}) => {

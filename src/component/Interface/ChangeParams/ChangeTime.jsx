@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
-import classes from "./Interface.module.css";
+import React, {useEffect, useState} from 'react';
+import classes from "../Interface.module.css";
 import {useDispatch, useSelector} from "react-redux";
-import {changeTime} from "../../redux/interfaceSlice/interfaceSlice";
-import MyTime from "./MyTime";
+import {changeTime} from "../../../redux/Slices/interfaceSlice";
+import MyTime from "../MyParams/MyTime";
 
 const ChangeTime = ({sessionProgress}) => {
 
@@ -33,7 +33,7 @@ const ChangeTime = ({sessionProgress}) => {
              <div className={getClassName('30')} onClick={() => changeTimeInSession('30')}>0:30</div>
              <div className={getClassName('60')} onClick={() => changeTimeInSession('60')}>1:00</div>
              <div className={getClassName()} onClick={showModalMyTime}>__</div>
-                <MyTime modalMyTime={modalMyTime} setMyTime={setMyTime} sessionProgress={sessionProgress} />
+             <MyTime modalMyTime={modalMyTime} setMyTime={setMyTime} sessionProgress={sessionProgress} />
          </div>
     );
 };

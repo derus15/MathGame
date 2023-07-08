@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import classes from "./Interface.module.css";
+import classes from "./../Interface.module.css";
 
 const Lines = () => {
 

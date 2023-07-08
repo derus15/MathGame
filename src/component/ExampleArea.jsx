@@ -1,8 +1,8 @@
-import React, {useMemo, useState} from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import MyInput from "../UI/Input/MyInput";
-import Timer from "./Timer";
+import StandardTimer from "./Timers/StandardTimer";
 import Example from "./Example";
-import SprintTimer from "./SprintTimer";
+import SprintTimer from "./Timers/SprintTimer";
 import {useSelector} from "react-redux";
 
 const ExampleArea = ({endSession, sessionProgress, setSessionProgress}) => {
@@ -17,7 +17,7 @@ const ExampleArea = ({endSession, sessionProgress, setSessionProgress}) => {
         num_2: Math.floor(Math.random() * 100),
     });
 
-    useMemo(() => {refresh(); changeSign();},[signList]);
+    useMemo(() => {refresh(); changeSign();},[signList, gameMode]);
 
     function changeSign() {
         let signNumber = signList[Math.floor(Math.random() * signList.length)];
@@ -36,7 +36,7 @@ const ExampleArea = ({endSession, sessionProgress, setSessionProgress}) => {
         if (!sessionProgress) {
             setSessionProgress(true);
         }
-    };
+    }
 
     function answered(e) {
         if (e.target.value === answer) {
@@ -44,13 +44,13 @@ const ExampleArea = ({endSession, sessionProgress, setSessionProgress}) => {
             refresh();
             e.target.value = ''
         }
-    };
+    }
 
     return (
         <div>
             {(gameMode === 'Стандарт')
             ?
-              <Timer answer={answer} sessionProgress={sessionProgress} end={endSession} />
+              <StandardTimer answer={answer} sessionProgress={sessionProgress} end={endSession} />
             :
               <SprintTimer answer={answer} sessionProgress={sessionProgress} end={endSession} />
             }
