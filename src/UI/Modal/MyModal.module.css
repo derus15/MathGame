@@ -1,4 +1,4 @@
-.myModal{
+.myModal {
     position: fixed;
     left: 0;
     right: 0;
@@ -9,7 +9,7 @@
     z-index: 5;
 }
 
-.myModalContent{
+.myModalContent {
     padding: 20px;
     background-color: var(--modal-color);
     border-radius: 15px;
@@ -21,15 +21,15 @@
 
 @keyframes init {
     0% {
-       opacity: 0;
+        opacity: 0;
     }
 
     100% {
-      opacity: 100;
+        opacity: 100;
     }
 }
 
-.myModalActive{
+.myModalActive {
     display: flex;
     justify-content: center;
     align-items: center;

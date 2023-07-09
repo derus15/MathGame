@@ -1,8 +1,8 @@
 import React from 'react';
-import MyButton from "../UI/Button/MyButton";
-import {useSelector} from "react-redux";
+import MyButton from '../UI/Button/MyButton';
+import { useSelector } from 'react-redux';
 
-const Result = ({closeResult}) => {
+const Result = ({ closeResult }) => {
 
     const gameMode = useSelector(state => state.interface.mode);
     const standardCounter = useSelector(state => state.data.standardCounter);

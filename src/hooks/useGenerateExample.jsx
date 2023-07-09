@@ -1,26 +1,33 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import MyInput from '../UI/Input/MyInput';
-import StandardTimer from './Timers/StandardTimer';
-import Example from './Example';
-import SprintTimer from './Timers/SprintTimer';
 import { useSelector } from 'react-redux';
 
-const ExampleArea = ({ endSession, sessionProgress, setSessionProgress }) => {
+const UseGenerateExample = () => {
 
     const signList = useSelector(state => state.interface.signList);
     const [sign, SetSign] = useState(signList[Math.floor(Math.random() * signList.length)]);
     const [answer, setAnswer] = useState();
-    const gameMode = useSelector(state => state.interface.mode);
+    const [answer, setAnswer] = useState();
+    const [example, setExample] = useState();
 
     const [number, setNumbers] = useState({
         num_1: Math.floor(Math.random() * 100),
         num_2: Math.floor(Math.random() * 100),
     });
 
+    let num_1 = number.num_1;
+    let num_2 = number.num_2;
+
+    const signFunction = {
+        '+': (a, b) => a + b,
+        '-': (a, b) => a - b,
+        '*': (a, b) => a * b,
+        '/': (a, b) => a / b,
+    };
+
     useMemo(() => {
         refresh();
         changeSign();
-    }, [signList, gameMode]);
+    }, [signList]); // gameMode
 
     function changeSign() {
         let signNumber = signList[Math.floor(Math.random() * signList.length)];
@@ -35,12 +42,6 @@ const ExampleArea = ({ endSession, sessionProgress, setSessionProgress }) => {
         setNumbers(refreshNum);
     }
 
-    function startSession() {
-        if (!sessionProgress) {
-            setSessionProgress(true);
-        }
-    }
-
     function answered(e) {
         if (e.target.value === answer) {
             changeSign();
@@ -49,20 +50,28 @@ const ExampleArea = ({ endSession, sessionProgress, setSessionProgress }) => {
         }
     }
 
-    return (
-        <div>
-            {(gameMode === 'Стандарт')
-                ?
-                <StandardTimer answer={answer} sessionProgress={sessionProgress} end={endSession} />
-                :
-                <SprintTimer answer={answer} sessionProgress={sessionProgress} end={endSession} />
-            }
-            <div className={'example'}>
-                <Example number={number} sign={sign} setAnswer={setAnswer} />
-                <MyInput onClick={startSession} onInput={answered} />
-            </div>
-        </div>
-    );
+    if ((sign === '-') && (num_1 < num_2)) {
+        [num_1, num_2] = [num_2, num_1];
+    } else if (sign === '/') {
+
+        if (num_1 === 0) {
+            num_1 += 1;
+        }
+
+        if (num_1 > 10 && num_1 < 100) {
+            num_2 = Math.floor(num_2 / 10) + 1;
+        }
+
+        let answer = num_1 * num_2;
+        [num_1, answer] = [answer, num_1];
+
+    }
+
+    setAnswer(String(signFunction[sign](num_1, num_2)));
+    setExample(`${num_1} ${sign} ${num_2} =`);
+
+    return [example, answer];
+
 };
 
-export default ExampleArea;
+export default UseGenerateExample;

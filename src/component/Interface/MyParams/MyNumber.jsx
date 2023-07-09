@@ -1,14 +1,14 @@
 import React from 'react';
-import MyModal from "../../../UI/Modal/MyModal";
-import classes from "../Interface.module.css";
-import {changeNumber} from "../../../redux/Slices/interfaceSlice";
-import {useDispatch} from "react-redux";
+import MyModal from '../../../UI/Modal/MyModal';
+import classes from '../Interface.module.css';
+import { changeNumber } from '../../../redux/Slices/interfaceSlice';
+import { useDispatch } from 'react-redux';
 
-const MyNumber = ({modalMyNumber, setMyNumber, sessionProgress}) => {
+const MyNumber = ({ modalMyNumber, setMyNumber, sessionProgress }) => {
 
     const dispatch = useDispatch();
 
-    function changeNumberInSession(number){
+    function changeNumberInSession(number) {
         if (!sessionProgress) {
             dispatch(changeNumber(number));
             localStorage.setItem('durationNumber', number);
@@ -21,7 +21,7 @@ const MyNumber = ({modalMyNumber, setMyNumber, sessionProgress}) => {
                 <MyModal
                     visible={modalMyNumber} setVisible={setMyNumber}>
                     Задайте собственное количество примеров:
-                        <input autoFocus={true} className={[classes.time, classes.modalInput].join(' ')} type="input"
+                    <input autoFocus={true} className={[classes.time, classes.modalInput].join(' ')} type='input'
                            onInput={(e) => {
 
                                const value = e.target.value;
@@ -30,9 +30,11 @@ const MyNumber = ({modalMyNumber, setMyNumber, sessionProgress}) => {
                                if (!isNumber) {
                                    e.target.value = '';
                                } else {
-                                    changeNumberInSession(value)}}
+                                   changeNumberInSession(value);
+                               }
                            }
-                        />
+                           }
+                    />
                 </MyModal>
             )}
         </>

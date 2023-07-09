@@ -1,9 +1,9 @@
 import React from 'react';
-import classes from "../Interface.module.css";
-import {addSign, deleteSign} from "../../../redux/Slices/interfaceSlice";
-import {useDispatch, useSelector} from "react-redux";
+import classes from '../Interface.module.css';
+import { addSign, deleteSign } from '../../../redux/Slices/interfaceSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
-const ChangeSigns = ({sessionProgress}) => {
+const ChangeSigns = ({ sessionProgress }) => {
 
     const dispatch = useDispatch();
     const signs = useSelector(state => state.interface.signList);
@@ -21,9 +21,9 @@ const ChangeSigns = ({sessionProgress}) => {
     const getClassName = (id) => {
         if (signs.includes(id)) {
             return `${classes.signs} ${classes.signsActive}`;
-            }
+        }
         return classes.signs;
-    }
+    };
 
     return (
         <div className={classes.containerSigns}>

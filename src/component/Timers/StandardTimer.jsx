@@ -1,42 +1,47 @@
-import React, {useEffect, useState} from 'react';
-import {useDispatch, useSelector} from "react-redux";
-import {incrementStandardCounter, resetStandardCounter} from "../../redux/Slices/dataSlice";
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { incrementStandardCounter, resetStandardCounter } from '../../redux/Slices/dataSlice';
 
-const StandardTimer = ({answer, sessionProgress, end}) => {
+const StandardTimer = ({ answer, sessionProgress, end }) => {
 
     const duration = useSelector(state => state.interface.time);
     const [time, setTime] = useState(duration);
     const dispatch = useDispatch();
 
-    useEffect(() => {setTime(duration)}, [duration])
+    useEffect(() => {
+        setTime(duration);
+    }, [duration]);
 
     useEffect(() => {
 
-    if (time > 0 && sessionProgress) {
+        if (time > 0 && sessionProgress) {
 
-        dispatch(resetStandardCounter());
-        const start = setInterval(() => {
-            setTime((time) => {
+            dispatch(resetStandardCounter());
+            const start = setInterval(() => {
+                setTime((time) => {
 
-                if (time <= 1) {
+                    if (time <= 1) {
 
-                    clearInterval(start);
-                    end();
+                        clearInterval(start);
+                        end();
 
-                } else {
+                    } else {
 
-                    return time - 1}
-            })
-        }, 1000)}}, [sessionProgress]);
+                        return time - 1;
+                    }
+                });
+            }, 1000);
+        }
+    }, [sessionProgress]);
 
     useEffect(() => {
 
-        if(sessionProgress){
+        if (sessionProgress) {
 
             dispatch(incrementStandardCounter());
         }
 
-    },[answer]);
+    }, [answer]);
 
     return (
         <div>

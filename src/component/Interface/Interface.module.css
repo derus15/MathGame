@@ -1,10 +1,10 @@
-.position{
+.position {
     position: absolute;
     top: -200px;
     left: 200px;
 }
 
-.center{
+.center {
     position: absolute;
     display: flex;
     justify-content: center;
@@ -12,7 +12,7 @@
     margin-top: 8px;
 }
 
-.mainContainer{
+.mainContainer {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,7 +27,7 @@
 
 /*Режимы*/
 
-.containerModes{
+.containerModes {
     position: absolute;
     display: flex;
     gap: 140px;
@@ -36,21 +36,21 @@
     background-color: transparent;
 }
 
-.modes{
+.modes {
     font-size: 15px;
     cursor: pointer;
     background-color: transparent;
 }
 
-.modes:hover{
+.modes:hover {
     color: white;
 }
 
-.modes:active{
+.modes:active {
     color: var(--base-color);
 }
 
-.modesActive{
+.modesActive {
     color: var(--active-color);;
 }
 
@@ -58,25 +58,25 @@
 
 /*Вертикальные линии*/
 
-.containerLines{
+.containerLines {
     position: absolute;
     display: flex;
     background-color: transparent;
 }
 
-.rightLine{
+.rightLine {
     position: absolute;
     right: 270px;
     top: -10px;
 }
 
-.leftLine{
+.leftLine {
     position: absolute;
     left: 255px;
     top: -10px;
 }
 
-.verticalLine{
+.verticalLine {
     height: 21px;
     width: 4px;
     border-radius: 20px;
@@ -85,7 +85,7 @@
     transition-duration: 0.5s;
 }
 
-.rotateLine{
+.rotateLine {
     transform: rotate(90deg);
 }
 
@@ -93,7 +93,7 @@
 
 /*Выбор времени*/
 
-.containerTime{
+.containerTime {
     position: absolute;
     margin-left: 705px;
     margin-bottom: 0;
@@ -104,25 +104,25 @@
     background-color: transparent;
 }
 
-.time{
+.time {
     font-size: 16px;
     cursor: pointer;
     background-color: transparent;
 }
 
-.time:hover{
+.time:hover {
     color: white;
 }
 
-.time:active{
+.time:active {
     color: var(--base-color);;
 }
 
-.timeActive{
-    color:var(--active-color);;
+.timeActive {
+    color: var(--active-color);;
 }
 
-.modalInput{
+.modalInput {
     font-size: 21px;
     width: 60px;
     border-bottom-width: 2px;
@@ -135,7 +135,7 @@
 
 /*Выбор кол-ва*/
 
-.containerNumber{
+.containerNumber {
     position: absolute;
     margin-left: 705px;
     margin-bottom: 0;
@@ -146,29 +146,29 @@
     color: var(--base-color);
 }
 
-.number{
+.number {
     font-size: 17px;
     background-color: inherit;
     cursor: pointer;
 }
 
-.number:hover{
+.number:hover {
     color: white;
 }
 
-.number:active{
+.number:active {
     color: var(--base-color);;
 }
 
-.numberActive{
-    color:var(--active-color);;
+.numberActive {
+    color: var(--active-color);;
 }
 
 /**/
 
 /*Знаки*/
 
-.containerSigns{
+.containerSigns {
     position: absolute;
     margin-right: 720px;
     margin-top: 2px;
@@ -179,16 +179,16 @@
     color: var(--base-color);
 }
 
-.signs{
+.signs {
     background-color: inherit;
     cursor: pointer;
 }
 
-.signs:hover{
+.signs:hover {
     color: white;
 }
 
-.signs:active{
+.signs:active {
     color: var(--base-color);;
 }
 

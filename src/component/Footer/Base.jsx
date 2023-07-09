@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import MyModal from "../../UI/Modal/MyModal";
+import React, { useState } from 'react';
+import MyModal from '../../UI/Modal/MyModal';
 
 const Base = () => {
 
@@ -13,13 +13,13 @@ const Base = () => {
         <div>
             <div onClick={showModalBase} className={'extra'}>База знаний</div>
             {(modalBase)
-            ?
+                ?
                 <MyModal
                     setVisible={setModalBase}
                     visible={modalBase}>
                     Здесь будут публиковаться приемы и принципы быстрого счета
                 </MyModal>
-            :
+                :
                 <></>
             }
         </div>

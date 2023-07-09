@@ -1,7 +1,7 @@
 import React from 'react';
-import classes from './MyButton.module.css'
+import classes from './MyButton.module.css';
 
-const MyButton = ({children, ...props}) => {
+const MyButton = ({ children, ...props }) => {
 
     let textList = ['Хорошо', 'Ладно', 'Понятно', 'Прекрасно'];
     let text = textList[Math.floor(Math.random() * textList.length)];

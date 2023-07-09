@@ -1,115 +1,115 @@
-:root{
-  --background-color: #2C2E31;
-  --base-color: gray;
-  --active-color: white;
-  --interface-color: rgba(26, 26, 29, 0.49);
-  --line-color: #424245;
-  --header-timer-example: white;
-  --modal-color: #303033;;
+:root {
+    --background-color: #2C2E31;
+    --base-color: gray;
+    --active-color: white;
+    --interface-color: rgba(26, 26, 29, 0.49);
+    --line-color: #424245;
+    --header-timer-example: white;
+    --modal-color: #303033;;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  background-color: #2C2E31;
+    margin: 0;
+    padding: 0;
+    background-color: #2C2E31;
 }
 
-.container{
-  font-family: 'Montserrat', sans-serif;
-  padding-left: 6vw;
-  padding-right: 100px;
-  user-select: none;
-  transition-duration: .5s;
+.container {
+    font-family: 'Montserrat', sans-serif;
+    padding-left: 6vw;
+    padding-right: 100px;
+    user-select: none;
+    transition-duration: .5s;
 }
 
-.App{
-  position: relative;
-  text-align: center;
-  top: 300px;
+.App {
+    position: relative;
+    text-align: center;
+    top: 300px;
 }
 
-.example{
-  position: fixed;
-  top: 320px;
-  left: 0;
-  justify-content: center;
-  align-items: center;
-  color: var(--header-timer-example);
-  display: flex;
-  font-size: 35px;
-  width: 100%;
-  background: transparent;
+.example {
+    position: fixed;
+    top: 320px;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    color: var(--header-timer-example);
+    display: flex;
+    font-size: 35px;
+    width: 100%;
+    background: transparent;
 }
 
-.result{
-  position: relative;
-  top: 10px;
-  left: 0;
-  font-size: 25px;
-  color: var(--active-color);
+.result {
+    position: relative;
+    top: 10px;
+    left: 0;
+    font-size: 25px;
+    color: var(--active-color);
 }
 
-.header{
-  margin: 25px 25px;
-  font-size: 35px;
-  position: absolute;
-  color: var(--header-timer-example);
-  cursor: pointer;
+.header {
+    margin: 25px 25px;
+    font-size: 35px;
+    position: absolute;
+    color: var(--header-timer-example);
+    cursor: pointer;
 }
 
-.timer{
-  font-size: 20px;
-  color: var(--header-timer-example);
-  position: absolute;
-  bottom: 54px;
-  left: 205px;
-  height: 5px;
+.timer {
+    font-size: 20px;
+    color: var(--header-timer-example);
+    position: absolute;
+    bottom: 54px;
+    left: 205px;
+    height: 5px;
 }
 
 /*Футер*/
 
 .footer {
-  position: fixed;
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  font-size: 18px;
-  padding-left: 125px;
-  margin-bottom: 15px;
-  left: 0;
-  bottom: 0;
-  color: var(--base-color);
+    position: fixed;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    font-size: 18px;
+    padding-left: 125px;
+    margin-bottom: 15px;
+    left: 0;
+    bottom: 0;
+    color: var(--base-color);
 }
 
-a:active{
-  color: var(--base-color);
+a:active {
+    color: var(--base-color);
 }
 
-a{
-  text-decoration: none;
-  color: var(--base-color);
+a {
+    text-decoration: none;
+    color: var(--base-color);
 }
 
-.extra:hover{
-  cursor: pointer;
-  color: var(--active-color);
+.extra:hover {
+    cursor: pointer;
+    color: var(--active-color);
 }
 
-.extra:active{
-  color: var(--base-color);
+.extra:active {
+    color: var(--base-color);
 }
 
-.leftBlock{
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
+.leftBlock {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
-.rightBlock{
-  display: flex;
-  justify-content: center;
-  gap: 120px;
-  width: 100%;
+.rightBlock {
+    display: flex;
+    justify-content: center;
+    gap: 120px;
+    width: 100%;
 }
 
 /**/

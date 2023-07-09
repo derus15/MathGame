@@ -1,13 +1,13 @@
 import React from 'react';
 
-const Example = ({number, sign, setAnswer}) => {
+const Example = ({ number, sign, setAnswer }) => {
 
     const signFunction = {
-        '+': (a,b) => a + b,
-        '-': (a,b) => a - b,
-        '*': (a,b) => a * b,
-        '/': (a,b) => a / b,
-    }
+        '+': (a, b) => a + b,
+        '-': (a, b) => a - b,
+        '*': (a, b) => a * b,
+        '/': (a, b) => a / b,
+    };
 
     function generateExample() {
 
@@ -16,11 +16,10 @@ const Example = ({number, sign, setAnswer}) => {
 
         if ((sign === '-') && (num_1 < num_2)) {
             [num_1, num_2] = [num_2, num_1];
-        }
 
-        else if (sign === '/') {
+        } else if (sign === '/') {
 
-            if (num_1 === 0){
+            if (num_1 === 0) {
                 num_1 += 1;
             }
 
@@ -28,8 +27,8 @@ const Example = ({number, sign, setAnswer}) => {
                 num_2 = Math.floor(num_2 / 10) + 1;
             }
 
-        let answer = num_1 * num_2;
-        [num_1, answer] = [answer, num_1];
+            let answer = num_1 * num_2;
+            [num_1, answer] = [answer, num_1];
 
         }
 
@@ -40,7 +39,7 @@ const Example = ({number, sign, setAnswer}) => {
             <div>
                 {num_1} {sign} {num_2} =
             </div>
-        )
+        );
     }
 
     return (generateExample());

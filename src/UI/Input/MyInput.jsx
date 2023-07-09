@@ -1,7 +1,7 @@
 import React from 'react';
-import style from "./MyInput.module.css";
+import style from './MyInput.module.css';
 
-const MyInput = ({...props}) => {
+const MyInput = ({ ...props }) => {
 
     const checkNumber = (e) => {
         const value = e.target.value;
@@ -9,16 +9,18 @@ const MyInput = ({...props}) => {
         if (!isNumber) {
             e.target.value = '';
         }
-    }
+    };
 
     return (
-         <div>
-           <input
-             onChange={(e) => {checkNumber(e)}}
-             className={style.npt}
-             {...props}
-           />
-         </div>
+        <div>
+            <input
+                onChange={(e) => {
+                    checkNumber(e);
+                }}
+                className={style.npt}
+                {...props}
+            />
+        </div>
     );
 };
 
