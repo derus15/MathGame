@@ -6,7 +6,19 @@ const StandardTimer = ({ answer, sessionProgress, end }) => {
 
     const duration = useSelector(state => state.interface.time);
     const [time, setTime] = useState(duration);
+    const [seconds, setSeconds] = useState(0);
+    const [visibleSeconds, setVisibleSeconds] = useState(JSON.parse(localStorage.getItem('seconds')) || false);
     const dispatch = useDispatch();
+
+    const showSeconds = () => {
+        if (!sessionProgress) {
+            setVisibleSeconds(!visibleSeconds);
+        }
+    };
+
+    useEffect(() => {
+        localStorage.setItem('seconds', JSON.stringify(visibleSeconds));
+    }, [visibleSeconds]);
 
     useEffect(() => {
         setTime(duration);
@@ -15,12 +27,13 @@ const StandardTimer = ({ answer, sessionProgress, end }) => {
     useEffect(() => {
 
         if (time > 0 && sessionProgress) {
-
+            setTime(time - 1);
             dispatch(resetStandardCounter());
+
             const start = setInterval(() => {
                 setTime((time) => {
 
-                    if (time <= 1) {
+                    if (time <= 0) {
 
                         clearInterval(start);
                         end();
@@ -36,6 +49,24 @@ const StandardTimer = ({ answer, sessionProgress, end }) => {
 
     useEffect(() => {
 
+        if (sessionProgress && visibleSeconds) {
+            setSeconds(9);
+            setInterval(() => {
+                setSeconds((second) => {
+
+                    if (second === 0) {
+                        return setSeconds(9);
+                    }
+
+                    return second - 1;
+
+                });
+            }, 100);
+        }
+    }, [sessionProgress]);
+
+    useEffect(() => {
+
         if (sessionProgress) {
 
             dispatch(incrementStandardCounter());
@@ -44,8 +75,8 @@ const StandardTimer = ({ answer, sessionProgress, end }) => {
     }, [answer]);
 
     return (
-        <div>
-            <div className={'timer'}>{time}</div>
+        <div style={{ cursor: 'pointer' }} onClick={showSeconds}>
+            <div className={'timer'}>{time}{visibleSeconds ? ',' + seconds : ''}</div>
         </div>
     );
 };

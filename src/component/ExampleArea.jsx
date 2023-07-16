@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import MyInput from '../UI/Input/MyInput';
+import ExampleInput from '../UI/Input/ExampleInput/ExampleInput';
 import StandardTimer from './Timers/StandardTimer';
 import Example from './Example';
 import SprintTimer from './Timers/SprintTimer';
@@ -59,8 +59,8 @@ const ExampleArea = ({ endSession, sessionProgress, setSessionProgress }) => {
             }
             <div className={'example'}>
                 <Example number={number} sign={sign} setAnswer={setAnswer} />
-                <MyInput onClick={startSession} onInput={answered} signal={answer}
-                         sessionProgress={sessionProgress} />
+                <ExampleInput onClick={startSession} onInput={answered} signal={answer}
+                              sessionProgress={sessionProgress} />
             </div>
         </div>
     );

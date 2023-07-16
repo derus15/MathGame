@@ -9,6 +9,7 @@
     color: var(--base-color);
     margin-top: 20px;
     cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .btn:hover {

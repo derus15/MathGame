@@ -1,14 +1,16 @@
 import React from 'react';
 import classes from './MyButton.module.css';
 
-const MyButton = ({ children, ...props }) => {
+const MyButton = ({ children, random= false, ...props }) => {
 
-    let textList = ['Хорошо', 'Ладно', 'Понятно', 'Прекрасно'];
-    let text = textList[Math.floor(Math.random() * textList.length)];
+    if (random) {
+        let textList = ['Хорошо', 'Ладно', 'Понятно', 'Прекрасно'];
+        children = textList[Math.floor(Math.random() * textList.length)];
+    }
 
     return (
         <div>
-            <button className={classes.btn} {...props}>{text}</button>
+            <button className={classes.btn} {...props}>{children}</button>
         </div>
     );
 };

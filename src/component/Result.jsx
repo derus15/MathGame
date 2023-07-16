@@ -10,10 +10,9 @@ const Result = ({ closeResult }) => {
 
     const Ending = () => {
 
-        if (sprintTime === 1) {
+        if (sprintTime % 10 === 1) {
             return sprintTime + ' секунда';
-        }
-        if (sprintTime < 5) {
+        } else if (![12, 13, 14].includes(sprintTime % 100) && [2, 3, 4].includes(sprintTime % 10)) {
             return sprintTime + ' секунды';
         } else {
             return sprintTime + ' секунд';
@@ -28,7 +27,7 @@ const Result = ({ closeResult }) => {
                 :
                 <div>Примеров решено: {standardCounter}</div>
             }
-            <MyButton onClick={closeResult}></MyButton>
+            <MyButton onClick={closeResult} random={true}></MyButton>
         </div>
     );
 };

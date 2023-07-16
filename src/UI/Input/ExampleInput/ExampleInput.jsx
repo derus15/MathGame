@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import style from './MyInput.module.css';
+import style from './ExampleInput.module.css';
 
-const MyInput = ({ sessionProgress, signal = null, ...props }) => {
+const ExampleInput = ({ sessionProgress, signal = null, ...props }) => {
 
     const [inputColor, setInputColor] = useState('');
 
@@ -14,20 +14,19 @@ const MyInput = ({ sessionProgress, signal = null, ...props }) => {
     };
 
     const changeInputColor = () => {
-        console.log('до');
+
         if (sessionProgress) {
-        console.log('после');
             setInputColor('#0FBE26');
 
             setTimeout(() => {
                 setInputColor('');
             }, 800);
+
         }
     };
 
     useEffect(() => {
         changeInputColor();
-        console.log('effect');
     }, [signal]);
 
 
@@ -45,4 +44,4 @@ const MyInput = ({ sessionProgress, signal = null, ...props }) => {
     );
 };
 
-export default MyInput;
+export default ExampleInput;

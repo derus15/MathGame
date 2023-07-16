@@ -1,0 +1,19 @@
+.containerHeader {
+    display: flex;
+    position: absolute;
+    gap: 1050px;
+    margin: 25px 25px;
+}
+
+.logo{
+    font-size: 35px;
+    color: var(--header-timer-example);
+    cursor: pointer;
+}
+
+.profile{
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    cursor: pointer;
+}

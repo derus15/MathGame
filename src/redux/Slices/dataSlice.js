@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
     standardCounter: 0,
     sprintCounterTime: 0,
+    timeForExample: [],
 };
 
 export const dataSlice = createSlice({

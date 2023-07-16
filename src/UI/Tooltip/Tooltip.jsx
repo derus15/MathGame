@@ -7,6 +7,7 @@ const Tooltip = ({ children, condition, depend, setShow, style = {}, ...props })
     useEffect(() => {
         if (condition) {
             setShow(true);
+
             setTimeout(() => {
                 setShow(false);
             }, 2300);
