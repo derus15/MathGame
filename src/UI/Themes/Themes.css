@@ -3,7 +3,7 @@
     --base-color: gray;
     --active-color: white;
     --interface-color: rgba(26, 26, 29, 0.49);
-    --line-color: #424245;
+    --line-color: rgb(100, 102, 105);
     --header-timer-example: white;
     --modal-color: #303033;;
 }
