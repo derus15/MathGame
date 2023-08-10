@@ -1,13 +1,13 @@
 [![img_1.png](./public/Logo.png)](https://math-game-sepia.vercel.app/)
 
-**React, Redux, CSS, JS**
+### Stack: MERN
+ 
+MathGame - кастомное веб-приложение для тренировки устного счета.
 
-**MathGame** - кастомное веб-приложение для тренировки устного счета.
+Приложение находится на стадии разработки. В ближайшее время будет добавлено:
 
-Приложение находится на стадии разработки. В ближайшее время будет добавлен:
-
-- Личный кабинет
-- Статистика каждой сессии
+- Уровень профиля
+- Подробная статистика в личном кабинете
 - База знаний с советами для устного счета
 
 ---
@@ -16,9 +16,10 @@
 
 Application in development. It will be added soon:
 
-- Personal account
-- Statistics of each session
+- Account level
+- Detailed statistics in the personal account
 - Knowledge base with tips for mental math
+
 
 
 

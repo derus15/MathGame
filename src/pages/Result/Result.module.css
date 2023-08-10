@@ -1,0 +1,18 @@
+.chartBackground {
+    background-color: var(--interface-color);
+    border-radius: 10px;
+    width: 850px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.result {
+    position: absolute;
+    text-align: center;
+    right: 42%;
+    top: 43%;
+    font-size: 25px;
+    color: var(--active-color);
+}

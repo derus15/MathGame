@@ -1,0 +1,4 @@
+:root {
+    --toastify-color-dark: var(--interface-color);
+    --toastify-color-error: var(--base-color);
+}

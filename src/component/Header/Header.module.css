@@ -1,19 +1,68 @@
 .containerHeader {
     display: flex;
     position: absolute;
-    gap: 1050px;
+    gap: 63vw;
     margin: 25px 25px;
 }
 
-.logo{
+.logo {
     font-size: 35px;
     color: var(--header-timer-example);
     cursor: pointer;
 }
 
-.profile{
-    width: 25px;
-    height: 25px;
-    background-color: white;
+.containerAccount {
+    display: flex;
+    animation: init ease-in-out .3s;
+}
+
+@keyframes init {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: .5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
+}
+
+.username {
+    font-size: 21px;
+    color: white;
+    position: absolute;
+    right: -85px;
+    animation: inherit;
+}
+
+.profile {
     cursor: pointer;
+    animation: inherit;
+}
+
+.svg {
+    width: 30px;
+    height: 30px;
+}
+
+.svg:hover {
+    fill: red;
+}
+
+.logoContainer {
+    margin-top: 3px;
+    position: absolute;
+    right: -115px;
+    width: 22px;
+    height: 22px;
+    animation: inherit;
+}
+
+.logout {
+    width: 22px;
+    height: 22px;
 }

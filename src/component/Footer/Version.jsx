@@ -11,7 +11,7 @@ const Version = () => {
 
     return (
         <div>
-            <div className={'extra'} onClick={showModalVersion}>v 1.2.7</div>
+            <div className={'extra'} onClick={showModalVersion}>v 2.0.0</div>
             {(modalVersion)
                 ?
                 <MyModal
@@ -31,6 +31,13 @@ const Version = () => {
                         - Добавлен новый режим игры <br />
                         - Добавлено поле для установки собственного времени<br />
                         - Исправление мелких ошибок и багов
+                    </p>
+                    <br />
+                    <span style={{ fontSize: '25px', backgroundColor: 'var(--modal-color)' }}>v 2.0 </span>
+                    <p style={{ color: 'white', backgroundColor: 'var(--modal-color)' }}>
+                        - Добавлен личный кабинет и статистика <br />
+                        - Добавлено отображение секунд<br />
+                        - Исправление мелких ошибок и багов<br />
                     </p>
                 </MyModal>
                 :

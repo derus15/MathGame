@@ -1,0 +1,103 @@
+.mainContainer {
+    position: absolute;
+    margin-top: 135px;
+    left: 120px;
+    animation: init ease-in-out .2s;
+}
+
+@keyframes init {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: .5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
+}
+
+.avatarBackground {
+    display: flex;
+    justify-content: center;
+    width: 1275px;
+    background-color: var(--interface-color);
+    height: 220px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.userName {
+    font-size: 31px;
+    background-color: transparent;
+    position: absolute;
+    color: white;
+    top: 160px;
+}
+
+.circleContainer {
+
+}
+
+.circleAvatar {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    margin-top: 20px;
+}
+
+.circleTitle {
+    position: absolute;
+    color: var(--active-color);
+    font-size: 24px;
+    margin-top: 3px;
+}
+
+.circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: var(--background-color);
+    width: 130px;
+    height: 130px;
+    font-size: 27px;
+    color: var(--active-color);
+}
+
+.circle:hover{
+    content: string(Иван);
+}
+
+.anotherTiles {
+    filter: blur(5px);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 75px;
+}
+
+.comingSoon {
+    position: absolute;
+    color: var(--base-color);
+    font-size: 27px;
+    right: 35%;
+    top: 70%;
+    z-index: 3;
+    cursor: pointer;
+}
+
+.comingSoon:hover {
+    color: rgba(255, 255, 255, 0.73);
+}
+
+.tiles {
+    margin-top: 40px;
+    width: 600px;
+    height: 240px;
+    border-radius: 10px;
+    background-color: var(--interface-color);
+}
+

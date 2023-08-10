@@ -37,7 +37,7 @@
 }
 
 .modes {
-    font-size: 15px;
+    font-size: 16px;
     cursor: pointer;
     background-color: transparent;
 }
@@ -102,7 +102,24 @@
     flex-direction: row;
     color: var(--base-color);
     background-color: transparent;
+    animation: init ease-in-out .3s;
 }
+
+@keyframes init {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: .5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
+}
+
 
 .time {
     font-size: 16px;
@@ -144,6 +161,7 @@
     background-color: transparent;
     flex-direction: row;
     color: var(--base-color);
+    animation: init ease-in-out .3s;
 }
 
 .number {
@@ -173,7 +191,7 @@
     margin-right: 720px;
     margin-top: 2px;
     font-size: 19px;
-    gap: 26px;
+    gap: 31px;
     background-color: transparent;
     display: flex;
     color: var(--base-color);

@@ -27,12 +27,18 @@ const ChangeTime = ({ sessionProgress }) => {
         setMyTime(true);
     };
 
+    const myTime = () => {
+        if (duration !== '15' && duration !== '30' && duration !== '60') {
+            return duration
+        }
+    }
+
     return (
         <div className={classes.containerTime}>
             <div className={getClassName('15')} onClick={() => changeTimeInSession('15')}>0:15</div>
             <div className={getClassName('30')} onClick={() => changeTimeInSession('30')}>0:30</div>
             <div className={getClassName('60')} onClick={() => changeTimeInSession('60')}>1:00</div>
-            <div className={getClassName()} onClick={showModalMyTime}>__</div>
+            <div className={getClassName(myTime())} onClick={showModalMyTime}>__</div>
             <MyTime modalMyTime={modalMyTime} setMyTime={setMyTime} sessionProgress={sessionProgress} />
         </div>
     );

@@ -1,7 +1,7 @@
 import React from 'react';
-import classes from './MyButton.module.css';
+import classes from './ExampleButton.module.css';
 
-const MyButton = ({ children, random= false, ...props }) => {
+const ExampleButton = ({ children, random= false, ...props }) => {
 
     if (random) {
         let textList = ['Хорошо', 'Ладно', 'Понятно', 'Прекрасно'];
@@ -15,4 +15,4 @@ const MyButton = ({ children, random= false, ...props }) => {
     );
 };
 
-export default MyButton;
+export default ExampleButton;

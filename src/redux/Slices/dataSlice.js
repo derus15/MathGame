@@ -2,8 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
     standardCounter: 0,
-    sprintCounterTime: 0,
-    timeForExample: [],
+    sprintTime: 0,
+    examplesInSession: [],
 };
 
 export const dataSlice = createSlice({
@@ -19,22 +19,27 @@ export const dataSlice = createSlice({
             state.standardCounter = 0;
         },
 
-        incrementSprintCounter: (state) => {
-            state.sprintCounterTime += 1;
+        saveSprintTime: (state, action) => {
+            state.sprintTime = action.payload;
         },
 
         resetSprintCounter: (state) => {
             state.sprintCounterTime = 0;
         },
 
+        addExample: (state, action) => {
+            state.examplesInSession = [...state.examplesInSession, action.payload]
+        },
+
     },
 });
 
 export const {
-    incrementSprintCounter,
+    saveSprintTime,
     resetSprintCounter,
     incrementStandardCounter,
     resetStandardCounter,
+    addExample,
 } = dataSlice.actions;
 
 export default dataSlice.reducer;

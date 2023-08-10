@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import ExampleInput from '../UI/Input/ExampleInput/ExampleInput';
 import StandardTimer from './Timers/StandardTimer';
 import Example from './Example';
@@ -59,7 +59,8 @@ const ExampleArea = ({ endSession, sessionProgress, setSessionProgress }) => {
             }
             <div className={'example'}>
                 <Example number={number} sign={sign} setAnswer={setAnswer} />
-                <ExampleInput onClick={startSession} onInput={answered} signal={answer}
+                <ExampleInput tabIndex='10' onClick={startSession} onFocus={startSession} onInput={answered}
+                              signal={answer}
                               sessionProgress={sessionProgress} />
             </div>
         </div>

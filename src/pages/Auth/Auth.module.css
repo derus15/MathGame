@@ -1,0 +1,87 @@
+.mainContainer {
+    position: relative;
+    text-align: center;
+    top: 200px;
+    animation: init ease-in-out .2s;
+}
+
+@keyframes init {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: .5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
+}
+
+.gridContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.registerContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.registerHeader {
+    color: white;
+    font-size: 23px;
+    margin-bottom: 10px;
+}
+
+.loginContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    justify-content: flex-start;
+}
+
+.loginHeader {
+    color: white;
+    font-size: 23px;
+    margin-bottom: 10px;
+}
+
+.loginTitle {
+    color: white;
+    margin-top: 10px;
+}
+
+.positionButtons {
+    margin-top: 10px;
+}
+
+.positionRegisterLoader {
+    position: absolute;
+    top: 3px;
+    left: 220px;
+}
+
+.positionLoginLoader {
+    position: absolute;
+    top: 3px;
+    right: 430px;
+}
+
+.loader {
+    width: 15px;
+    height: 15px;
+    border: 3px solid transparent;
+    border-top-color: var(--active-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

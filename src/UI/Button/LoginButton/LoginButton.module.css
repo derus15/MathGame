@@ -1,0 +1,21 @@
+.btn {
+    background-color: var(--interface-color);
+    color: var(--base-color);
+    border: var(--interface-color), solid, 1px;
+    margin-top: 10px;
+    cursor: pointer;
+    height: 35px;
+    font-size: 18px;
+    width: 230px;
+    border-radius: 10px;
+    padding: 0;
+}
+
+.btn:hover {
+    color: white;
+}
+
+.btn:active {
+    color: var(--base-color)
+}
+

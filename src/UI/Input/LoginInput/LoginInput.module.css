@@ -1,0 +1,26 @@
+input {
+    margin: 0;
+    color: var(--header-timer-example);
+    cursor: pointer;
+    box-sizing: border-box;
+    font: inherit;
+}
+
+.npt {
+    border-radius: 10px;
+    background-color: var(--interface-color);
+    font-family: inherit;
+    font-size: 17px;
+    width: 230px;
+    height: 35px;
+    padding: 0;
+    display: inline-block;
+}
+
+.npt:hover {
+    border: 1px solid gray;
+}
+
+.npt:focus {
+    border: 1px solid white;
+}

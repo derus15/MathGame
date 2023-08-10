@@ -27,12 +27,18 @@ const ChangeNumber = ({ sessionProgress }) => {
         setMyNumber(true);
     };
 
+    const myNumber = () => {
+        if (duration !== '10' && duration !== '15' && duration !== '20') {
+            return duration
+        }
+    }
+
     return (
         <div className={classes.containerNumber}>
             <div className={getClassName('10')} onClick={() => changeNumberInSession('10')}>10</div>
             <div className={getClassName('15')} onClick={() => changeNumberInSession('15')}>15</div>
             <div className={getClassName('20')} onClick={() => changeNumberInSession('20')}>20</div>
-            <div className={classes.number} onClick={showModalMyNumber}>__</div>
+            <div className={getClassName(myNumber())} onClick={showModalMyNumber}>__</div>
             <MyNumber modalMyNumber={modalMyNumber} setMyNumber={setMyNumber} sessionProgress={sessionProgress} />
         </div>
     );
