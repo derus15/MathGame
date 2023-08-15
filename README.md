@@ -1,4 +1,4 @@
-[![img_1.png](./public/Logo.png)](https://math-game-sepia.vercel.app/)
+[![img_1.png](./public/Logo.png)](https://math-game-dev.vercel.app/)
 
 ### Stack: MERN
  
