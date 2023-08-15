@@ -4,9 +4,9 @@ import StandardTimer from './Timers/StandardTimer';
 import Example from './Example';
 import SprintTimer from './Timers/SprintTimer';
 import { useSelector } from 'react-redux';
-import useGenerateExample from '../hooks/useGenerateExample';
-import Tooltip from '../UI/Tooltip/Tooltip';
-import { resetSprintCounter, resetStandardCounter } from '../redux/Slices/dataSlice';
+// import useGenerateExample from '../hooks/useGenerateExample';
+// import Tooltip from '../UI/Tooltip/Tooltip';
+// import { resetSprintCounter, resetStandardCounter } from '../redux/Slices/dataSlice';
 
 const ExampleArea = ({ endSession, sessionProgress, setSessionProgress }) => {
 
