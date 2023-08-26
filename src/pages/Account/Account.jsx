@@ -77,11 +77,11 @@ const Account = () => {
                 </div>
                 <div className={style.userName}>{name}</div>
             </div>
-            <span className={style.comingSoon}>Скоро будет добавлено...</span>
             <div className={style.anotherTiles}>
                 <div className={style.tiles}></div>
                 <div className={style.tiles}></div>
             </div>
+            <span className={style.comingSoon}>Скоро будет добавлено...</span>
         </div>
     );
 };

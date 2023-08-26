@@ -9,6 +9,7 @@ import Home from './pages/Home';
 import Auth from './pages/Auth/Auth';
 import Account from './pages/Account/Account';
 import { fetchAuthMe } from './redux/Slices/authSlice';
+import NotFound from './pages/NotFound/NotFound';
 
 
 const App = () => {
@@ -26,6 +27,7 @@ const App = () => {
                 <Route path='/' element={<Home />} />
                 <Route path='/auth' element={<Auth />} />
                 <Route path='/account' element={<Account />} />
+                <Route path='*' element={<NotFound />} />
             </Routes>
             <Footer />
         </div>

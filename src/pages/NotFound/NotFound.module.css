@@ -1,0 +1,33 @@
+.container {
+    display: flex;
+    position: absolute;
+    color: var(--active-color);
+    flex-direction: column;
+    justify-content: center;
+    top: 33%;
+    left: 42%;
+    animation: init ease-in-out .2s;
+}
+
+@keyframes init {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: .5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
+}
+
+.title_num {
+    font-size: 110px;
+}
+
+.title_int {
+    font-size: 25px;
+}
