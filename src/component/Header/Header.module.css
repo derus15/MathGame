@@ -37,20 +37,25 @@
     position: absolute;
     right: -85px;
     animation: inherit;
+    cursor: pointer;
+}
+
+.username:hover, .logout:hover, .svg:hover {
+    opacity: 50%;
+}
+
+.username:active, .logout:active, .svg:active {
+    opacity: 100%;
 }
 
 .profile {
-    cursor: pointer;
     animation: inherit;
 }
 
 .svg {
     width: 30px;
     height: 30px;
-}
-
-.svg:hover {
-    fill: red;
+    cursor: pointer;
 }
 
 .logoContainer {
@@ -65,4 +70,5 @@
 .logout {
     width: 22px;
     height: 22px;
+    cursor: pointer;
 }

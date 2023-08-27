@@ -49,14 +49,12 @@ body {
 @keyframes blink {
     0% {
         opacity: .9;
-        transform: translateY(0);
     }
     50% {
         opacity: .6;
     }
     100% {
         opacity: .9;
-        transform: translateY(0);
     }
 }
 
@@ -114,6 +112,7 @@ a:active {
 }
 
 a {
+    cursor: auto;
     text-decoration: none;
     color: var(--base-color);
 }
