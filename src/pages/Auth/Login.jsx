@@ -77,7 +77,7 @@ const Login = () => {
                 <LoginInput placeholder={'Почта'} {...register('email')} type={'email'}></LoginInput>
                 <LoginInput placeholder={'Пароль'} {...register('password')}></LoginInput>
                 <Checkbox label={'Запомни меня'} checked={isRemember} setIsChecked={setIsRemember} />
-                <LoginButton style={{margin:'0'}}>Войти</LoginButton>
+                <LoginButton>Войти</LoginButton>
                 <div className={isLoading ? [style.loader, style.positionLoginLoader].join(' ') : ''}></div>
                 <ToastContainer
                     position='top-center'

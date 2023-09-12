@@ -1,7 +1,7 @@
 input {
     margin: 0;
     color: var(--header-timer-example);
-    cursor: pointer;
+    cursor: text;
     box-sizing: border-box;
     font: inherit;
 }

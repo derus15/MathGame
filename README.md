@@ -13,6 +13,7 @@
 - Уровень профиля
 - Подробная статистика в личном кабинете
 - База знаний с советами для устного счета
+- Новый режим игры
 
 ---
 
@@ -23,3 +24,4 @@ Application in development. It will be added soon:
 - Account level
 - Detailed statistics in the personal account
 - Knowledge base with tips for mental math
+- New game mode
