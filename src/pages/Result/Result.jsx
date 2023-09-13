@@ -61,7 +61,7 @@ const Result = ({ isResult, setIsResult }) => {
                 <div>Примеров решено: {standardResultNum}</div>
             }
             <ExampleButton onClick={() => {
-                setIsResult(!isResult);
+                setIsResult(prev => !prev);
             }} random={true}></ExampleButton>
         </div>
     );

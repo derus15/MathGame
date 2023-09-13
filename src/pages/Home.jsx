@@ -17,7 +17,7 @@ const Home = () => {
         <div>
             {isResult
                 ?
-                <Result isResult={isResult} setIsResult={setIsResult} />
+                <Result setIsResult={setIsResult} />
                 :
                 <div className={'App'}>
                     <Interface sessionProgress={sessionProgress} />

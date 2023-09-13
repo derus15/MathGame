@@ -12,8 +12,7 @@ const Error = () => {
     return (
         <div>
             <div onClick={showModalError} className={'extra'}>Сообщить об ошибке</div>
-            {(modalError)
-                ?
+            {modalError &&
                 <MyModal
                     visible={modalError} setVisible={setModalError}>
                     Если вы нашли ошибку, то пишите на почту
@@ -23,8 +22,7 @@ const Error = () => {
                         backgroundColor: 'var(--modal-color)',
                     }}> mathgame.problem@gmail.com</span>
                 </MyModal>
-                :
-                <></>}
+            }
         </div>
     );
 };

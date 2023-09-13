@@ -6,6 +6,10 @@ input {
     font: inherit;
 }
 
+::-webkit-input-placeholder {
+    color: var(--base-color);
+}
+
 .npt {
     border-radius: 10px;
     background-color: var(--interface-color);

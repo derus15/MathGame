@@ -24,8 +24,7 @@ const Theme = () => {
     return (
         <div>
             <div onClick={showTheme} className={'extra'}>Темная</div>
-            {(tooltipTheme)
-                ?
+            {tooltipTheme &&
                 <Tooltip
                     style={style}
                     setShow={setTooltipTheme}
@@ -33,8 +32,6 @@ const Theme = () => {
                     depend={showTheme}>
                     Ведутся технические работы
                 </Tooltip>
-                :
-                <></>
             }
         </div>
     );

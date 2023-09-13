@@ -12,15 +12,12 @@ const Base = () => {
     return (
         <div>
             <div onClick={showModalBase} className={'extra'}>База знаний</div>
-            {(modalBase)
-                ?
+            {modalBase &&
                 <MyModal
                     setVisible={setModalBase}
                     visible={modalBase}>
                     Здесь будут публиковаться приемы и принципы быстрого счета
                 </MyModal>
-                :
-                <></>
             }
         </div>
     );

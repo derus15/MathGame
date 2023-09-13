@@ -12,7 +12,6 @@
 }
 
 .checkbox:hover {
-    /*border: 1px solid gray;*/
     color: var(--active-color);
 }
 
@@ -30,33 +29,30 @@
     -webkit-appearance: none;
     appearance: none;
     position: relative;
-    top: 7px;
+    top: 8px;
     width: 1em;
     height: 1em;
     border-radius: 0.3em;
     margin-right: 1.8em;
-    border: 0.1em solid var(--base-color);
     animation: init ease-in-out .2s;
+    background: transparent;
 }
 
 .checkbox input[type="checkbox"]:hover {
-    border: 0.1em solid var(--active-color);
 }
 
 input:checked {
-    background-color: var(--active-color);
-    position: relative;
-    animation: init ease-in-out .2s;
+    background-color: transparent;
 }
 
 input:checked::before {
-    content: url("./../../../public/check.svg");
+    content: url("./../../../public/checkV2.svg");
     font-size: 1em;
     color: var(--interface-color);
     position: absolute;
     right: -.5px;
     top: -2px;
-    animation: init ease-in-out .2s;
+    animation: init ease-in-out .3s;
 }
 
 @keyframes init {

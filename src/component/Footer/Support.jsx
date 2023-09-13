@@ -12,16 +12,13 @@ const Support = () => {
     return (
         <div>
             <div onClick={showTooltipSupport} className={'extra'}>Поддержать</div>
-            {(tooltipSupport)
-                ?
+            {tooltipSupport &&
                 <Tooltip
                     setShow={setTooltipSupport}
                     condition={tooltipSupport}
                     depend={showTooltipSupport}>
                     Спасибо за поддержку
                 </Tooltip>
-                :
-                <></>
             }
         </div>
     );
