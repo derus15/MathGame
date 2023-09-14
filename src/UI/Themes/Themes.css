@@ -1,4 +1,4 @@
-[dataTheme='Темная'] {
+[dataTheme='black'] {
     --background-color: #2C2E31;
     --base-color: gray;
     --active-color: white;
@@ -12,9 +12,19 @@
 [dataTheme='PP'] {
     --background-color: #FFC0CB;
     --base-color: #F43EA2;
-    --active-color: white;
+    --active-color: rgb(255, 255, 255);
     --interface-color: #FFADBB;
     --line-color: #FF7088;
     --header-timer-example: #F43EA2;
     --modal-color: #FFADBB;
+}
+
+[dataTheme='ocean'] {
+    --background-color: #161b22;
+    --base-color: #93A3B1;
+    --active-color: white;
+    --interface-color: #192d36;
+    --line-color: #424245;
+    --header-timer-example: white;
+    --modal-color: #161b22;
 }

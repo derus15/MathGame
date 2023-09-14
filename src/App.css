@@ -1,4 +1,4 @@
-:root {
+:global(:root) {
     --background-color: #2C2E31;
     --base-color: gray;
     --active-color: white;
@@ -15,7 +15,8 @@
 }
 
 body {
-    background-color: #2C2E31;       /*#161b22*/
+    background-color: var(--background-color);
+    transition-duration: .2s;
 }
 
 .container {

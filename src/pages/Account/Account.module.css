@@ -34,7 +34,7 @@
     font-size: 31px;
     background-color: transparent;
     position: absolute;
-    color: white;
+    color: var(--active-color);
     top: 160px;
 }
 

@@ -32,7 +32,7 @@
 }
 
 .registerHeader {
-    color: white;
+    color: var(--active-color);
     font-size: 23px;
     margin-bottom: 10px;
 }
@@ -45,13 +45,13 @@
 }
 
 .loginHeader {
-    color: white;
+    color: var(--active-color);
     font-size: 23px;
     margin-bottom: 10px;
 }
 
 .loginTitle {
-    color: white;
+    color: var(--active-color);
     margin-top: 10px;
 }
 

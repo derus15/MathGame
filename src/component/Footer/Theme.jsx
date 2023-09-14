@@ -1,38 +1,32 @@
-import React, { useState } from 'react';
-import Tooltip from '../../UI/Tooltip/Tooltip';
+import React, { useState, useEffect } from 'react';
 
 const Theme = () => {
 
-    //    function changeTheme(themesList) {
-    //       const currentIndex = themesList.findIndex(new_theme => new_theme === theme);
-    //       const nextIndex = (currentIndex + 1) % themesList.length;
-    //       setTheme(themesList[nextIndex]);
-    //       localStorage.setItem('theme', themesList[nextIndex]);
-    //     }
-
-    const [tooltipTheme, setTooltipTheme] = useState(false);
-    const style = {
-        bottom: '45px',
-        left: '1070px',
-        backgroundColor: 'white',
-    };
+    const themesList = ['black', 'ocean', 'PP'];
+    const [themeIndex, setThemeIndex] = useState(localStorage.getItem('theme') || 0);
 
     function showTheme() {
-        setTooltipTheme(true);
+        const body = document.querySelector('body');
+        const nextIndex = (themeIndex + 1) % themesList.length;
+        setThemeIndex(nextIndex);
+        localStorage.setItem('theme', nextIndex);
+        body.setAttribute('datatheme', themesList[nextIndex]);
     }
+
+    useEffect(() => {
+        const body = document.querySelector('body');
+        body.setAttribute('datatheme', themesList[themeIndex]);
+    }, [themeIndex]);
+
+    const themeObj = {
+        'black': 'Темная',
+        'PP': 'PP',
+        'ocean': 'Ocean',
+    };
 
     return (
         <div>
-            <div onClick={showTheme} className={'extra'}>Темная</div>
-            {tooltipTheme &&
-                <Tooltip
-                    style={style}
-                    setShow={setTooltipTheme}
-                    condition={tooltipTheme}
-                    depend={showTheme}>
-                    Ведутся технические работы
-                </Tooltip>
-            }
+            <div onClick={showTheme} className={'extra'}>{themeObj[themesList[themeIndex]]}</div>
         </div>
     );
 };
