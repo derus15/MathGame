@@ -8,7 +8,7 @@ const Home = () => {
     const [isResult, setIsResult] = useState(false);
     const [sessionProgress, setSessionProgress] = useState(false);
 
-    async function endSession() {
+    function endSession() {
         setSessionProgress(false);
         setIsResult(!isResult);
     }

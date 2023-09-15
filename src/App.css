@@ -84,6 +84,7 @@ body {
     bottom: 54px;
     left: 205px;
     height: 5px;
+    cursor: pointer;
     animation: init ease-in-out .3s;
 }
 

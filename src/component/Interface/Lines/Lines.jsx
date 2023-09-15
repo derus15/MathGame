@@ -6,20 +6,20 @@ const Lines = () => {
     const [rotate, setRotate] = useState(false);
 
     function handleClick() {
-        setRotate(!rotate);
+        setRotate(prevState => !prevState);
     }
 
-    function rotation() {
+    function rotation(direction) {
         if (rotate) {
-            return `${classes.verticalLine} ${classes.rotateLine}`;
+            return `${classes.verticalLine} ${classes[direction]} ${classes.rotateLine}`;
         }
-        return classes.verticalLine;
+        return `${classes.verticalLine} ${classes[direction]}`;
     }
 
     return (
         <div className={classes.containerLines}>
-            <div className={[classes.verticalLine, classes.rightLine].join(' ')} onClick={handleClick}></div>
-            <div className={[classes.verticalLine, classes.leftLine].join(' ')} onClick={handleClick}></div>
+            <div className={rotation('rightLine')} onClick={handleClick}></div>
+            <div className={rotation('leftLine')} onClick={handleClick}></div>
         </div>
     );
 };
