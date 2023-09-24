@@ -4,7 +4,7 @@ import LoginInput from '../../UI/Input/LoginInput/LoginInput';
 import LoginButton from '../../UI/Button/LoginButton/LoginButton';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { authData, fetchRegister } from '../../redux/Slices/authSlice';
+import { authData, fetchRegister } from '../../redux/Slices/backSlices/authSlice';
 import { Navigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 

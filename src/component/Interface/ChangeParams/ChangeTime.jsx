@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import classes from '../Interface.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeTime } from '../../../redux/Slices/interfaceSlice';
+import {changeTime} from '../../../redux/Slices/frontSlices/interfaceSlice';
 import MyTime from '../MyParams/MyTime';
 
 const ChangeTime = ({ sessionProgress }) => {

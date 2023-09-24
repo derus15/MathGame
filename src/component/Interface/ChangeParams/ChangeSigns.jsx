@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from '../Interface.module.css';
-import { addSign, deleteSign } from '../../../redux/Slices/interfaceSlice';
+import { addSign, deleteSign } from '../../../redux/Slices/frontSlices/interfaceSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
 const ChangeSigns = ({ sessionProgress }) => {

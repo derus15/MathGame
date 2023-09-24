@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import interfaceReducer from './Slices/interfaceSlice';
-import dataReducer from './Slices/dataSlice';
-import authSlice from './Slices/authSlice';
-import querySlice from './Slices/querySlice';
+import interfaceReducer from './Slices/frontSlices/interfaceSlice';
+import dataReducer from './Slices/frontSlices/dataSlice';
+import authSlice from './Slices/backSlices/authSlice';
+import querySlice from './Slices/backSlices/querySlice';
 
 export const store = configureStore({
     reducer: {

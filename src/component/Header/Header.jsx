@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import style from './Header.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { authData, logout } from '../../redux/Slices/authSlice';
+import { authData, logout } from '../../redux/Slices/backSlices/authSlice';
 
 const Header = () => {
 

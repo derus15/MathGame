@@ -6,7 +6,7 @@ import LoginInput from '../../UI/Input/LoginInput/LoginInput';
 import LoginButton from '../../UI/Button/LoginButton/LoginButton';
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
-import { authData, fetchAuth } from '../../redux/Slices/authSlice';
+import { authData, fetchAuth } from '../../redux/Slices/backSlices/authSlice';
 import { Navigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import Checkbox from '../../UI/Checkbox/Checkbox';

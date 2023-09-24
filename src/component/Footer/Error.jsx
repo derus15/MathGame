@@ -13,8 +13,7 @@ const Error = () => {
         <div>
             <div onClick={showModalError} className={'extra'}>Сообщить об ошибке</div>
             {modalError &&
-                <MyModal
-                    visible={modalError} setVisible={setModalError}>
+                <MyModal visible={modalError} setVisible={setModalError}>
                     Если вы нашли ошибку, то пишите на почту
                     <span style={{
                         color: 'white',

@@ -1,7 +1,7 @@
 import React from 'react';
 import MyModal from '../../../UI/Modal/MyModal';
 import classes from '../Interface.module.css';
-import { changeNumber } from '../../../redux/Slices/interfaceSlice';
+import { changeNumber } from '../../../redux/Slices/frontSlices/interfaceSlice';
 import { useDispatch } from 'react-redux';
 
 const MyNumber = ({ modalMyNumber, setMyNumber, sessionProgress }) => {

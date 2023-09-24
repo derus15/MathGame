@@ -1,43 +1,22 @@
 import React, { useEffect } from 'react';
 import style from './Account.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { authData } from '../../redux/Slices/authSlice';
+import { authData } from '../../redux/Slices/backSlices/authSlice';
 import { Navigate } from 'react-router-dom';
-import { getData } from '../../redux/Slices/querySlice';
+import {timeNormalization} from '../../helpers/timeNormalization';
+import { getData } from '../../redux/Slices/backSlices/querySlice';
 
 const Account = () => {
 
     const dispatch = useDispatch();
     const isAuth = useSelector(authData);
+
     const data = useSelector(state => state.query.data);
-    const timeCount = data?.counterTime?.[0]?.total_time;
+    const fetchingTime = data?.counterTime?.[0]?.total_time;
     const exampleCount = data?.counterExample?.[0]?.total_example;
     const name = data?.user?.name;
 
-    const timeNormalization = () => {
-
-        if (!timeCount) {
-            return ('00:00:00');
-        }
-
-        let hours = Math.floor(timeCount / 3600).toString();
-        if (hours.length < 2) {
-            hours = '0' + hours;
-        }
-
-        let minutes = Math.floor((timeCount % 3600) / 60).toString();
-        if (minutes.length < 2) {
-            minutes = '0' + minutes;
-        }
-
-        let sec = (timeCount % 60).toString();
-        if (sec.length < 2) {
-            sec = '0' + sec;
-        }
-
-        return (`${hours}:${minutes}:${sec}`);
-
-    };
+    const normalTime = timeNormalization(fetchingTime);
 
     useEffect(() => {
         const fetch = async () => {
@@ -71,7 +50,7 @@ const Account = () => {
                     <div style={{ marginTop: '10px' }}>
                         <span className={style.circleTitle} style={{ right: '159px' }}>Часов в игре</span>
                         <div className={style.circle} style={{ marginTop: '50px' }}>
-                            {timeNormalization()}
+                            {normalTime}
                         </div>
                     </div>
                 </div>

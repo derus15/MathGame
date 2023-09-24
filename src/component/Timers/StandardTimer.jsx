@@ -1,24 +1,25 @@
 import React, { useEffect, useState } from 'react';
+import { incrementStandardCounter, resetStandardCounter } from '../../redux/Slices/frontSlices/dataSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import { incrementStandardCounter, resetStandardCounter } from '../../redux/Slices/dataSlice';
 
 const StandardTimer = ({ answer, sessionProgress, end }) => {
 
     const duration = useSelector(state => state.interface.time);
     const [time, setTime] = useState(duration);
     const [seconds, setSeconds] = useState(0);
-    const [visibleSeconds, setVisibleSeconds] = useState(JSON.parse(localStorage.getItem('seconds')) || false);
+    // const [width, setWidth] = useState('890');
+    const [isVisibleSeconds, setIsVisibleSeconds] = useState(JSON.parse(localStorage.getItem('seconds')) || false);
     const dispatch = useDispatch();
 
     const showSeconds = () => {
         if (!sessionProgress) {
-            setVisibleSeconds(!visibleSeconds);
+            setIsVisibleSeconds(prev => !prev);
         }
     };
 
     useEffect(() => {
-        localStorage.setItem('seconds', JSON.stringify(visibleSeconds));
-    }, [visibleSeconds]);
+        localStorage.setItem('seconds', JSON.stringify(isVisibleSeconds));
+    }, [isVisibleSeconds]);
 
     useEffect(() => {
         setTime(duration);
@@ -49,7 +50,7 @@ const StandardTimer = ({ answer, sessionProgress, end }) => {
 
     useEffect(() => {
 
-        if (sessionProgress && visibleSeconds) {
+        if (sessionProgress && isVisibleSeconds) {
             setSeconds(9);
             setInterval(() => {
                 setSeconds((second) => {
@@ -68,7 +69,6 @@ const StandardTimer = ({ answer, sessionProgress, end }) => {
     useEffect(() => {
 
         if (sessionProgress) {
-
             dispatch(incrementStandardCounter());
         }
 
@@ -76,7 +76,7 @@ const StandardTimer = ({ answer, sessionProgress, end }) => {
 
     return (
         <div style={{ cursor: 'pointer' }} onClick={showSeconds}>
-            <div className={'timer'}>{time}{visibleSeconds ? ',' + seconds : ''}</div>
+            <div className={'timer'}>{time}{isVisibleSeconds ? ',' + seconds : ''}</div>
         </div>
     );
 };

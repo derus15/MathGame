@@ -8,7 +8,7 @@ import Footer from './component/Footer/Footer';
 import Home from './pages/Home';
 import Auth from './pages/Auth/Auth';
 import Account from './pages/Account/Account';
-import { fetchAuthMe } from './redux/Slices/authSlice';
+import { fetchAuthMe } from './redux/Slices/backSlices/authSlice';
 import NotFound from './pages/NotFound/NotFound';
 
 
