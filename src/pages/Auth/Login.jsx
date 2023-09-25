@@ -10,6 +10,7 @@ import { authData, fetchAuth } from '../../redux/Slices/backSlices/authSlice';
 import { Navigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import Checkbox from '../../UI/Checkbox/Checkbox';
+import Loader from '../../UI/Loader/Loader';
 
 const Login = () => {
 
@@ -78,7 +79,7 @@ const Login = () => {
                 <LoginInput placeholder={'Пароль'} {...register('password')}></LoginInput>
                 <Checkbox label={'Запомни меня'} checked={isRemember} setIsChecked={setIsRemember} />
                 <LoginButton>Войти</LoginButton>
-                <div className={isLoading ? [style.loader, style.positionLoginLoader].join(' ') : ''}></div>
+                <Loader isLoading={isLoading} position={style.positionLoginLoader}/>
                 <ToastContainer
                     position='top-center'
                     autoClose={1500}

@@ -11,29 +11,28 @@ const Version = () => {
 
     return (
         <div>
-            <div className={'extra'} onClick={showModalVersion}>v 2.0.8</div>
+            <div className={'extra'} onClick={showModalVersion}>v 2.0.9</div>
             {modalVersion &&
                 <MyModal
                     visible={modalVersion} setVisible={setModalVersion}>
-                    <span style={{ fontSize: '25px', backgroundColor: 'var(--modal-color)' }}>v 1.0 </span>
-                    <p style={{ color: 'white', backgroundColor: 'var(--modal-color)' }}>- Первая рабочая версия
-                        приложения</p>
+                    <span className={'versionNumber'}>v 1.0 </span>
+                    <p className={'versionText'}>- Первая рабочая версия приложения</p>
                     <br />
-                    <span style={{ fontSize: '25px', backgroundColor: 'var(--modal-color)' }}>v 1.1 </span>
-                    <p style={{ color: 'white', backgroundColor: 'var(--modal-color)' }}>
+                    <span className={'versionNumber'}>v 1.1 </span>
+                    <p className={'versionText'}>
                         - Добавлена новая тема <br />
                         - Исправление мелких ошибок и багов
                     </p>
                     <br />
-                    <span style={{ fontSize: '25px', backgroundColor: 'var(--modal-color)' }}>v 1.2 </span>
-                    <p style={{ color: 'white', backgroundColor: 'var(--modal-color)' }}>
+                    <span className={'versionNumber'}>v 1.2 </span>
+                    <p className={'versionText'}>
                         - Добавлен новый режим игры <br />
                         - Добавлено поле для установки собственного времени<br />
                         - Исправление мелких ошибок и багов
                     </p>
                     <br />
-                    <span style={{ fontSize: '25px', backgroundColor: 'var(--modal-color)' }}>v 2.0 </span>
-                    <p style={{ color: 'white', backgroundColor: 'var(--modal-color)' }}>
+                    <span className={'versionNumber'}>v 2.0 </span>
+                    <p className={'versionText'}>
                         - Добавлен личный кабинет и статистика <br />
                         - Добавлено отображение секунд<br />
                         - Исправление мелких ошибок и багов<br />

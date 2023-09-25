@@ -128,6 +128,22 @@ a {
     color: var(--base-color);
 }
 
+.errorEmail {
+    color: var(--active-color);
+    user-select: text;
+    background-color: var(--modal-color);
+}
+
+.versionNumber {
+    font-size: 25px;
+    background-color: var(--modal-color);
+}
+
+.versionText {
+    color: var(--active-color);
+    background-color: var(--modal-color);
+}
+
 .leftBlock {
     display: flex;
     justify-content: space-between;

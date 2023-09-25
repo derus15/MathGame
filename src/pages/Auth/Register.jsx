@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { authData, fetchRegister } from '../../redux/Slices/backSlices/authSlice';
 import { Navigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import Loader from '../../UI/Loader/Loader';
 
 const Register = () => {
 
@@ -63,7 +64,7 @@ const Register = () => {
                 <LoginInput placeholder={'Почта'} {...register('email')} type={'email'}></LoginInput>
                 <LoginInput placeholder={'Пароль'} {...register('password')} ></LoginInput>
                 <LoginButton>Зарегистрироваться</LoginButton>
-                <div className={isLoading ? [style.loader, style.positionRegisterLoader].join(' ') : ''}></div>
+                <Loader isLoading={isLoading} position={style.positionRegisterLoader}/>
             </div>
         </form>
     );
