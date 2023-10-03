@@ -11,7 +11,6 @@ import Account from './pages/Account/Account';
 import { fetchAuthMe } from './redux/Slices/backSlices/authSlice';
 import NotFound from './pages/NotFound/NotFound';
 
-
 const App = () => {
 
     const dispatch = useDispatch();

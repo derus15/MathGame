@@ -50,9 +50,12 @@ const StandardTimer = ({ answer, sessionProgress, end }) => {
 
     useEffect(() => {
 
+        let interval;
         if (sessionProgress && isVisibleSeconds) {
             setSeconds(9);
-            setInterval(() => {
+
+            interval = setInterval(() => {
+
                 setSeconds((second) => {
 
                     if (second === 0) {
@@ -64,6 +67,9 @@ const StandardTimer = ({ answer, sessionProgress, end }) => {
                 });
             }, 100);
         }
+
+        return () => clearInterval(interval);
+
     }, [sessionProgress]);
 
     useEffect(() => {

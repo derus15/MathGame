@@ -30,17 +30,17 @@ const SprintTimer = ({ answer, sessionProgress, end }) => {
 
     useEffect(() => {
 
+        let interval;
         if (sessionProgress) {
 
-            const start = setInterval(() => {
-                setTime(time => {
+            interval = setInterval(() => {
 
-                    return time + 1
+                setTime(time => time + 1);
 
-                })
-            }, 1000)
+            }, 1000);
 
         }
+        return () => clearInterval(interval);
     }, [sessionProgress]);
 
     return (
