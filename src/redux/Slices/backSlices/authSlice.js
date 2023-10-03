@@ -45,11 +45,12 @@ const authSlice = createSlice({
     reducers: {
         logout: (state) => {
             state.data = null;
+            localStorage.removeItem('token');
         },
     },
     extraReducers: {
 
-        // Register
+        // RegisterForm
 
         [fetchRegister.pending]: (state) => {
             state.data = null;
@@ -66,7 +67,7 @@ const authSlice = createSlice({
             state.statusReg = 'error';
         },
 
-        // Login
+        // LoginForm
 
         [fetchAuth.pending]: (state) => {
             state.data = null;

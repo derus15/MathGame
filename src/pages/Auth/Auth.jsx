@@ -1,15 +1,15 @@
 import React from 'react';
 import style from './Auth.module.css';
-import Login from './Login';
-import Register from './Register';
+import LoginForm from './LoginForm';
+import RegisterForm from './RegisterForm';
 
 const Auth = () => {
 
     return (
         <div className={style.mainContainer}>
             <div className={style.gridContainer}>
-                <Register />
-                <Login />
+                <RegisterForm />
+                <LoginForm />
             </div>
         </div>
     );

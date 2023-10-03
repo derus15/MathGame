@@ -3,20 +3,24 @@ import { useSelector } from 'react-redux';
 import style from './Result.module.css';
 import ExampleButton from '../../UI/Button/ExampleButton/ExampleButton';
 import axios from '../../axios';
+import {normalizationOfTheEnd} from '../../helpers/normalizationOfTheEnd';
 
-const Result = ({ isResult, setIsResult }) => {
+const Result = ({ setIsResult }) => {
 
     const sprintResultTime = useSelector(state => state.data.sprintTime);
     const mode = useSelector(state => state.interface.mode);
+
     const standardResultNum = useSelector(state => state.data.standardCounter);
     const time = useSelector(state => state.interface.time);
     const number = useSelector(state => state.interface.number);
     const sign = useSelector(state => state.interface.signList);
 
+    const sprintResult = normalizationOfTheEnd(sprintResultTime);
+
     const actualDataStandard = {
         mode,
         time,
-        number: standardResultNum,
+        number: standardResultNum,  // сделать смену тернарным оператором
         sign,
     };
 
@@ -25,17 +29,6 @@ const Result = ({ isResult, setIsResult }) => {
         number,
         time: sprintResultTime,
         sign,
-    };
-
-    const Ending = () => {
-
-        if (sprintResultTime % 10 === 1) {
-            return sprintResultTime + ' секунда';
-        } else if (![12, 13, 14].includes(sprintResultTime % 100) && [2, 3, 4].includes(sprintResultTime % 10)) {
-            return sprintResultTime + ' секунды';
-        } else {
-            return sprintResultTime + ' секунд';
-        }
     };
 
     const sendData = async () => {
@@ -56,13 +49,14 @@ const Result = ({ isResult, setIsResult }) => {
         <div className={style.result}>
             {(mode === 'Спринт')
                 ?
-                <div>Ваше время: {Ending()}</div>
+                <div>Ваше время: {sprintResult}</div>
                 :
                 <div>Примеров решено: {standardResultNum}</div>
             }
-            <ExampleButton onClick={() => {
-                setIsResult(prev => !prev);
-            }} random={true}></ExampleButton>
+            <ExampleButton
+                onClick={() => {setIsResult(prev => !prev)}}
+                random={true}>
+            </ExampleButton>
         </div>
     );
 };

@@ -9,7 +9,7 @@ import { Navigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Loader from '../../UI/Loader/Loader';
 
-const Register = () => {
+const RegisterForm = () => {
 
     const dispatch = useDispatch();
     const isAuth = useSelector(authData);
@@ -70,4 +70,4 @@ const Register = () => {
     );
 };
 
-export default Register;
+export default RegisterForm;

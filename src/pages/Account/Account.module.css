@@ -6,6 +6,7 @@
 }
 
 @keyframes init {
+
     0% {
         opacity: 0;
     }
@@ -23,30 +24,45 @@
 .avatarBackground {
     display: flex;
     justify-content: center;
-    width: 1275px;
+    width: 100%;
     background-color: var(--interface-color);
     height: 220px;
     border-radius: 10px;
     text-align: center;
 }
 
+.positionCircleContainer {
+    display: flex;
+    gap: 270px;
+    margin-top: 10px;
+}
+
+.avatarImage {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+
 .userName {
     font-size: 31px;
-    background-color: transparent;
     position: absolute;
     color: var(--active-color);
     top: 160px;
 }
 
 .circleContainer {
-
+    display: flex;
+    justify-content: center;
 }
 
 .circleAvatar {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
     border-radius: 50%;
     width: 120px;
     height: 120px;
-    margin-top: 20px;
+    background-color: var(--background-color);
 }
 
 .circleTitle {
@@ -66,9 +82,10 @@
     height: 130px;
     font-size: 27px;
     color: var(--active-color);
+    margin-top: 50px;
 }
 
-.circle:hover{
+.circle:hover {
     content: string(Иван);
 }
 

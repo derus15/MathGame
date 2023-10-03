@@ -12,7 +12,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import Checkbox from '../../UI/Checkbox/Checkbox';
 import Loader from '../../UI/Loader/Loader';
 
-const Login = () => {
+const LoginForm = () => {
 
     const [isRemember, setIsRemember] = useState(JSON.parse(localStorage.getItem('remember')) || false);
     const dispatch = useDispatch();
@@ -91,4 +91,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default LoginForm;
