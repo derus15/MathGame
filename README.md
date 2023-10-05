@@ -14,6 +14,7 @@
 - Подробная статистика в личном кабинете
 - База знаний с советами для устного счета
 - Новый режим игры
+- Английский язык
 
 ---
 
@@ -25,3 +26,4 @@ Application in development. It will be added soon:
 - Detailed statistics in the personal account
 - Knowledge base with tips for mental math
 - New game mode
+- English language
