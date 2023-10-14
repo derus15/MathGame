@@ -8,10 +8,10 @@ import Version from './Version';
 const Footer = () => {
 
     return (
-        <div className={'footer'}>
+        <footer className={'footer'}>
             <div className={'leftBlock'}>
                 <Support />
-                <a href='https://github.com/derus15/MathGame' className={'extra'} target='_blank'>ГитХаб</a>
+                <a href='https://github.com/derus15/MathGame' rel='noreferrer' className={'extra'} target='_blank'>ГитХаб</a>
                 <Error />
                 <Base />
             </div>
@@ -19,7 +19,7 @@ const Footer = () => {
                 <Theme />
                 <Version />
             </div>
-        </div>
+        </footer>
     );
 };
 

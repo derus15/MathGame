@@ -7,12 +7,12 @@ import HeaderAccount from './HeaderAccount';
 const Header = () => {
 
     return (
-        <div className={style.containerHeader}>
+        <header className={style.containerHeader}>
             <Link to='/'>
                 <h1 className={style.logo}>MathGame</h1>
             </Link>
             <HeaderAccount />
-        </div>
+        </header>
     );
 };
 

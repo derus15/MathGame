@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { authData } from '../../redux/Slices/backSlices/authSlice';
 import { Navigate } from 'react-router-dom';
 import { timeNormalization } from '../../helpers/timeNormalization';
-import { getData } from '../../redux/Slices/backSlices/querySlice';
+import { getData } from '../../redux/Slices/backSlices/accountSlice';
 
 const Account = () => {
 

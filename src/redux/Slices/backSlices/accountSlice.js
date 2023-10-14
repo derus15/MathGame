@@ -11,7 +11,7 @@ const initialState = {
     status: '',
 };
 
-const querySlice = createSlice({
+const accountSlice = createSlice({
     name: 'query',
     initialState,
     reducers:{},
@@ -35,4 +35,4 @@ const querySlice = createSlice({
     }
 })
 
-export default querySlice.reducer;
+export default accountSlice.reducer;
