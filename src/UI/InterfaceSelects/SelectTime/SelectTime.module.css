@@ -1,0 +1,17 @@
+.time {
+    font-size: 16px;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.time:hover {
+    color: white;
+}
+
+.time:active {
+    color: var(--base-color);;
+}
+
+.timeActive {
+    color: var(--active-color);;
+}

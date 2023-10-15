@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    time: localStorage.getItem('durationTime') || 15,
-    number: localStorage.getItem('durationNumber') || 10,
+    time: Number(localStorage.getItem('durationTime')) || 15,
+    number: Number(localStorage.getItem('durationNumber')) || 10,
     mode: localStorage.getItem('mode') || 'Стандарт',
     signList: JSON.parse(localStorage.getItem('signList')) || ['+', '-'],
 };

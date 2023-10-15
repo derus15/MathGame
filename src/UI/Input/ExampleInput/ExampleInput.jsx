@@ -36,7 +36,7 @@ const ExampleInput = ({ sessionProgress, signal = null, ...props }) => {
                 onChange={(e) => {
                     checkNumber(e);
                 }}
-                className={(style.npt)}
+                className={style.npt}
                 style={{ borderBottomColor: inputColor }}
                 {...props}
             />

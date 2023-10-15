@@ -1,40 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import classes from '../Interface.module.css';
 import MyModal from '../../../UI/Modal/MyModal';
-import { changeTime } from '../../../redux/Slices/frontSlices/interfaceSlice';
-import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import PersonParamsInput from '../../../UI/Input/PersonParamsInput/PersonParamsInput';
 
-const MyTime = ({ modalMyTime, setMyTime, sessionProgress }) => {
+const MyTime = ({ sessionProgress, changeTimeInSession }) => {
 
-    const dispatch = useDispatch();
+    const [modalMyTime, setMyTime] = useState(false);
+    const duration = useSelector(state => state.interface.time);
 
-    function changeTimeInSession(time) {
-        if (!sessionProgress) {
-            dispatch(changeTime(time));
-            localStorage.setItem('durationTime', time);
+    const getClassName = (id) => {
+        if (duration === id) {
+            return `${classes.time} ${classes.timeActive}`;
         }
-    }
+        return classes.time;
+    };
+
+    const showModalMyTime = () => {
+        if (!sessionProgress) {
+            setMyTime(true);
+        }
+    };
+
+    const myTime = () => {
+        if (duration !== 15 && duration !== 30 && duration !== 60) {
+            return duration;
+        }
+    };
 
     return (
         <>
-            {(modalMyTime) && (
-                <MyModal
-                    visible={modalMyTime} setVisible={setMyTime}>
+            <div className={getClassName(myTime())} onClick={showModalMyTime}>__</div>
+            {modalMyTime && (
+                <MyModal visible={modalMyTime} setVisible={setMyTime}>
                     Задайте собственное время сессии:
-                    <input autoFocus={true} className={[classes.time, classes.modalInput].join(' ')} type='input'
-                           onInput={(e) => {
-
-                               const value = e.target.value;
-                               const isNumber = /^(?!0$)\d+$|^(?:[1-9]\d*|0\d+)$/.test(value);
-
-                               if (!isNumber) {
-                                   e.target.value = '';
-                               } else {
-                                   changeTimeInSession(value);
-                               }
-                           }
-                           }
-                    />
+                    <PersonParamsInput callback={changeTimeInSession} />
                 </MyModal>
             )}
         </>

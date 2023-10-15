@@ -1,0 +1,17 @@
+.number {
+    font-size: 17px;
+    background-color: inherit;
+    cursor: pointer;
+}
+
+.number:hover {
+    color: white;
+}
+
+.number:active {
+    color: var(--base-color);;
+}
+
+.numberActive {
+    color: var(--active-color);;
+}

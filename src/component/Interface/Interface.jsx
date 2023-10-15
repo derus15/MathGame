@@ -8,14 +8,12 @@ import ChangeTimeNumber from './ChangeParams/ChangeTimeNumber';
 const Interface = ({ sessionProgress }) => {
 
     return (
-        <div className={classes.position}>
-            <div className={classes.center}>
-                <div className={classes.mainContainer}>
-                    <ChangeTimeNumber sessionProgress={sessionProgress} />
-                    <ChangeSigns sessionProgress={sessionProgress} />
-                    <Lines />
-                    <ChangeModes sessionProgress={sessionProgress} />
-                </div>
+        <div className={classes.center}>
+            <div className={classes.mainContainer}>
+                <ChangeTimeNumber sessionProgress={sessionProgress} />
+                <ChangeSigns sessionProgress={sessionProgress} />
+                <Lines />
+                <ChangeModes sessionProgress={sessionProgress} />
             </div>
         </div>
     );
