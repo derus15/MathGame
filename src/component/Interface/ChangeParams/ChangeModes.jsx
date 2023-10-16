@@ -1,11 +1,11 @@
 import React from 'react';
 import classes from '../Interface.module.css';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { changeGameMode } from '../../../redux/Slices/frontSlices/interfaceSlice';
+import SelectMod from '../../../UI/InterfaceSelects/SelectMod/SelectMod';
 
 const ChangeModes = ({ sessionProgress }) => {
 
-    const gameMode = useSelector(state => state.interface.mode);
     const dispatch = useDispatch();
 
     function changeGameModeInSession(mode) {
@@ -14,18 +14,11 @@ const ChangeModes = ({ sessionProgress }) => {
         }
     }
 
-    function getClassName(id) {
-        if (gameMode === id) {
-            return `${classes.modes} ${classes.modesActive}`;
-        }
-        return `${classes.modes}`;
-    }
-
     return (
         <div className={classes.containerModes}>
-            <div className={getClassName('Спринт')} onClick={() => changeGameModeInSession('Спринт')}>Спринт</div>
-            <div className={getClassName('Стандарт')} onClick={() => changeGameModeInSession('Стандарт')}>Стандарт</div>
-            <div className={classes.modes}>Скоро...</div>
+            <SelectMod mode='Спринт' onClick={() => changeGameModeInSession('Спринт')}>Спринт</SelectMod>
+            <SelectMod mode='Стандарт' onClick={() => changeGameModeInSession('Стандарт')}>Стандарт</SelectMod>
+            <SelectMod>Скоро...</SelectMod>
         </div>
     );
 };

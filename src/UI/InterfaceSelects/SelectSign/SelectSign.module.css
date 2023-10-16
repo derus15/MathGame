@@ -1,0 +1,16 @@
+.signs {
+    background-color: inherit;
+    cursor: pointer;
+}
+
+.signs:hover {
+    color: white;
+}
+
+.signs:active {
+    color: var(--base-color);;
+}
+
+.signsActive {
+    color: var(--active-color);;
+}

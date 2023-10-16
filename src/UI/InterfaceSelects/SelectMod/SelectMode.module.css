@@ -1,0 +1,17 @@
+.modes {
+    font-size: 16px;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.modes:hover {
+    color: white;
+}
+
+.modes:active {
+    color: var(--base-color);
+}
+
+.modesActive {
+    color: var(--active-color);;
+}
