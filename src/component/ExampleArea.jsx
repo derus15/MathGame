@@ -11,7 +11,7 @@ import { useSelector } from 'react-redux';
 const ExampleArea = ({ endSession, sessionProgress, setSessionProgress }) => {
 
     const signList = useSelector(state => state.interface.signList);
-    const [sign, SetSign] = useState(signList[Math.floor(Math.random() * signList.length)]);
+    const [sign, setSign] = useState(signList[Math.floor(Math.random() * signList.length)]);
     const [answer, setAnswer] = useState();
     const gameMode = useSelector(state => state.interface.mode);
     // const [date, setDate] = useState();
@@ -29,7 +29,7 @@ const ExampleArea = ({ endSession, sessionProgress, setSessionProgress }) => {
 
     function changeSign() {
         let signNumber = signList[Math.floor(Math.random() * signList.length)];
-        SetSign(signNumber);
+        setSign(signNumber);
     }
 
     function refresh() {

@@ -6,11 +6,11 @@ const SelectMod = ({children, onClick, mode}) => {
 
     const gameMode = useSelector(state => state.interface.mode);
 
-    function getClassName(mode) {
+    const getClassName = (mode) => {
         if (gameMode === mode) {
-            return `${classes.modes} ${classes.modesActive}`;
+            return `${classes.mode} ${classes.modeActive}`;
         }
-        return `${classes.modes}`;
+        return `${classes.mode}`;
     }
 
     return (

@@ -33,6 +33,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    animation-duration: .2s;
+    animation-duration: .3s;
     animation-name: init;
 }
