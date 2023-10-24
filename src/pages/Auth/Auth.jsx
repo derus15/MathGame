@@ -2,6 +2,7 @@ import React from 'react';
 import style from './Auth.module.css';
 import LoginForm from './LoginForm';
 import RegisterForm from './RegisterForm';
+import Toast from '../../UI/Toaster/Toast';
 
 const Auth = () => {
 
@@ -10,6 +11,7 @@ const Auth = () => {
             <div className={style.gridContainer}>
                 <RegisterForm />
                 <LoginForm />
+                <Toast/>
             </div>
         </div>
     );

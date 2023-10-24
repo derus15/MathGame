@@ -1,0 +1,6 @@
+.toast {
+    --toastify-icon-color-error: var(--active-color);
+    --toastify-color-dark: var(--interface-color);
+    --toastify-color-error: rgba(255, 255, 255, 0.65);
+    --toastify-color-progress-error: var(--active-color);
+}

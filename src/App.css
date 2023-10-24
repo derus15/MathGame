@@ -1,4 +1,4 @@
-:global(:root) {
+:root {
     --background-color: #2C2E31;
     --base-color: gray;
     --active-color: white;
@@ -105,7 +105,7 @@ body {
 
 @media screen and (max-width: 1200px) {
   .footer {
-    font-size: 17px;
+    font-size: 16px;
   }
 }
 

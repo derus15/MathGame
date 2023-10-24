@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import style from './Auth.module.css';
-import 'react-toastify/dist/ReactToastify.css';
-import '../../UI/Toaster/Toaster.css';
 import LoginInput from '../../UI/Input/LoginInput/LoginInput';
 import LoginButton from '../../UI/Button/LoginButton/LoginButton';
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { authData, fetchAuth } from '../../redux/Slices/backSlices/authSlice';
 import { Navigate } from 'react-router-dom';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import Checkbox from '../../UI/Checkbox/Checkbox';
 import Loader from '../../UI/Loader/Loader';
 
@@ -80,12 +78,6 @@ const LoginForm = () => {
                 <Checkbox label={'Запомни меня'} checked={isRemember} setIsChecked={setIsRemember} />
                 <LoginButton>Войти</LoginButton>
                 <Loader isLoading={isLoading} position={style.positionLoginLoader}/>
-                <ToastContainer
-                    position='top-center'
-                    autoClose={1500}
-                    hideProgressBar={false}
-                    theme={'dark'}
-                />
             </div>
         </form>
     );
