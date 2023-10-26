@@ -9,9 +9,14 @@
 }
 
 * {
+    /*border: 1px red solid;*/
     margin: 0;
     padding: 0;
     font-family: 'Montserrat', sans-serif;
+}
+
+html{
+    font-size: 62.5%;
 }
 
 body {
@@ -59,10 +64,14 @@ body {
     }
 }
 
-.text-animation {
+.instructions {
+    position: absolute;
+    color: var(--base-color);
+    left: 33%;
+    top: 170px;
+    font-size: 1.9rem;
     animation: blink 2s infinite;
 }
-
 
 .example {
     position: fixed;
@@ -72,13 +81,13 @@ body {
     align-items: center;
     color: var(--header-timer-example);
     display: flex;
-    font-size: 35px;
+    font-size: 3.5rem;
     width: 100%;
     background: transparent;
 }
 
 .timer {
-    font-size: 20px;
+    font-size: 2rem;
     color: var(--header-timer-example);
     position: absolute;
     bottom: 54px;
@@ -88,6 +97,22 @@ body {
     animation: init ease-in-out .3s;
 }
 
+/*Стили для таймера полоски*/
+
+/*style={{*/
+/*      fontSize: '2rem',*/
+/*      color: 'var(--header-timer-example)',*/
+/*      position: 'absolute',*/
+/*      bottom: '79px',*/
+/*      left: '205px',*/
+/*      height: '3px',*/
+/*      animation: 'init ease-in-out .3s',*/
+/*      width: `${width}px`,*/
+/*      background: 'var(--base-color)',*/
+/*      cursor: 'pointer',*/
+/*      transition: 'width 1s linear',*/
+/*  }}*/
+
 /*Footer*/
 
 .footer {
@@ -95,7 +120,7 @@ body {
     display: flex;
     width: 100%;
     justify-content: center;
-    font-size: 18px;
+    font-size: 1.8rem;
     padding-left: 125px;
     margin-bottom: 15px;
     left: 0;
@@ -105,7 +130,7 @@ body {
 
 @media screen and (max-width: 1200px) {
   .footer {
-    font-size: 16px;
+    font-size: 1.6rem;
   }
 }
 
@@ -135,7 +160,7 @@ a {
 }
 
 .versionNumber {
-    font-size: 25px;
+    font-size: 2.5rem;
     background-color: var(--modal-color);
 }
 

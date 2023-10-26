@@ -14,7 +14,7 @@ const Home = () => {
     }
 
     return (
-        <div>
+        <main>
             {isResult
                 ?
                 <Result setIsResult={setIsResult} />
@@ -27,7 +27,7 @@ const Home = () => {
                                  sessionProgress={sessionProgress} />
                 </div>
             }
-        </div>
+        </main>
     );
 };
 
