@@ -40,13 +40,9 @@ function StandardTimer({ answer, sessionProgress, end }) {
                     if (time <= 0) {
                         clearInterval(start);
                         end();
-
-                    } else {
-
-                        return time - 1;
-                    }
                         return null;
                     }
+                    // setWidth(width => Math.abs(width - Math.round(890 / duration)));
                     return time - 1;
                 });
             }, 1000);
