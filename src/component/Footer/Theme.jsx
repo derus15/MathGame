@@ -18,9 +18,9 @@ function Theme() {
     }, [themeIndex]);
 
     const themeObj = {
-        black: 'Темная',
-        PP: 'PP',
-        ocean: 'Ocean',
+        'black': 'Темная',
+        'PP': 'PP',
+        'ocean': 'Ocean',
     };
 
     return (

@@ -84,22 +84,21 @@ const ExampleArea = ({ endSession, sessionProgress, setSessionProgress }) => {
                     sessionProgress={sessionProgress}
                 />
             </div>
-            {/*{(instruction)*/}
-            {/*    ?*/}
-            {/*    <div style={{*/}
-            {/*        color: 'var(--base-color)',*/}
-            {/*        position: 'absolute',*/}
-            {/*        left: '33%',*/}
-            {/*        top: '170px',*/}
-            {/*        fontSize: '19px',*/}
-            {/*    }}*/}
-            {/*         className={'text-animation'}>*/}
-            {/*        Для начала сессии нажмите на поле ввода<br/>или используйте Tab*/}
-            {/*    </div>*/}
-            {/*    :*/}
-            {/*    <></>*/}
-            {/*}*/}
-        </div>
+            {/* {(instruction) */}
+            {/*    ? */}
+            {/*    <div style={{ */}
+            {/*        color: 'var(--base-color)', */}
+            {/*        position: 'absolute', */}
+            {/*        left: '33%', */}
+            {/*        top: '170px', */}
+            {/*        fontSize: '19px', */}
+            {/*    }} */}
+            {/*         className={'text-animation'}> */}
+            {/*        Для начала сессии нажмите на поле ввода<br/>или используйте Tab */}
+            {/*    </div> */}
+            {/*    : */}
+            {/*    <></> */}
+            {/* } */}
         </>
     );
 };
