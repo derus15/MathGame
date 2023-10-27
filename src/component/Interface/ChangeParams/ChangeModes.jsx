@@ -1,11 +1,10 @@
 import React from 'react';
-import classes from '../Interface.module.css';
 import { useDispatch } from 'react-redux';
+import classes from '../Interface.module.css';
 import { changeGameMode } from '../../../redux/Slices/frontSlices/interfaceSlice';
 import SelectMod from '../../../UI/InterfaceSelects/SelectMod/SelectMod';
 
-const ChangeModes = ({ sessionProgress }) => {
-
+function ChangeModes({ sessionProgress }) {
     const dispatch = useDispatch();
 
     function changeGameModeInSession(mode) {
@@ -16,11 +15,21 @@ const ChangeModes = ({ sessionProgress }) => {
 
     return (
         <div className={classes.containerModes}>
-            <SelectMod mode='Спринт' onClick={() => changeGameModeInSession('Спринт')}>Спринт</SelectMod>
-            <SelectMod mode='Стандарт' onClick={() => changeGameModeInSession('Стандарт')}>Стандарт</SelectMod>
+            <SelectMod
+                mode="Спринт"
+                onClick={() => changeGameModeInSession('Спринт')}
+            >
+                Спринт
+            </SelectMod>
+            <SelectMod
+                mode="Стандарт"
+                onClick={() => changeGameModeInSession('Стандарт')}
+            >
+                Стандарт
+            </SelectMod>
             <SelectMod>Скоро...</SelectMod>
         </div>
     );
-};
+}
 
 export default ChangeModes;

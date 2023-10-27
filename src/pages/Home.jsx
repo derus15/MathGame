@@ -1,32 +1,32 @@
 import React, { useState } from 'react';
-import Result from '../pages/Result/Result';
+import Result from './Result/Result';
 import Interface from '../component/Interface/Interface';
 import ExampleArea from '../component/ExampleArea';
 
 const Home = () => {
-
     const [isResult, setIsResult] = useState(false);
     const [sessionProgress, setSessionProgress] = useState(false);
 
-    function endSession() {
+    const endSession = () => {
         setSessionProgress(false);
         setIsResult(!isResult);
-    }
+    };
 
     return (
         <main>
-            {isResult
-                ?
+            {isResult ? (
                 <Result setIsResult={setIsResult} />
-                :
-                <div className={'App'}>
+            ) : (
+                <div className="App">
                     <Interface sessionProgress={sessionProgress} />
 
-                    <ExampleArea endSession={endSession}
-                                 setSessionProgress={setSessionProgress}
-                                 sessionProgress={sessionProgress} />
+                    <ExampleArea
+                        endSession={endSession}
+                        setSessionProgress={setSessionProgress}
+                        sessionProgress={sessionProgress}
+                    />
                 </div>
-            }
+            )}
         </main>
     );
 };

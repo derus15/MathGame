@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './PersonParamsInput.module.css';
 
-const PersonParamsInput = ({ callback }) => {
+function PersonParamsInput({ callback }) {
 
     const testNumber = (e) => {
 
@@ -13,19 +13,16 @@ const PersonParamsInput = ({ callback }) => {
         } else {
             callback(value);
         }
-
     };
 
     return (
-        <>
-            <input
-                autoFocus={true}
-                className={classes.modalInput}
-                onInput={(e) => testNumber(e)}
-                type={'input'}
-            />
-        </>
+        <input
+            autoFocus
+            className={classes.modalInput}
+            onInput={(e) => testNumber(e)}
+            type="input"
+        />
     );
-};
+}
 
 export default PersonParamsInput;

@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import classes from './../Interface.module.css';
+import classes from '../Interface.module.css';
 
-const Lines = () => {
-
+function Lines() {
     const [rotate, setRotate] = useState(false);
 
     function handleClick() {
-        setRotate(prevState => !prevState);
+        setRotate((prevState) => !prevState);
     }
 
     function rotation(direction) {
@@ -18,10 +17,10 @@ const Lines = () => {
 
     return (
         <div className={classes.containerLines}>
-            <div className={rotation('rightLine')} onClick={handleClick}></div>
-            <div className={rotation('leftLine')} onClick={handleClick}></div>
+            <div className={rotation('rightLine')} onClick={handleClick} />
+            <div className={rotation('leftLine')} onClick={handleClick} />
         </div>
     );
-};
+}
 
 export default Lines;

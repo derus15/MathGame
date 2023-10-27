@@ -1,14 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useState } from 'react';
+
 import MyModal from '../../../UI/Modal/MyModal';
 import classes from '../Interface.module.css';
 import PersonParamsInput from '../../../UI/Input/PersonParamsInput/PersonParamsInput';
 
-const MyNumber = ({ sessionProgress, changeNumberInSession }) => {
-
+function MyNumber({ sessionProgress, changeNumberInSession }) {
     const [modalMyNumber, setMyNumber] = useState(false);
-    const duration = useSelector(state => state.interface.number);
+    const duration = useSelector((state) => state.interface.number);
 
     const getClassName = (id) => {
         if (duration === id) {
@@ -27,11 +26,13 @@ const MyNumber = ({ sessionProgress, changeNumberInSession }) => {
         if (duration !== 10 && duration !== 15 && duration !== 20) {
             return duration;
         }
+        return null;
     };
 
     return (
         <>
-            <div className={getClassName(myNumber())} onClick={showModalMyNumber}>__</div>
+            <div className={getClassName(myNumber())} onClick={showModalMyNumber}>__
+            </div>
             {modalMyNumber && (
                 <MyModal visible={modalMyNumber} setVisible={setMyNumber}>
                     Задайте собственное количество примеров:
@@ -40,6 +41,6 @@ const MyNumber = ({ sessionProgress, changeNumberInSession }) => {
             )}
         </>
     );
-};
+}
 
 export default MyNumber;

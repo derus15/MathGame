@@ -11,7 +11,7 @@ import Account from './pages/Account/Account';
 import { fetchAuthMe } from './redux/Slices/backSlices/authSlice';
 import NotFound from './pages/NotFound/NotFound';
 
-const App = () => {
+function App() {
 
     const dispatch = useDispatch();
 
@@ -20,13 +20,13 @@ const App = () => {
     }, []);
 
     return (
-        <div className={'container'}>
+        <div className="container">
             <Header />
             <Routes>
-                <Route path='/' element={<Home />} />
-                <Route path='/auth' element={<Auth />} />
-                <Route path='/account' element={<Account />} />
-                <Route path='*' element={<NotFound />} />
+                <Route path="/" element={<Home />} />
+                <Route path="/auth" element={<Auth />} />
+                <Route path="/account" element={<Account />} />
+                <Route path="*" element={<NotFound />} />
             </Routes>
             <Footer />
         </div>

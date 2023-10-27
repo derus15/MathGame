@@ -1,13 +1,12 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import classes from '../Interface.module.css';
 import { addSign, deleteSign } from '../../../redux/Slices/frontSlices/interfaceSlice';
-import { useDispatch, useSelector } from 'react-redux';
 import SelectSign from '../../../UI/InterfaceSelects/SelectSign/SelectSign';
 
-const ChangeSigns = ({ sessionProgress }) => {
-
+function ChangeSigns({ sessionProgress }) {
     const dispatch = useDispatch();
-    const signs = useSelector(state => state.interface.signList);
+    const signs = useSelector((state) => state.interface.signList);
 
     function changeSignInSession(sign) {
         if (!sessionProgress) {
@@ -21,12 +20,12 @@ const ChangeSigns = ({ sessionProgress }) => {
 
     return (
         <div className={classes.containerSigns}>
-            <SelectSign sign='+' onClick={() => changeSignInSession('+')}>+</SelectSign>
-            <SelectSign sign='-' onClick={() => changeSignInSession('-')}>-</SelectSign>
-            <SelectSign sign='*' onClick={() => changeSignInSession('*')}>x</SelectSign>
-            <SelectSign sign='/' onClick={() => changeSignInSession('/')}>/</SelectSign>
+            <SelectSign sign="+" onClick={() => changeSignInSession('+')}>+</SelectSign>
+            <SelectSign sign="-" onClick={() => changeSignInSession('-')}>-</SelectSign>
+            <SelectSign sign="*" onClick={() => changeSignInSession('*')}>x</SelectSign>
+            <SelectSign sign="/" onClick={() => changeSignInSession('/')}>/</SelectSign>
         </div>
     );
-};
+}
 
 export default ChangeSigns;

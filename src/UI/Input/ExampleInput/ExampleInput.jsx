@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import style from './ExampleInput.module.css';
 
-const ExampleInput = ({ sessionProgress, signal = null, ...props }) => {
-
+function ExampleInput({ sessionProgress, signal = null, ...props }) {
     const [inputColor, setInputColor] = useState('');
 
     const checkNumber = (e) => {
-        const value = e.target.value;
+        const { value } = e.target;
         const isNumber = /^[0-9]+$/.test(value);
         if (!isNumber) {
             e.target.value = '';
@@ -14,21 +13,18 @@ const ExampleInput = ({ sessionProgress, signal = null, ...props }) => {
     };
 
     const changeInputColor = () => {
-
         if (sessionProgress) {
             setInputColor('#0FBE26');
 
             setTimeout(() => {
                 setInputColor('');
             }, 800);
-
         }
     };
 
     useEffect(() => {
         changeInputColor();
     }, [signal]);
-
 
     return (
         <div>
@@ -42,6 +38,6 @@ const ExampleInput = ({ sessionProgress, signal = null, ...props }) => {
             />
         </div>
     );
-};
+}
 
 export default ExampleInput;

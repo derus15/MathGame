@@ -17,7 +17,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "jest",
-    "eject": "react-scripts eject"
+    "lint": "eslint \"**/*.{js,jsx}\" ",
+    "lint:fix": "eslint \"**/*.{js,jsx}\" --fix"
   },
   "browserslist": {
     "production": [
@@ -32,11 +33,16 @@
     ]
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.22.15",
+    "@babel/preset-react": "^7.22.15",
     "@reduxjs/toolkit": "^1.9.5",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "babel-plugin-named-exports-order": "^0.0.2",
+    "eslint": "^8.52.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-react": "^7.33.2",
     "jest": "^27.5.1",
     "prettier": "^3.0.0",
     "webpack": "^5.76.2"

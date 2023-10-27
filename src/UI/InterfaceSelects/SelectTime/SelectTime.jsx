@@ -1,10 +1,9 @@
 import React from 'react';
-import classes from './SelectTime.module.css';
 import { useSelector } from 'react-redux';
+import classes from './SelectTime.module.css';
 
-const SelectTime = ({ children, time, onClick }) => {
-
-    const duration = useSelector(state => state.interface.time);
+function SelectTime({ children, time, onClick }) {
+    const duration = useSelector((state) => state.interface.time);
 
     const getClassName = (time) => {
         if (duration === time) {
@@ -18,6 +17,6 @@ const SelectTime = ({ children, time, onClick }) => {
             {children}
         </div>
     );
-};
+}
 
 export default SelectTime;

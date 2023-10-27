@@ -1,12 +1,11 @@
 import React from 'react';
-import classes from '../Interface.module.css';
 import { useDispatch } from 'react-redux';
+import classes from '../Interface.module.css';
 import { changeNumber } from '../../../redux/Slices/frontSlices/interfaceSlice';
 import MyNumber from '../MyParams/MyNumber';
 import SelectNumber from '../../../UI/InterfaceSelects/SelectNumber/SelectNumber';
 
-const ChangeNumber = ({ sessionProgress }) => {
-
+function ChangeNumber({ sessionProgress }) {
     const dispatch = useDispatch();
 
     function changeNumberInSession(number) {
@@ -23,6 +22,6 @@ const ChangeNumber = ({ sessionProgress }) => {
             <MyNumber sessionProgress={sessionProgress} changeNumberInSession={changeNumberInSession} />
         </div>
     );
-};
+}
 
 export default ChangeNumber;

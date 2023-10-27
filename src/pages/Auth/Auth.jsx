@@ -4,17 +4,16 @@ import LoginForm from './LoginForm';
 import RegisterForm from './RegisterForm';
 import Toast from '../../UI/Toaster/Toast';
 
-const Auth = () => {
-
+function Auth() {
     return (
         <div className={style.mainContainer}>
             <div className={style.gridContainer}>
                 <RegisterForm />
                 <LoginForm />
-                <Toast/>
+                <Toast />
             </div>
         </div>
     );
-};
+}
 
 export default Auth;

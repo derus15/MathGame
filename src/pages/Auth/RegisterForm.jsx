@@ -1,20 +1,19 @@
 import React from 'react';
+import { useForm } from 'react-hook-form';
+import { useDispatch, useSelector } from 'react-redux';
+import { Navigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import style from './Auth.module.css';
 import LoginInput from '../../UI/Input/LoginInput/LoginInput';
 import LoginButton from '../../UI/Button/LoginButton/LoginButton';
-import { useForm } from 'react-hook-form';
-import { useDispatch, useSelector } from 'react-redux';
 import { authData, fetchRegister } from '../../redux/Slices/backSlices/authSlice';
-import { Navigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import Loader from '../../UI/Loader/Loader';
 
-const RegisterForm = () => {
-
+function RegisterForm() {
     const dispatch = useDispatch();
     const isAuth = useSelector(authData);
 
-    const status = useSelector(state => state.auth.statusReg);
+    const status = useSelector((state) => state.auth.statusReg);
     const isLoading = status === 'loading';
 
     const { handleSubmit, register } = useForm({ mode: 'onChange' });
@@ -25,7 +24,6 @@ const RegisterForm = () => {
         const error = data.payload;
 
         if (error && error.response) {
-
             const errorStatus = error.response.status;
             let errorMessage;
 
@@ -46,28 +44,27 @@ const RegisterForm = () => {
             localStorage.setItem('token', data.payload.token);
         }
 
-        if (!('token' in data.payload) && !(error && error.response)){
-            toast.error('Сервер не отвечает. Попробуйте позже')
+        if (!('token' in data.payload) && !(error && error.response)) {
+            toast.error('Сервер не отвечает. Попробуйте позже');
         }
-
     };
 
     if (isAuth) {
-        return <Navigate to='/account' />;
+        return <Navigate to="/account" />;
     }
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
             <div className={style.registerContainer}>
                 <div className={style.registerHeader}>Регистрация</div>
-                <LoginInput placeholder={'Имя'} {...register('name')}></LoginInput>
-                <LoginInput placeholder={'Почта'} {...register('email')} type={'email'}></LoginInput>
-                <LoginInput placeholder={'Пароль'} {...register('password')} ></LoginInput>
+                <LoginInput placeholder="Имя" {...register('name')} />
+                <LoginInput placeholder="Почта" {...register('email')} type="email" />
+                <LoginInput placeholder="Пароль" {...register('password')} />
                 <LoginButton>Зарегистрироваться</LoginButton>
-                <Loader isLoading={isLoading} position={style.positionRegisterLoader}/>
+                <Loader isLoading={isLoading} position={style.positionRegisterLoader} />
             </div>
         </form>
     );
-};
+}
 
 export default RegisterForm;

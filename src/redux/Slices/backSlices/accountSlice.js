@@ -14,25 +14,25 @@ const initialState = {
 const accountSlice = createSlice({
     name: 'query',
     initialState,
-    reducers:{},
-    extraReducers:{
+    reducers: {},
+    extraReducers: {
 
         [getData.pending]: (state) => {
-            state.data = null
-            state.status = 'loading'
+            state.data = null;
+            state.status = 'loading';
         },
 
         [getData.fulfilled]: (state, action) => {
-            state.data = action.payload
-            state.status = 'loaded'
+            state.data = action.payload;
+            state.status = 'loaded';
         },
 
         [getData.rejected]: (state) => {
-            state.data = null
-            state.status = 'error'
+            state.data = null;
+            state.status = 'error';
         },
 
-    }
-})
+    },
+});
 
 export default accountSlice.reducer;

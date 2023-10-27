@@ -28,7 +28,7 @@ export const dataSlice = createSlice({
         },
 
         addExample: (state, action) => {
-            state.examplesInSession = [...state.examplesInSession, action.payload]
+            state.examplesInSession = [...state.examplesInSession, action.payload];
         },
 
     },

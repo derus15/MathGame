@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from 'react';
+import { useSelector } from 'react-redux';
 import ExampleInput from '../UI/Input/ExampleInput/ExampleInput';
 import StandardTimer from './Timers/StandardTimer';
 import Example from './Example';
@@ -9,11 +10,12 @@ import { useSelector } from 'react-redux';
 // import { resetSprintCounter, resetStandardCounter } from '../redux/Slices/dataSlice';
 
 const ExampleArea = ({ endSession, sessionProgress, setSessionProgress }) => {
-
-    const signList = useSelector(state => state.interface.signList);
-    const [sign, setSign] = useState(signList[Math.floor(Math.random() * signList.length)]);
+    const signList = useSelector((state) => state.interface.signList);
+    const [sign, setSign] = useState(
+        signList[Math.floor(Math.random() * signList.length)],
+    );
     const [answer, setAnswer] = useState();
-    const gameMode = useSelector(state => state.interface.mode);
+    const gameMode = useSelector((state) => state.interface.mode);
     // const [date, setDate] = useState();
     // const [instruction, setInstruction] = useState(true);
 
@@ -22,16 +24,10 @@ const ExampleArea = ({ endSession, sessionProgress, setSessionProgress }) => {
         num_2: Math.floor(Math.random() * 100),
     });
 
-    useMemo(() => {
-        refresh();
-        changeSign();
-    }, [signList, gameMode]);
-
     function changeSign() {
-        let signNumber = signList[Math.floor(Math.random() * signList.length)];
+        const signNumber = signList[Math.floor(Math.random() * signList.length)];
         setSign(signNumber);
     }
-
     function refresh() {
         const refreshNum = {
             num_1: Math.floor(Math.random() * 100),
@@ -39,6 +35,11 @@ const ExampleArea = ({ endSession, sessionProgress, setSessionProgress }) => {
         };
         setNumbers(refreshNum);
     }
+
+    useMemo(() => {
+        refresh();
+        changeSign();
+    }, [signList, gameMode]);
 
     function startSession() {
         if (!sessionProgress) {
@@ -60,18 +61,28 @@ const ExampleArea = ({ endSession, sessionProgress, setSessionProgress }) => {
     }
 
     return (
-        <div>
-            {(gameMode === 'Стандарт')
-                ?
-                <StandardTimer answer={answer} sessionProgress={sessionProgress} end={endSession} />
-                :
-                <SprintTimer answer={answer} sessionProgress={sessionProgress} end={endSession} />
-            }
-            <div className={'example'}>
+        <>
+            {gameMode === 'Стандарт' ? (
+                <StandardTimer
+                    answer={answer}
+                    sessionProgress={sessionProgress}
+                    end={endSession}
+                />
+            ) : (
+                <SprintTimer
+                    answer={answer}
+                    sessionProgress={sessionProgress}
+                    end={endSession}
+                />
+            )}
+            <div className="example">
                 <Example number={number} sign={sign} setAnswer={setAnswer} />
-                <ExampleInput tabIndex='10' onClick={startSession} onFocus={startSession} onInput={answered}
-                              signal={answer}
-                              sessionProgress={sessionProgress} />
+                <ExampleInput
+                    onFocus={startSession}
+                    onInput={answered}
+                    signal={answer}
+                    sessionProgress={sessionProgress}
+                />
             </div>
             {/*{(instruction)*/}
             {/*    ?*/}
@@ -89,6 +100,7 @@ const ExampleArea = ({ endSession, sessionProgress, setSessionProgress }) => {
             {/*    <></>*/}
             {/*}*/}
         </div>
+        </>
     );
 };
 

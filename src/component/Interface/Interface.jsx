@@ -5,8 +5,7 @@ import ChangeSigns from './ChangeParams/ChangeSigns';
 import Lines from './Lines/Lines';
 import ChangeTimeNumber from './ChangeParams/ChangeTimeNumber';
 
-const Interface = ({ sessionProgress }) => {
-
+function Interface({ sessionProgress }) {
     return (
         <div className={classes.center}>
             <div className={classes.mainContainer}>
@@ -17,6 +16,6 @@ const Interface = ({ sessionProgress }) => {
             </div>
         </div>
     );
-};
+}
 
 export default Interface;

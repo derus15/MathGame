@@ -1,13 +1,10 @@
 import React from 'react';
 import style from './Loader.module.css';
 
-const Loader = ({isLoading, position}) => {
-
+function Loader({ isLoading, position }) {
     return (
-        <>
-          <div className={isLoading ? [style.loader, position].join(' ') : ''}></div>
-        </>
+        <div className={isLoading ? [style.loader, position].join(' ') : ''} />
     );
-};
+}
 
 export default Loader;

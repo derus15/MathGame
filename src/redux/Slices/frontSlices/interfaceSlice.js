@@ -28,7 +28,7 @@ export const interfaceSlice = createSlice({
         },
 
         deleteSign: (state, action) => {
-            state.signList = state.signList.filter(sign => sign !== action.payload);
+            state.signList = state.signList.filter((sign) => sign !== action.payload);
             localStorage.setItem('signList', JSON.stringify(state.signList));
         },
 
@@ -39,6 +39,12 @@ export const interfaceSlice = createSlice({
     },
 });
 
-export const { changeTime, changeNumber, addSign, deleteSign, changeGameMode } = interfaceSlice.actions;
+export const {
+    changeTime,
+    changeNumber,
+    addSign,
+    deleteSign,
+    changeGameMode,
+} = interfaceSlice.actions;
 
 export default interfaceSlice.reducer;

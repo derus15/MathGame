@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import MyModal from '../../UI/Modal/MyModal';
 
-const Version = () => {
-
+function Version() {
     const [modalVersion, setModalVersion] = useState(false);
 
     function showModalVersion() {
@@ -11,36 +10,43 @@ const Version = () => {
 
     return (
         <div>
-            <div className={'extra'} onClick={showModalVersion}>v 2.0.11</div>
-            {modalVersion &&
-                <MyModal
-                    visible={modalVersion} setVisible={setModalVersion}>
-                    <span className={'versionNumber'}>v 1.0 </span>
-                    <p className={'versionText'}>- Первая рабочая версия приложения</p>
-                    <br />
-                    <span className={'versionNumber'}>v 1.1 </span>
-                    <p className={'versionText'}>
-                        - Добавлена новая тема <br />
-                        - Исправление мелких ошибок и багов
+            <div className="extra" onClick={showModalVersion}>
+                v 2.0.12
+            </div>
+            {modalVersion && (
+                <MyModal visible={modalVersion} setVisible={setModalVersion}>
+                    <span className="versionNumber">v 1.0 </span>
+                    <p className="versionText">
+                        - Первая рабочая версия приложения
                     </p>
                     <br />
-                    <span className={'versionNumber'}>v 1.2 </span>
-                    <p className={'versionText'}>
-                        - Добавлен новый режим игры <br />
-                        - Добавлено поле для установки собственного времени<br />
-                        - Исправление мелких ошибок и багов
+                    <span className="versionNumber">v 1.1 </span>
+                    <p className="versionText">
+                        - Добавлена новая тема
+                        <br />- Исправление мелких ошибок и багов
                     </p>
                     <br />
-                    <span className={'versionNumber'}>v 2.0 </span>
-                    <p className={'versionText'}>
-                        - Добавлен личный кабинет и статистика <br />
-                        - Добавлено отображение секунд<br />
-                        - Исправление мелких ошибок и багов<br />
+                    <span className="versionNumber">v 1.2 </span>
+                    <p className="versionText">
+                        - Добавлен новый режим игры
+                        <br />
+                        - Добавлено поле для установки собственного времени
+                        <br />- Исправление мелких ошибок и багов
+                    </p>
+                    <br />
+                    <span className="versionNumber">v 2.0 </span>
+                    <p className="versionText">
+                        - Добавлен личный кабинет и статистика
+                        <br />
+                        - Добавлено отображение секунд
+                        <br />
+                        - Исправление мелких ошибок и багов
+                        <br />
                     </p>
                 </MyModal>
-            }
+            )}
         </div>
     );
-};
+}
 
 export default Version;

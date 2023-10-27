@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import Tooltip from '../../UI/Tooltip/Tooltip';
 
-const Support = () => {
-
+function Support() {
     const [tooltipSupport, setTooltipSupport] = useState(false);
 
     function showTooltipSupport() {
@@ -11,17 +10,19 @@ const Support = () => {
 
     return (
         <div>
-            <div onClick={showTooltipSupport} className={'extra'}>Поддержать</div>
-            {tooltipSupport &&
-                <Tooltip
-                    setShow={setTooltipSupport}
-                    condition={tooltipSupport}
-                    depend={showTooltipSupport}>
-                    Спасибо за поддержку
-                </Tooltip>
-            }
+            <div onClick={showTooltipSupport} className="extra">Поддержать</div>
+            {tooltipSupport
+                && (
+                    <Tooltip
+                        setShow={setTooltipSupport}
+                        condition={tooltipSupport}
+                        depend={showTooltipSupport}
+                    >
+                        Спасибо за поддержку
+                    </Tooltip>
+                )}
         </div>
     );
-};
+}
 
 export default Support;

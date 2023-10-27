@@ -6,19 +6,18 @@ export const timeNormalization = (time) => {
 
     let hours = Math.floor(time / 3600).toString();
     if (hours.length < 2) {
-        hours = '0' + hours;
+        hours = `0${hours}`;
     }
 
     let minutes = Math.floor((time % 3600) / 60).toString();
     if (minutes.length < 2) {
-        minutes = '0' + minutes;
+        minutes = `0${minutes}`;
     }
 
     let sec = (time % 60).toString();
     if (sec.length < 2) {
-        sec = '0' + sec;
+        sec = `0${sec}`;
     }
 
     return (`${hours}:${minutes}:${sec}`);
-
 };

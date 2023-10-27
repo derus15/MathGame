@@ -1,31 +1,29 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from '../../../axios';
 
-export const fetchAuth = createAsyncThunk('/auth/fetchAuth', async (params, { rejectWithValue }) => {
-    try {
+export const fetchAuth = createAsyncThunk(
+    '/auth/fetchAuth',
+    async (params, { rejectWithValue }) => {
+        try {
+            const { data } = await axios.post('/auth/login', params);
+            return data;
+        } catch (error) {
+            return rejectWithValue(error);
+        }
+    },
+);
 
-        const { data } = await axios.post('/auth/login', params);
-        return data;
-
-    } catch (error) {
-
-        return rejectWithValue(error);
-
-    }
-});
-
-export const fetchRegister = createAsyncThunk('/auth/fetchRegister', async (params, { rejectWithValue }) => {
-    try {
-
-        const { data } = await axios.post('/auth/register', params);
-        return data;
-
-    } catch (error) {
-
-        return rejectWithValue(error);
-
-    }
-});
+export const fetchRegister = createAsyncThunk(
+    '/auth/fetchRegister',
+    async (params, { rejectWithValue }) => {
+        try {
+            const { data } = await axios.post('/auth/register', params);
+            return data;
+        } catch (error) {
+            return rejectWithValue(error);
+        }
+    },
+);
 
 export const fetchAuthMe = createAsyncThunk('/auth/fetchAuthMe', async () => {
     const { data } = await axios.get('/auth/me');
@@ -49,7 +47,6 @@ const authSlice = createSlice({
         },
     },
     extraReducers: {
-
         // RegisterForm
 
         [fetchRegister.pending]: (state) => {
@@ -74,12 +71,10 @@ const authSlice = createSlice({
             state.statusLog = 'loading';
         },
 
-
         [fetchAuth.fulfilled]: (state, action) => {
             state.data = action.payload;
             state.statusLog = 'loaded';
         },
-
 
         [fetchAuth.rejected]: (state) => {
             state.data = null;
@@ -99,7 +94,6 @@ const authSlice = createSlice({
         [fetchAuthMe.rejected]: (state) => {
             state.data = null;
         },
-
     },
 });
 

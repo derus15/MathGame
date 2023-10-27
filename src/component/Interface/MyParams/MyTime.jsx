@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import classes from '../Interface.module.css';
 import MyModal from '../../../UI/Modal/MyModal';
-import { useSelector } from 'react-redux';
 import PersonParamsInput from '../../../UI/Input/PersonParamsInput/PersonParamsInput';
 
-const MyTime = ({ sessionProgress, changeTimeInSession }) => {
-
+function MyTime({ sessionProgress, changeTimeInSession }) {
     const [modalMyTime, setMyTime] = useState(false);
-    const duration = useSelector(state => state.interface.time);
+    const duration = useSelector((state) => state.interface.time);
 
     const getClassName = (id) => {
         if (duration === id) {
@@ -26,6 +25,7 @@ const MyTime = ({ sessionProgress, changeTimeInSession }) => {
         if (duration !== 15 && duration !== 30 && duration !== 60) {
             return duration;
         }
+        return null;
     };
 
     return (
@@ -39,6 +39,6 @@ const MyTime = ({ sessionProgress, changeTimeInSession }) => {
             )}
         </>
     );
-};
+}
 
 export default MyTime;

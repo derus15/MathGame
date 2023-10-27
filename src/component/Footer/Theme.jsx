@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const Theme = () => {
-
+function Theme() {
     const themesList = ['black', 'ocean', 'PP'];
     const [themeIndex, setThemeIndex] = useState(localStorage.getItem('theme') || 0);
 
@@ -19,16 +18,16 @@ const Theme = () => {
     }, [themeIndex]);
 
     const themeObj = {
-        'black': 'Темная',
-        'PP': 'PP',
-        'ocean': 'Ocean',
+        black: 'Темная',
+        PP: 'PP',
+        ocean: 'Ocean',
     };
 
     return (
         <div>
-            <div onClick={showTheme} className={'extra'}>{themeObj[themesList[themeIndex]]}</div>
+            <div onClick={showTheme} className="extra">{themeObj[themesList[themeIndex]]}</div>
         </div>
     );
-};
+}
 
 export default Theme;

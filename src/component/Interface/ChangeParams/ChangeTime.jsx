@@ -1,12 +1,11 @@
 import React from 'react';
-import classes from '../Interface.module.css';
 import { useDispatch } from 'react-redux';
+import classes from '../Interface.module.css';
 import { changeTime } from '../../../redux/Slices/frontSlices/interfaceSlice';
 import MyTime from '../MyParams/MyTime';
 import SelectTime from '../../../UI/InterfaceSelects/SelectTime/SelectTime';
 
-const ChangeTime = ({ sessionProgress }) => {
-
+function ChangeTime({ sessionProgress }) {
     const dispatch = useDispatch();
 
     function changeTimeInSession(time) {
@@ -23,8 +22,6 @@ const ChangeTime = ({ sessionProgress }) => {
             <MyTime sessionProgress={sessionProgress} changeTimeInSession={changeTimeInSession} />
         </div>
     );
-};
+}
 
 export default ChangeTime;
-
-
