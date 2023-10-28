@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { saveSprintTime } from '../../redux/Slices/frontSlices/dataSlice';
 
-function SprintTimer({ answer, sessionProgress, end }) {
+const SprintTimer = ({ answer, sessionProgress, end }) => {
 
     const duration = useSelector((state) => state.interface.number);
     const [time, setTime] = useState(0);
@@ -41,6 +41,6 @@ function SprintTimer({ answer, sessionProgress, end }) {
             </div>
         </div>
     );
-}
+};
 
 export default SprintTimer;

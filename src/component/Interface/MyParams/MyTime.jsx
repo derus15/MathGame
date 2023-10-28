@@ -4,7 +4,7 @@ import classes from '../Interface.module.css';
 import MyModal from '../../../UI/Modal/MyModal';
 import PersonParamsInput from '../../../UI/Input/PersonParamsInput/PersonParamsInput';
 
-function MyTime({ sessionProgress, changeTimeInSession }) {
+const MyTime = ({ sessionProgress, changeTimeInSession }) => {
     const [modalMyTime, setMyTime] = useState(false);
     const duration = useSelector((state) => state.interface.time);
 
@@ -39,6 +39,6 @@ function MyTime({ sessionProgress, changeTimeInSession }) {
             )}
         </>
     );
-}
+};
 
 export default MyTime;

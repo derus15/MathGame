@@ -9,7 +9,7 @@ import LoginButton from '../../UI/Button/LoginButton/LoginButton';
 import { authData, fetchRegister } from '../../redux/Slices/backSlices/authSlice';
 import Loader from '../../UI/Loader/Loader';
 
-function RegisterForm() {
+const RegisterForm = () => {
     const dispatch = useDispatch();
     const isAuth = useSelector(authData);
 
@@ -65,6 +65,6 @@ function RegisterForm() {
             </div>
         </form>
     );
-}
+};
 
 export default RegisterForm;

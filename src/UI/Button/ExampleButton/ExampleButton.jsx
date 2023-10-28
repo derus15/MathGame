@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './ExampleButton.module.css';
 
-function ExampleButton({ children, random = false, ...props }) {
+const ExampleButton = ({ children, random = false, ...props }) => {
     if (random) {
         const textList = ['Хорошо', 'Ладно', 'Понятно', 'Прекрасно'];
         children = textList[Math.floor(Math.random() * textList.length)];
@@ -14,6 +14,6 @@ function ExampleButton({ children, random = false, ...props }) {
             </button>
         </div>
     );
-}
+};
 
 export default ExampleButton;

@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import classes from './SelectNumber.module.css';
 
-function SelectNumber({ children, number, onClick }) {
+const SelectNumber = ({ children, number, onClick }) => {
     const duration = useSelector((state) => state.interface.number);
 
     const getClassName = (number) => {
@@ -17,6 +17,6 @@ function SelectNumber({ children, number, onClick }) {
             {children}
         </div>
     );
-}
+};
 
 export default SelectNumber;

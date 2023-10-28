@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import classes from './SelectSign.module.css';
 
-function SelectSign({ children, onClick, sign }) {
+const SelectSign = ({ children, onClick, sign }) => {
     const signs = useSelector((state) => state.interface.signList);
 
     const getClassName = (sign) => {
@@ -17,6 +17,6 @@ function SelectSign({ children, onClick, sign }) {
             {children}
         </div>
     );
-}
+};
 
 export default SelectSign;

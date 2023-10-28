@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import classes from './SelectTime.module.css';
 
-function SelectTime({ children, time, onClick }) {
+const SelectTime = ({ children, time, onClick }) => {
     const duration = useSelector((state) => state.interface.time);
 
     const getClassName = (time) => {
@@ -17,6 +17,6 @@ function SelectTime({ children, time, onClick }) {
             {children}
         </div>
     );
-}
+};
 
 export default SelectTime;

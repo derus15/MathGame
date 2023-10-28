@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import MyModal from '../../UI/Modal/MyModal';
 
-function Base() {
+const Base = () => {
     const [modalBase, setModalBase] = useState(false);
 
     function showModalBase() {
@@ -22,6 +22,6 @@ function Base() {
                 )}
         </div>
     );
-}
+};
 
 export default Base;

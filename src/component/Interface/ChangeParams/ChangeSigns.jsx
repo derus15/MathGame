@@ -4,7 +4,7 @@ import classes from '../Interface.module.css';
 import { addSign, deleteSign } from '../../../redux/Slices/frontSlices/interfaceSlice';
 import SelectSign from '../../../UI/InterfaceSelects/SelectSign/SelectSign';
 
-function ChangeSigns({ sessionProgress }) {
+const ChangeSigns = ({ sessionProgress }) => {
     const dispatch = useDispatch();
     const signs = useSelector((state) => state.interface.signList);
 
@@ -26,6 +26,6 @@ function ChangeSigns({ sessionProgress }) {
             <SelectSign sign="/" onClick={() => changeSignInSession('/')}>/</SelectSign>
         </div>
     );
-}
+};
 
 export default ChangeSigns;

@@ -5,7 +5,7 @@ import { changeTime } from '../../../redux/Slices/frontSlices/interfaceSlice';
 import MyTime from '../MyParams/MyTime';
 import SelectTime from '../../../UI/InterfaceSelects/SelectTime/SelectTime';
 
-function ChangeTime({ sessionProgress }) {
+const ChangeTime = ({ sessionProgress }) => {
     const dispatch = useDispatch();
 
     function changeTimeInSession(time) {
@@ -22,6 +22,6 @@ function ChangeTime({ sessionProgress }) {
             <MyTime sessionProgress={sessionProgress} changeTimeInSession={changeTimeInSession} />
         </div>
     );
-}
+};
 
 export default ChangeTime;

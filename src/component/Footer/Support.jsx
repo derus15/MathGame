@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Tooltip from '../../UI/Tooltip/Tooltip';
 
-function Support() {
+const Support = () => {
     const [tooltipSupport, setTooltipSupport] = useState(false);
 
     function showTooltipSupport() {
@@ -23,6 +23,6 @@ function Support() {
                 )}
         </div>
     );
-}
+};
 
 export default Support;

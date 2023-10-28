@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 import classes from './Tooltip.module.css';
 
-function Tooltip({ children, condition, depend, setShow, style = {} }) {
+const Tooltip = ({ children, condition, depend, setShow, style = {} }) => {
 
     useEffect(() => {
         if (condition) {
@@ -22,6 +22,6 @@ function Tooltip({ children, condition, depend, setShow, style = {} }) {
             <div className={classes.support}>{children}</div>
         </div>
     );
-}
+};
 
 export default Tooltip;

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import MyModal from '../../UI/Modal/MyModal';
 
-function Version() {
+const Version = () => {
     const [modalVersion, setModalVersion] = useState(false);
 
     function showModalVersion() {
@@ -47,6 +47,6 @@ function Version() {
             )}
         </div>
     );
-}
+};
 
 export default Version;

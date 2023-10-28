@@ -10,7 +10,7 @@ import { authData, fetchAuth } from '../../redux/Slices/backSlices/authSlice';
 import Checkbox from '../../UI/Checkbox/Checkbox';
 import Loader from '../../UI/Loader/Loader';
 
-function LoginForm() {
+const LoginForm = () => {
 
     const [isRemember, setIsRemember] = useState(JSON.parse(localStorage.getItem('remember')) || false);
     const dispatch = useDispatch();
@@ -80,6 +80,6 @@ function LoginForm() {
             </div>
         </form>
     );
-}
+};
 
 export default LoginForm;

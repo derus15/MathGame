@@ -5,7 +5,7 @@ import MyModal from '../../../UI/Modal/MyModal';
 import classes from '../Interface.module.css';
 import PersonParamsInput from '../../../UI/Input/PersonParamsInput/PersonParamsInput';
 
-function MyNumber({ sessionProgress, changeNumberInSession }) {
+const MyNumber = ({ sessionProgress, changeNumberInSession }) => {
     const [modalMyNumber, setMyNumber] = useState(false);
     const duration = useSelector((state) => state.interface.number);
 
@@ -41,6 +41,6 @@ function MyNumber({ sessionProgress, changeNumberInSession }) {
             )}
         </>
     );
-}
+};
 
 export default MyNumber;

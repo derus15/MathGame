@@ -29,7 +29,6 @@ module.exports = {
         'no-unused-vars': 'warn',
         'react/require-default-props': 'off',
         'react/react-in-jsx-scope': 'off',
-        'react/function-component-definition': 'off',
         'no-shadow': 'off',
         'import/extensions': 'off',
         'import/no-extraneous-dependencies': 'off',
@@ -46,6 +45,7 @@ module.exports = {
         'react/jsx-props-no-spreading': 'off',
         'object-curly-newline': 'off',
         'quote-props': 'off',
+        'react/function-component-definition': [2, { 'namedComponents': 'arrow-function' }],
     },
     overrides: [
         {

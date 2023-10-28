@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import classes from '../Interface.module.css';
 
-function Lines() {
+const Lines = () => {
     const [rotate, setRotate] = useState(false);
 
     function handleClick() {
@@ -21,6 +21,6 @@ function Lines() {
             <div className={rotation('leftLine')} onClick={handleClick} />
         </div>
     );
-}
+};
 
 export default Lines;

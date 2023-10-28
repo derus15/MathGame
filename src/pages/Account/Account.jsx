@@ -6,7 +6,7 @@ import { authData } from '../../redux/Slices/backSlices/authSlice';
 import { timeNormalization } from '../../helpers/timeNormalization';
 import { getData } from '../../redux/Slices/backSlices/accountSlice';
 
-function Account() {
+const Account = () => {
     const dispatch = useDispatch();
     const isAuth = useSelector(authData);
 
@@ -66,6 +66,6 @@ function Account() {
 
         </div>
     );
-}
+};
 
 export default Account;

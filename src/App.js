@@ -11,7 +11,7 @@ import Account from './pages/Account/Account';
 import { fetchAuthMe } from './redux/Slices/backSlices/authSlice';
 import NotFound from './pages/NotFound/NotFound';
 
-function App() {
+const App = () => {
 
     const dispatch = useDispatch();
 
@@ -31,6 +31,6 @@ function App() {
             <Footer />
         </div>
     );
-}
+};
 
 export default App;

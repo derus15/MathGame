@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import style from './ExampleInput.module.css';
 
-function ExampleInput({ sessionProgress, signal = null, ...props }) {
+const ExampleInput = ({ sessionProgress, signal = null, ...props }) => {
     const [inputColor, setInputColor] = useState('');
 
     const checkNumber = (e) => {
@@ -38,6 +38,6 @@ function ExampleInput({ sessionProgress, signal = null, ...props }) {
             />
         </div>
     );
-}
+};
 
 export default ExampleInput;

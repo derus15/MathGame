@@ -5,7 +5,7 @@ import {
     resetStandardCounter,
 } from '../../redux/Slices/frontSlices/dataSlice';
 
-function StandardTimer({ answer, sessionProgress, end }) {
+const StandardTimer = ({ answer, sessionProgress, end }) => {
 
     const duration = useSelector((state) => state.interface.time);
     const [time, setTime] = useState(duration);
@@ -81,6 +81,6 @@ function StandardTimer({ answer, sessionProgress, end }) {
             </div>
         </div>
     );
-}
+};
 
 export default StandardTimer;

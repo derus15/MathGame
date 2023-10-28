@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import classes from './SelectMode.module.css';
 
-function SelectMod({ children, onClick, mode }) {
+const SelectMod = ({ children, onClick, mode }) => {
     const gameMode = useSelector((state) => state.interface.mode);
 
     const getClassName = (mode) => {
@@ -17,6 +17,6 @@ function SelectMod({ children, onClick, mode }) {
             {children}
         </div>
     );
-}
+};
 
 export default SelectMod;

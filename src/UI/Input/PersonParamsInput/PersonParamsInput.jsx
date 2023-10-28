@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './PersonParamsInput.module.css';
 
-function PersonParamsInput({ callback }) {
+const PersonParamsInput = ({ callback }) => {
 
     const testNumber = (e) => {
 
@@ -23,6 +23,6 @@ function PersonParamsInput({ callback }) {
             type="input"
         />
     );
-}
+};
 
 export default PersonParamsInput;

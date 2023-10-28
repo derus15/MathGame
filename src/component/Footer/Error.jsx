@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import MyModal from '../../UI/Modal/MyModal';
 
-function Error() {
+const Error = () => {
     const [modalError, setModalError] = useState(false);
 
     function showModalError() {
@@ -20,6 +20,6 @@ function Error() {
                 )}
         </div>
     );
-}
+};
 
 export default Error;
