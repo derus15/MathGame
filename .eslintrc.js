@@ -46,6 +46,7 @@ module.exports = {
         'object-curly-newline': 'off',
         'quote-props': 'off',
         'react/function-component-definition': [2, { 'namedComponents': 'arrow-function' }],
+        'react/jsx-curly-newline': 'off',
     },
     overrides: [
         {

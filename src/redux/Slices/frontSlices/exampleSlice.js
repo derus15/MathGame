@@ -24,7 +24,8 @@ const exampleSlice = createSlice({
         generateSign: (state, action) => {
 
             const signList = action.payload;
-            state.sign = signList[Math.floor(Math.random() * signList.length)];
+            const randomIndex = Math.floor(Math.random() * signList.length);
+            state.sign = signList[randomIndex];
 
         },
 
@@ -32,6 +33,9 @@ const exampleSlice = createSlice({
 
 });
 
-export const { generateNumber, generateSign } = exampleSlice.actions;
+export const {
+    generateNumber,
+    generateSign,
+} = exampleSlice.actions;
 
 export default exampleSlice.reducer;
