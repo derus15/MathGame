@@ -3,10 +3,10 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
     standardCounter: 0,
     sprintTime: 0,
-    examplesInSession: [],
 };
 
 export const dataSlice = createSlice({
+
     name: 'data',
     initialState,
     reducers: {
@@ -27,10 +27,6 @@ export const dataSlice = createSlice({
             state.sprintCounterTime = 0;
         },
 
-        addExample: (state, action) => {
-            state.examplesInSession = [...state.examplesInSession, action.payload];
-        },
-
     },
 });
 
@@ -39,7 +35,6 @@ export const {
     resetSprintCounter,
     incrementStandardCounter,
     resetStandardCounter,
-    addExample,
 } = dataSlice.actions;
 
 export default dataSlice.reducer;

@@ -1,43 +1,36 @@
-import React, { useMemo, useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect, useMemo, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import ExampleInput from '../UI/Input/ExampleInput/ExampleInput';
 import StandardTimer from './Timers/StandardTimer';
 import Example from './Example';
 import SprintTimer from './Timers/SprintTimer';
+import { generateNumber } from '../redux/Slices/frontSlices/exampleSlice';
 
 // import useGenerateExample from '../hooks/useGenerateExample';
 // import Tooltip from '../UI/Tooltip/Tooltip';
 // import { resetSprintCounter, resetStandardCounter } from '../redux/Slices/dataSlice';
 
 const ExampleArea = ({ endSession, sessionProgress, setSessionProgress }) => {
+
+    const dispatch = useDispatch();
     const signList = useSelector((state) => state.interface.signList);
-    const [sign, setSign] = useState(
-        signList[Math.floor(Math.random() * signList.length)],
-    );
+    const [sign, setSign] = useState(signList[Math.floor(Math.random() * signList.length)]);
     const [answer, setAnswer] = useState();
     const gameMode = useSelector((state) => state.interface.mode);
     // const [date, setDate] = useState();
     // const [instruction, setInstruction] = useState(true);
 
-    const [number, setNumbers] = useState({
-        num_1: Math.floor(Math.random() * 100),
-        num_2: Math.floor(Math.random() * 100),
-    });
+    useEffect(() => {
+        dispatch(generateNumber(2));
+    }, []);
 
     function changeSign() {
         const signNumber = signList[Math.floor(Math.random() * signList.length)];
         setSign(signNumber);
     }
-    function refresh() {
-        const refreshNum = {
-            num_1: Math.floor(Math.random() * 100),
-            num_2: Math.floor(Math.random() * 100),
-        };
-        setNumbers(refreshNum);
-    }
 
     useMemo(() => {
-        refresh();
+        dispatch(generateNumber(2));
         changeSign();
     }, [signList, gameMode]);
 
@@ -52,7 +45,7 @@ const ExampleArea = ({ endSession, sessionProgress, setSessionProgress }) => {
     function answered(e) {
         if (e.target.value === answer) {
             changeSign();
-            refresh();
+            dispatch(generateNumber(2));
             e.target.value = '';
             // let dateNow = new Date().getTime();
             // let timeSpend = (dateNow - date) / 1000;
@@ -76,13 +69,14 @@ const ExampleArea = ({ endSession, sessionProgress, setSessionProgress }) => {
                 />
             )}
             <div className="example">
-                <Example number={number} sign={sign} setAnswer={setAnswer} />
+                <Example sign={sign} setAnswer={setAnswer} />
                 <ExampleInput
                     onFocus={startSession}
                     onInput={answered}
                     signal={answer}
                     sessionProgress={sessionProgress}
                 />
+                {answer}
             </div>
             {/* {(instruction) */}
             {/*    ? */}
