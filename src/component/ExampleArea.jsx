@@ -4,7 +4,7 @@ import ExampleInput from '../UI/Input/ExampleInput/ExampleInput';
 import StandardTimer from './Timers/StandardTimer';
 import Example from './Example';
 import SprintTimer from './Timers/SprintTimer';
-import { generateNumber } from '../redux/Slices/frontSlices/exampleSlice';
+import { generateNumber, generateSign } from '../redux/Slices/frontSlices/exampleSlice';
 
 // import useGenerateExample from '../hooks/useGenerateExample';
 // import Tooltip from '../UI/Tooltip/Tooltip';
@@ -14,7 +14,7 @@ const ExampleArea = ({ endSession, sessionProgress, setSessionProgress }) => {
 
     const dispatch = useDispatch();
     const signList = useSelector((state) => state.interface.signList);
-    const [sign, setSign] = useState(signList[Math.floor(Math.random() * signList.length)]);
+
     const [answer, setAnswer] = useState();
     const gameMode = useSelector((state) => state.interface.mode);
     // const [date, setDate] = useState();
@@ -22,16 +22,12 @@ const ExampleArea = ({ endSession, sessionProgress, setSessionProgress }) => {
 
     useEffect(() => {
         dispatch(generateNumber(2));
+        dispatch(generateSign(signList));
     }, []);
-
-    function changeSign() {
-        const signNumber = signList[Math.floor(Math.random() * signList.length)];
-        setSign(signNumber);
-    }
 
     useMemo(() => {
         dispatch(generateNumber(2));
-        changeSign();
+        dispatch(generateSign(signList));
     }, [signList, gameMode]);
 
     function startSession() {
@@ -44,7 +40,7 @@ const ExampleArea = ({ endSession, sessionProgress, setSessionProgress }) => {
 
     function answered(e) {
         if (e.target.value === answer) {
-            changeSign();
+            dispatch(generateSign(signList));
             dispatch(generateNumber(2));
             e.target.value = '';
             // let dateNow = new Date().getTime();
@@ -69,7 +65,7 @@ const ExampleArea = ({ endSession, sessionProgress, setSessionProgress }) => {
                 />
             )}
             <div className="example">
-                <Example sign={sign} setAnswer={setAnswer} />
+                <Example setAnswer={setAnswer} />
                 <ExampleInput
                     onFocus={startSession}
                     onInput={answered}

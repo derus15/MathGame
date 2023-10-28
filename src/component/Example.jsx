@@ -1,9 +1,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-const Example = ({ sign, setAnswer }) => {
+const Example = ({ setAnswer }) => {
 
     const [num_1, num_2] = useSelector((state) => state.example.numbers);
+    const sign = useSelector((state) => state.example.sign);
     
     const signFunction = {
         '+': (a, b) => a + b,
@@ -12,7 +13,7 @@ const Example = ({ sign, setAnswer }) => {
         '/': (a, b) => a / b,
     };
 
-    function generateExample(num_1, num_2) {
+    function generateExample(num_1, num_2, sign) {
 
         if ((sign === '-') && (num_1 < num_2)) {
             [num_1, num_2] = [num_2, num_1];
@@ -41,7 +42,7 @@ const Example = ({ sign, setAnswer }) => {
         );
     }
 
-    return (generateExample(num_1, num_2));
+    return (generateExample(num_1, num_2, sign));
 };
 
 export default Example;
