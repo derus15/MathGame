@@ -25,7 +25,7 @@ const HeaderAccount = () => {
                         <span className={style.username}>{name || nameMe}</span>
                         <svg onClick={Logout} className={style.logoContainer}>
                             <image
-                                xlinkHref="/logout.svg"
+                                xlinkHref="./assets/logout.svg"
                                 className={style.logout}
                             />
                         </svg>
@@ -37,7 +37,7 @@ const HeaderAccount = () => {
                         height="30px"
                         style={{ marginLeft: '90px' }}
                     >
-                        <image xlinkHref="/profile.svg" className={style.svg} />
+                        <image xlinkHref="./assets/profile.svg" className={style.svg} />
                     </svg>
                 )}
             </div>

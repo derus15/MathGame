@@ -1,13 +1,13 @@
 import React from 'react';
-import classes from './Interface.module.css';
+import style from './Interface.module.css';
 import ChangeModes from './ChangeParams/ChangeModes';
 import ChangeSigns from './ChangeParams/ChangeSigns';
 import Lines from './Lines/Lines';
 import ChangeTimeNumber from './ChangeParams/ChangeTimeNumber';
 
 const Interface = ({ sessionProgress }) => (
-    <div className={classes.center}>
-        <div className={classes.mainContainer}>
+    <div className={style.center}>
+        <div className={style.mainContainer}>
             <ChangeTimeNumber sessionProgress={sessionProgress} />
             <ChangeSigns sessionProgress={sessionProgress} />
             <Lines />

@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ExampleInput from '../UI/Input/ExampleInput/ExampleInput';
 import StandardTimer from './Timers/StandardTimer';

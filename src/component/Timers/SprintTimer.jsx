@@ -35,10 +35,8 @@ const SprintTimer = ({ answer, sessionProgress, end }) => {
     }, [sessionProgress]);
 
     return (
-        <div>
-            <div className="timer">
-                {sprintCounter} | {duration}
-            </div>
+        <div className="timer">
+            {sprintCounter} | {duration}
         </div>
     );
 };

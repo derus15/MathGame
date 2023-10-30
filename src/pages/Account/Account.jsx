@@ -46,7 +46,7 @@ const Account = () => {
                     </div>
 
                     <div className={style.circleAvatar}>
-                        <img src="/Avatar.jpg" alt="Аватарка" className={style.avatarImage} />
+                        <img src="/assets/Avatar.jpg" alt="Аватарка" className={style.avatarImage} />
                         <div className={style.userName}>{name}</div>
                     </div>
 
