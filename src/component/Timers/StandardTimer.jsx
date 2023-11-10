@@ -12,7 +12,7 @@ const StandardTimer = ({ answer, sessionProgress, end }) => {
     const [seconds, setSeconds] = useState(0);
     // const [width, setWidth] = useState('890');
     const [isVisibleSeconds, setIsVisibleSeconds] = useState(
-        JSON.parse(localStorage.getItem('seconds')) || false,
+        JSON.parse(localStorage.getItem('seconds')) || true,
     );
     const dispatch = useDispatch();
 

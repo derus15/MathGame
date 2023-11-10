@@ -16,6 +16,13 @@ module.exports = {
             presets: ['@babel/preset-react'],
         },
     },
+    settings: {
+        'import/resolver': {
+            'node': {
+                'extensions': ['.js', '.jsx', '.ts', '.tsx'],
+            },
+        },
+    },
     plugins: ['react', '@typescript-eslint'],
     rules: {
         indent: [2, 4],
@@ -24,7 +31,7 @@ module.exports = {
         'no-console': 'off',
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4],
-        'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx'] }],
+        'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', 'tsx'] }],
         'import/prefer-default-export': 'off',
         'no-unused-vars': 'warn',
         'react/require-default-props': 'off',
