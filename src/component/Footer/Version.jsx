@@ -11,7 +11,7 @@ const Version = () => {
     return (
         <div>
             <div className="extra" onClick={showModalVersion}>
-                v 2.0.14
+                v 2.1.0
             </div>
             {modalVersion && (
                 <MyModal visible={modalVersion} setVisible={setModalVersion}>
@@ -41,6 +41,14 @@ const Version = () => {
                         - Добавлено отображение секунд
                         <br />
                         - Исправление мелких ошибок и багов
+                        <br />
+                    </p>
+                    <br />
+                    <span className="versionNumber">v 2.1 </span>
+                    <p className="versionText">
+                        - Переезд проекта на кастомную сборку webpack
+                        <br />
+                        - Исправления и рефакторинг на уровне кода
                         <br />
                     </p>
                 </MyModal>

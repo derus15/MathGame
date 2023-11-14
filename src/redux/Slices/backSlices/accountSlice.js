@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from '../../../axios';
+import axios from '../../../helpers/axios';
 
 export const getData = createAsyncThunk('/account', async () => {
     const { data } = await axios.get('/account');

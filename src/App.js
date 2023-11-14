@@ -3,13 +3,13 @@ import './UI/Themes/Themes.css';
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import Header from './component/Header/Header';
 import Footer from './component/Footer/Footer';
 import Home from './pages/Home';
 import Auth from './pages/Auth/Auth';
 import Account from './pages/Account/Account';
 import { fetchAuthMe } from './redux/Slices/backSlices/authSlice';
 import NotFound from './pages/NotFound/NotFound';
+import Header from "./component/Header/Header";
 
 const App = () => {
 

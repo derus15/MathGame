@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import style from './Result.module.css';
 import ExampleButton from '../../UI/Button/ExampleButton/ExampleButton';
-import axios from '../../axios';
+import axios from '../../helpers/axios';
 import { normalizationOfTheEnd } from '../../helpers/normalizationOfTheEnd';
 
 const Result = ({ setIsResult }) => {
