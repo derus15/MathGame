@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import style from './Header.module.css';
 import { authData, logout } from '../../redux/Slices/backSlices/authSlice';
-import ProfileSvg from '/public/assets/profile.svg'
-import LogoutSvg from '/public/assets/logout.svg'
+import ProfileSvg from '../../public/assets/profile.svg';
+import LogoutSvg from '../../public/assets/logout.svg';
 
 const HeaderAccount = () => {
     const data = useSelector(authData);
@@ -26,7 +26,7 @@ const HeaderAccount = () => {
                     <>
                         <span className={style.username}>{name || nameMe}</span>
                         <svg onClick={Logout} className={style.logoContainer}>
-                            <LogoutSvg className={style.logout}/>
+                            <LogoutSvg className={style.logout} />
                         </svg>
                     </>
                 ) : (

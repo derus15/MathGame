@@ -8,7 +8,7 @@ import { BuildOptions } from '../../src/types/config';
 export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPluginInstance[] {
 
     const plugins = [
-        new webpack.ProgressPlugin(),                 // Может замедлять сборку в проде - убрать в дев режим
+        new webpack.ProgressPlugin(), // Может замедлять сборку в проде - убрать в дев режим
         // ниже без указания template, html создается заново
         new HTMLWebpackPlugin({
             template: paths.html,

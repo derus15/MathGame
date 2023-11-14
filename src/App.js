@@ -9,7 +9,7 @@ import Auth from './pages/Auth/Auth';
 import Account from './pages/Account/Account';
 import { fetchAuthMe } from './redux/Slices/backSlices/authSlice';
 import NotFound from './pages/NotFound/NotFound';
-import Header from "./component/Header/Header";
+import Header from './component/Header/Header';
 
 const App = () => {
 

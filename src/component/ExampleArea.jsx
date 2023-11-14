@@ -39,8 +39,7 @@ const ExampleArea = ({ endSession, sessionProgress, setSessionProgress }) => {
         <>
             {gameMode === 'Стандарт' 
                 ? <StandardTimer answer={answer} sessionProgress={sessionProgress} end={endSession} />
-                : <SprintTimer answer={answer} sessionProgress={sessionProgress} end={endSession} />
-            }
+                : <SprintTimer answer={answer} sessionProgress={sessionProgress} end={endSession} />}
             <div className="example">
                 <Example setAnswer={setAnswer} />
                 <ExampleInput

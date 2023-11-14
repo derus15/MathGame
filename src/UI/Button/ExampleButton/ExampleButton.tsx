@@ -1,4 +1,4 @@
-import React, {FC, ReactNode} from 'react';
+import React, { FC, ReactNode } from 'react';
 import classes from './ExampleButton.module.css';
 
 interface buttonProps {

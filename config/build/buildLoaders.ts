@@ -14,16 +14,16 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
 
     const svgLoader = {
         test: /\.svg$/,
-        issuer: /\.[jt]sx?$/,       // благодаря этому мы можем использовать svg везде, и в content: url(./icon.svg)
+        issuer: /\.[jt]sx?$/, // благодаря этому мы можем использовать svg везде, и в content: url(./icon.svg)
         use: ['@svgr/webpack'],
     };
 
     const fileLoader = {
         test: /\.(jpe?g|png|gif)$/i,
-        use: {                            // без use билд сборка не работает
-            loader: "file-loader?name=app/images/[name].[ext]"
-        }
-    }
+        use: { // без use билд сборка не работает
+            loader: 'file-loader?name=app/images/[name].[ext]',
+        },
+    };
 
     const babelLoader = {
         test: /\.(js|jsx|tsx)$/,

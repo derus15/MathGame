@@ -5,7 +5,7 @@ import style from './Account.module.css';
 import { authData } from '../../redux/Slices/backSlices/authSlice';
 import { timeNormalization } from '../../helpers/timeNormalization';
 import { getData } from '../../redux/Slices/backSlices/accountSlice';
-import Avatar from '../../../public/assets/Avatar.jpg'
+import Avatar from '../../../public/assets/Avatar.jpg';
 
 const Account = () => {
     const dispatch = useDispatch();
