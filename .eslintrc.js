@@ -48,6 +48,8 @@ module.exports = {
         'react/function-component-definition': [2, { 'namedComponents': 'arrow-function' }],
         'import/no-unresolved': 'off',
         'no-underscore-dangle': 'off',
+        'import/order': 'off',
+        'import/no-absolute-path': 'off',
     },
     overrides: [
         {
