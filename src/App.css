@@ -1,17 +1,16 @@
-:root {
-    --background-color: #2C2E31;
-    --base-color: gray;
-    --active-color: white;
-    --interface-color: rgba(26, 26, 29, 0.49);
-    --line-color: #424245;
-    --header-timer-example: white;
-    --modal-color: #303033;
-}
+/*:root {*/
+/*    --background-color: #2C2E31;*/
+/*    --base-color: gray;*/
+/*    --active-color: white;*/
+/*    --interface-color: rgba(26, 26, 29, 0.49);*/
+/*    --line-color: #424245;*/
+/*    --header-timer-example: white;*/
+/*    --modal-color: #303033;*/
+/*}*/
 
 * {
-    /*border: 1px red solid;*/
+    /*box-shadow: 0 0 0 1px red;*/
     margin: 0;
-    padding: 0;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -19,23 +18,21 @@ html {
     font-size: 62.5%;
 }
 
-body {
+body, html {
     background-color: var(--background-color);
     transition-duration: .2s;
 }
 
 .container {
-    padding-left: 6vw;
-    padding-right: 100px;
+    position: relative;
+    width: 90%;
+    max-width: 1270px;
+    height: 96vh;
+    margin-left: auto;
+    margin-right: auto;
     user-select: none;
 }
 
-.App {
-    position: relative;
-    text-align: center;
-    top: 300px;
-    animation: init ease-in-out .2s;
-}
 
 @keyframes init {
     0% {
@@ -74,8 +71,8 @@ body {
 }
 
 .example {
-    position: fixed;
-    top: 320px;
+    position: absolute;
+    top: 278px;
     left: 0;
     justify-content: center;
     align-items: center;
@@ -90,9 +87,8 @@ body {
     font-size: 2rem;
     color: var(--header-timer-example);
     position: absolute;
-    bottom: 54px;
-    left: 205px;
-    height: 5px;
+    top: 230px;
+    left: 185px;
     cursor: pointer;
     animation: init ease-in-out .3s;
 }
@@ -116,15 +112,12 @@ body {
 /*Footer*/
 
 .footer {
-    position: fixed;
+    position: absolute;
     display: flex;
     width: 100%;
     justify-content: center;
     font-size: 1.8rem;
-    padding-left: 125px;
-    margin-bottom: 15px;
-    left: 0;
-    bottom: 0;
+    bottom: 12px;
     color: var(--base-color);
 }
 
@@ -142,6 +135,10 @@ a {
     cursor: auto;
     text-decoration: none;
     color: var(--base-color);
+}
+
+.extra{
+    display: inline-block;
 }
 
 .extra:hover {
@@ -171,15 +168,21 @@ a {
 
 .leftBlock {
     display: flex;
-    justify-content: space-between;
+    gap: 15%;
     width: 100%;
+    justify-content: space-between;
+}
+
+.leftBlock > * {
+    flex-shrink: 0;
 }
 
 .rightBlock {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     gap: 120px;
     width: 100%;
+    flex-wrap: wrap;
 }
 
 /**/

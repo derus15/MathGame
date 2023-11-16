@@ -9,6 +9,7 @@
     width: 230px;
     border-radius: 10px;
     padding: 0;
+    transition: color 0.2s;
 }
 
 .btn:hover {

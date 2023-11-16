@@ -1,7 +1,7 @@
 .mainContainer {
     position: relative;
     text-align: center;
-    top: 200px;
+    top: 150px;
     animation: init ease-in-out .2s;
 }
 

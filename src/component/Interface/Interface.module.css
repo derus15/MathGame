@@ -1,10 +1,8 @@
 .center {
-    position: absolute;
     display: flex;
-    top: -200px;
-    left: 200px;
+    position: relative;
+    top: 30px;
     justify-content: center;
-    align-items: center;
     margin-top: 8px;
 }
 
@@ -173,3 +171,35 @@
 }
 
 /**/
+
+@media screen and (max-width:990px) {
+    .mainContainer{
+        width: 750px;
+    }
+
+    .containerModes {
+        gap: 78px;
+    }
+
+    .rightLine {
+        right: 205px;
+    }
+
+    .leftLine {
+        left: 191px;
+    }
+
+    .containerSigns {
+        margin-right: 585px;
+    }
+
+    .containerTime {
+        margin-left: 570px;
+        gap: 16px;
+    }
+
+    .containerNumber {
+        margin-left: 570px;
+        gap: 27px;
+    }
+}

@@ -17,14 +17,15 @@ input {
     font-size: 17px;
     width: 230px;
     height: 35px;
-    padding: 0;
+    padding: 1rem;
     display: inline-block;
+    transition: box-shadow 0.2s;
 }
 
 .npt:hover {
-    border: 1px solid gray;
+    box-shadow: 0 0 0 1px var(--base-color);
 }
 
 .npt:focus {
-    border: 1px solid white;
+    box-shadow: 0 0 0 1px var(--active-color);
 }

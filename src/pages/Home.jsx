@@ -13,11 +13,12 @@ const Home = () => {
     };
 
     return (
-        <main>
+        // eslint-disable-next-line react/jsx-no-useless-fragment
+        <>
             {isResult ? (
                 <Result setIsResult={setIsResult} />
             ) : (
-                <div className="App">
+                <>
                     <Interface sessionProgress={sessionProgress} />
 
                     <ExampleArea
@@ -25,9 +26,9 @@ const Home = () => {
                         setSessionProgress={setSessionProgress}
                         sessionProgress={sessionProgress}
                     />
-                </div>
+                </>
             )}
-        </main>
+        </>
     );
 };
 

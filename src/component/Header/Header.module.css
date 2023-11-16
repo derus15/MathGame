@@ -1,8 +1,7 @@
 .containerHeader {
     display: flex;
-    position: absolute;
-    gap: 63vw;
-    margin: 25px 25px;
+    justify-content: space-between;
+    margin-top: 25px;
 }
 
 .logo {
