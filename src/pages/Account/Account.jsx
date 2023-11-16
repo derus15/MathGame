@@ -63,7 +63,10 @@ const Account = () => {
                 <div className={style.tiles} />
                 <div className={style.tiles} />
             </div>
-            <span className={style.comingSoon}>Скоро будет добавлено...</span>
+
+            <div className={style.soonContainer}>
+                <span className={style.comingSoon}>Скоро будет добавлено...</span>
+            </div>
 
         </div>
     );

@@ -20,27 +20,25 @@ const HeaderAccount = () => {
     };
 
     return (
-        <Link to="/account">
-            <div className={style.containerAccount}>
-                {data ? (
-                    <>
+        // eslint-disable-next-line react/jsx-no-useless-fragment
+        <>
+            {data ? (
+                <Link to="/account">
+                    <div className={style.containerAccount}>
                         <span className={style.username}>{name || nameMe}</span>
-                        <svg onClick={Logout} className={style.logoContainer}>
-                            <LogoutSvg className={style.logout} />
+                        <svg onClick={Logout} className={style.logoutContainer}>
+                            <LogoutSvg />
                         </svg>
-                    </>
-                ) : (
-                    <svg
-                        className={style.profile}
-                        width="30px"
-                        height="30px"
-                        style={{ marginLeft: '90px' }}
-                    >
-                        <ProfileSvg className={style.svg} />
+                    </div>
+                </Link>
+            ) : (
+                <Link to="/account">
+                    <svg className={style.profile}>
+                        <ProfileSvg className={style.svgProfile} />
                     </svg>
-                )}
-            </div>
-        </Link>
+                </Link>
+            )}
+        </>
     );
 };
 

@@ -1,7 +1,6 @@
 .mainContainer {
-    position: absolute;
-    margin-top: 135px;
-    left: 120px;
+    margin-top: 65px;
+    left: 160px;
     animation: init ease-in-out .2s;
 }
 
@@ -28,13 +27,13 @@
     background-color: var(--interface-color);
     height: 220px;
     border-radius: 10px;
-    text-align: center;
 }
 
 .positionCircleContainer {
     display: flex;
-    gap: 270px;
+    width: 100%;
     margin-top: 10px;
+    justify-content: space-around;
 }
 
 .avatarImage {
@@ -47,12 +46,12 @@
     font-size: 31px;
     position: absolute;
     color: var(--active-color);
-    top: 160px;
+    top: 275px;
 }
 
 .circleContainer {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .circleAvatar {
@@ -85,23 +84,24 @@
     margin-top: 50px;
 }
 
-.circle:hover {
-    content: string(Иван);
-}
-
 .anotherTiles {
     filter: blur(5px);
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 75px;
+    gap: 80px;
+}
+
+.soonContainer {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    bottom: 130px;
+    width: 100%;
 }
 
 .comingSoon {
-    position: absolute;
     color: var(--base-color);
     font-size: 27px;
-    right: 35%;
-    top: 70%;
     cursor: pointer;
 }
 
@@ -111,8 +111,8 @@
 
 .tiles {
     margin-top: 40px;
-    width: 600px;
-    height: 240px;
+    width: 100%;
+    height: 200px;
     border-radius: 10px;
     background-color: var(--interface-color);
 }

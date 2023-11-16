@@ -43,16 +43,20 @@ const Result = ({ setIsResult }) => {
     }, []);
 
     return (
-        <div className={style.result}>
-            {mode === 'Спринт' ? (
-                <div>Ваше время: {sprintResult}</div>
-            ) : (
-                <div>Примеров решено: {standardResultNum}</div>
-            )}
-            <ExampleButton
-                onClick={() => setIsResult((prev) => !prev)}
-                random
-            />
+        <div className={style.resultContainer}>
+            <div className={style.result}>
+
+                {mode === 'Спринт' ? (
+                    <div>Ваше время: {sprintResult}</div>
+                ) : (
+                    <div>Примеров решено: {standardResultNum}</div>
+                )}
+                <ExampleButton
+                    onClick={() => setIsResult((prev) => !prev)}
+                    random
+                />
+
+            </div>
         </div>
     );
 };

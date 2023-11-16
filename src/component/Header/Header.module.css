@@ -1,7 +1,6 @@
 .containerHeader {
     display: flex;
     justify-content: space-between;
-    margin-top: 25px;
 }
 
 .logo {
@@ -13,9 +12,12 @@
 .containerAccount {
     display: flex;
     animation: init ease-in-out .3s;
+    justify-content: center;
+    align-items: center;
 }
 
 @keyframes init {
+
     0% {
         opacity: 0;
     }
@@ -33,41 +35,33 @@
 .username {
     font-size: 21px;
     color: white;
-    position: absolute;
-    right: -85px;
     animation: inherit;
     cursor: pointer;
 }
 
-.username:hover, .logout:hover, .svg:hover {
+.username:hover, .logout:hover, .svgProfile:hover, .logoutContainer:hover {
     opacity: 50%;
 }
 
-.username:active, .logout:active, .svg:active {
+.username:active, .logout:active, .svgProfile:active, .logoutContainer:active {
     opacity: 100%;
 }
 
 .profile {
-    animation: inherit;
-}
-
-.svg {
     width: 30px;
     height: 30px;
-    cursor: pointer;
-}
-
-.logoContainer {
-    margin-top: 3px;
-    position: absolute;
-    right: -115px;
-    width: 22px;
-    height: 22px;
     animation: inherit;
 }
 
-.logout {
+.svgProfile {
+    cursor: pointer;
+}
+
+.logoutContainer {
+    cursor: pointer;
+    margin-top: -3px;
+    margin-left: 7px;
     width: 22px;
     height: 22px;
-    cursor: pointer;
+    animation: inherit;
 }
