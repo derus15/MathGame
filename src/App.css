@@ -22,6 +22,7 @@ body, html {
     margin-right: auto;
     margin-top: 25px;
     user-select: none;
+    animation: init ease-in-out .2s;
 }
 
 
@@ -72,6 +73,7 @@ body, html {
     font-size: 3.6rem;
     width: 100%;
     background: transparent;
+    animation: init ease-in-out .2s;
 }
 
 .timer {
