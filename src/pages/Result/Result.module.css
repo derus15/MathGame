@@ -5,13 +5,25 @@
     align-items: center;
     top: 35%;
     animation: init ease-in-out .2s;
-
 }
 
 .result {
     text-align: center;
     font-size: 25px;
     color: var(--active-color);
+}
+
+.instructionLink {
+    color: var(--base-color);
+    margin-right: 6px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.instruction {
+    font-size: 17px;
+    margin-top: 80px;
+    color: var(--base-color);
 }
 
 @keyframes init {

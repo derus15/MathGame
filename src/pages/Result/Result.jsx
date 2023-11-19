@@ -4,10 +4,13 @@ import style from './Result.module.css';
 import ExampleButton from '../../UI/Button/ExampleButton/ExampleButton';
 import axios from '../../helpers/axios';
 import { normalizationOfTheEnd } from '../../helpers/normalizationOfTheEnd';
+import { Link } from 'react-router-dom';
+import { authData } from '../../redux/Slices/backSlices/authSlice';
 
 const Result = ({ setIsResult }) => {
     const sprintResultTime = useSelector((state) => state.data.sprintTime);
     const mode = useSelector((state) => state.interface.mode);
+    const isAuth = useSelector(authData);
 
     const standardResultNum = useSelector((state) => state.data.standardCounter);
     const time = useSelector((state) => state.interface.time);
@@ -55,6 +58,14 @@ const Result = ({ setIsResult }) => {
                     onClick={() => setIsResult((prev) => !prev)}
                     random
                 />
+                {!isAuth && (
+                    <div className={style.instruction}>
+                        <Link to="/auth" className={style.instructionLink}>
+                            Создайте аккаунт,
+                        </Link>
+                        чтобы сохранять результаты
+                    </div>
+                )}
 
             </div>
         </div>
