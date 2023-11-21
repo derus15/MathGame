@@ -22,8 +22,7 @@ input {
 [contenteditable="true"]:focus,
 input:focus,
 select:focus,
-textarea:focus,
-button:focus {
+textarea:focus {
     outline: none;
 }
 

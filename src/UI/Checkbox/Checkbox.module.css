@@ -38,9 +38,6 @@
     background: transparent;
 }
 
-.checkbox input[type="checkbox"]:hover {
-}
-
 input:checked {
     background-color: transparent;
 }
