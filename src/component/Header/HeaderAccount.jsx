@@ -34,7 +34,7 @@ const HeaderAccount = () => {
             ) : (
                 <Link to="/account">
                     <svg className={style.profile}>
-                        <ProfileSvg className={style.svgProfile} />
+                        <ProfileSvg />
                     </svg>
                 </Link>
             )}

@@ -39,11 +39,11 @@
     cursor: pointer;
 }
 
-.username:hover, .logout:hover, .svgProfile:hover, .logoutContainer:hover {
+.username:hover, .logout:hover, .profile:hover, .logoutContainer:hover {
     opacity: 50%;
 }
 
-.username:active, .logout:active, .svgProfile:active, .logoutContainer:active {
+.username:active, .logout:active, .profile:active, .logoutContainer:active {
     opacity: 100%;
 }
 
@@ -51,9 +51,6 @@
     width: 30px;
     height: 30px;
     animation: inherit;
-}
-
-.svgProfile {
     cursor: pointer;
 }
 
