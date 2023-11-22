@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import style from './ExampleInput.module.css';
+import { classNames } from '../../../helpers/classNames';
 
 const ExampleInput = ({ sessionProgress, signal = null, ...props }) => {
-    const [inputColor, setInputColor] = useState('');
+    const [answerSignal, setAnswerSignal] = useState(false);
 
     const checkNumber = (e) => {
         const { value } = e.target;
@@ -14,10 +15,10 @@ const ExampleInput = ({ sessionProgress, signal = null, ...props }) => {
 
     const changeInputColor = () => {
         if (sessionProgress) {
-            setInputColor('#0FBE26');
+            setAnswerSignal(true);
 
             setTimeout(() => {
-                setInputColor('');
+                setAnswerSignal(false);
             }, 800);
         }
     };
@@ -32,8 +33,7 @@ const ExampleInput = ({ sessionProgress, signal = null, ...props }) => {
                 onChange={(e) => {
                     checkNumber(e);
                 }}
-                className={style.npt}
-                style={{ borderBottomColor: inputColor }}
+                className={classNames(style.npt, { [style.nptActive]: answerSignal }, [])}
                 {...props}
             />
         </div>

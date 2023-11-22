@@ -17,6 +17,10 @@ input {
     cursor: pointer;
 }
 
+.nptActive {
+    border-bottom-color: #0FBE26;
+}
+
 /*Скрытие поля ввода*/
 
 [contenteditable="true"]:focus,

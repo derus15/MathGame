@@ -43,13 +43,13 @@ body, html {
 
 @keyframes blink {
     0% {
-        opacity: .9;
+        opacity: 1;
     }
     50% {
-        opacity: .6;
+        opacity: .4;
     }
     100% {
-        opacity: .9;
+        opacity: 1;
     }
 }
 
@@ -83,7 +83,11 @@ body, html {
     top: 200px;
     left: 190px;
     cursor: pointer;
-    animation: init ease-in-out .3s;
+    animation: init ease-in-out .2s;
+}
+
+.timerActive {
+    animation: blink infinite 1.5s;
 }
 
 /*Стили для таймера полоски*/

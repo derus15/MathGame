@@ -1,19 +1,18 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import classes from './SelectMode.module.css';
+import style from './SelectMode.module.css';
+import { classNames } from '../../../helpers/classNames';
 
 const SelectMod = ({ children, onClick, mode }) => {
+    
     const gameMode = useSelector((state) => state.interface.mode);
-
-    const getClassName = (mode) => {
-        if (gameMode === mode) {
-            return `${classes.mode} ${classes.modeActive}`;
-        }
-        return `${classes.mode}`;
-    };
+    const isSelectedMode = Boolean(gameMode === mode);
 
     return (
-        <div className={getClassName(mode)} onClick={onClick}>
+        <div 
+            className={classNames(style.mode, { [style.modeActive]: isSelectedMode }, [])}
+            onClick={onClick}
+        >
             {children}
         </div>
     );

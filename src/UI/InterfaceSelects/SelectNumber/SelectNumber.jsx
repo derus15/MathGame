@@ -1,19 +1,18 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import classes from './SelectNumber.module.css';
+import style from './SelectNumber.module.css';
+import { classNames } from '../../../helpers/classNames';
 
 const SelectNumber = ({ children, number, onClick }) => {
-    const duration = useSelector((state) => state.interface.number);
 
-    const getClassName = (number) => {
-        if (duration === number) {
-            return `${classes.number} ${classes.numberActive}`;
-        }
-        return classes.number;
-    };
+    const duration = useSelector((state) => state.interface.number);
+    const isSelectedItem = Boolean(duration === number);
 
     return (
-        <div className={getClassName(number)} onClick={onClick}>
+        <div
+            className={classNames(style.number, { [style.numberActive]: isSelectedItem }, [])}
+            onClick={onClick}
+        >
             {children}
         </div>
     );

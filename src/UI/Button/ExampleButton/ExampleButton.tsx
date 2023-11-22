@@ -1,12 +1,13 @@
-import React, { FC, ReactNode } from 'react';
+import React, { ButtonHTMLAttributes, FC, ReactNode } from 'react';
 import classes from './ExampleButton.module.css';
 
-interface buttonProps {
+interface buttonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     children?: ReactNode,
     random?: boolean,
 }
 
 const ExampleButton:FC<buttonProps> = ({ children, random = false, ...props }) => {
+
     if (random) {
         const textList = ['Хорошо', 'Ладно', 'Понятно', 'Прекрасно'];
         children = textList[Math.floor(Math.random() * textList.length)];

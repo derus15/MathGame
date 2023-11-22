@@ -1,19 +1,18 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import classes from './SelectTime.module.css';
+import style from './SelectTime.module.css';
+import { classNames } from '../../../helpers/classNames';
 
 const SelectTime = ({ children, time, onClick }) => {
-    const duration = useSelector((state) => state.interface.time);
 
-    const getClassName = (time) => {
-        if (duration === time) {
-            return `${classes.time} ${classes.timeActive}`;
-        }
-        return classes.time;
-    };
+    const duration = useSelector((state) => state.interface.time);
+    const isSelectedTime = Boolean(duration === time);
 
     return (
-        <div className={getClassName(time)} onClick={onClick}>
+        <div
+            className={classNames(style.time, { [style.timeActive]: isSelectedTime }, [])}
+            onClick={onClick}
+        >
             {children}
         </div>
     );

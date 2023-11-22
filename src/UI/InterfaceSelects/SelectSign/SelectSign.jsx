@@ -1,19 +1,18 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import classes from './SelectSign.module.css';
+import style from './SelectSign.module.css';
+import { classNames } from '../../../helpers/classNames';
 
 const SelectSign = ({ children, onClick, sign }) => {
-    const signs = useSelector((state) => state.interface.signList);
 
-    const getClassName = (sign) => {
-        if (signs.includes(sign)) {
-            return `${classes.signs} ${classes.signsActive}`;
-        }
-        return classes.signs;
-    };
+    const signs = useSelector((state) => state.interface.signList);
+    const isSelectedSigns = Boolean(signs.includes(sign));
 
     return (
-        <div className={getClassName(sign)} onClick={onClick}>
+        <div 
+            className={classNames(style.signs, { [style.signsActive]: isSelectedSigns }, [])}
+            onClick={onClick}
+        >
             {children}
         </div>
     );

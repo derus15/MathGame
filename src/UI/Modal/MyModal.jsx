@@ -1,13 +1,14 @@
 import React from 'react';
-import classes from './MyModal.module.css';
+import style from './MyModal.module.css';
+import { classNames } from '../../helpers/classNames';
 
 const MyModal = ({ children, visible, setVisible }) => (
 
     <div
-        className={`${classes.myModal} ${visible && classes.myModalActive}`}
+        className={classNames(style.myModal, { [style.myModalActive]: visible }, [])}
         onClick={() => setVisible(false)}
     >
-        <div className={classes.myModalContent} onClick={(e) => e.stopPropagation()}>
+        <div className={style.myModalContent} onClick={(e) => e.stopPropagation()}>
             {children}
         </div>
     </div>
