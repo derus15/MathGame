@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ExampleInput from '../UI/Input/ExampleInput/ExampleInput';
 import StandardTimer from './Timers/StandardTimer';
@@ -12,6 +12,7 @@ const ExampleArea = ({ endSession, sessionProgress, setSessionProgress }) => {
     const signList = useSelector((state) => state.interface.signList);
     const [answer, setAnswer] = useState();
     const gameMode = useSelector((state) => state.interface.mode);
+    const inputRef = useRef(null);
 
     const refreshExample = () => {
         dispatch(generateNumber(2));
@@ -22,18 +23,39 @@ const ExampleArea = ({ endSession, sessionProgress, setSessionProgress }) => {
         refreshExample();
     }, [signList, gameMode]);
 
-    function startSession() {
-        if (!sessionProgress) {
-            setSessionProgress(true);
-        }
-    }
+    useEffect(() => {
+        console.log(`effecto ${sessionProgress}`);
+    }, [sessionProgress]);
 
-    function answered(e) {
+    const startSession = () => {
+        if (!sessionProgress) {
+            setSessionProgress((prevState) => !prevState);
+            console.log(`start ${sessionProgress}`);
+        }
+    };
+
+    const answered = (e) => {
         if (e.target.value === answer) {
             refreshExample();
             e.target.value = '';
         }
-    }
+    };
+
+    const startSessionWithSpace = (e) => {
+        if (!sessionProgress && e.keyCode === 32) {
+            console.log(sessionProgress);
+            inputRef.current.focus();
+        }
+        return null;
+    };
+
+    useEffect(() => {
+        window.addEventListener('keydown', startSessionWithSpace);
+        console.log('effect');
+        return () => {
+            window.removeEventListener('keydown', startSessionWithSpace);
+        };
+    }, []);
 
     return (
         <>
@@ -43,6 +65,7 @@ const ExampleArea = ({ endSession, sessionProgress, setSessionProgress }) => {
             <div className="example">
                 <Example setAnswer={setAnswer} />
                 <ExampleInput
+                    ref={inputRef}
                     onFocus={startSession}
                     onInput={answered}
                     signal={answer}

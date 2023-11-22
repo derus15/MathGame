@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { forwardRef, useEffect, useState } from 'react';
 import style from './ExampleInput.module.css';
 import { classNames } from '../../../helpers/classNames';
 
-const ExampleInput = ({ sessionProgress, signal = null, ...props }) => {
+const ExampleInput = forwardRef(({ sessionProgress, signal = null, ...props }, ref) => {
     const [answerSignal, setAnswerSignal] = useState(false);
 
     const checkNumber = (e) => {
@@ -33,11 +33,12 @@ const ExampleInput = ({ sessionProgress, signal = null, ...props }) => {
                 onChange={(e) => {
                     checkNumber(e);
                 }}
-                className={classNames(style.npt, { [style.nptActive]: answerSignal }, [])}
+                ref={ref}
+                className={classNames(style.npt, { [style.nptActive]: answerSignal })}
                 {...props}
             />
         </div>
     );
-};
+});
 
 export default ExampleInput;
