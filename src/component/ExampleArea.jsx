@@ -23,14 +23,9 @@ const ExampleArea = ({ endSession, sessionProgress, setSessionProgress }) => {
         refreshExample();
     }, [signList, gameMode]);
 
-    useEffect(() => {
-        console.log(`effecto ${sessionProgress}`);
-    }, [sessionProgress]);
-
     const startSession = () => {
         if (!sessionProgress) {
-            setSessionProgress((prevState) => !prevState);
-            console.log(`start ${sessionProgress}`);
+            setSessionProgress(true);
         }
     };
 
@@ -42,8 +37,7 @@ const ExampleArea = ({ endSession, sessionProgress, setSessionProgress }) => {
     };
 
     const startSessionWithSpace = (e) => {
-        if (!sessionProgress && e.keyCode === 32) {
-            console.log(sessionProgress);
+        if (!sessionProgress && e.keyCode === 32 && inputRef.current) {
             inputRef.current.focus();
         }
         return null;
@@ -51,11 +45,10 @@ const ExampleArea = ({ endSession, sessionProgress, setSessionProgress }) => {
 
     useEffect(() => {
         window.addEventListener('keydown', startSessionWithSpace);
-        console.log('effect');
         return () => {
             window.removeEventListener('keydown', startSessionWithSpace);
         };
-    }, []);
+    }, [sessionProgress]);
 
     return (
         <>
