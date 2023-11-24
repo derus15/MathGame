@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { saveSprintTime } from '../../redux/Slices/frontSlices/dataSlice';
+import { classNames } from '../../helpers/classNames';
 
 const SprintTimer = ({ answer, sessionProgress, end }) => {
 
@@ -35,7 +36,7 @@ const SprintTimer = ({ answer, sessionProgress, end }) => {
     }, [sessionProgress]);
 
     return (
-        <div className="timer">
+        <div className={classNames('timer', { timerActive: sessionProgress }, [])}>
             {sprintCounter} | {duration}
         </div>
     );

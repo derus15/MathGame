@@ -87,7 +87,7 @@ body, html {
 }
 
 .timerActive {
-    animation: blink infinite 1.5s;
+    animation: blink infinite 1s;
 }
 
 /*Стили для таймера полоски*/
