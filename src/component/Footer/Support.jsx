@@ -1,26 +1,17 @@
-import React, { useState } from 'react';
-import Tooltip from '../../UI/Tooltip/Tooltip';
+import React from 'react';
+import Toast from '../../UI/Toaster/Toast';
+import { toast } from 'react-toastify';
 
 const Support = () => {
-    const [tooltipSupport, setTooltipSupport] = useState(false);
 
     function showTooltipSupport() {
-        setTooltipSupport(true);
+        toast('❤️ Спасибо за поддержку');
     }
 
     return (
         <div>
             <div onClick={showTooltipSupport} className="extra">Поддержать</div>
-            {tooltipSupport
-                && (
-                    <Tooltip
-                        setShow={setTooltipSupport}
-                        condition={tooltipSupport}
-                        depend={showTooltipSupport}
-                    >
-                        Спасибо за поддержку
-                    </Tooltip>
-                )}
+            <Toast />
         </div>
     );
 };

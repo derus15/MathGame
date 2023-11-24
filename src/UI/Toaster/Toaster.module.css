@@ -3,5 +3,7 @@
     --toastify-color-dark: var(--interface-color);
     --toastify-color-error: rgba(255, 255, 255, 0.65);
     --toastify-color-progress-error: var(--active-color);
-    font-size: 1.6rem;
+    --toastify-color-progress-dark: var(--active-color);
+    font-size: 1.7rem;
+    text-align: center;
 }
