@@ -55,13 +55,15 @@ const RegisterForm = () => {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-            <div className={style.registerContainer}>
-                <div className={style.registerHeader}>Регистрация</div>
+            <div className={style.container}>
+                <div className={style.loaderContainer}>
+                    <Loader isLoading={isLoading} position={style.positionRegisterLoader} />
+                    <div className={style.registerHeader}>Регистрация</div>
+                </div>
                 <LoginInput placeholder="Имя" {...register('name')} />
                 <LoginInput placeholder="Почта" {...register('email')} type="email" />
                 <LoginInput placeholder="Пароль" {...register('password')} />
                 <LoginButton>Зарегистрироваться</LoginButton>
-                <Loader isLoading={isLoading} position={style.positionRegisterLoader} />
             </div>
         </form>
     );

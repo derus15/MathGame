@@ -9,7 +9,7 @@ interface loaderProps {
 
 const Loader:FC<loaderProps> = ({ isLoading, position }) => (
 
-    <div className={classNames('', { [style.loader]: isLoading }, [position])} />
+    <div className={classNames(style.loader, { [style.loaderActive]: isLoading }, [position])} />
 );
 
 export default Loader;

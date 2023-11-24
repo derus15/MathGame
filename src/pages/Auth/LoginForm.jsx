@@ -70,13 +70,15 @@ const LoginForm = () => {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-            <div className={style.loginContainer}>
-                <div className={style.loginHeader}>Логин</div>
+            <div className={style.container}>
+                <div className={style.loaderContainer}>
+                    <Loader isLoading={isLoading} position={style.positionLoginLoader} />
+                    <div className={style.loginHeader}>Логин</div>
+                </div>
                 <LoginInput placeholder="Почта" {...register('email')} type="email" />
                 <LoginInput placeholder="Пароль" {...register('password')} />
                 <Checkbox label="Запомни меня" checked={isRemember} setIsChecked={setIsRemember} />
                 <LoginButton>Войти</LoginButton>
-                <Loader isLoading={isLoading} position={style.positionLoginLoader} />
             </div>
         </form>
     );

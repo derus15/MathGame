@@ -25,34 +25,26 @@
     grid-template-columns: 1fr 1fr;
 }
 
-.registerContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
 .registerHeader {
+    position: relative;
     color: var(--active-color);
     font-size: 23px;
     margin-bottom: 10px;
+    right: 33px;
 }
 
-.loginContainer {
+.container {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    justify-content: flex-start;
 }
 
 .loginHeader {
+    position: relative;
     color: var(--active-color);
     font-size: 23px;
     margin-bottom: 10px;
-}
-
-.loginTitle {
-    color: var(--active-color);
-    margin-top: 10px;
+    right: 72px;
 }
 
 .positionButtons {
@@ -60,13 +52,16 @@
 }
 
 .positionRegisterLoader {
-    position: absolute;
     top: 3px;
-    left: 220px;
+    margin-right: 45px;
 }
 
 .positionLoginLoader {
-    position: absolute;
     top: 3px;
-    right: 430px;
+    margin-right: 125px;
+}
+
+.loaderContainer {
+    display: flex;
+    justify-content: center;
 }
