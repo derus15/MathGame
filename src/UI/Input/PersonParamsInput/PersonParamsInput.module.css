@@ -1,8 +1,10 @@
 .modalInput {
+    border: none;
     font-size: 21px;
     width: 60px;
     border-bottom-width: 2px;
     border-bottom-style: solid;
     border-bottom-color: var(--active-color);
     color: var(--active-color);
+    background: inherit;
 }

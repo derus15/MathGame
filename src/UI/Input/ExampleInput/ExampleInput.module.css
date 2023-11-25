@@ -1,15 +1,12 @@
 .npt {
     font-family: inherit;
     font-size: 30px;
+    border: none;
     border-bottom-width: 2px;
     border-bottom-style: solid;
     border-bottom-color: var(--base-color);
     width: 90px;
-}
-
-input {
     text-align: center;
-    border: none;
     margin-left: 5px;
     background-color: inherit;
     color: var(--header-timer-example);

@@ -1,9 +1,4 @@
 input {
-    margin: 0;
-    color: var(--header-timer-example);
-    cursor: text;
-    box-sizing: border-box;
-    font: inherit;
 }
 
 ::-webkit-input-placeholder {
@@ -11,6 +6,12 @@ input {
 }
 
 .npt {
+    border: none;
+    text-align: center;
+    margin: 0;
+    color: var(--header-timer-example);
+    cursor: text;
+    box-sizing: border-box;
     border-radius: 10px;
     background-color: var(--interface-color);
     font-family: inherit;

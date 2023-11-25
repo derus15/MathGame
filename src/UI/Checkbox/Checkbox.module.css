@@ -26,6 +26,7 @@
 }
 
 .checkbox input[type="checkbox"] {
+    font: inherit;
     -webkit-appearance: none;
     appearance: none;
     position: relative;
