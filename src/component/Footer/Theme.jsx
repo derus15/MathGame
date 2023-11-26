@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 const Theme = () => {
     const themesList = ['black', 'ocean', 'PP'];
-    const [themeIndex, setThemeIndex] = useState(localStorage.getItem('theme') || 0);
+    const [themeIndex, setThemeIndex] = useState(localStorage.getItem('theme') || 1);
 
     function showTheme() {
         const body = document.querySelector('body');

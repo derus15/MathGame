@@ -64,7 +64,7 @@ body, html {
 
 .example {
     position: absolute;
-    top: 300px;
+    top: 45%;
     left: 0;
     justify-content: center;
     align-items: center;
