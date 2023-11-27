@@ -4,10 +4,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import style from './Auth.module.css';
-import LoginInput from '../../UI/Input/LoginInput/LoginInput';
-import LoginButton from '../../UI/Button/LoginButton/LoginButton';
-import { authData, fetchRegister } from '../../redux/Slices/backSlices/authSlice';
-import Loader from '../../UI/Loader/Loader';
+import LoginInput from '../../../UI/Input/LoginInput/LoginInput';
+import LoginButton from '../../../UI/Button/LoginButton/LoginButton';
+import { authData, fetchRegister } from '../../../redux/Slices/backSlices/authSlice';
+import Loader from '../../../UI/Loader/Loader';
 
 const RegisterForm = () => {
     const dispatch = useDispatch();
@@ -61,7 +61,7 @@ const RegisterForm = () => {
                     <div className={style.registerHeader}>Регистрация</div>
                 </div>
                 <LoginInput placeholder="Имя" {...register('name')} />
-                <LoginInput placeholder="Почта" {...register('email')} type="email" />
+                <LoginInput placeholder="Почта" {...register('email')} type="email" inputmode="email" />
                 <LoginInput placeholder="Пароль" {...register('password')} />
                 <LoginButton>Зарегистрироваться</LoginButton>
             </div>

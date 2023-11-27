@@ -1,15 +1,16 @@
 import './App.css';
 import './UI/Themes/Themes.css';
-import React, { useEffect } from 'react';
+import React, { useEffect, Suspense } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import Footer from './component/Footer/Footer';
 import Home from './pages/Home';
-import Auth from './pages/Auth/Auth';
-import Account from './pages/Account/Account';
 import { fetchAuthMe } from './redux/Slices/backSlices/authSlice';
-import NotFound from './pages/NotFound/NotFound';
 import Header from './component/Header/Header';
+import Loading from './component/Loading/Loading';
+import { NotFound } from './pages/NotFound';
+import { Auth } from './pages/Auth';
+import { Account } from './pages/Account';
 
 const App = () => {
 
@@ -22,12 +23,14 @@ const App = () => {
     return (
         <div className="container">
             <Header />
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/auth" element={<Auth />} />
-                <Route path="/account" element={<Account />} />
-                <Route path="*" element={<NotFound />} />
-            </Routes>
+            <Suspense fallback={<Loading />}>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/auth" element={<Auth />} />
+                    <Route path="/account" element={<Account />} />
+                    <Route path="*" element={<NotFound />} />
+                </Routes>
+            </Suspense>
             <Footer />
         </div>
     );

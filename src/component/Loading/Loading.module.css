@@ -1,0 +1,27 @@
+.content {
+    position: absolute;
+    top: 45%;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-size: 4rem;
+    color: var(--active-color);
+}
+
+.cursor {
+    font-size: 4rem;
+    transition: none;
+    animation: blink infinite .8s;
+}
+
+@keyframes blink {
+
+    to {
+        opacity: 0;
+    }
+
+    from {
+        opacity: 1;
+    }
+
+}
