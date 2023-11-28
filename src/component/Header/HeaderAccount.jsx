@@ -32,7 +32,7 @@ const HeaderAccount = () => {
                     </div>
                 </Link>
             ) : (
-                <Link to="/account">
+                <Link to="/auth">
                     <svg className={style.profile}>
                         <ProfileSvg />
                     </svg>

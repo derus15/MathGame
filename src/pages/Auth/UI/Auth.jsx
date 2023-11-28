@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './Auth.module.css';
-import LoginForm from './LoginForm';
-import RegisterForm from './RegisterForm';
+import LoginForm from '../../../component/Forms/LoginForm';
+import RegisterForm from '../../../component/Forms/RegisterForm';
 import Toast from '../../../UI/Toaster/Toast';
 
 const Auth = () => (
