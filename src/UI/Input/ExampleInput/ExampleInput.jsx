@@ -34,6 +34,7 @@ const ExampleInput = forwardRef(({ sessionProgress, signal = null, ...props }, r
                     checkNumber(e);
                 }}
                 ref={ref}
+                inputMode="numeric"
                 className={classNames(style.npt, { [style.nptActive]: answerSignal })}
                 {...props}
             />

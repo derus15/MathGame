@@ -9,7 +9,7 @@ interface buttonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 const ExampleButton:FC<buttonProps> = ({ children, random = false, ...props }) => {
 
     if (random) {
-        const textList = ['Хорошо', 'Ладно', 'Понятно', 'Прекрасно'];
+        const textList = ['Хорошо', 'Ладно', 'Понятно', 'Прекрасно', 'Великолепно', 'Превосходно'];
         children = textList[Math.floor(Math.random() * textList.length)];
     }
 
