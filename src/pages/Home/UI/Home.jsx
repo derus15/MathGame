@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Result from './Result/Result';
-import Interface from '../component/Interface/Interface';
-import ExampleArea from '../component/ExampleArea';
+import Result from '../../Result/Result';
+import Interface from '../../../component/Interface/Interface';
+import ExampleArea from '../../../component/ExampleArea';
 
 const Home = () => {
     const [isResult, setIsResult] = useState(false);
