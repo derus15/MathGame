@@ -18,6 +18,7 @@ const PersonParamsInput = ({ callback }) => {
     return (
         <input
             autoFocus
+            inputMode="numeric"
             className={classes.modalInput}
             onInput={(e) => testNumber(e)}
             type="input"
