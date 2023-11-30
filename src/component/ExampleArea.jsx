@@ -5,6 +5,7 @@ import StandardTimer from './Timers/StandardTimer';
 import Example from './Example';
 import SprintTimer from './Timers/SprintTimer';
 import { generateNumber, generateSign } from '../redux/Slices/frontSlices/exampleSlice';
+import InstructionsProvider from './Instructions/InstructionsProvider';
 
 const ExampleArea = ({ endSession, sessionProgress, setSessionProgress }) => {
 
@@ -65,6 +66,7 @@ const ExampleArea = ({ endSession, sessionProgress, setSessionProgress }) => {
                     sessionProgress={sessionProgress}
                 />
             </div>
+            <InstructionsProvider signal={sessionProgress} />
         </>
     );
 };

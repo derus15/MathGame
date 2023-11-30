@@ -50,6 +50,8 @@ module.exports = {
         'no-underscore-dangle': 'off',
         'import/order': 'off',
         'import/no-absolute-path': 'off',
+        'react/jsx-wrap-multilines': 'off',
+        'jsx-a11y/control-has-associated-label': 'off',
     },
     overrides: [
         {

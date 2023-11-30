@@ -1,0 +1,47 @@
+.instructions {
+    position: absolute;
+    color: var(--base-color);
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    top: 75%;
+    font-size: 1.9rem;
+    text-align: center;
+    animation: blink infinite 2s;
+}
+
+.instructions.hidden {
+    opacity: 0;
+    animation: delete normal .5s;
+}
+
+.instructions.noAnimation {
+    display: none;
+}
+
+.btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+@keyframes delete {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: .7;
+    }
+    100% {
+        opacity: 1;
+    }
+}
