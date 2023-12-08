@@ -1,6 +1,6 @@
 import { normalizationOfTheEnd } from './normalizationOfTheEnd';
 
-describe('normalizationOfTheEnd.test', () => {
+describe('normalizationOfTheEnd', () => {
 
     it('should be секунда', () => {
         const time = 1;

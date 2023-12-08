@@ -1,6 +1,6 @@
 import { classNames } from './classNames';
 
-describe('test for function classNames', () => {
+describe('classNames', () => {
 
     it('should be with one cls parameter', () => {
         expect(classNames('someClass')).toBe('someClass');
