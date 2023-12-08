@@ -1,6 +1,6 @@
 import React, { forwardRef, useEffect, useState } from 'react';
 import style from './ExampleInput.module.css';
-import { classNames } from '../../../helpers/classNames';
+import { classNames } from '../../../helpers/classNames/classNames';
 
 const ExampleInput = forwardRef(({ sessionProgress, signal = null, ...props }, ref) => {
     const [answerSignal, setAnswerSignal] = useState(false);

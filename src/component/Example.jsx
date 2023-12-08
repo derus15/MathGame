@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import normalizationExample from '../helpers/normalizationExample';
+import normalizationExample from '../helpers/normalizationExample/normalizationExample';
 
 const Example = ({ setAnswer }) => {
 

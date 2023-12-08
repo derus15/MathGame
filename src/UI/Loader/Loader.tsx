@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import style from './Loader.module.css';
-import { classNames } from '../../helpers/classNames';
+import { classNames } from '../../helpers/classNames/classNames';
 
 interface loaderProps {
     isLoading: boolean,

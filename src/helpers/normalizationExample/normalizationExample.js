@@ -22,7 +22,7 @@ function normalizationExample(nums, sign, setAnswer) {
             num_2 = Math.floor(num_2 / 10) + 1;
         }
 
-        num_1 *= num_2; // (num_1 * num_2) * num*2 = answer => answer = num_1 / num_2
+        num_1 *= num_2; // (num_1 * num_2) / num_2 = num_1
     }
 
     const answerExample = String(signFunction[sign](num_1, num_2));

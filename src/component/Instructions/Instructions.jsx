@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import style from './Instructions.module.css';
-import { classNames } from '../../helpers/classNames';
+import { classNames } from '../../helpers/classNames/classNames';
 import Cross from '/public/assets/cross.svg';
 
 const Instructions = ({ signal, setIsOpen }) => {

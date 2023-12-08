@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './MyModal.module.css';
-import { classNames } from '../../helpers/classNames';
+import { classNames } from '../../helpers/classNames/classNames';
 
 const MyModal = ({ children, visible, setVisible }) => (
 

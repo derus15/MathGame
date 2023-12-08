@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { saveSprintTime } from '../../redux/Slices/frontSlices/dataSlice';
-import { classNames } from '../../helpers/classNames';
+import { classNames } from '../../helpers/classNames/classNames';
 
 const SprintTimer = ({ answer, sessionProgress, end }) => {
 

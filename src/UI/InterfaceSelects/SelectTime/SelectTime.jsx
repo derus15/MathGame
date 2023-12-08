@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import style from './SelectTime.module.css';
-import { classNames } from '../../../helpers/classNames';
+import { classNames } from '../../../helpers/classNames/classNames';
 
 const SelectTime = ({ children, time, onClick }) => {
 
