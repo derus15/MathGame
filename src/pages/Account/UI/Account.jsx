@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import style from './Account.module.css';
 import { authData } from '../../../redux/Slices/backSlices/authSlice';
-import { timeNormalization } from '../../../helpers/timeNormalization';
+import { timeNormalization } from '../../../helpers/timeNormalization/timeNormalization';
 import { getData } from '../../../redux/Slices/backSlices/accountSlice';
 import Avatar from '../../../../public/assets/Avatar.jpg';
 

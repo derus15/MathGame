@@ -32,4 +32,9 @@ describe('normalizationOfTheEnd', () => {
         expect(normalizationOfTheEnd(time)).toEqual('32 секунды');
     });
 
+    it('should be секунды', () => {
+        const time = 12815154;
+        expect(normalizationOfTheEnd(time)).toEqual('12815154 секунды');
+    });
+
 });
