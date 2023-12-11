@@ -1,4 +1,4 @@
-export const timeNormalization = (seconds) => {
+export const timeNormalization = (seconds: number): string => {
 
     if (!seconds) {
         return ('00:00:00');

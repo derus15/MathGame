@@ -1,4 +1,4 @@
-export const normalizationOfTheEnd = (time) => {
+export const normalizationOfTheEnd = (time:number): string => {
 
     if (time % 10 === 1) {
         return `${time} секунда`;
