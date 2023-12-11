@@ -1,13 +1,27 @@
-const signFunction = {
+import { Dispatch, SetStateAction } from 'react';
+
+const signFunction:Record<string, (a: number, b: number) => number> = {
     '+': (a, b) => a + b,
     '-': (a, b) => a - b,
     '*': (a, b) => a * b,
     '/': (a, b) => a / b,
 };
 
-function normalizationExample(nums, sign, setAnswer) {
+interface normalizationExampleProps {
+    numsList: number[],
+    sign: string,
+    setAnswer: Dispatch<SetStateAction<string>>
+}
 
-    let [num_1, num_2] = nums;
+function normalizationExample(props: normalizationExampleProps) {
+
+    const {
+        numsList,
+        sign,
+        setAnswer,
+    } = props;
+    
+    let [num_1, num_2] = numsList;
     
     if ((sign === '-') && (num_1 < num_2)) {
         [num_1, num_2] = [num_2, num_1];

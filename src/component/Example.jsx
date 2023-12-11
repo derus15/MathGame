@@ -4,10 +4,10 @@ import normalizationExample from '../helpers/normalizationExample/normalizationE
 
 const Example = ({ setAnswer }) => {
 
-    const nums = useSelector((state) => state.example.numbers);
+    const numsList = useSelector((state) => state.example.numbers);
     const sign = useSelector((state) => state.example.sign);
 
-    const example = normalizationExample(nums, sign, setAnswer);
+    const example = normalizationExample({ numsList, sign, setAnswer });
 
     return (
         <div>
