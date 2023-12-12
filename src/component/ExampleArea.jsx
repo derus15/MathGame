@@ -6,6 +6,7 @@ import Example from './Example';
 import SprintTimer from './Timers/SprintTimer';
 import { generateNumber, generateSign } from '../redux/Slices/frontSlices/exampleSlice';
 import InstructionsProvider from './Instructions/InstructionsProvider';
+import { incrementCounter, resetCounter } from '../redux/Slices/frontSlices/sessionDataSlice';
 
 const ExampleArea = ({ endSession, sessionProgress, setSessionProgress }) => {
 
@@ -22,6 +23,7 @@ const ExampleArea = ({ endSession, sessionProgress, setSessionProgress }) => {
 
     useMemo(() => {
         refreshExample();
+        dispatch(resetCounter());
     }, [signList, gameMode]);
 
     const startSession = () => {
@@ -32,6 +34,7 @@ const ExampleArea = ({ endSession, sessionProgress, setSessionProgress }) => {
 
     const answered = (e) => {
         if (e.target.value === answer) {
+            dispatch(incrementCounter());
             refreshExample();
             e.target.value = '';
         }
@@ -54,8 +57,8 @@ const ExampleArea = ({ endSession, sessionProgress, setSessionProgress }) => {
     return (
         <>
             {gameMode === 'Стандарт' 
-                ? <StandardTimer answer={answer} sessionProgress={sessionProgress} end={endSession} />
-                : <SprintTimer answer={answer} sessionProgress={sessionProgress} end={endSession} />}
+                ? <StandardTimer sessionProgress={sessionProgress} end={endSession} />
+                : <SprintTimer sessionProgress={sessionProgress} end={endSession} />}
             <div className="example">
                 <Example setAnswer={setAnswer} />
                 <ExampleInput

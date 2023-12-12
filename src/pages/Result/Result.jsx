@@ -8,37 +8,27 @@ import { Link } from 'react-router-dom';
 import { authData } from '../../redux/Slices/backSlices/authSlice';
 
 const Result = ({ setIsResult }) => {
-    const sprintResultTime = useSelector((state) => state.data.sprintTime);
-    const mode = useSelector((state) => state.interface.mode);
+
     const isAuth = useSelector(authData);
 
-    const standardResultNum = useSelector((state) => state.data.standardCounter);
-    const time = useSelector((state) => state.interface.time);
-    const number = useSelector((state) => state.interface.number);
+    const standardNumberRes = useSelector((state) => state.sessionData.counter);
+    const sprintTimeRes = useSelector((state) => state.sessionData.time);
+
+    const duration = useSelector((state) => state.interface.time);
+    const mode = useSelector((state) => state.interface.mode);
     const sign = useSelector((state) => state.interface.signList);
 
-    const sprintResult = normalizationOfTheEnd(sprintResultTime);
-
-    const actualDataStandard = {
-        mode,
-        time,
-        number: standardResultNum, // сделать смену тернарным оператором
-        sign,
-    };
+    const sprintTextRes = normalizationOfTheEnd(sprintTimeRes);
 
     const actualDataSprint = {
         mode,
-        number,
-        time: sprintResultTime,
+        number: standardNumberRes,
+        time: mode === 'Стандарт' ? duration : sprintTimeRes,
         sign,
     };
 
     const sendData = async () => {
-        if (mode === 'Стандарт') {
-            await axios.post('/session', actualDataStandard);
-        } else {
-            await axios.post('/session', actualDataSprint);
-        }
+        await axios.post('/session', actualDataSprint);
     };
 
     useEffect(() => {
@@ -50,9 +40,9 @@ const Result = ({ setIsResult }) => {
             <div className={style.result}>
 
                 {mode === 'Спринт' ? (
-                    <div>Ваше время: {sprintResult}</div>
+                    <div>Ваше время: {sprintTextRes}</div>
                 ) : (
-                    <div>Примеров решено: {standardResultNum}</div>
+                    <div>Примеров решено: {standardNumberRes}</div>
                 )}
                 <ExampleButton
                     onClick={() => setIsResult((prev) => !prev)}

@@ -1,29 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { saveSprintTime } from '../../redux/Slices/frontSlices/dataSlice';
+import { saveTime } from '../../redux/Slices/frontSlices/sessionDataSlice';
 import { classNames } from '../../helpers/classNames/classNames';
 
-const SprintTimer = ({ answer, sessionProgress, end }) => {
+const SprintTimer = ({ sessionProgress, end }) => {
 
     const duration = useSelector((state) => state.interface.number);
     const [time, setTime] = useState(0);
-    const [sprintCounter, setSprintCounter] = useState(0);
+    const standardNumber = useSelector((state) => state.sessionData.counter);
     const dispatch = useDispatch();
 
     useEffect(() => {
         const durationNum = Number(duration);
 
-        if (durationNum <= sprintCounter) {
-            dispatch(saveSprintTime(time));
+        if (durationNum <= standardNumber) {
+            dispatch(saveTime(time));
             end();
         }
-    }, [sprintCounter]);
-
-    useEffect(() => {
-        if (sessionProgress) {
-            setSprintCounter(sprintCounter + 1);
-        }
-    }, [answer]);
+    }, [standardNumber]);
 
     useEffect(() => {
         let interval;
@@ -37,7 +31,7 @@ const SprintTimer = ({ answer, sessionProgress, end }) => {
 
     return (
         <div className={classNames('timer', { timerActive: sessionProgress }, [])}>
-            {sprintCounter} | {duration}
+            {standardNumber} | {duration}
         </div>
     );
 };

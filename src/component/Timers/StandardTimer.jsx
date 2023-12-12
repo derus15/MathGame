@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-    incrementStandardCounter,
-    resetStandardCounter,
-} from '../../redux/Slices/frontSlices/dataSlice';
+import { useSelector } from 'react-redux';
 
-const StandardTimer = ({ answer, sessionProgress, end }) => {
+const StandardTimer = ({ sessionProgress, end }) => {
 
     const duration = useSelector((state) => state.interface.time);
     const [time, setTime] = useState(duration);
@@ -14,7 +10,6 @@ const StandardTimer = ({ answer, sessionProgress, end }) => {
     const [isVisibleSeconds, setIsVisibleSeconds] = useState(
         JSON.parse(localStorage.getItem('seconds')) || true,
     );
-    const dispatch = useDispatch();
 
     const showSeconds = () => {
         if (!sessionProgress) {
@@ -33,7 +28,6 @@ const StandardTimer = ({ answer, sessionProgress, end }) => {
     useEffect(() => {
         if (time > 0 && sessionProgress) {
             setTime(time - 1);
-            dispatch(resetStandardCounter());
 
             const start = setInterval(() => {
                 setTime((time) => {
@@ -66,12 +60,6 @@ const StandardTimer = ({ answer, sessionProgress, end }) => {
 
         return () => clearInterval(interval);
     }, [sessionProgress]);
-
-    useEffect(() => {
-        if (sessionProgress) {
-            dispatch(incrementStandardCounter());
-        }
-    }, [answer]);
 
     return (
         <div className="timer" onClick={showSeconds}>
