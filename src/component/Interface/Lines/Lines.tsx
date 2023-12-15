@@ -8,7 +8,7 @@ const Lines = () => {
         setRotate((prevState) => !prevState);
     }
 
-    function rotation(direction) {
+    function rotation(direction: string) {
         if (rotate) {
             return `${classes.verticalLine} ${classes[direction]} ${classes.rotateLine}`;
         }
