@@ -3,6 +3,7 @@ import style from './Header.module.css';
 import OneIcon from '/public/assets/oneIcon.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeModifications } from '../../redux/Slices/frontSlices/interfaceSlice';
+import { classNames } from '../../helpers/classNames/classNames';
 
 const Modifications = () => {
     
@@ -15,9 +16,10 @@ const Modifications = () => {
     
     return (
         <div>
-            {active 
-                ? <OneIcon className={style.svgModeOff} onClick={changeMod} />
-                : <OneIcon className={style.svgModeOn} onClick={changeMod} />}
+            <OneIcon
+                className={classNames(style.modifications, { [style.svgModeActive]: active })}
+                onClick={changeMod}
+            />
         </div>
     );
 };

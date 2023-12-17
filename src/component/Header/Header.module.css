@@ -59,26 +59,24 @@
     cursor: pointer;
 }
 
-.svgModeOn {
+.modifications {
     margin-top: 19px;
     margin-left: 20px;
     fill: var(--base-color);
     cursor: pointer;
 }
 
-.svgModeOne:hover {
+.svgModeActive {
     fill: var(--active-color);
 }
 
-.svgModeOne:active {
+.modifications:hover {
+    opacity: 70%;
+    fill: var(--active-color);
+}
+
+.modifications:active {
     fill: var(--base-color);
-}
-
-.svgModeOff {
-    margin-top: 19px;
-    margin-left: 20px;
-    fill: var(--active-color);
-    cursor: pointer;
 }
 
 .logoutContainer {
