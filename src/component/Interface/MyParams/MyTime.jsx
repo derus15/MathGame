@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import classes from '../Interface.module.css';
-import MyModal from '../../../UI/Modal/MyModal';
+import Modal from '../../../UI/Modal/Modal';
 import PersonParamsInput from '../../../UI/Input/PersonParamsInput/PersonParamsInput';
 
 const MyTime = ({ sessionProgress, changeTimeInSession }) => {
@@ -32,10 +32,10 @@ const MyTime = ({ sessionProgress, changeTimeInSession }) => {
         <>
             <div className={getClassName(myTime())} onClick={showModalMyTime}>__</div>
             {modalMyTime && (
-                <MyModal visible={modalMyTime} setVisible={setMyTime}>
+                <Modal visible={modalMyTime} setVisible={setMyTime}>
                     Задайте собственное время сессии:
                     <PersonParamsInput callback={changeTimeInSession} />
-                </MyModal>
+                </Modal>
             )}
         </>
     );

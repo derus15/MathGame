@@ -1,8 +1,14 @@
-import React, { useEffect } from 'react';
-
+import React, { Dispatch, FC, SetStateAction, useEffect } from 'react';
 import classes from './Tooltip.module.css';
 
-const Tooltip = ({ children, condition, depend, setShow }) => {
+interface tooltipProps {
+    children: string,
+    condition: boolean,
+    depend: string,
+    setShow: Dispatch<SetStateAction<boolean>>
+}
+
+const Tooltip:FC<tooltipProps> = ({ children, condition, depend, setShow }) => {
 
     useEffect(() => {
         if (condition) {

@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { FC, ReactNode } from 'react';
 import style from './LoginButton.module.css';
 
-const LoginButton = ({ children, ...props }) => (
+interface loginButtonProps {
+    children?: ReactNode,
+}
 
+const LoginButton:FC<loginButtonProps> = ({ children, ...props }) => (
     <div>
         <button type="submit" className={style.btn} {...props}>{children}</button>
     </div>

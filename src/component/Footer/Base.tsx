@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import MyModal from '../../UI/Modal/MyModal';
+import Modal from '../../UI/Modal/Modal';
 
 const Base = () => {
     const [modalBase, setModalBase] = useState(false);
@@ -13,12 +13,12 @@ const Base = () => {
             <div onClick={showModalBase} className="extra">База знаний</div>
             {modalBase
                 && (
-                    <MyModal
+                    <Modal
                         setVisible={setModalBase}
                         visible={modalBase}
                     >
                         Здесь будут публиковаться приемы и принципы быстрого счета
-                    </MyModal>
+                    </Modal>
                 )}
         </div>
     );

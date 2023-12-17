@@ -1,8 +1,14 @@
-import React from 'react';
-import style from './MyModal.module.css';
+import React, { Dispatch, FC, ReactNode, SetStateAction } from 'react';
+import style from './Modal.module.css';
 import { classNames } from '../../helpers/classNames/classNames';
 
-const MyModal = ({ children, visible, setVisible }) => (
+interface modalProps {
+    children?: ReactNode,
+    visible: boolean,
+    setVisible: Dispatch<SetStateAction<boolean>>
+}
+
+const Modal:FC<modalProps> = ({ children, visible, setVisible }) => (
 
     <div
         className={classNames(style.myModal, { [style.myModalActive]: visible }, [])}
@@ -14,4 +20,4 @@ const MyModal = ({ children, visible, setVisible }) => (
     </div>
 );
 
-export default MyModal;
+export default Modal;

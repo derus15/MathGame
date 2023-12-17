@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import MyModal from '../../UI/Modal/MyModal';
+import Modal from '../../UI/Modal/Modal';
 
 const Version = () => {
     const [modalVersion, setModalVersion] = useState(false);
@@ -11,10 +11,10 @@ const Version = () => {
     return (
         <div>
             <div className="extra" onClick={showModalVersion}>
-                v 2.1.17
+                v 2.1.20
             </div>
             {modalVersion && (
-                <MyModal visible={modalVersion} setVisible={setModalVersion}>
+                <Modal visible={modalVersion} setVisible={setModalVersion}>
                     <span className="versionNumber">v 1.0 </span>
                     <p className="versionText">
                         - Первая рабочая версия приложения
@@ -51,7 +51,7 @@ const Version = () => {
                         - Исправления и рефакторинг на уровне кода
                         <br />
                     </p>
-                </MyModal>
+                </Modal>
             )}
         </div>
     );

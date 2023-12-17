@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import MyModal from '../../../UI/Modal/MyModal';
+import Modal from '../../../UI/Modal/Modal';
 import classes from '../Interface.module.css';
 import PersonParamsInput from '../../../UI/Input/PersonParamsInput/PersonParamsInput';
 
@@ -34,10 +34,10 @@ const MyNumber = ({ sessionProgress, changeNumberInSession }) => {
             <div className={getClassName(myNumber())} onClick={showModalMyNumber}>__
             </div>
             {modalMyNumber && (
-                <MyModal visible={modalMyNumber} setVisible={setMyNumber}>
+                <Modal visible={modalMyNumber} setVisible={setMyNumber}>
                     Задайте собственное количество примеров:
                     <PersonParamsInput callback={changeNumberInSession} />
-                </MyModal>
+                </Modal>
             )}
         </>
     );
