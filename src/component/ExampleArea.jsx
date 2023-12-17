@@ -1,12 +1,12 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import ExampleInput from '../UI/Input/ExampleInput/ExampleInput';
+import { generateNumber, generateSign } from '../redux/Slices/frontSlices/exampleSlice';
+import { incrementCounter, resetCounter } from '../redux/Slices/frontSlices/sessionDataSlice';
+import SprintTimer from './Timers/SprintTimer';
 import StandardTimer from './Timers/StandardTimer';
 import Example from './Example';
-import SprintTimer from './Timers/SprintTimer';
-import { generateNumber, generateSign } from '../redux/Slices/frontSlices/exampleSlice';
+import ExampleInput from '../UI/Input/ExampleInput/ExampleInput';
 import InstructionsProvider from './Instructions/InstructionsProvider';
-import { incrementCounter, resetCounter } from '../redux/Slices/frontSlices/sessionDataSlice';
 
 const ExampleArea = ({ endSession, sessionProgress, setSessionProgress }) => {
 
@@ -15,6 +15,7 @@ const ExampleArea = ({ endSession, sessionProgress, setSessionProgress }) => {
     const [answer, setAnswer] = useState();
     const gameMode = useSelector((state) => state.interface.mode);
     const inputRef = useRef(null);
+    const permanentMod = useSelector((state) => state.interface.modifications);
 
     const refreshExample = () => {
         dispatch(generateNumber(2));
@@ -32,13 +33,23 @@ const ExampleArea = ({ endSession, sessionProgress, setSessionProgress }) => {
         }
     };
 
-    const answered = (e) => {
+    function permanentMode(e) {
+        if (permanentMod) {
+            const userAnswer = String(e.target.value).length;
+            if (userAnswer === answer.length && e.target.value !== answer) {
+                endSession();
+            }
+        }
+    }
+
+    function answered(e) {
+        permanentMode(e);
         if (e.target.value === answer) {
             dispatch(incrementCounter());
             refreshExample();
             e.target.value = '';
         }
-    };
+    }
 
     const startSessionWithSpace = (e) => {
         if (!sessionProgress && e.keyCode === 32 && inputRef.current) {

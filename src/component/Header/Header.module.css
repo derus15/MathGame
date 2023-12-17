@@ -16,6 +16,11 @@
     align-items: center;
 }
 
+.logoModsContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
 @keyframes init {
 
     0% {
@@ -51,6 +56,28 @@
     width: 30px;
     height: 30px;
     animation: inherit;
+    cursor: pointer;
+}
+
+.svgModeOn {
+    margin-top: 19px;
+    margin-left: 20px;
+    fill: var(--base-color);
+    cursor: pointer;
+}
+
+.svgModeOne:hover {
+    fill: var(--active-color);
+}
+
+.svgModeOne:active {
+    fill: var(--base-color);
+}
+
+.svgModeOff {
+    margin-top: 19px;
+    margin-left: 20px;
+    fill: var(--active-color);
     cursor: pointer;
 }
 
