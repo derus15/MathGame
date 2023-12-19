@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Instructions from './Instructions';
 
-const InstructionsProvider = ({ signal }) => {
+const InstructionsProvider = () => {
 
     const [isOpen, setIsOpen] = useState(null);
 
@@ -16,7 +16,7 @@ const InstructionsProvider = ({ signal }) => {
 
     return (
         <div>
-            {isOpen && <Instructions setIsOpen={setIsOpen} signal={signal} />}
+            {isOpen && <Instructions setIsOpen={setIsOpen} />}
         </div>
     );
 };

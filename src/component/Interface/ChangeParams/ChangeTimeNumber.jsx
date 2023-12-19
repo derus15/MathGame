@@ -3,13 +3,13 @@ import { useSelector } from 'react-redux';
 import ChangeTime from './ChangeTime';
 import ChangeNumber from './ChangeNumber';
 
-const ChangeTimeNumber = ({ sessionProgress }) => {
+const ChangeTimeNumber = () => {
     const gameMode = useSelector((state) => state.interface.mode);
 
     return gameMode === 'Стандарт' ? (
-        <ChangeTime sessionProgress={sessionProgress} />
+        <ChangeTime />
     ) : (
-        <ChangeNumber sessionProgress={sessionProgress} />
+        <ChangeNumber />
     );
 };
 

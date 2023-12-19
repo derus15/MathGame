@@ -5,7 +5,7 @@ const initialState = {
     number: Number(localStorage.getItem('durationNumber')) || 10,
     mode: localStorage.getItem('mode') || 'Стандарт',
     signList: JSON.parse(localStorage.getItem('signList')) || ['+', '-'],
-    modifications: localStorage.getItem('modifications') || null,
+    modifications: localStorage.getItem('modifications') || '',
 };
 
 export const interfaceSlice = createSlice({
@@ -40,11 +40,13 @@ export const interfaceSlice = createSlice({
 
         changeModifications: (state, action) => {
             if (state.modifications === action.payload) {
-                state.modifications = null;
+                state.modifications = '';
+                localStorage.setItem('modifications', '');
             } else {
                 state.modifications = action.payload;
+                localStorage.setItem('modifications', state.modifications);
             }
-            localStorage.setItem('modifications', state.modifications);
+
         },
     },
 });

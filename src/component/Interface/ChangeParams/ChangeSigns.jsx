@@ -4,9 +4,10 @@ import classes from '../Interface.module.css';
 import { addSign, deleteSign } from '../../../redux/Slices/frontSlices/interfaceSlice';
 import SelectSign from '../../../UI/InterfaceSelects/SelectSign/SelectSign';
 
-const ChangeSigns = ({ sessionProgress }) => {
+const ChangeSigns = () => {
     const dispatch = useDispatch();
     const signs = useSelector((state) => state.interface.signList);
+    const sessionProgress = useSelector((state) => state.activities.sessionProgress);
 
     function changeSignInSession(sign) {
         if (!sessionProgress) {

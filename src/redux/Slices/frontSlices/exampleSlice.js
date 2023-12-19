@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    numbers: [],
-    sign: null,
+    numbers: [1, 2],
+    sign: '+',
 };
 
 const exampleSlice = createSlice({

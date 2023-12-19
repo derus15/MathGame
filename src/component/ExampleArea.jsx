@@ -7,8 +7,9 @@ import StandardTimer from './Timers/StandardTimer';
 import Example from './Example';
 import ExampleInput from '../UI/Input/ExampleInput/ExampleInput';
 import InstructionsProvider from './Instructions/InstructionsProvider';
+import { endSession, startSession } from '../redux/Slices/frontSlices/activitiesSession';
 
-const ExampleArea = ({ endSession, sessionProgress, setSessionProgress }) => {
+const ExampleArea = () => {
 
     const dispatch = useDispatch();
     const signList = useSelector((state) => state.interface.signList);
@@ -16,6 +17,7 @@ const ExampleArea = ({ endSession, sessionProgress, setSessionProgress }) => {
     const gameMode = useSelector((state) => state.interface.mode);
     const inputRef = useRef(null);
     const permanentMod = useSelector((state) => state.interface.modifications);
+    const sessionProgress = useSelector((state) => state.activities.sessionProgress);
 
     const refreshExample = () => {
         dispatch(generateNumber(2));
@@ -27,9 +29,9 @@ const ExampleArea = ({ endSession, sessionProgress, setSessionProgress }) => {
         dispatch(resetCounter());
     }, [signList, gameMode]);
 
-    const startSession = () => {
+    const startSessionHandler = () => {
         if (!sessionProgress) {
-            setSessionProgress(true);
+            dispatch(startSession());
         }
     };
 
@@ -37,7 +39,7 @@ const ExampleArea = ({ endSession, sessionProgress, setSessionProgress }) => {
         if (permanentMod) {
             const userAnswer = String(e.target.value).length;
             if (userAnswer === answer.length && e.target.value !== answer) {
-                endSession();
+                dispatch(endSession());
             }
         }
     }
@@ -68,19 +70,18 @@ const ExampleArea = ({ endSession, sessionProgress, setSessionProgress }) => {
     return (
         <>
             {gameMode === 'Стандарт' 
-                ? <StandardTimer sessionProgress={sessionProgress} end={endSession} />
-                : <SprintTimer sessionProgress={sessionProgress} end={endSession} />}
+                ? <StandardTimer />
+                : <SprintTimer />}
             <div className="example">
                 <Example setAnswer={setAnswer} />
                 <ExampleInput
                     ref={inputRef}
-                    onFocus={startSession}
+                    onFocus={startSessionHandler}
                     onInput={answered}
                     signal={answer}
-                    sessionProgress={sessionProgress}
                 />
             </div>
-            <InstructionsProvider signal={sessionProgress} />
+            <InstructionsProvider />
         </>
     );
 };

@@ -9,11 +9,14 @@ const Modifications = () => {
     
     const dispatch = useDispatch();
     const active = useSelector((state) => state.interface.modifications);
+    const sessionProgress = useSelector((state) => state.activities.sessionProgress);
 
     const changeMod = () => {
-        dispatch(changeModifications('one'));
+        if (!sessionProgress) {
+            dispatch(changeModifications('one'));
+        }
     };
-    
+
     return (
         <div>
             <OneIcon

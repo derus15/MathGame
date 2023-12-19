@@ -1,12 +1,13 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import classes from '../Interface.module.css';
 import { changeTime } from '../../../redux/Slices/frontSlices/interfaceSlice';
 import MyTime from '../MyParams/MyTime';
 import SelectTime from '../../../UI/InterfaceSelects/SelectTime/SelectTime';
 
-const ChangeTime = ({ sessionProgress }) => {
+const ChangeTime = () => {
     const dispatch = useDispatch();
+    const sessionProgress = useSelector((state) => state.activities.sessionProgress);
 
     function changeTimeInSession(time) {
         if (!sessionProgress) {
@@ -19,7 +20,7 @@ const ChangeTime = ({ sessionProgress }) => {
             <SelectTime time={15} onClick={() => changeTimeInSession(15)}>0:15</SelectTime>
             <SelectTime time={30} onClick={() => changeTimeInSession(30)}>0:30</SelectTime>
             <SelectTime time={60} onClick={() => changeTimeInSession(60)}>1:00</SelectTime>
-            <MyTime sessionProgress={sessionProgress} changeTimeInSession={changeTimeInSession} />
+            <MyTime changeTimeInSession={changeTimeInSession} />
         </div>
     );
 };
