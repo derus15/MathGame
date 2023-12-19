@@ -37,6 +37,8 @@ function normalizationExample(props: normalizationExampleProps) {
         }
 
         num_1 *= num_2; // (num_1 * num_2) / num_2 = num_1
+        // nums = [1, 30];
+        // (30 * 1) / 30 = 30 / 30 = 1
     }
 
     const answerExample = String(signFunction[sign](num_1, num_2));
