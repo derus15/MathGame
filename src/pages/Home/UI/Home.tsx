@@ -1,31 +1,26 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import Result from '../../Result/Result';
 import Interface from '../../../component/Interface/Interface';
 import ExampleArea from '../../../component/ExampleArea';
+import { useDispatch, useSelector } from 'react-redux';
+import { resetSession } from '../../../redux/Slices/frontSlices/activitiesSession';
 
 const Home = () => {
-    const [isResult, setIsResult] = useState(false);
-    const [sessionProgress, setSessionProgress] = useState(false);
 
-    const endSession = () => {
-        setSessionProgress(false);
-        setIsResult(!isResult);
-    };
+    const isResult = useSelector((state) => state.activities.result);
+    const dispatch = useDispatch();
+
+    useEffect(() => () => { dispatch(resetSession()); }, []);
 
     return (
         // eslint-disable-next-line react/jsx-no-useless-fragment
         <>
             {isResult ? (
-                <Result setIsResult={setIsResult} />
+                <Result />
             ) : (
                 <>
-                    <Interface sessionProgress={sessionProgress} />
-
-                    <ExampleArea
-                        endSession={endSession}
-                        setSessionProgress={setSessionProgress}
-                        sessionProgress={sessionProgress}
-                    />
+                    <Interface />
+                    <ExampleArea />
                 </>
             )}
         </>

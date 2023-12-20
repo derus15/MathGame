@@ -4,6 +4,8 @@ import dataReducer from './Slices/frontSlices/sessionDataSlice';
 import authSlice from './Slices/backSlices/authSlice';
 import querySlice from './Slices/backSlices/accountSlice';
 import exampleSlice from './Slices/frontSlices/exampleSlice';
+// eslint-disable-next-line import/no-named-as-default
+import activitiesSessionSlice from './Slices/frontSlices/activitiesSession';
 
 export const store = configureStore({
     reducer: {
@@ -12,5 +14,6 @@ export const store = configureStore({
         auth: authSlice,
         query: querySlice,
         example: exampleSlice,
+        activities: activitiesSessionSlice,
     },
 });

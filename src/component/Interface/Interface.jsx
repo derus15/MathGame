@@ -5,13 +5,13 @@ import ChangeSigns from './ChangeParams/ChangeSigns';
 import Lines from './Lines/Lines';
 import ChangeTimeNumber from './ChangeParams/ChangeTimeNumber';
 
-const Interface = ({ sessionProgress }) => (
+const Interface = () => (
     <div className={style.center}>
         <div className={style.mainContainer}>
-            <ChangeTimeNumber sessionProgress={sessionProgress} />
-            <ChangeSigns sessionProgress={sessionProgress} />
+            <ChangeTimeNumber />
+            <ChangeSigns />
             <Lines />
-            <ChangeModes sessionProgress={sessionProgress} />
+            <ChangeModes />
         </div>
     </div>
 );

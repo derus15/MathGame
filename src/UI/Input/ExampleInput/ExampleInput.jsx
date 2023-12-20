@@ -1,9 +1,11 @@
 import React, { forwardRef, useEffect, useState } from 'react';
 import style from './ExampleInput.module.css';
 import { classNames } from '../../../helpers/classNames/classNames';
+import { useSelector } from 'react-redux';
 
-const ExampleInput = forwardRef(({ sessionProgress, signal = null, ...props }, ref) => {
+const ExampleInput = forwardRef(({ signal = null, ...props }, ref) => {
     const [answerSignal, setAnswerSignal] = useState(false);
+    const sessionProgress = useSelector((state) => state.activities.sessionProgress);
 
     const checkNumber = (e) => {
         const { value } = e.target;

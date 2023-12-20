@@ -1,20 +1,21 @@
 import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import style from './Result.module.css';
 import ExampleButton from '../../UI/Button/ExampleButton/ExampleButton';
 import axios from '../../helpers/axios';
 import { normalizationOfTheEnd } from '../../helpers/normalizationOfTheEnd/normalizationOfTheEnd';
 import { Link } from 'react-router-dom';
 import { authData } from '../../redux/Slices/backSlices/authSlice';
+import { closeResult } from '../../redux/Slices/frontSlices/activitiesSession';
 
-const Result = ({ setIsResult }) => {
+const Result = () => {
 
     const isAuth = useSelector(authData);
-
+    const dispatch = useDispatch();
+    
     const standardNumberRes = useSelector((state) => state.sessionData.counter);
     const sprintTimeRes = useSelector((state) => state.sessionData.time);
 
-    const duration = useSelector((state) => state.interface.time);
     const mode = useSelector((state) => state.interface.mode);
     const sign = useSelector((state) => state.interface.signList);
 
@@ -23,7 +24,7 @@ const Result = ({ setIsResult }) => {
     const actualDataSprint = {
         mode,
         number: standardNumberRes,
-        time: mode === 'Стандарт' ? duration : sprintTimeRes,
+        time: sprintTimeRes,
         sign,
     };
 
@@ -34,6 +35,10 @@ const Result = ({ setIsResult }) => {
     useEffect(() => {
         sendData().catch((err) => console.log(err));
     }, []);
+    
+    const closeResultHandle = () => {
+        dispatch(closeResult());
+    };
 
     return (
         <div className={style.resultContainer}>
@@ -45,7 +50,7 @@ const Result = ({ setIsResult }) => {
                     <div>Примеров решено: {standardNumberRes}</div>
                 )}
                 <ExampleButton
-                    onClick={() => setIsResult((prev) => !prev)}
+                    onClick={closeResultHandle}
                     random
                 />
                 {!isAuth && (

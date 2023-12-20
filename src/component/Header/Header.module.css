@@ -16,6 +16,11 @@
     align-items: center;
 }
 
+.logoModsContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
 @keyframes init {
 
     0% {
@@ -52,6 +57,26 @@
     height: 30px;
     animation: inherit;
     cursor: pointer;
+}
+
+.modifications {
+    margin-top: 19px;
+    margin-left: 20px;
+    fill: var(--base-color);
+    cursor: pointer;
+}
+
+.svgModeActive {
+    fill: var(--active-color);
+}
+
+.modifications:hover {
+    opacity: 70%;
+    fill: var(--active-color);
+}
+
+.modifications:active {
+    fill: var(--base-color);
 }
 
 .logoutContainer {

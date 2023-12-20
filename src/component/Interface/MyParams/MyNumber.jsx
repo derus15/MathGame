@@ -5,9 +5,10 @@ import Modal from '../../../UI/Modal/Modal';
 import classes from '../Interface.module.css';
 import PersonParamsInput from '../../../UI/Input/PersonParamsInput/PersonParamsInput';
 
-const MyNumber = ({ sessionProgress, changeNumberInSession }) => {
+const MyNumber = ({ changeNumberInSession }) => {
     const [modalMyNumber, setMyNumber] = useState(false);
     const duration = useSelector((state) => state.interface.number);
+    const sessionProgress = useSelector((state) => state.activities.sessionProgress);
 
     const getClassName = (id) => {
         if (duration === id) {
