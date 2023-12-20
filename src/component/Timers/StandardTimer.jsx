@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { endSession } from '../../redux/Slices/frontSlices/activitiesSession';
+import { saveTime } from '../../redux/Slices/frontSlices/sessionDataSlice';
 
 const StandardTimer = () => {
 
@@ -27,6 +28,13 @@ const StandardTimer = () => {
     useEffect(() => {
         setTime(duration);
     }, [duration]);
+
+    useEffect(() => {
+        // сохранение времени в permantMode
+        if (sessionProgress) {
+            dispatch(saveTime(duration - time));
+        }
+    }, [time]);
 
     useEffect(() => {
         if (time > 0 && sessionProgress) {

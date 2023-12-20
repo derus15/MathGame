@@ -16,10 +16,15 @@ const SprintTimer = () => {
         const durationNum = Number(duration);
 
         if (durationNum <= standardNumber) {
-            dispatch(saveTime(time));
             dispatch(endSession());
         }
     }, [standardNumber]);
+
+    useEffect(() => {
+        if (sessionProgress) {
+            dispatch(saveTime(time));
+        }
+    }, [time]);
 
     useEffect(() => {
         let interval;

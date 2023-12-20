@@ -16,7 +16,6 @@ const Result = () => {
     const standardNumberRes = useSelector((state) => state.sessionData.counter);
     const sprintTimeRes = useSelector((state) => state.sessionData.time);
 
-    const duration = useSelector((state) => state.interface.time);
     const mode = useSelector((state) => state.interface.mode);
     const sign = useSelector((state) => state.interface.signList);
 
@@ -25,7 +24,7 @@ const Result = () => {
     const actualDataSprint = {
         mode,
         number: standardNumberRes,
-        time: mode === 'Стандарт' ? duration : sprintTimeRes,
+        time: sprintTimeRes,
         sign,
     };
 
