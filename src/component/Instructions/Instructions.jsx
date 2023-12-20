@@ -4,9 +4,8 @@ import { classNames } from '../../helpers/classNames/classNames';
 import Cross from '/public/assets/cross.svg';
 import { useSelector } from 'react-redux';
 
-const Instructions = ({ setIsOpen }) => {
+const Instructions = ({ setIsOpen, instructions }) => {
 
-    const instructionsObj = { initial: 'Для начала сессии нажмите на поле ввода или Space' };
     const [isVisible, setIsVisible] = useState(true);
     const sessionProgress = useSelector((state) => state.activities.sessionProgress);
 
@@ -35,7 +34,7 @@ const Instructions = ({ setIsOpen }) => {
 
     return (
         <div className={classNames(style.instructions, { [style.hidden]: !isVisible })}>
-            {instructionsObj.initial}
+            {instructions}
             <button
                 className={style.btn}
                 type="button"
