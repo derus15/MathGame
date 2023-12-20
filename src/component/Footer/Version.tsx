@@ -11,7 +11,7 @@ const Version = () => {
     return (
         <div>
             <div className="extra" onClick={showModalVersion}>
-                v 2.1.20
+                v 2.1.27
             </div>
             {modalVersion && (
                 <Modal visible={modalVersion} setVisible={setModalVersion}>
