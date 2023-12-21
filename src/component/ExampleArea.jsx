@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { generateNumber, generateSign } from '../redux/Slices/frontSlices/exampleSlice';
 import { incrementCounter, resetCounter } from '../redux/Slices/frontSlices/sessionDataSlice';
@@ -15,7 +15,6 @@ const ExampleArea = () => {
     const signList = useSelector((state) => state.interface.signList);
     const [answer, setAnswer] = useState();
     const gameMode = useSelector((state) => state.interface.mode);
-    const inputRef = useRef(null);
     const permanentMod = useSelector((state) => state.interface.modifications);
     const sessionProgress = useSelector((state) => state.activities.sessionProgress);
 
@@ -53,20 +52,6 @@ const ExampleArea = () => {
         }
     }
 
-    const startSessionWithSpace = (e) => {
-        if (!sessionProgress && e.keyCode === 32 && inputRef.current) {
-            inputRef.current.focus();
-        }
-        return null;
-    };
-
-    useEffect(() => {
-        window.addEventListener('keydown', startSessionWithSpace);
-        return () => {
-            window.removeEventListener('keydown', startSessionWithSpace);
-        };
-    }, [sessionProgress]);
-
     return (
         <>
             {gameMode === 'Стандарт' 
@@ -75,8 +60,7 @@ const ExampleArea = () => {
             <div className="example">
                 <Example setAnswer={setAnswer} />
                 <ExampleInput
-                    ref={inputRef}
-                    onFocus={startSessionHandler}
+                    focus={startSessionHandler}
                     onInput={answered}
                     signal={answer}
                 />
