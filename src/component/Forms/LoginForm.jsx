@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import style from './Forms.module.css';
 import LoginInput from '../../UI/Input/LoginInput/LoginInput';
 import LoginButton from '../../UI/Button/LoginButton/LoginButton';
-import { authData, fetchAuth } from '../../redux/Slices/backSlices/authSlice';
+import { authData, fetchAuth } from '../../redux/Slices/backSlices/auth/authSlice';
 import Checkbox from '../../UI/Checkbox/Checkbox';
 import Loader from '../../UI/Loader/Loader';
 

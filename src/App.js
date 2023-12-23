@@ -4,13 +4,13 @@ import React, { useEffect, Suspense } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import Footer from './component/Footer/Footer';
-import { fetchAuthMe } from './redux/Slices/backSlices/authSlice';
 import Header from './component/Header/Header';
 import Loading from './component/Loading/Loading';
 import { NotFound } from './pages/NotFound';
 import { Auth } from './pages/Auth';
 import { Account } from './pages/Account';
 import { Home } from './pages/Home';
+import { fetchAuthMe } from './redux/Slices/backSlices/auth/authSlice';
 
 const App = () => {
 

@@ -1,17 +1,18 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import classes from '../Interface.module.css';
-import { changeTime } from '../../../redux/Slices/frontSlices/interfaceSlice';
+import { interfaceActions } from '../../../redux/Slices/frontSlices/interface/interfaceSlice';
 import MyTime from '../MyParams/MyTime';
 import SelectTime from '../../../UI/InterfaceSelects/SelectTime/SelectTime';
+import { StateSchema } from '../../../redux/types';
 
 const ChangeTime = () => {
     const dispatch = useDispatch();
-    const sessionProgress = useSelector((state) => state.activities.sessionProgress);
+    const sessionProgress = useSelector((state: StateSchema) => state.activities.sessionProgress);
 
-    function changeTimeInSession(time) {
+    function changeTimeInSession(time: number) {
         if (!sessionProgress) {
-            dispatch(changeTime(time));
+            dispatch(interfaceActions.changeTime(time));
         }
     }
 

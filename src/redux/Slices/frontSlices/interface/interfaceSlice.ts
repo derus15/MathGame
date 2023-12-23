@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { InterfaceSchema } from './types';
 
-const initialState = {
+const initialState: InterfaceSchema = {
     time: Number(localStorage.getItem('durationTime')) || 15,
     number: Number(localStorage.getItem('durationNumber')) || 10,
     mode: localStorage.getItem('mode') || 'Стандарт',
@@ -9,6 +10,7 @@ const initialState = {
 };
 
 export const interfaceSlice = createSlice({
+
     name: 'interface',
     initialState,
     reducers: {
@@ -51,13 +53,6 @@ export const interfaceSlice = createSlice({
     },
 });
 
-export const {
-    changeTime,
-    changeNumber,
-    addSign,
-    deleteSign,
-    changeGameMode,
-    changeModifications,
-} = interfaceSlice.actions;
+export const { actions: interfaceActions } = interfaceSlice;
 
-export default interfaceSlice.reducer;
+export const { reducer: interfaceReducer } = interfaceSlice;

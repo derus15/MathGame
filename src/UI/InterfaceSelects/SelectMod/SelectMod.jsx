@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import style from './SelectMode.module.css';
 import { classNames } from '../../../helpers/classNames/classNames';
 
-const SelectMod = ({ children, onClick, mode }) => {
+const SelectMod = ({ children = '', onClick = null, mode = null }) => {
     
     const gameMode = useSelector((state) => state.interface.mode);
     const isSelectedMode = Boolean(gameMode === mode);

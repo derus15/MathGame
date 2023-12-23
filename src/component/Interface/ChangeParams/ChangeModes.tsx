@@ -1,17 +1,18 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import classes from '../Interface.module.css';
-import { changeGameMode } from '../../../redux/Slices/frontSlices/interfaceSlice';
+import { interfaceActions } from '../../../redux/Slices/frontSlices/interface/interfaceSlice';
 import SelectMod from '../../../UI/InterfaceSelects/SelectMod/SelectMod';
+import { StateSchema } from '../../../redux/types';
 
 const ChangeModes = () => {
 
     const dispatch = useDispatch();
-    const sessionProgress = useSelector((state) => state.activities.sessionProgress);
+    const sessionProgress = useSelector((state: StateSchema) => state.activities.sessionProgress);
 
-    function changeGameModeInSession(mode) {
+    function changeGameModeInSession(mode: string) {
         if (!sessionProgress) {
-            dispatch(changeGameMode(mode));
+            dispatch(interfaceActions.changeGameMode(mode));
         }
     }
 

@@ -2,11 +2,12 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import style from './Header.module.css';
-import { authData, logout } from '../../redux/Slices/backSlices/authSlice';
+import { authActions, authData } from '../../redux/Slices/backSlices/auth/authSlice';
 import ProfileSvg from '/public/assets/profile.svg';
 import LogoutSvg from '/public/assets/logout.svg';
 
 const HeaderAccount = () => {
+
     const data = useSelector(authData);
     const dispatch = useDispatch();
 
@@ -16,7 +17,7 @@ const HeaderAccount = () => {
     const name = dataName?.user?.name;
 
     const Logout = () => {
-        dispatch(logout());
+        dispatch(authActions.logout());
     };
 
     return (

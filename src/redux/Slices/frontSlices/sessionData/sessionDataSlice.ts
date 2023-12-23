@@ -1,13 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { SessionDataSchema } from './types';
 
-const initialState = {
+const initialState: SessionDataSchema = {
     counter: 0,
     time: 0,
 };
 
 export const sessionDataSlice = createSlice({
 
-    name: 'data',
+    name: 'sessionData',
     initialState,
     reducers: {
 
@@ -26,10 +27,6 @@ export const sessionDataSlice = createSlice({
     },
 });
 
-export const {
-    saveTime,
-    incrementCounter,
-    resetCounter,
-} = sessionDataSlice.actions;
+export const { actions: sessionDataActions } = sessionDataSlice;
 
-export default sessionDataSlice.reducer;
+export const { reducer: sessionDataReducer } = sessionDataSlice;

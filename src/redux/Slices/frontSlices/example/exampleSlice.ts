@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { ExampleSchema } from './types';
 
-const initialState = {
-    numbers: [1, 2],
+const initialState:ExampleSchema = {
+    numbersList: [1, 2],
     sign: '+',
 };
 
@@ -18,7 +19,7 @@ const exampleSlice = createSlice({
             for (let i = 0; i < action.payload; i += 1) {
                 numberArray.push(Math.floor(Math.random() * 100));
             }
-            state.numbers = numberArray;
+            state.numbersList = numberArray;
         },
 
         generateSign: (state, action) => {
@@ -33,9 +34,6 @@ const exampleSlice = createSlice({
 
 });
 
-export const {
-    generateNumber,
-    generateSign,
-} = exampleSlice.actions;
+export const { actions: exampleActions } = exampleSlice;
 
-export default exampleSlice.reducer;
+export const { reducer: exampleReducer } = exampleSlice;

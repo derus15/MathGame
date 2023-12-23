@@ -6,7 +6,11 @@ describe('normalizationExample.test', () => {
         const mockSetAnswer = jest.fn((answer) => answer);
         const numsList = [10, 30];
         const sign = '+';
-        expect(normalizationExample({ numsList, sign, setAnswer: mockSetAnswer })).toEqual('10 + 30 =');
+        expect(normalizationExample({
+            numbersList: numsList,
+            sign,
+            setAnswer: mockSetAnswer,
+        })).toEqual('10 + 30 =');
         expect(mockSetAnswer.mock.results[0].value).toEqual('40');
     });
 
@@ -14,7 +18,10 @@ describe('normalizationExample.test', () => {
         const mockSetAnswer = jest.fn((answer) => answer);
         const numsList = [10, 30];
         const sign = '-';
-        expect(normalizationExample({ numsList, sign, setAnswer: mockSetAnswer })).toEqual('30 - 10 =');
+        expect(normalizationExample({ numbersList: numsList,
+            sign,
+            setAnswer: mockSetAnswer,
+        })).toEqual('30 - 10 =');
         expect(mockSetAnswer.mock.results[0].value).toEqual('20');
     });
 
@@ -22,7 +29,10 @@ describe('normalizationExample.test', () => {
         const mockSetAnswer = jest.fn((answer) => answer);
         const numsList = [40, 30];
         const sign = '-';
-        expect(normalizationExample({ numsList, sign, setAnswer: mockSetAnswer })).toEqual('40 - 30 =');
+        expect(normalizationExample({ numbersList: numsList,
+            sign,
+            setAnswer: mockSetAnswer,
+        })).toEqual('40 - 30 =');
         expect(mockSetAnswer.mock.results[0].value).toEqual('10');
     });
 
@@ -30,7 +40,10 @@ describe('normalizationExample.test', () => {
         const mockSetAnswer = jest.fn((answer) => answer);
         const numsList = [10, 30];
         const sign = '*';
-        expect(normalizationExample({ numsList, sign, setAnswer: mockSetAnswer })).toEqual('10 * 30 =');
+        expect(normalizationExample({ numbersList: numsList,
+            sign,
+            setAnswer: mockSetAnswer,
+        })).toEqual('10 * 30 =');
         expect(mockSetAnswer.mock.results[0].value).toEqual('300');
     });
 
@@ -38,7 +51,10 @@ describe('normalizationExample.test', () => {
         const mockSetAnswer = jest.fn((answer) => answer);
         const numsList = [9, 30];
         const sign = '/';
-        expect(normalizationExample({ numsList, sign, setAnswer: mockSetAnswer })).toEqual('270 / 30 =');
+        expect(normalizationExample({ numbersList: numsList,
+            sign,
+            setAnswer: mockSetAnswer,
+        })).toEqual('270 / 30 =');
         expect(mockSetAnswer.mock.results[0].value).toEqual('9');
     });
 
@@ -46,7 +62,10 @@ describe('normalizationExample.test', () => {
         const mockSetAnswer = jest.fn((answer) => answer);
         const numsList = [100, 30];
         const sign = '/';
-        expect(normalizationExample({ numsList, sign, setAnswer: mockSetAnswer })).toEqual('3000 / 30 =');
+        expect(normalizationExample({ numbersList: numsList,
+            sign,
+            setAnswer: mockSetAnswer,
+        })).toEqual('3000 / 30 =');
         expect(mockSetAnswer.mock.results[0].value).toEqual('100');
     });
 
@@ -54,7 +73,10 @@ describe('normalizationExample.test', () => {
         const mockSetAnswer = jest.fn((answer) => answer);
         const numsList = [10, 30];
         const sign = '/';
-        expect(normalizationExample({ numsList, sign, setAnswer: mockSetAnswer })).toEqual('300 / 30 =');
+        expect(normalizationExample({ numbersList: numsList,
+            sign,
+            setAnswer: mockSetAnswer,
+        })).toEqual('300 / 30 =');
         expect(mockSetAnswer.mock.results[0].value).toEqual('10');
     });
 
@@ -62,7 +84,10 @@ describe('normalizationExample.test', () => {
         const mockSetAnswer = jest.fn((answer) => answer);
         const numsList = [0, 30];
         const sign = '/';
-        expect(normalizationExample({ numsList, sign, setAnswer: mockSetAnswer })).toEqual('30 / 30 =');
+        expect(normalizationExample({ numbersList: numsList,
+            sign,
+            setAnswer: mockSetAnswer,
+        })).toEqual('30 / 30 =');
         expect(mockSetAnswer.mock.results[0].value).toEqual('1');
     });
 

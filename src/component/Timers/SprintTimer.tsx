@@ -1,33 +1,34 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { saveTime } from '../../redux/Slices/frontSlices/sessionDataSlice';
 import { classNames } from '../../helpers/classNames/classNames';
-import { endSession } from '../../redux/Slices/frontSlices/activitiesSession';
+import { activitiesSessionActions } from '../../redux/Slices/frontSlices/activitiesSession/activitiesSession';
+import { sessionDataActions } from '../../redux/Slices/frontSlices/sessionData/sessionDataSlice';
+import { StateSchema } from '../../redux/types';
 
 const SprintTimer = () => {
 
-    const sessionProgress = useSelector((state) => state.activities.sessionProgress);
-    const duration = useSelector((state) => state.interface.number);
+    const sessionProgress = useSelector((state: StateSchema) => state.activities.sessionProgress);
+    const duration = useSelector((state: StateSchema) => state.interface.number);
     const [time, setTime] = useState(0);
-    const standardNumber = useSelector((state) => state.sessionData.counter);
+    const standardNumber = useSelector((state: StateSchema) => state.sessionData.counter);
     const dispatch = useDispatch();
 
     useEffect(() => {
         const durationNum = Number(duration);
 
         if (durationNum <= standardNumber) {
-            dispatch(endSession());
+            dispatch(activitiesSessionActions.endSession());
         }
     }, [standardNumber]);
 
     useEffect(() => {
         if (sessionProgress) {
-            dispatch(saveTime(time));
+            dispatch(sessionDataActions.saveTime(time));
         }
     }, [time]);
 
     useEffect(() => {
-        let interval;
+        let interval: ReturnType<typeof setInterval>;
         if (sessionProgress) {
             interval = setInterval(() => {
                 setTime((time) => time + 1);

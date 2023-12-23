@@ -1,16 +1,21 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-
 import Modal from '../../../UI/Modal/Modal';
 import classes from '../Interface.module.css';
 import PersonParamsInput from '../../../UI/Input/PersonParamsInput/PersonParamsInput';
+import { StateSchema } from '../../../redux/types';
 
-const MyNumber = ({ changeNumberInSession }) => {
+interface MyNumberProps {
+    changeNumberInSession: (a:number) => void
+}
+
+const MyNumber = ({ changeNumberInSession }: MyNumberProps) => {
+
     const [modalMyNumber, setMyNumber] = useState(false);
-    const duration = useSelector((state) => state.interface.number);
-    const sessionProgress = useSelector((state) => state.activities.sessionProgress);
+    const duration = useSelector((state: StateSchema) => state.interface.number);
+    const sessionProgress = useSelector((state: StateSchema) => state.activities.sessionProgress);
 
-    const getClassName = (id) => {
+    const getClassName = (id: number | null) => {
         if (duration === id) {
             return `${classes.number} ${classes.numberActive}`;
         }

@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import Instructions from './Instructions';
 import { useSelector } from 'react-redux';
+import { StateSchema } from '../../redux/types';
 
 const InstructionsProvider = () => {
 
-    const one = useSelector((state) => state.interface.modifications);
+    const one = useSelector((state: StateSchema) => state.interface.modifications);
     const [isOpen, setIsOpen] = useState(null);
     const [key, setKey] = useState('initial');
 
-    const instructionsObj = {
+    const instructionsObj:Record<string, string> = {
         'initial': 'Для начала сессии нажмите на поле ввода или Space',
         'one': 'Режим одной ошибки: в случае ошибки сессия закончится',
     };

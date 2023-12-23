@@ -1,17 +1,18 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import classes from '../Interface.module.css';
-import { changeNumber } from '../../../redux/Slices/frontSlices/interfaceSlice';
+import { interfaceActions } from '../../../redux/Slices/frontSlices/interface/interfaceSlice';
 import MyNumber from '../MyParams/MyNumber';
 import SelectNumber from '../../../UI/InterfaceSelects/SelectNumber/SelectNumber';
+import { StateSchema } from '../../../redux/types';
 
 const ChangeNumber = () => {
     const dispatch = useDispatch();
-    const sessionProgress = useSelector((state) => state.activities.sessionProgress);
+    const sessionProgress = useSelector((state: StateSchema) => state.activities.sessionProgress);
 
-    function changeNumberInSession(number) {
+    function changeNumberInSession(number:number) {
         if (!sessionProgress) {
-            dispatch(changeNumber(number));
+            dispatch(interfaceActions.changeNumber(number));
         }
     }
 

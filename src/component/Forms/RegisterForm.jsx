@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import style from './Forms.module.css';
 import LoginInput from '../../UI/Input/LoginInput/LoginInput';
 import LoginButton from '../../UI/Button/LoginButton/LoginButton';
-import { authData, fetchRegister } from '../../redux/Slices/backSlices/authSlice';
+import { authData, fetchRegister } from '../../redux/Slices/backSlices/auth/authSlice';
 import Loader from '../../UI/Loader/Loader';
 
 const RegisterForm = () => {

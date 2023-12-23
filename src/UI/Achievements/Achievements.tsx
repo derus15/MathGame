@@ -1,7 +1,12 @@
 import React from 'react';
 import style from './Achievements.module.css';
 
-const Achievements = ({ title = 'Студент', text = 'Создать аккаунт' }) => (
+interface AchievementsProps {
+    title: string,
+    text: string
+}
+
+const Achievements = ({ title = 'Студент', text = 'Создать аккаунт' }: AchievementsProps) => (
     <div className={style.container}>
         <div className={style.picture} />
         <div>

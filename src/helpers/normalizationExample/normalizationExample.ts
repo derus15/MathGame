@@ -8,7 +8,7 @@ const signFunction:Record<string, (a: number, b: number) => number> = {
 };
 
 interface normalizationExampleProps {
-    numsList: number[],
+    numbersList: number[],
     sign: string,
     setAnswer: Dispatch<SetStateAction<string>>
 }
@@ -16,12 +16,12 @@ interface normalizationExampleProps {
 function normalizationExample(props: normalizationExampleProps) {
 
     const {
-        numsList,
+        numbersList,
         sign,
         setAnswer,
     } = props;
     
-    let [num_1, num_2] = numsList;
+    let [num_1, num_2] = numbersList;
     
     if ((sign === '-') && (num_1 < num_2)) {
         [num_1, num_2] = [num_2, num_1];

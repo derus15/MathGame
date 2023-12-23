@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { endSession } from '../../redux/Slices/frontSlices/activitiesSession';
-import { saveTime } from '../../redux/Slices/frontSlices/sessionDataSlice';
+import { activitiesSessionActions } from '../../redux/Slices/frontSlices/activitiesSession/activitiesSession';
+import { sessionDataActions } from '../../redux/Slices/frontSlices/sessionData/sessionDataSlice';
+import { StateSchema } from '../../redux/types';
 
 const StandardTimer = () => {
 
-    const duration = useSelector((state) => state.interface.time);
-    const sessionProgress = useSelector((state) => state.activities.sessionProgress);
+    const duration = useSelector((state: StateSchema) => state.interface.time);
+    const sessionProgress = useSelector((state: StateSchema) => state.activities.sessionProgress);
     const [time, setTime] = useState(duration);
     const [seconds, setSeconds] = useState(0);
     // const [width, setWidth] = useState('890');
@@ -17,7 +18,7 @@ const StandardTimer = () => {
 
     const showSeconds = () => {
         if (!sessionProgress) {
-            setIsVisibleSeconds((prev) => !prev);
+            setIsVisibleSeconds((prev: boolean) => !prev);
         }
     };
 
@@ -30,9 +31,9 @@ const StandardTimer = () => {
     }, [duration]);
 
     useEffect(() => {
-        // сохранение времени в permantMode
+        // сохранение времени в permanentMode
         if (sessionProgress) {
-            dispatch(saveTime(duration - time));
+            dispatch(sessionDataActions.saveTime(duration - time));
         }
     }, [time]);
 
@@ -44,7 +45,7 @@ const StandardTimer = () => {
                 setTime((time) => {
                     if (time <= 0) {
                         clearInterval(start);
-                        dispatch(endSession());
+                        dispatch(activitiesSessionActions.endSession());
                     }
                     // setWidth(width => Math.abs(width - Math.round(890 / duration)));
                     return time - 1;
@@ -54,14 +55,14 @@ const StandardTimer = () => {
     }, [sessionProgress]);
 
     useEffect(() => {
-        let interval;
+        let interval: ReturnType<typeof setInterval>;
         if (sessionProgress && isVisibleSeconds) {
             setSeconds(9);
 
             interval = setInterval(() => {
                 setSeconds((second) => {
                     if (second === 0) {
-                        return setSeconds(9);
+                        return 9; // return setSeconds(9);
                     }
 
                     return second - 1;

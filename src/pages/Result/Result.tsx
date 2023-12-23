@@ -5,19 +5,22 @@ import ExampleButton from '../../UI/Button/ExampleButton/ExampleButton';
 import axios from '../../helpers/axios';
 import { normalizationOfTheEnd } from '../../helpers/normalizationOfTheEnd/normalizationOfTheEnd';
 import { Link } from 'react-router-dom';
-import { authData } from '../../redux/Slices/backSlices/authSlice';
-import { closeResult } from '../../redux/Slices/frontSlices/activitiesSession';
+import { authData } from '../../redux/Slices/backSlices/auth/authSlice';
+import {
+    activitiesSessionActions,
+} from '../../redux/Slices/frontSlices/activitiesSession/activitiesSession';
+import { StateSchema } from '../../redux/types';
 
 const Result = () => {
 
     const isAuth = useSelector(authData);
     const dispatch = useDispatch();
     
-    const standardNumberRes = useSelector((state) => state.sessionData.counter);
-    const sprintTimeRes = useSelector((state) => state.sessionData.time);
+    const standardNumberRes = useSelector((state: StateSchema) => state.sessionData.counter);
+    const sprintTimeRes = useSelector((state: StateSchema) => state.sessionData.time);
 
-    const mode = useSelector((state) => state.interface.mode);
-    const sign = useSelector((state) => state.interface.signList);
+    const mode = useSelector((state: StateSchema) => state.interface.mode);
+    const sign = useSelector((state: StateSchema) => state.interface.signList);
 
     const sprintTextRes = normalizationOfTheEnd(sprintTimeRes);
 
@@ -37,7 +40,7 @@ const Result = () => {
     }, []);
     
     const closeResultHandle = () => {
-        dispatch(closeResult());
+        dispatch(activitiesSessionActions.closeResult());
     };
 
     return (

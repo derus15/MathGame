@@ -3,13 +3,19 @@ import { useSelector } from 'react-redux';
 import classes from '../Interface.module.css';
 import Modal from '../../../UI/Modal/Modal';
 import PersonParamsInput from '../../../UI/Input/PersonParamsInput/PersonParamsInput';
+import { StateSchema } from '../../../redux/types';
 
-const MyTime = ({ changeTimeInSession }) => {
+interface MyTimeProps {
+    changeTimeInSession: (a: number) => void
+}
+
+const MyTime = ({ changeTimeInSession }: MyTimeProps) => {
+
     const [modalMyTime, setMyTime] = useState(false);
-    const duration = useSelector((state) => state.interface.time);
-    const sessionProgress = useSelector((state) => state.activities.sessionProgress);
+    const duration = useSelector((state: StateSchema) => state.interface.time);
+    const sessionProgress = useSelector((state: StateSchema) => state.activities.sessionProgress);
 
-    const getClassName = (id) => {
+    const getClassName = (id: number | null) => {
         if (duration === id) {
             return `${classes.time} ${classes.timeActive}`;
         }

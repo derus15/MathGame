@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import style from './Account.module.css';
-import { authData } from '../../../redux/Slices/backSlices/authSlice';
+import { authData } from '../../../redux/Slices/backSlices/auth/authSlice';
 import { timeNormalization } from '../../../helpers/timeNormalization/timeNormalization';
-import { getData } from '../../../redux/Slices/backSlices/accountSlice';
+import { getData } from '../../../redux/Slices/backSlices/account/accountSlice';
 import Avatar from '../../../../public/assets/Avatar.jpg';
 
 const Account = () => {
