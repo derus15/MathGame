@@ -90,7 +90,6 @@ body, html {
     position: absolute;
     top: 200px;
     left: 190px;
-    cursor: pointer;
     animation: init ease-in-out .2s;
 }
 

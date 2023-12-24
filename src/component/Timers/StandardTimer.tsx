@@ -12,19 +12,6 @@ const StandardTimer = () => {
     const [seconds, setSeconds] = useState(0);
     // const [width, setWidth] = useState('890');
     const dispatch = useDispatch();
-    const [isVisibleSeconds, setIsVisibleSeconds] = useState(
-        JSON.parse(localStorage.getItem('seconds')) || true,
-    );
-
-    const showSeconds = () => {
-        if (!sessionProgress) {
-            setIsVisibleSeconds((prev: boolean) => !prev);
-        }
-    };
-
-    useEffect(() => {
-        localStorage.setItem('seconds', JSON.stringify(isVisibleSeconds));
-    }, [isVisibleSeconds]);
 
     useEffect(() => {
         setTime(duration);
@@ -56,7 +43,7 @@ const StandardTimer = () => {
 
     useEffect(() => {
         let interval: ReturnType<typeof setInterval>;
-        if (sessionProgress && isVisibleSeconds) {
+        if (sessionProgress) {
             setSeconds(9);
 
             interval = setInterval(() => {
@@ -74,8 +61,8 @@ const StandardTimer = () => {
     }, [sessionProgress]);
 
     return (
-        <div className="timer" onClick={showSeconds}>
-            {time}{isVisibleSeconds ? `,${seconds}` : ''}
+        <div className="timer">
+            {time},{seconds}
         </div>
     );
 };
