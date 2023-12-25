@@ -9,29 +9,29 @@ const SprintTimer = () => {
 
     const sessionProgress = useSelector((state: StateSchema) => state.activities.sessionProgress);
     const duration = useSelector((state: StateSchema) => state.interface.number);
-    const [time, setTime] = useState(0);
-    const standardNumber = useSelector((state: StateSchema) => state.sessionData.counter);
+    const [seconds, setSeconds] = useState(0);
+    const userCounter = useSelector((state: StateSchema) => state.sessionData.counter);
     const dispatch = useDispatch();
 
     useEffect(() => {
         const durationNum = Number(duration);
 
-        if (durationNum <= standardNumber) {
+        if (durationNum <= userCounter) {
             dispatch(activitiesSessionActions.endSession());
         }
-    }, [standardNumber]);
+    }, [userCounter]);
 
     useEffect(() => {
         if (sessionProgress) {
-            dispatch(sessionDataActions.saveTime(time));
+            dispatch(sessionDataActions.saveTime(seconds));
         }
-    }, [time]);
+    }, [seconds]);
 
     useEffect(() => {
         let interval: ReturnType<typeof setInterval>;
         if (sessionProgress) {
             interval = setInterval(() => {
-                setTime((time) => time + 1);
+                setSeconds((time) => time + 1);
             }, 1000);
         }
         return () => clearInterval(interval);
@@ -39,7 +39,7 @@ const SprintTimer = () => {
 
     return (
         <div className={classNames('timer', { timerActive: sessionProgress }, [])}>
-            {standardNumber} | {duration}
+            {userCounter} | {duration}
         </div>
     );
 };

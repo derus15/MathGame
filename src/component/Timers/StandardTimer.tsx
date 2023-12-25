@@ -8,28 +8,28 @@ const StandardTimer = () => {
 
     const duration = useSelector((state: StateSchema) => state.interface.time);
     const sessionProgress = useSelector((state: StateSchema) => state.activities.sessionProgress);
-    const [time, setTime] = useState(duration);
-    const [seconds, setSeconds] = useState(0);
+    const [seconds, setSeconds] = useState(duration);
+    const [milliseconds, setMilliseconds] = useState(0);
     // const [width, setWidth] = useState('890');
     const dispatch = useDispatch();
 
     useEffect(() => {
-        setTime(duration);
+        setSeconds(duration);
     }, [duration]);
 
     useEffect(() => {
         // сохранение времени в permanentMode
         if (sessionProgress) {
-            dispatch(sessionDataActions.saveTime(duration - time));
+            dispatch(sessionDataActions.saveTime(duration - seconds - 1));
         }
-    }, [time]);
+    }, [seconds]);
 
     useEffect(() => {
-        if (time > 0 && sessionProgress) {
-            setTime(time - 1);
+        if (seconds > 0 && sessionProgress) {
+            setSeconds(seconds - 1); // поэтому отнимаем единицу в saveTime
 
             const start = setInterval(() => {
-                setTime((time) => {
+                setSeconds((time) => {
                     if (time <= 0) {
                         clearInterval(start);
                         dispatch(activitiesSessionActions.endSession());
@@ -44,10 +44,10 @@ const StandardTimer = () => {
     useEffect(() => {
         let interval: ReturnType<typeof setInterval>;
         if (sessionProgress) {
-            setSeconds(9);
+            setMilliseconds(9);
 
             interval = setInterval(() => {
-                setSeconds((second) => {
+                setMilliseconds((second) => {
                     if (second === 0) {
                         return 9; // return setSeconds(9);
                     }
@@ -62,7 +62,7 @@ const StandardTimer = () => {
 
     return (
         <div className="timer">
-            {time},{seconds}
+            {seconds},{milliseconds}
         </div>
     );
 };
