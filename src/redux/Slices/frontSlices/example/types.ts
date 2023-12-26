@@ -1,4 +1,6 @@
+import { SignList } from '../../../../types/config';
+
 export interface ExampleSchema {
     numbersList: number[],
-    sign: string,
+    sign: SignList,
 }

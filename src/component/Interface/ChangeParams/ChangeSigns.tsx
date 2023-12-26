@@ -4,13 +4,14 @@ import classes from '../Interface.module.css';
 import { interfaceActions } from '../../../redux/Slices/frontSlices/interface/interfaceSlice';
 import SelectSign from '../../../UI/InterfaceSelects/SelectSign/SelectSign';
 import { StateSchema } from '../../../redux/types';
+import { SignList } from '../../../types/config';
 
 const ChangeSigns = () => {
     const dispatch = useDispatch();
     const signs = useSelector((state: StateSchema) => state.interface.signList);
     const sessionProgress = useSelector((state: StateSchema) => state.activities.sessionProgress);
 
-    function changeSignInSession(sign: string) {
+    function changeSignInSession(sign: SignList) {
         if (!sessionProgress) {
             if (signs.includes(sign) && signs.length > 1) {
                 dispatch(interfaceActions.deleteSign(sign));

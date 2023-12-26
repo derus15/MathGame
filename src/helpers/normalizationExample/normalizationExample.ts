@@ -1,6 +1,8 @@
 import { Dispatch, SetStateAction } from 'react';
+import { SignList } from '../../types/config';
 
-const signFunction:Record<string, (a: number, b: number) => number> = {
+// eslint-disable-next-line no-unused-vars
+const signFunction:Record<SignList, (a: number, b: number) => number> = {
     '+': (a, b) => a + b,
     '-': (a, b) => a - b,
     '*': (a, b) => a * b,
@@ -9,7 +11,7 @@ const signFunction:Record<string, (a: number, b: number) => number> = {
 
 interface normalizationExampleProps {
     numbersList: number[],
-    sign: string,
+    sign: SignList,
     setAnswer: Dispatch<SetStateAction<string>>
 }
 

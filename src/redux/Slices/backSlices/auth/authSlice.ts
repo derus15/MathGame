@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from '../../../../helpers/axios';
 import { AuthSchema } from './types';
+import { StateSchema } from '../../../types';
 
 export const fetchAuth = createAsyncThunk<string, {rejectValue: string}>(
     '/auth/fetchAuth',
@@ -94,7 +95,7 @@ const authSlice = createSlice({
     },
 });
 
-export const authData = (state: { auth: { data: string } }) => Boolean(state.auth.data);
+export const authData = (state: StateSchema) => Boolean(state.auth.data);
 export const { actions: authActions } = authSlice;
 
 export const { reducer: authReducer } = authSlice;
