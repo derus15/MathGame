@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import style from './SelectTime.module.css';
 import { classNames } from '../../../helpers/classNames/classNames';
 
-const SelectTime = ({ children, time, onClick }) => {
+const SelectTime = ({ children, time, callback }) => {
 
     const duration = useSelector((state) => state.interface.time);
     const isSelectedTime = Boolean(duration === time);
@@ -11,7 +11,7 @@ const SelectTime = ({ children, time, onClick }) => {
     return (
         <div
             className={classNames(style.time, { [style.timeActive]: isSelectedTime }, [])}
-            onClick={onClick}
+            onClick={callback}
         >
             {children}
         </div>

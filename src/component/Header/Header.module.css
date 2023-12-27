@@ -39,7 +39,7 @@
 
 .username {
     font-size: 21px;
-    color: white;
+    color: var(--active-color);
     animation: inherit;
     cursor: pointer;
 }

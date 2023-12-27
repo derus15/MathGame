@@ -8,11 +8,11 @@ import LogoutSvg from '/public/assets/logout.svg';
 
 const HeaderAccount = () => {
 
-    const data = useSelector(authData);
+    const isAuth = useSelector(authData);
     const dispatch = useDispatch();
 
     const dataNameMe = useSelector((state) => state.auth.data);
-    const dataName = useSelector((state) => state.query.data);
+    const dataName = useSelector((state) => state.account.data);
     const nameMe = dataNameMe?.name;
     const name = dataName?.user?.name;
 
@@ -23,7 +23,7 @@ const HeaderAccount = () => {
     return (
         // eslint-disable-next-line react/jsx-no-useless-fragment
         <>
-            {data ? (
+            {isAuth ? (
                 <Link to="/account">
                     <div className={style.containerAccount}>
                         <span className={style.username}>{name || nameMe}</span>

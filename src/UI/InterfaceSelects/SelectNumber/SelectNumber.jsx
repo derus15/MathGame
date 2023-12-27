@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import style from './SelectNumber.module.css';
 import { classNames } from '../../../helpers/classNames/classNames';
 
-const SelectNumber = ({ children, number, onClick }) => {
+const SelectNumber = ({ children, number, callback }) => {
 
     const duration = useSelector((state) => state.interface.number);
     const isSelectedItem = Boolean(duration === number);
@@ -11,7 +11,7 @@ const SelectNumber = ({ children, number, onClick }) => {
     return (
         <div
             className={classNames(style.number, { [style.numberActive]: isSelectedItem }, [])}
-            onClick={onClick}
+            onClick={callback}
         >
             {children}
         </div>

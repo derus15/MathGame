@@ -12,7 +12,7 @@ export const store = configureStore({
         interface: interfaceReducer,
         example: exampleReducer,
         auth: authReducer,
-        query: accountReducer,
+        account: accountReducer,
         activities: activitiesSessionReducer,
     },
 });

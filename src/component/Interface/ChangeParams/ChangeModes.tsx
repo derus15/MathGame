@@ -18,10 +18,10 @@ const ChangeModes = () => {
 
     return (
         <div className={classes.containerModes}>
-            <SelectMod mode="Спринт" onClick={() => changeGameModeInSession('Спринт')}>
+            <SelectMod mode="Спринт" callback={() => changeGameModeInSession('Спринт')}>
                 Спринт
             </SelectMod>
-            <SelectMod mode="Стандарт" onClick={() => changeGameModeInSession('Стандарт')}>
+            <SelectMod mode="Стандарт" callback={() => changeGameModeInSession('Стандарт')}>
                 Стандарт
             </SelectMod>
             <SelectMod>Скоро...</SelectMod>

@@ -14,7 +14,7 @@ const initialState:AccountSchema = {
 
 const accountSlice = createSlice({
 
-    name: 'query',
+    name: 'account',
     initialState,
     reducers: {},
     extraReducers: (builder) => {

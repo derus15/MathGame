@@ -10,6 +10,6 @@ export interface StateSchema {
     interface: InterfaceSchema,
     example: ExampleSchema,
     auth: AuthSchema,
-    query: AccountSchema,
+    account: AccountSchema,
     activities: ActivitiesSessionSchema
 }

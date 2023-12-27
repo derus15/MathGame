@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import style from './SelectSign.module.css';
 import { classNames } from '../../../helpers/classNames/classNames';
 
-const SelectSign = ({ children, onClick, sign }) => {
+const SelectSign = ({ children, callback, sign }) => {
 
     const signs = useSelector((state) => state.interface.signList);
     const isSelectedSigns = Boolean(signs.includes(sign));
@@ -11,7 +11,7 @@ const SelectSign = ({ children, onClick, sign }) => {
     return (
         <div 
             className={classNames(style.signs, { [style.signsActive]: isSelectedSigns }, [])}
-            onClick={onClick}
+            onClick={callback}
         >
             {children}
         </div>

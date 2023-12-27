@@ -11,7 +11,7 @@ const Account = () => {
     const dispatch = useDispatch();
     const isAuth = useSelector(authData);
 
-    const data = useSelector((state) => state.query.data);
+    const data = useSelector((state) => state.account.data);
     const fetchingTime = data?.counterTime?.[0]?.total_time;
     const exampleCount = data?.counterExample?.[0]?.total_example;
     const name = data?.user?.name;

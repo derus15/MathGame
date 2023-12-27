@@ -23,10 +23,10 @@ const ChangeSigns = () => {
 
     return (
         <div className={classes.containerSigns}>
-            <SelectSign sign="+" onClick={() => changeSignInSession('+')}>+</SelectSign>
-            <SelectSign sign="-" onClick={() => changeSignInSession('-')}>-</SelectSign>
-            <SelectSign sign="*" onClick={() => changeSignInSession('*')}>x</SelectSign>
-            <SelectSign sign="/" onClick={() => changeSignInSession('/')}>/</SelectSign>
+            <SelectSign sign="+" callback={() => changeSignInSession('+')}>+</SelectSign>
+            <SelectSign sign="-" callback={() => changeSignInSession('-')}>-</SelectSign>
+            <SelectSign sign="*" callback={() => changeSignInSession('*')}>x</SelectSign>
+            <SelectSign sign="/" callback={() => changeSignInSession('/')}>/</SelectSign>
         </div>
     );
 };

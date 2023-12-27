@@ -18,9 +18,9 @@ const ChangeTime = () => {
 
     return (
         <div className={classes.containerTime}>
-            <SelectTime time={15} onClick={() => changeTimeInSession(15)}>0:15</SelectTime>
-            <SelectTime time={30} onClick={() => changeTimeInSession(30)}>0:30</SelectTime>
-            <SelectTime time={60} onClick={() => changeTimeInSession(60)}>1:00</SelectTime>
+            <SelectTime time={15} callback={() => changeTimeInSession(15)}>0:15</SelectTime>
+            <SelectTime time={30} callback={() => changeTimeInSession(30)}>0:30</SelectTime>
+            <SelectTime time={60} callback={() => changeTimeInSession(60)}>1:00</SelectTime>
             <MyTime changeTimeInSession={changeTimeInSession} />
         </div>
     );
