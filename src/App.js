@@ -1,7 +1,6 @@
 import './App.css';
 import './UI/Themes/Themes.css';
-import React, { useEffect, Suspense } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Footer from './component/Footer/Footer';
 import Header from './component/Header/Header';
@@ -10,30 +9,28 @@ import { NotFound } from './pages/NotFound';
 import { Auth } from './pages/Auth';
 import { Account } from './pages/Account';
 import { Home } from './pages/Home';
-import { fetchAuthMe } from './redux/Slices/backSlices/auth/authSlice';
+import { PrivateRoute } from './helpers/PrivateRoute/PrivateRoute';
 
-const App = () => {
-
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(fetchAuthMe());
-    }, []);
-
-    return (
-        <div className="container">
-            <Header />
-            <Suspense fallback={<Loading />}>
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/auth" element={<Auth />} />
-                    <Route path="/account" element={<Account />} />
-                    <Route path="*" element={<NotFound />} />
-                </Routes>
-            </Suspense>
-            <Footer />
-        </div>
-    );
-};
+const App = () => (
+    <div className="container">
+        <Header />
+        <Suspense fallback={<Loading />}>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/auth" element={<Auth />} />
+                <Route
+                    path="/account"
+                    element={
+                        <PrivateRoute back="/auth">
+                            <Account />
+                        </PrivateRoute>
+                    }
+                />
+                <Route path="*" element={<NotFound />} />
+            </Routes>
+        </Suspense>
+        <Footer />
+    </div>
+);
 
 export default App;

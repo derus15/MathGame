@@ -6,12 +6,12 @@ import { toast } from 'react-toastify';
 import style from './Forms.module.css';
 import LoginInput from '../../UI/Input/LoginInput/LoginInput';
 import LoginButton from '../../UI/Button/LoginButton/LoginButton';
-import { authData, fetchRegister } from '../../redux/Slices/backSlices/auth/authSlice';
+import { fetchRegister } from '../../redux/Slices/backSlices/auth/authSlice';
 import Loader from '../../UI/Loader/Loader';
 
 const RegisterForm = () => {
     const dispatch = useDispatch();
-    const isAuth = useSelector(authData);
+    const isAuth = useSelector((state) => state.auth.isAuth);
 
     const status = useSelector((state) => state.auth.statusReg);
     const isLoading = status === 'loading';

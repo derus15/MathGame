@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import style from './Forms.module.css';
 import LoginInput from '../../UI/Input/LoginInput/LoginInput';
 import LoginButton from '../../UI/Button/LoginButton/LoginButton';
-import { authData, fetchAuth } from '../../redux/Slices/backSlices/auth/authSlice';
+import { fetchAuth } from '../../redux/Slices/backSlices/auth/authSlice';
 import Checkbox from '../../UI/Checkbox/Checkbox';
 import Loader from '../../UI/Loader/Loader';
 
@@ -14,7 +14,7 @@ const LoginForm = () => {
 
     const [isRemember, setIsRemember] = useState(JSON.parse(localStorage.getItem('remember')) || false);
     const dispatch = useDispatch();
-    const isAuth = useSelector(authData);
+    const isAuth = useSelector((state) => state.auth.isAuth);
 
     const status = useSelector((state) => state.auth.statusLog);
     const isLoading = status === 'loading';

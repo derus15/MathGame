@@ -1,15 +1,16 @@
-// export interface UserSchema {
-//     id: string,
-//     name: string,
-// }
+export interface UserSchema {
+    id: string,
+    name: string,
+}
 
-// export interface TokenSchema {
-//     token: string
-// }
+export interface TokenSchema {
+    token: string
+}
 
 export interface AuthSchema {
-    data: string | null,
+    data: TokenSchema | null,
     statusLog: 'loading' | 'loaded' | 'error' | '',
     statusReg: 'loading' | 'loaded' | 'error' | '',
-    // user: UserSchema
+    user: UserSchema,
+    isAuth: boolean,
 }

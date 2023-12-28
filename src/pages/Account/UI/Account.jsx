@@ -1,15 +1,13 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Navigate } from 'react-router-dom';
 import style from './Account.module.css';
-import { authData } from '../../../redux/Slices/backSlices/auth/authSlice';
 import { timeNormalization } from '../../../helpers/timeNormalization/timeNormalization';
 import { getData } from '../../../redux/Slices/backSlices/account/accountSlice';
 import Avatar from '../../../../public/assets/Avatar.jpg';
 
 const Account = () => {
+
     const dispatch = useDispatch();
-    const isAuth = useSelector(authData);
 
     const data = useSelector((state) => state.account.data);
     const fetchingTime = data?.counterTime?.[0]?.total_time;
@@ -19,18 +17,8 @@ const Account = () => {
     const normalTime = timeNormalization(fetchingTime);
 
     useEffect(() => {
-        const fetch = async () => {
-            await dispatch(getData());
-        };
-
-        fetch().catch((err) => {
-            console.log(err);
-        });
+        dispatch(getData());
     }, []);
-
-    if (!isAuth) {
-        return <Navigate to="/auth" />;
-    }
 
     return (
 

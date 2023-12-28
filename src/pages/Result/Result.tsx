@@ -5,7 +5,6 @@ import ExampleButton from '../../UI/Button/ExampleButton/ExampleButton';
 import axios from '../../helpers/axios';
 import { normalizationOfTheEnd } from '../../helpers/normalizationOfTheEnd/normalizationOfTheEnd';
 import { Link } from 'react-router-dom';
-import { authData } from '../../redux/Slices/backSlices/auth/authSlice';
 import {
     activitiesSessionActions,
 } from '../../redux/Slices/frontSlices/activitiesSession/activitiesSession';
@@ -13,7 +12,7 @@ import { StateSchema } from '../../redux/types';
 
 const Result = () => {
 
-    const isAuth = useSelector(authData);
+    const isAuth = useSelector((state: StateSchema) => state.auth.isAuth);
     const dispatch = useDispatch();
     
     const standardNumberRes = useSelector((state: StateSchema) => state.sessionData.counter);
