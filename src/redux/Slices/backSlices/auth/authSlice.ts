@@ -55,7 +55,6 @@ const authSlice = createSlice({
     },
     extraReducers: (builder) => {
 
-        // eslint-disable-next-line no-unused-expressions
         builder
             .addCase(fetchRegister.pending, (state) => {
                 state.data = null;

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { activitiesSessionActions } from '../../redux/Slices/frontSlices/activitiesSession/activitiesSession';
 import { sessionDataActions } from '../../redux/Slices/frontSlices/sessionData/sessionDataSlice';
 import { StateSchema } from '../../redux/types';
+import Timer from './Timer';
 
 const StandardTimer = () => {
 
@@ -10,60 +11,31 @@ const StandardTimer = () => {
     const sessionProgress = useSelector((state: StateSchema) => state.activities.sessionProgress);
     const [seconds, setSeconds] = useState(duration);
     const [milliseconds, setMilliseconds] = useState(0);
-    // const [width, setWidth] = useState('890');
     const dispatch = useDispatch();
 
     useEffect(() => {
-        setSeconds(duration);
-    }, [duration]);
-
-    useEffect(() => {
-        // сохранение времени в permanentMode
         if (sessionProgress) {
-            dispatch(sessionDataActions.saveTime(duration - seconds - 1));
+            // сохранение времени в permanentMode
+            dispatch(sessionDataActions.saveTime(duration - seconds));
+        } else {
+            // слежение за выставленным игроком временем
+            setSeconds(duration);
         }
-    }, [seconds]);
-
+    }, [seconds, duration]);
+    
     useEffect(() => {
-        if (seconds > 0 && sessionProgress) {
-            setSeconds(seconds - 1); // поэтому отнимаем единицу в saveTime
-
-            const start = setInterval(() => {
-                setSeconds((time) => {
-                    if (time <= 0) {
-                        clearInterval(start);
-                        dispatch(activitiesSessionActions.endSession());
-                    }
-                    // setWidth(width => Math.abs(width - Math.round(890 / duration)));
-                    return time - 1;
-                });
-            }, 1000);
+        if (seconds === 0 && milliseconds === 0) {
+            dispatch(activitiesSessionActions.endSession());
         }
-    }, [sessionProgress]);
-
-    useEffect(() => {
-        let interval: ReturnType<typeof setInterval>;
-        if (sessionProgress) {
-            setMilliseconds(9);
-
-            interval = setInterval(() => {
-                setMilliseconds((second) => {
-                    if (second === 0) {
-                        return 9; // return setSeconds(9);
-                    }
-
-                    return second - 1;
-                });
-            }, 100);
-        }
-
-        return () => clearInterval(interval);
-    }, [sessionProgress]);
+    }, [milliseconds]);
 
     return (
-        <div className="timer">
-            {seconds},{milliseconds}
-        </div>
+        <Timer
+            setMilliseconds={setMilliseconds}
+            milliseconds={milliseconds}
+            setSeconds={setSeconds}
+            seconds={seconds}
+        />
     );
 };
 

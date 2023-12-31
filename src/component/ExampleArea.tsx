@@ -38,7 +38,7 @@ const ExampleArea = () => {
     function permanentMode(e: ChangeEvent<HTMLInputElement>) {
         if (permanentMod) {
             const userAnswer = String(e.target.value).length;
-            if (userAnswer === answer.length && e.target.value !== answer) {
+            if (userAnswer === answer.length && e.target.value !== answer && e.target.value !== ' ') {
                 dispatch(activitiesSessionActions.endSession());
             }
         }

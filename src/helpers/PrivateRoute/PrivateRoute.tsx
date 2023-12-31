@@ -8,7 +8,7 @@ interface PrivateRouteProps {
     back: string
 }
 
-export const PrivateRoute:FC = (props: PrivateRouteProps) => {
+export const PrivateRoute:FC<PrivateRouteProps> = (props) => {
 
     const {
         children,
