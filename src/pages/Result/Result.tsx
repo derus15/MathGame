@@ -31,16 +31,21 @@ const Result = () => {
     };
 
     const sendData = async () => {
-        await axios.post('/session', actualDataSprint);
+        if (isAuth) {
+            await axios.post('/session', actualDataSprint);
+        }
     };
-
-    useEffect(() => {
-        sendData().catch((err) => console.log(err));
-    }, []);
     
     const closeResultHandle = () => {
         dispatch(activitiesSessionActions.closeResult());
     };
+
+    useEffect(() => {
+        sendData().catch((err) => console.log(err));
+        return () => {
+            closeResultHandle();
+        };
+    }, []);
 
     return (
         <div className={style.resultContainer}>
