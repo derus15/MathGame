@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import style from '../Footer.module.css';
+import { OutlineButton } from '../../../../UI/Button/OutlineButton/OutlineButton';
 
-const Theme = () => {
+const ThemeSwitcher = () => {
     const themesList = ['black', 'ocean', 'PP'];
     const [themeIndex, setThemeIndex] = useState(localStorage.getItem('theme') || 1);
 
@@ -24,10 +26,13 @@ const Theme = () => {
     };
 
     return (
-        <div>
-            <div onClick={showTheme} className="extra">{themeObj[themesList[themeIndex]]}</div>
-        </div>
+        <OutlineButton
+            onClick={showTheme}
+            className={style.extra}
+        >
+            {themeObj[themesList[themeIndex]]}
+        </OutlineButton>
     );
 };
 
-export default Theme;
+export default ThemeSwitcher;

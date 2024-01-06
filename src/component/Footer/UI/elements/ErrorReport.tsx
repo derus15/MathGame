@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import Modal from '../../UI/Modal/Modal';
+import Modal from '../../../../UI/Modal/Modal';
+import style from '../Footer.module.css';
+import { OutlineButton } from '../../../../UI/Button/OutlineButton/OutlineButton';
 
-const Error = () => {
+const ErrorReport = () => {
     const [modalError, setModalError] = useState(false);
 
     function showModalError() {
@@ -9,8 +11,8 @@ const Error = () => {
     }
 
     return (
-        <div>
-            <div onClick={showModalError} className="extra">Сообщить об ошибке</div>
+        <>
+            <OutlineButton onClick={showModalError} className={style.extra}>Сообщить об ошибке</OutlineButton>
             {modalError
                 && (
                     <Modal visible={modalError} setVisible={setModalError}>
@@ -18,8 +20,8 @@ const Error = () => {
                         <span className="errorEmail"> mathgame.problem@gmail.com</span>
                     </Modal>
                 )}
-        </div>
+        </>
     );
 };
 
-export default Error;
+export default ErrorReport;

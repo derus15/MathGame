@@ -37,8 +37,7 @@ const MyNumber = ({ changeNumberInSession }: MyNumberProps) => {
 
     return (
         <>
-            <div className={getClassName(myNumber())} onClick={showModalMyNumber}>__
-            </div>
+            <div className={getClassName(myNumber())} onClick={showModalMyNumber}>__</div>
             {modalMyNumber && (
                 <Modal visible={modalMyNumber} setVisible={setMyNumber}>
                     Задайте собственное количество примеров:

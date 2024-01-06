@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import Modal from '../../UI/Modal/Modal';
+import Modal from '../../../../UI/Modal/Modal';
+import style from '../Footer.module.css';
+import { OutlineButton } from '../../../../UI/Button/OutlineButton/OutlineButton';
 
-const Base = () => {
+const KnowledgeBase = () => {
     const [modalBase, setModalBase] = useState(false);
 
     function showModalBase() {
@@ -9,8 +11,8 @@ const Base = () => {
     }
 
     return (
-        <div>
-            <div onClick={showModalBase} className="extra">База знаний</div>
+        <>
+            <OutlineButton onClick={showModalBase} className={style.extra}>База знаний</OutlineButton>
             {modalBase
                 && (
                     <Modal
@@ -20,8 +22,8 @@ const Base = () => {
                         Здесь будут публиковаться приемы и принципы быстрого счета
                     </Modal>
                 )}
-        </div>
+        </>
     );
 };
 
-export default Base;
+export default KnowledgeBase;

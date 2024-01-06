@@ -1,0 +1,102 @@
+.footer {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    bottom: 12px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--base-color);
+    font-size: 1.8rem;
+}
+
+a:active {
+    color: var(--base-color);
+}
+
+.extra {
+    display: inline-block;
+    color: var(--base-color);
+    cursor: pointer;
+    font-size: 1.8rem;
+}
+
+.extra:hover {
+    color: var(--active-color);
+}
+
+.extra:active {
+    color: var(--base-color);
+}
+
+.errorEmail {
+    color: var(--active-color);
+    user-select: text;
+    background-color: var(--modal-color);
+}
+
+.versionNumber {
+    font-size: 2.5rem;
+    background-color: var(--modal-color);
+}
+
+.versionText {
+    color: var(--active-color);
+    background-color: var(--modal-color);
+}
+
+.leftBlock {
+    display: flex;
+    gap: 90px;
+    width: 100%;
+    justify-content: space-between;
+    z-index: 2;
+}
+
+.leftBlock > * {
+    flex-shrink: 0;
+}
+
+.rightBlock {
+    display: flex;
+    justify-content: flex-end;
+    gap: 120px;
+    width: 100%;
+}
+
+@media screen and (max-width: 1200px) {
+
+    .extra {
+        font-size: 1.6rem;
+    }
+
+}
+
+@media screen and (max-width:1080px){
+
+    .leftBlock {
+        gap: 60px;
+    }
+
+    .rightBlock {
+        gap: 90px;
+    }
+
+}
+
+@media screen and (max-width:950px){
+
+    .extra {
+        font-size: 1.5rem;
+    }
+
+    .leftBlock {
+        gap: 50px;
+    }
+
+    .rightBlock {
+        gap: 70px;
+    }
+
+}

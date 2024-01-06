@@ -1,8 +1,7 @@
-import React, { ButtonHTMLAttributes, FC, ReactNode } from 'react';
+import React, { ButtonHTMLAttributes, FC } from 'react';
 import classes from './ExampleButton.module.css';
 
 interface buttonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-    children?: ReactNode,
     random?: boolean,
 }
 

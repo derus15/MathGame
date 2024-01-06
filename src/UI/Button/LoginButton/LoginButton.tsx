@@ -1,13 +1,21 @@
-import React, { FC, ReactNode } from 'react';
+import React, { ButtonHTMLAttributes, FC } from 'react';
 import style from './LoginButton.module.css';
+import { classNames } from '../../../helpers/classNames/classNames';
 
-interface loginButtonProps {
-    children?: ReactNode,
+interface loginButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
+    className?: string
 }
 
-const LoginButton:FC<loginButtonProps> = ({ children, ...props }) => (
+const LoginButton:FC<loginButtonProps> = ({ children, className, ...props }) => (
+
     <div>
-        <button type="submit" className={style.btn} {...props}>{children}</button>
+        <button
+            type="submit"
+            className={classNames(style.btn, {}, [className])}
+            {...props}
+        >
+            {children}
+        </button>
     </div>
 );
 

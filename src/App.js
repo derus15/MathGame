@@ -2,7 +2,7 @@ import './App.css';
 import './UI/Themes/Themes.css';
 import React, { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Footer from './component/Footer/Footer';
+import { Footer } from './component/Footer';
 import Header from './component/Header/Header';
 import Loading from './component/Loading/Loading';
 import { NotFound } from './pages/NotFound';

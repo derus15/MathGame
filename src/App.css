@@ -97,6 +97,22 @@ body, html {
     animation: blink infinite 1s;
 }
 
+@media screen and (max-width:1120px) {
+
+    .timer {
+        left: 115px;
+    }
+
+}
+
+
+@media screen and (max-width:1080px){
+
+    .example {
+        font-size: 3.3rem;
+    }
+
+}
 /*Стили для таймера полоски*/
 
 /*style={{*/
@@ -112,122 +128,3 @@ body, html {
 /*      cursor: 'pointer',*/
 /*      transition: 'width 1s linear',*/
 /*  }}*/
-
-/*Footer*/
-
-.footer {
-    position: absolute;
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    font-size: 1.8rem;
-    bottom: 12px;
-    color: var(--base-color);
-}
-
-@media screen and (max-width: 1200px) {
-  .footer {
-    font-size: 1.6rem;
-  }
-}
-
-a:active {
-    color: var(--base-color);
-}
-
-a {
-    cursor: auto;
-    text-decoration: none;
-    color: var(--base-color);
-}
-
-.extra{
-    display: inline-block;
-}
-
-.extra:hover {
-    cursor: pointer;
-    color: var(--active-color);
-}
-
-.extra:active {
-    color: var(--base-color);
-}
-
-.errorEmail {
-    color: var(--active-color);
-    user-select: text;
-    background-color: var(--modal-color);
-}
-
-.versionNumber {
-    font-size: 2.5rem;
-    background-color: var(--modal-color);
-}
-
-.versionText {
-    color: var(--active-color);
-    background-color: var(--modal-color);
-}
-
-.leftBlock {
-    display: flex;
-    gap: 90px;
-    width: 100%;
-    justify-content: space-between;
-    z-index: 2;
-}
-
-.leftBlock > * {
-    flex-shrink: 0;
-}
-
-.rightBlock {
-    display: flex;
-    justify-content: flex-end;
-    gap: 120px;
-    width: 100%;
-    flex-wrap: wrap;
-}
-
-@media screen and (max-width:1120px) {
-
-    .timer {
-        left: 115px;
-    }
-
-}
-
-@media screen and (max-width:1080px){
-
-    .example {
-        font-size: 3.3rem;
-    }
-
-    .leftBlock {
-        gap: 60px;
-    }
-
-    .rightBlock {
-        gap: 90px;
-    }
-
-}
-
-@media screen and (max-width:950px){
-
-    .footer {
-        font-size: 1.5rem;
-    }
-
-    .leftBlock {
-        gap: 50px;
-    }
-
-    .rightBlock {
-        gap: 70px;
-    }
-
-}
-
-/**/

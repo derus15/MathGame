@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import Modal from '../../UI/Modal/Modal';
+import Modal from '../../../../UI/Modal/Modal';
+import style from '../Footer.module.css';
+import { OutlineButton } from '../../../../UI/Button/OutlineButton/OutlineButton';
 
-const Version = () => {
+const VersionHistory = () => {
     const [modalVersion, setModalVersion] = useState(false);
 
     function showModalVersion() {
@@ -9,33 +11,33 @@ const Version = () => {
     }
 
     return (
-        <div>
-            <div className="extra" onClick={showModalVersion}>
-                v 2.1.33
-            </div>
+        <>
+            <OutlineButton className={style.extra} onClick={showModalVersion}>
+                v 2.1.35
+            </OutlineButton>
             {modalVersion && (
                 <Modal visible={modalVersion} setVisible={setModalVersion}>
-                    <span className="versionNumber">v 1.0 </span>
-                    <p className="versionText">
+                    <span className={style.versionNumber}>v 1.0 </span>
+                    <p className={style.versionText}>
                         - Первая рабочая версия приложения
                     </p>
                     <br />
-                    <span className="versionNumber">v 1.1 </span>
-                    <p className="versionText">
+                    <span className={style.versionNumber}>v 1.1 </span>
+                    <p className={style.versionText}>
                         - Добавлена новая тема
                         <br />- Исправление мелких ошибок и багов
                     </p>
                     <br />
-                    <span className="versionNumber">v 1.2 </span>
-                    <p className="versionText">
+                    <span className={style.versionNumber}>v 1.2 </span>
+                    <p className={style.versionText}>
                         - Добавлен новый режим игры
                         <br />
                         - Добавлено поле для установки собственного времени
                         <br />- Исправление мелких ошибок и багов
                     </p>
                     <br />
-                    <span className="versionNumber">v 2.0 </span>
-                    <p className="versionText">
+                    <span className={style.versionNumber}>v 2.0 </span>
+                    <p className={style.versionText}>
                         - Добавлен личный кабинет и статистика
                         <br />
                         - Добавлено отображение секунд
@@ -44,8 +46,8 @@ const Version = () => {
                         <br />
                     </p>
                     <br />
-                    <span className="versionNumber">v 2.1 </span>
-                    <p className="versionText">
+                    <span className={style.versionNumber}>v 2.1 </span>
+                    <p className={style.versionText}>
                         - Переезд проекта на кастомную сборку webpack
                         <br />
                         - Исправления и рефакторинг на уровне кода
@@ -53,8 +55,8 @@ const Version = () => {
                     </p>
                 </Modal>
             )}
-        </div>
+        </>
     );
 };
 
-export default Version;
+export default VersionHistory;
