@@ -18,7 +18,6 @@ a:active {
 .extra {
     display: inline-block;
     color: var(--base-color);
-    cursor: pointer;
     font-size: 1.8rem;
 }
 

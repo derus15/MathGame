@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import style from './SelectTime.module.css';
 import { classNames } from '../../../helpers/classNames/classNames';
+import { OutlineButton } from '../../Button/OutlineButton/OutlineButton';
 
 const SelectTime = ({ children, time, callback }) => {
 
@@ -9,12 +10,12 @@ const SelectTime = ({ children, time, callback }) => {
     const isSelectedTime = Boolean(duration === time);
 
     return (
-        <div
+        <OutlineButton
             className={classNames(style.time, { [style.timeActive]: isSelectedTime }, [])}
             onClick={callback}
         >
             {children}
-        </div>
+        </OutlineButton>
     );
 };
 

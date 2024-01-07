@@ -8,10 +8,10 @@ import ChangeTimeNumber from './ChangeParams/ChangeTimeNumber';
 const Interface = () => (
     <div className={style.center}>
         <div className={style.mainContainer}>
-            <ChangeTimeNumber />
             <ChangeSigns />
-            <Lines />
             <ChangeModes />
+            <Lines />
+            <ChangeTimeNumber />
         </div>
     </div>
 );

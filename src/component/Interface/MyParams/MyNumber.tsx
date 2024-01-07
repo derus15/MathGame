@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import Modal from '../../../UI/Modal/Modal';
-import classes from '../Interface.module.css';
+import style from '../Interface.module.css';
 import PersonParamsInput from '../../../UI/Input/PersonParamsInput/PersonParamsInput';
 import { StateSchema } from '../../../redux/types';
+import { OutlineButton } from '../../../UI/Button/OutlineButton/OutlineButton';
 
 interface MyNumberProps {
     changeNumberInSession: (a:number) => void
@@ -17,9 +18,9 @@ const MyNumber = ({ changeNumberInSession }: MyNumberProps) => {
 
     const getClassName = (id: number | null) => {
         if (duration === id) {
-            return `${classes.number} ${classes.numberActive}`;
+            return `${style.number} ${style.numberActive}`;
         }
-        return classes.number;
+        return style.number;
     };
 
     const showModalMyNumber = () => {
@@ -37,7 +38,7 @@ const MyNumber = ({ changeNumberInSession }: MyNumberProps) => {
 
     return (
         <>
-            <div className={getClassName(myNumber())} onClick={showModalMyNumber}>__</div>
+            <OutlineButton className={getClassName(myNumber())} onClick={showModalMyNumber}>__</OutlineButton>
             {modalMyNumber && (
                 <Modal visible={modalMyNumber} setVisible={setMyNumber}>
                     Задайте собственное количество примеров:

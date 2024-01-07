@@ -25,7 +25,6 @@
     display: flex;
     gap: 140px;
     flex-direction: row;
-    color: var(--base-color);
     background-color: transparent;
 }
 
@@ -75,7 +74,6 @@
     gap: 16px;
     display: flex;
     flex-direction: row;
-    color: var(--base-color);
     background-color: transparent;
     animation: init ease-in-out .3s;
 }
@@ -97,28 +95,19 @@
 
 .time {
     font-size: 16px;
-    cursor: pointer;
     background-color: transparent;
+    color: var(--base-color);
 }
 
 .time:hover {
-    color: white;
+    color: var(--active-color);
 }
 
 .time:active {
-    color: var(--base-color);;
+    color: var(--base-color);
 }
 
 .timeActive {
-    color: var(--active-color);;
-}
-
-.modalInput {
-    font-size: 21px;
-    width: 60px;
-    border-bottom-width: 2px;
-    border-bottom-style: solid;
-    border-bottom-color: var(--active-color);
     color: var(--active-color);
 }
 
@@ -134,26 +123,25 @@
     display: flex;
     background-color: transparent;
     flex-direction: row;
-    color: var(--base-color);
     animation: init ease-in-out .3s;
 }
 
 .number {
     font-size: 17px;
-    background-color: inherit;
-    cursor: pointer;
+    background-color: transparent;
+    color: var(--base-color);
 }
 
 .number:hover {
-    color: white;
+    color: var(--active-color);
 }
 
 .number:active {
-    color: var(--base-color);;
+    color: var(--base-color);
 }
 
 .numberActive {
-    color: var(--active-color);;
+    color: var(--active-color);
 }
 
 /**/
@@ -168,7 +156,6 @@
     gap: 31px;
     background-color: transparent;
     display: flex;
-    color: var(--base-color);
 }
 
 /**/

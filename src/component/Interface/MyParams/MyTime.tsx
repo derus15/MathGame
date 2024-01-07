@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import classes from '../Interface.module.css';
+import style from '../Interface.module.css';
 import Modal from '../../../UI/Modal/Modal';
 import PersonParamsInput from '../../../UI/Input/PersonParamsInput/PersonParamsInput';
 import { StateSchema } from '../../../redux/types';
+import { OutlineButton } from '../../../UI/Button/OutlineButton/OutlineButton';
 
 interface MyTimeProps {
     changeTimeInSession: (a: number) => void
@@ -17,9 +18,9 @@ const MyTime = ({ changeTimeInSession }: MyTimeProps) => {
 
     const getClassName = (id: number | null) => {
         if (duration === id) {
-            return `${classes.time} ${classes.timeActive}`;
+            return `${style.time} ${style.timeActive}`;
         }
-        return classes.time;
+        return style.time;
     };
 
     const showModalMyTime = () => {
@@ -37,7 +38,7 @@ const MyTime = ({ changeTimeInSession }: MyTimeProps) => {
 
     return (
         <>
-            <div className={getClassName(myTime())} onClick={showModalMyTime}>__</div>
+            <OutlineButton className={getClassName(myTime())} onClick={showModalMyTime}>__</OutlineButton>
             {modalMyTime && (
                 <Modal visible={modalMyTime} setVisible={setMyTime}>
                     Задайте собственное время сессии:

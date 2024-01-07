@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import style from './SelectSign.module.css';
 import { classNames } from '../../../helpers/classNames/classNames';
+import { OutlineButton } from '../../Button/OutlineButton/OutlineButton';
 
 const SelectSign = ({ children, callback, sign }) => {
 
@@ -9,12 +10,12 @@ const SelectSign = ({ children, callback, sign }) => {
     const isSelectedSigns = Boolean(signs.includes(sign));
 
     return (
-        <div 
+        <OutlineButton
             className={classNames(style.signs, { [style.signsActive]: isSelectedSigns }, [])}
             onClick={callback}
         >
             {children}
-        </div>
+        </OutlineButton>
     );
 };
 

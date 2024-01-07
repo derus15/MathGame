@@ -1,11 +1,11 @@
 .mode {
     font-size: 16px;
-    cursor: pointer;
     background-color: transparent;
+    color: var(--base-color);
 }
 
 .mode:hover {
-    color: white;
+    color: var(--active-color);
 }
 
 .mode:active {
@@ -13,5 +13,5 @@
 }
 
 .modeActive {
-    color: var(--active-color);;
+    color: var(--active-color);
 }
