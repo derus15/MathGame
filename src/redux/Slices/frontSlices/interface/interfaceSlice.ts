@@ -25,13 +25,12 @@ export const interfaceSlice = createSlice({
             localStorage.setItem('durationNumber', action.payload);
         },
 
-        addSign: (state, action) => {
-            state.signList = [...state.signList, action.payload];
-            localStorage.setItem('signList', JSON.stringify(state.signList));
-        },
-
-        deleteSign: (state, action) => {
-            state.signList = state.signList.filter((sign) => sign !== action.payload);
+        changeSign: (state, action) => {
+            if (state.signList.includes(action.payload) && state.signList.length > 1) {
+                state.signList = state.signList.filter((sign) => sign !== action.payload);
+            } else if (!state.signList.includes(action.payload)) {
+                state.signList = [...state.signList, action.payload];
+            }
             localStorage.setItem('signList', JSON.stringify(state.signList));
         },
 

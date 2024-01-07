@@ -7,17 +7,13 @@ import { StateSchema } from '../../../redux/types';
 import { SignList } from '../../../types/config';
 
 const ChangeSigns = () => {
+
     const dispatch = useDispatch();
-    const signs = useSelector((state: StateSchema) => state.interface.signList);
     const sessionProgress = useSelector((state: StateSchema) => state.activities.sessionProgress);
 
     function changeSignInSession(sign: SignList) {
         if (!sessionProgress) {
-            if (signs.includes(sign) && signs.length > 1) {
-                dispatch(interfaceActions.deleteSign(sign));
-            } else if (!signs.includes(sign)) {
-                dispatch(interfaceActions.addSign(sign));
-            }
+            dispatch(interfaceActions.changeSign(sign));
         }
     }
 
