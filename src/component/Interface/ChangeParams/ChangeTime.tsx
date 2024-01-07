@@ -21,7 +21,7 @@ const ChangeTime = () => {
             <SelectTime time={15} callback={() => changeTimeInSession(15)}>0:15</SelectTime>
             <SelectTime time={30} callback={() => changeTimeInSession(30)}>0:30</SelectTime>
             <SelectTime time={60} callback={() => changeTimeInSession(60)}>1:00</SelectTime>
-            <MyTime changeTimeInSession={changeTimeInSession} />
+            <MyTime standardTime={[15, 30, 60]} changeTimeInSession={changeTimeInSession} />
         </div>
     );
 };

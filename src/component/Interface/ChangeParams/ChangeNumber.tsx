@@ -21,7 +21,7 @@ const ChangeNumber = () => {
             <SelectNumber number={10} callback={() => changeNumberInSession(10)}>10</SelectNumber>
             <SelectNumber number={15} callback={() => changeNumberInSession(15)}>15</SelectNumber>
             <SelectNumber number={20} callback={() => changeNumberInSession(20)}>20</SelectNumber>
-            <MyNumber changeNumberInSession={changeNumberInSession} />
+            <MyNumber standardNumber={[10, 15, 20]} changeNumberInSession={changeNumberInSession} />
         </div>
     );
 };

@@ -5,23 +5,19 @@ import style from '../Interface.module.css';
 import PersonParamsInput from '../../../UI/Input/PersonParamsInput/PersonParamsInput';
 import { StateSchema } from '../../../redux/types';
 import { OutlineButton } from '../../../UI/Button/OutlineButton/OutlineButton';
+import { classNames } from '../../../helpers/classNames/classNames';
 
 interface MyNumberProps {
-    changeNumberInSession: (a:number) => void
+    changeNumberInSession: (a: number) => void;
+    standardNumber: number[];
 }
 
-const MyNumber = ({ changeNumberInSession }: MyNumberProps) => {
+const MyNumber = ({ changeNumberInSession, standardNumber }: MyNumberProps) => {
 
     const [modalMyNumber, setMyNumber] = useState(false);
     const duration = useSelector((state: StateSchema) => state.interface.number);
     const sessionProgress = useSelector((state: StateSchema) => state.activities.sessionProgress);
-
-    const getClassName = (id: number | null) => {
-        if (duration === id) {
-            return `${style.number} ${style.numberActive}`;
-        }
-        return style.number;
-    };
+    const isActive = !standardNumber.includes(duration);
 
     const showModalMyNumber = () => {
         if (!sessionProgress) {
@@ -29,16 +25,14 @@ const MyNumber = ({ changeNumberInSession }: MyNumberProps) => {
         }
     };
 
-    const myNumber = () => {
-        if (duration !== 10 && duration !== 15 && duration !== 20) {
-            return duration;
-        }
-        return null;
-    };
-
     return (
         <>
-            <OutlineButton className={getClassName(myNumber())} onClick={showModalMyNumber}>__</OutlineButton>
+            <OutlineButton 
+                className={classNames(style.number, { [style.numberActive]: isActive })}
+                onClick={showModalMyNumber}
+            >
+                __
+            </OutlineButton>
             {modalMyNumber && (
                 <Modal visible={modalMyNumber} setVisible={setMyNumber}>
                     Задайте собственное количество примеров:
