@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import classes from '../Interface.module.css';
+import style from '../Interface.module.css';
 import { interfaceActions } from '../../../redux/Slices/frontSlices/interface/interfaceSlice';
 import MyNumber from '../MyParams/MyNumber';
 import SelectNumber from '../../../UI/InterfaceSelects/SelectNumber/SelectNumber';
@@ -17,7 +17,7 @@ const ChangeNumber = () => {
     }
 
     return (
-        <div className={classes.containerNumber}>
+        <div className={style.containerNumber}>
             <SelectNumber number={10} callback={() => changeNumberInSession(10)}>10</SelectNumber>
             <SelectNumber number={15} callback={() => changeNumberInSession(15)}>15</SelectNumber>
             <SelectNumber number={20} callback={() => changeNumberInSession(20)}>20</SelectNumber>

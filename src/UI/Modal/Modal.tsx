@@ -10,14 +10,16 @@ interface modalProps {
 
 const Modal:FC<modalProps> = ({ children, visible, setVisible }) => (
 
-    <div
-        className={classNames(style.myModal, { [style.myModalActive]: visible }, [])}
-        onClick={() => setVisible(false)}
-    >
-        <div className={style.myModalContent} onClick={(e) => e.stopPropagation()}>
-            {children}
+    visible && (
+        <div
+            className={classNames(style.myModal, { [style.myModalActive]: visible }, [])}
+            onClick={() => setVisible(false)}
+        >
+            <div className={style.myModalContent} onClick={(e) => e.stopPropagation()}>
+                {children}
+            </div>
         </div>
-    </div>
+    )
 );
 
 export default Modal;

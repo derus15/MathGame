@@ -1,5 +1,5 @@
 import React, { ButtonHTMLAttributes, FC } from 'react';
-import classes from './ExampleButton.module.css';
+import style from './ExampleButton.module.css';
 
 interface buttonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     random?: boolean,
@@ -14,7 +14,7 @@ const ExampleButton:FC<buttonProps> = ({ children, random = false, ...props }) =
 
     return (
         <div>
-            <button type="button" className={classes.btn} {...props}>
+            <button type="button" className={style.btn} {...props}>
                 {children}
             </button>
         </div>

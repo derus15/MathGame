@@ -1,5 +1,5 @@
 import React, { Dispatch, FC, SetStateAction, useEffect } from 'react';
-import classes from './Tooltip.module.css';
+import style from './Tooltip.module.css';
 
 interface tooltipProps {
     children: string,
@@ -21,8 +21,8 @@ const Tooltip:FC<tooltipProps> = ({ children, condition, depend, setShow }) => {
     }, [depend]);
 
     return (
-        <div className={classes.container}>
-            <div className={classes.support}>{children}</div>
+        <div className={style.container}>
+            <div className={style.support}>{children}</div>
         </div>
     );
 };

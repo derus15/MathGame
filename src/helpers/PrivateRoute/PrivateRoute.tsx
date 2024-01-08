@@ -5,14 +5,14 @@ import { StateSchema } from '../../redux/types';
 
 interface PrivateRouteProps {
     children: ReactNode,
-    back: string
+    redirect: string
 }
 
 export const PrivateRoute:FC<PrivateRouteProps> = (props) => {
 
     const {
         children,
-        back,
+        redirect,
     } = props;
     
     const isAuth = useSelector((state: StateSchema) => state.auth.isAuth);
@@ -21,5 +21,5 @@ export const PrivateRoute:FC<PrivateRouteProps> = (props) => {
         return children;
     }
 
-    return <Navigate to={back} />;
+    return <Navigate to={redirect} />;
 };

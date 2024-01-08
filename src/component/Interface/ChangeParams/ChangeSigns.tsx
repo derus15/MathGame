@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import classes from '../Interface.module.css';
+import style from '../Interface.module.css';
 import { interfaceActions } from '../../../redux/Slices/frontSlices/interface/interfaceSlice';
 import SelectSign from '../../../UI/InterfaceSelects/SelectSign/SelectSign';
 import { StateSchema } from '../../../redux/types';
@@ -18,7 +18,7 @@ const ChangeSigns = () => {
     }
 
     return (
-        <div className={classes.containerSigns}>
+        <div className={style.containerSigns}>
             <SelectSign sign="+" callback={() => changeSignInSession('+')}>+</SelectSign>
             <SelectSign sign="-" callback={() => changeSignInSession('-')}>-</SelectSign>
             <SelectSign sign="*" callback={() => changeSignInSession('*')}>x</SelectSign>

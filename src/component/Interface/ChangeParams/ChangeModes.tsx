@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import classes from '../Interface.module.css';
+import style from '../Interface.module.css';
 import { interfaceActions } from '../../../redux/Slices/frontSlices/interface/interfaceSlice';
 import SelectMod from '../../../UI/InterfaceSelects/SelectMod/SelectMod';
 import { StateSchema } from '../../../redux/types';
@@ -17,7 +17,7 @@ const ChangeModes = () => {
     }
 
     return (
-        <div className={classes.containerModes}>
+        <div className={style.containerModes}>
             <SelectMod mode="Спринт" callback={() => changeGameModeInSession('Спринт')}>
                 Спринт
             </SelectMod>

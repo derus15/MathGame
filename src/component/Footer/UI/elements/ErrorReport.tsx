@@ -13,13 +13,10 @@ const ErrorReport = () => {
     return (
         <>
             <OutlineButton onClick={showModalError} className={style.extra}>Сообщить об ошибке</OutlineButton>
-            {modalError
-                && (
-                    <Modal visible={modalError} setVisible={setModalError}>
-                        Если вы нашли ошибку, то пишите на почту
-                        <span className="errorEmail"> mathgame.problem@gmail.com</span>
-                    </Modal>
-                )}
+            <Modal visible={modalError} setVisible={setModalError}>
+                Если вы нашли ошибку, то пишите на почту
+                <span className={style.errorEmail}> mathgame.problem@gmail.com</span>
+            </Modal>
         </>
     );
 };

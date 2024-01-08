@@ -21,7 +21,7 @@ const App = () => (
                 <Route
                     path="/account"
                     element={
-                        <PrivateRoute back="/auth">
+                        <PrivateRoute redirect="/auth">
                             <Account />
                         </PrivateRoute>
                     }

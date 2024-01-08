@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import classes from '../Interface.module.css';
+import style from '../Interface.module.css';
 
 const Lines = () => {
     const [rotate, setRotate] = useState(false);
@@ -10,13 +10,13 @@ const Lines = () => {
 
     function rotation(direction: string) {
         if (rotate) {
-            return `${classes.verticalLine} ${classes[direction]} ${classes.rotateLine}`;
+            return `${style.verticalLine} ${style[direction]} ${style.rotateLine}`;
         }
-        return `${classes.verticalLine} ${classes[direction]}`;
+        return `${style.verticalLine} ${style[direction]}`;
     }
 
     return (
-        <div className={classes.containerLines}>
+        <div className={style.containerLines}>
             <div className={rotation('rightLine')} onClick={handleClick} />
             <div className={rotation('leftLine')} onClick={handleClick} />
         </div>

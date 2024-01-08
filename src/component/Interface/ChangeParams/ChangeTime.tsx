@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import classes from '../Interface.module.css';
+import style from '../Interface.module.css';
 import { interfaceActions } from '../../../redux/Slices/frontSlices/interface/interfaceSlice';
 import MyTime from '../MyParams/MyTime';
 import SelectTime from '../../../UI/InterfaceSelects/SelectTime/SelectTime';
@@ -17,7 +17,7 @@ const ChangeTime = () => {
     }
 
     return (
-        <div className={classes.containerTime}>
+        <div className={style.containerTime}>
             <SelectTime time={15} callback={() => changeTimeInSession(15)}>0:15</SelectTime>
             <SelectTime time={30} callback={() => changeTimeInSession(30)}>0:30</SelectTime>
             <SelectTime time={60} callback={() => changeTimeInSession(60)}>1:00</SelectTime>

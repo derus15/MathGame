@@ -33,12 +33,10 @@ const MyTime = ({ changeTimeInSession, standardTime }: MyTimeProps) => {
             >
                 __
             </OutlineButton>
-            {modalMyTime && (
-                <Modal visible={modalMyTime} setVisible={setMyTime}>
-                    Задайте собственное время сессии:
-                    <PersonParamsInput callback={changeTimeInSession} />
-                </Modal>
-            )}
+            <Modal visible={modalMyTime} setVisible={setMyTime}>
+                Задайте собственное время сессии:
+                <PersonParamsInput callback={changeTimeInSession} />
+            </Modal>
         </>
     );
 };

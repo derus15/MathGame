@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import Modal from '../../../UI/Modal/Modal';
 import style from '../Interface.module.css';
 import PersonParamsInput from '../../../UI/Input/PersonParamsInput/PersonParamsInput';
 import { StateSchema } from '../../../redux/types';
 import { OutlineButton } from '../../../UI/Button/OutlineButton/OutlineButton';
 import { classNames } from '../../../helpers/classNames/classNames';
+import Modal from '../../../UI/Modal/Modal';
 
 interface MyNumberProps {
     changeNumberInSession: (a: number) => void;
@@ -33,12 +33,10 @@ const MyNumber = ({ changeNumberInSession, standardNumber }: MyNumberProps) => {
             >
                 __
             </OutlineButton>
-            {modalMyNumber && (
-                <Modal visible={modalMyNumber} setVisible={setMyNumber}>
-                    Задайте собственное количество примеров:
-                    <PersonParamsInput callback={changeNumberInSession} />
-                </Modal>
-            )}
+            <Modal visible={modalMyNumber} setVisible={setMyNumber}>
+                Задайте собственное количество примеров:
+                <PersonParamsInput callback={changeNumberInSession} />
+            </Modal>
         </>
     );
 };

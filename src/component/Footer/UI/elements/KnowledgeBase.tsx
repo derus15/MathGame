@@ -13,15 +13,12 @@ const KnowledgeBase = () => {
     return (
         <>
             <OutlineButton onClick={showModalBase} className={style.extra}>База знаний</OutlineButton>
-            {modalBase
-                && (
-                    <Modal
-                        setVisible={setModalBase}
-                        visible={modalBase}
-                    >
-                        Здесь будут публиковаться приемы и принципы быстрого счета
-                    </Modal>
-                )}
+            <Modal
+                setVisible={setModalBase}
+                visible={modalBase}
+            >
+                Здесь будут публиковаться приемы и принципы быстрого счета
+            </Modal>
         </>
     );
 };

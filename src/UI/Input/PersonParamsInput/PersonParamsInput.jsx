@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './PersonParamsInput.module.css';
+import style from './PersonParamsInput.module.css';
 
 const PersonParamsInput = ({ callback }) => {
 
@@ -19,7 +19,7 @@ const PersonParamsInput = ({ callback }) => {
         <input
             autoFocus
             inputMode="numeric"
-            className={classes.modalInput}
+            className={style.modalInput}
             onInput={(e) => testNumber(e)}
             type="input"
         />
