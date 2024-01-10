@@ -4,14 +4,16 @@ import { classNames } from '../../../helpers/classNames/classNames';
 
 interface loginButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
     className?: string
+    disabled?: boolean
 }
 
-const LoginButton:FC<loginButtonProps> = ({ children, className, ...props }) => (
+const LoginButton:FC<loginButtonProps> = ({ children, className, disabled, ...props }) => (
 
     <div>
         <button
             type="submit"
-            className={classNames(style.btn, {}, [className])}
+            disabled={disabled}
+            className={classNames(style.btn, { [style.disabled]: disabled }, [className])}
             {...props}
         >
             {children}

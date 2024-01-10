@@ -11,7 +11,7 @@
 }
 
 .btn:hover {
-    color: white;
+    color: var(--active-color);
 }
 
 .btn:active {

@@ -63,7 +63,7 @@ const RegisterForm = () => {
                 <LoginInput placeholder="Имя" {...register('name')} />
                 <LoginInput placeholder="Почта" {...register('email')} type="email" inputmode="email" />
                 <LoginInput placeholder="Пароль" {...register('password')} />
-                <LoginButton>Зарегистрироваться</LoginButton>
+                <LoginButton disabled={isLoading}>Зарегистрироваться</LoginButton>
             </div>
         </form>
     );

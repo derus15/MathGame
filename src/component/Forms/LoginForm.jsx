@@ -78,7 +78,7 @@ const LoginForm = () => {
                 <LoginInput placeholder="Почта" {...register('email')} type="email" />
                 <LoginInput placeholder="Пароль" {...register('password')} />
                 <Checkbox label="Запомни меня" checked={isRemember} setIsChecked={setIsRemember} />
-                <LoginButton>Войти</LoginButton>
+                <LoginButton disabled={isLoading}>Войти</LoginButton>
             </div>
         </form>
     );

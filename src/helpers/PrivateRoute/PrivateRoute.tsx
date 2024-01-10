@@ -8,12 +8,7 @@ interface PrivateRouteProps {
     redirect: string
 }
 
-export const PrivateRoute:FC<PrivateRouteProps> = (props) => {
-
-    const {
-        children,
-        redirect,
-    } = props;
+export const PrivateRoute:FC<PrivateRouteProps> = ({ children, redirect }) => {
     
     const isAuth = useSelector((state: StateSchema) => state.auth.isAuth);
 
