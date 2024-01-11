@@ -1,18 +1,18 @@
 import React from 'react';
 import style from './PersonParamsInput.module.css';
+import { testNumber } from '../../../helpers/testNumber/testNumber';
 
-const PersonParamsInput = ({ callback }) => {
+const PersonParamsInput = ({ ...props }) => {
 
-    const testNumber = (e) => {
+    const checkNumber = (e) => {
 
-        const value = Number(e.target.value);
-        const isNumber = /^(?!0$)\d+$|^(?:[1-9]\d*|0\d+)$/.test(value);
+        const { value } = e.target;
+        const isNumber = testNumber(value);
 
-        if (!isNumber) {
+        if ((!isNumber) || (value === '0')) {
             e.target.value = '';
-        } else {
-            callback(value);
         }
+        
     };
 
     return (
@@ -20,8 +20,9 @@ const PersonParamsInput = ({ callback }) => {
             autoFocus
             inputMode="numeric"
             className={style.modalInput}
-            onInput={(e) => testNumber(e)}
             type="input"
+            onChange={(e) => checkNumber(e)}
+            {...props}
         />
     );
 };

@@ -9,6 +9,7 @@ import { activitiesSessionActions } from '../redux/Slices/frontSlices/activities
 import { sessionDataActions } from '../redux/Slices/frontSlices/sessionData/sessionDataSlice';
 import { exampleActions } from '../redux/Slices/frontSlices/example/exampleSlice';
 import { StateSchema } from '../redux/types';
+import { testNumber } from '../helpers/testNumber/testNumber';
 
 const ExampleArea = () => {
 
@@ -36,9 +37,10 @@ const ExampleArea = () => {
     };
 
     function permanentMode(e: ChangeEvent<HTMLInputElement>) {
-        if (permanentMod) {
+        const isNumber = testNumber(e.target.value);
+        if (permanentMod && isNumber) {
             const userAnswer = String(e.target.value).length;
-            if (userAnswer === answer.length && e.target.value !== answer && e.target.value !== ' ') {
+            if (userAnswer === answer.length && e.target.value !== answer) {
                 dispatch(activitiesSessionActions.endSession());
             }
         }

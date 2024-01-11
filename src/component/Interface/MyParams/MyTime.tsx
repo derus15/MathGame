@@ -1,29 +1,41 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import style from '../Interface.module.css';
 import Modal from '../../../UI/Modal/Modal';
 import PersonParamsInput from '../../../UI/Input/PersonParamsInput/PersonParamsInput';
 import { StateSchema } from '../../../redux/types';
 import { OutlineButton } from '../../../UI/Button/OutlineButton/OutlineButton';
 import { classNames } from '../../../helpers/classNames/classNames';
+import { interfaceActions } from '../../../redux/Slices/frontSlices/interface/interfaceSlice';
+import { testNumber } from '../../../helpers/testNumber/testNumber';
 
 interface MyTimeProps {
-    changeTimeInSession: (a: number) => void;
     standardTime: number[];
 }
 
-const MyTime = ({ changeTimeInSession, standardTime }: MyTimeProps) => {
+const MyTime = ({ standardTime }: MyTimeProps) => {
 
-    const [modalMyTime, setMyTime] = useState(false);
+    const [isModal, setIsModal] = useState(false);
     const duration = useSelector((state: StateSchema) => state.interface.time);
     const sessionProgress = useSelector((state: StateSchema) => state.activities.sessionProgress);
     const isActive = !standardTime.includes(duration);
+    const dispatch = useDispatch();
 
     const showModalMyTime = () => {
         if (!sessionProgress) {
-            setMyTime(true);
+            setIsModal(true);
         }
     };
+
+    function changeTimeInSession(e: React.ChangeEvent<HTMLInputElement>) {
+
+        const { value } = e.target;
+        const isNumber = testNumber(value);
+
+        if (isNumber) {
+            dispatch(interfaceActions.changeTime((value === '0') ? 15 : value));
+        }
+    }
 
     return (
         <>
@@ -33,9 +45,9 @@ const MyTime = ({ changeTimeInSession, standardTime }: MyTimeProps) => {
             >
                 __
             </OutlineButton>
-            <Modal visible={modalMyTime} setVisible={setMyTime}>
+            <Modal visible={isModal} setVisible={setIsModal}>
                 Задайте собственное время сессии:
-                <PersonParamsInput callback={changeTimeInSession} />
+                <PersonParamsInput onInput={changeTimeInSession} />
             </Modal>
         </>
     );

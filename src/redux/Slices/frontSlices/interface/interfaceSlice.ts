@@ -16,12 +16,12 @@ export const interfaceSlice = createSlice({
     reducers: {
 
         changeTime: (state, action) => {
-            state.time = action.payload;
+            state.time = Number(action.payload);
             localStorage.setItem('durationTime', action.payload);
         },
 
         changeNumber: (state, action) => {
-            state.number = action.payload;
+            state.number = Number(action.payload);
             localStorage.setItem('durationNumber', action.payload);
         },
 

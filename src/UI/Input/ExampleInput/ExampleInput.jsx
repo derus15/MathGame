@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import style from './ExampleInput.module.css';
 import { classNames } from '../../../helpers/classNames/classNames';
 import { useSelector } from 'react-redux';
+import { testNumber } from '../../../helpers/testNumber/testNumber';
 
 const ExampleInput = ({ focus, signal = null, ...props }) => {
     const [answerSignal, setAnswerSignal] = useState(false);
@@ -10,7 +11,7 @@ const ExampleInput = ({ focus, signal = null, ...props }) => {
 
     const checkNumber = (e) => {
         const { value } = e.target;
-        const isNumber = /^[0-9]+$/.test(value);
+        const isNumber = testNumber(value);
         if (!isNumber) {
             e.target.value = '';
         }
