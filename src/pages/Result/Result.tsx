@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import style from './Result.module.css';
 import ExampleButton from '../../UI/Button/ExampleButton/ExampleButton';
-import axios from '../../helpers/axios';
+import axios from '../../helpers/api/axios';
 import { normalizationOfTheEnd } from '../../helpers/normalizationOfTheEnd/normalizationOfTheEnd';
 import { Link } from 'react-router-dom';
 import {

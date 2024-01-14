@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from '../../../../helpers/axios';
+import axios from '../../../../helpers/api/axios';
 import { AccountSchema } from './types';
 
 export const getData = createAsyncThunk<string>('/account', async () => {

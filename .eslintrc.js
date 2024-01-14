@@ -54,6 +54,9 @@ module.exports = {
         'react/jsx-wrap-multilines': 'off',
         'jsx-a11y/control-has-associated-label': 'off',
     },
+    globals: {
+        __IS_DEV__: true,
+    },
     overrides: [
         {
             files: ['**/src/**/*.test.{ts,tsx,js,jsx}'],

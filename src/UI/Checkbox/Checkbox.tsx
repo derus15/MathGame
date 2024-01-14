@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from 'react';
+import React, { Dispatch, memo, SetStateAction } from 'react';
 import style from './Checkbox.module.css';
 
 interface checkboxProps {
@@ -7,7 +7,7 @@ interface checkboxProps {
     setIsChecked: Dispatch<SetStateAction<boolean>>,
 }
 
-const Checkbox = (props: checkboxProps) => {
+const Checkbox = memo((props: checkboxProps) => {
     
     const {
         label,
@@ -27,6 +27,6 @@ const Checkbox = (props: checkboxProps) => {
             </label>
         </div>
     );
-};
+});
 
 export default Checkbox;

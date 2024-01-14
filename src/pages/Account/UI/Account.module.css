@@ -67,7 +67,7 @@
 .circleTitle {
     position: absolute;
     color: var(--active-color);
-    font-size: 24px;
+    font-size: 2.4rem;
     margin-top: 3px;
 }
 
@@ -101,7 +101,7 @@
 
 .comingSoon {
     color: var(--base-color);
-    font-size: 27px;
+    font-size: 2.7rem;
     cursor: pointer;
 }
 
@@ -117,3 +117,14 @@
     background-color: var(--interface-color);
 }
 
+@media screen and (max-width: 900px){
+
+    .circleTitle {
+        font-size: 2.1rem;
+    }
+
+    .comingSoon {
+        font-size: 2.4rem;
+    }
+
+}

@@ -26,7 +26,7 @@ const HeaderAccount = () => {
         // eslint-disable-next-line react/jsx-no-useless-fragment
         <>
             {isAuth ? (
-                <Link to="/account">
+                <Link className={style.link} to="/account">
                     <div className={style.containerAccount}>
                         <span className={style.username}>{name}</span>
                         <svg onClick={Logout} className={style.logoutContainer}>
@@ -35,7 +35,7 @@ const HeaderAccount = () => {
                     </div>
                 </Link>
             ) : (
-                <Link to="/auth">
+                <Link className={style.link} to="/auth">
                     <svg className={style.profile}>
                         <ProfileSvg />
                     </svg>

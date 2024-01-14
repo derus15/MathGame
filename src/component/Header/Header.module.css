@@ -9,6 +9,10 @@
     cursor: pointer;
 }
 
+.link {
+    height: 25px;
+}
+
 .containerAccount {
     display: flex;
     animation: init ease-in-out .3s;

@@ -1,7 +1,9 @@
 import axios from 'axios';
 
+const url = __IS_DEV__ ? 'http://localhost:3020' : 'https://math-game.ru/';
+
 const instance = axios.create({
-    baseURL: 'https://math-game.ru/',
+    baseURL: url,
 });
 
 instance.interceptors.request.use((config) => {
