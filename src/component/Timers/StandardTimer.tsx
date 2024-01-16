@@ -4,10 +4,11 @@ import { activitiesSessionActions } from '../../redux/Slices/frontSlices/activit
 import { sessionDataActions } from '../../redux/Slices/frontSlices/sessionData/sessionDataSlice';
 import { StateSchema } from '../../redux/types';
 import Timer from './Timer';
+import { getTime } from '../Interface';
 
 const StandardTimer = () => {
 
-    const duration = useSelector((state: StateSchema) => state.interface.time);
+    const duration = useSelector(getTime);
     const sessionProgress = useSelector((state: StateSchema) => state.activities.sessionProgress);
     const [seconds, setSeconds] = useState(duration);
     const [milliseconds, setMilliseconds] = useState(0);

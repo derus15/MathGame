@@ -1,4 +1,4 @@
-import { SignList } from '../../../../types/config';
+import { SignList } from '../../../../app/types/config';
 
 export interface ExampleSchema {
     numbersList: number[],

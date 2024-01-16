@@ -4,7 +4,7 @@ import { accountReducer } from './Slices/backSlices/account/accountSlice';
 import { activitiesSessionReducer } from './Slices/frontSlices/activitiesSession/activitiesSession';
 import { exampleReducer } from './Slices/frontSlices/example/exampleSlice';
 import { sessionDataReducer } from './Slices/frontSlices/sessionData/sessionDataSlice';
-import { interfaceReducer } from './Slices/frontSlices/interface/interfaceSlice';
+import { interfaceReducer } from '../component/Interface/model/slice/interfaceSlice';
 
 export const store = configureStore({
     reducer: {

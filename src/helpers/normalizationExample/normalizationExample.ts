@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from 'react';
-import { SignList } from '../../types/config';
+import { SignList } from '../../app/types/config';
 
 // eslint-disable-next-line no-unused-vars
 const signFunction:Record<SignList, (a: number, b: number) => number> = {

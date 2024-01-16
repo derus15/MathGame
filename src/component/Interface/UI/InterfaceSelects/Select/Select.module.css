@@ -1,0 +1,17 @@
+.element {
+    font-size: 16px;
+    background-color: transparent;
+    color: var(--base-color);
+}
+
+.element:hover {
+    color: var(--active-color);
+}
+
+.element:active {
+    color: var(--base-color);
+}
+
+.elementActive {
+    color: var(--active-color);
+}

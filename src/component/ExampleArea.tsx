@@ -10,13 +10,14 @@ import { sessionDataActions } from '../redux/Slices/frontSlices/sessionData/sess
 import { exampleActions } from '../redux/Slices/frontSlices/example/exampleSlice';
 import { StateSchema } from '../redux/types';
 import { testNumber } from '../helpers/testNumber/testNumber';
+import { getSignsList, getGameMod } from './Interface';
 
 const ExampleArea = () => {
 
     const dispatch = useDispatch();
-    const signList = useSelector((state: StateSchema) => state.interface.signList);
+    const signList = useSelector(getSignsList);
     const [answer, setAnswer] = useState('');
-    const gameMode = useSelector((state: StateSchema) => state.interface.mode);
+    const gameMode = useSelector(getGameMod);
     const permanentMod = useSelector((state: StateSchema) => state.interface.modifications);
     const sessionProgress = useSelector((state: StateSchema) => state.activities.sessionProgress);
 
@@ -28,7 +29,7 @@ const ExampleArea = () => {
     useMemo(() => {
         refreshExample();
         dispatch(sessionDataActions.resetCounter());
-    }, [signList, gameMode]);
+    }, [signList]);
 
     const startSessionHandler = () => {
         if (!sessionProgress) {

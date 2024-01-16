@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import Result from '../../Result/Result';
-import Interface from '../../../component/Interface/Interface';
+import { Interface } from '../../../component/Interface';
 import ExampleArea from '../../../component/ExampleArea';
 import { useDispatch, useSelector } from 'react-redux';
 import {

@@ -4,11 +4,12 @@ import { classNames } from '../../helpers/classNames/classNames';
 import { activitiesSessionActions } from '../../redux/Slices/frontSlices/activitiesSession/activitiesSession';
 import { sessionDataActions } from '../../redux/Slices/frontSlices/sessionData/sessionDataSlice';
 import { StateSchema } from '../../redux/types';
+import { getNumber } from '../Interface';
 
 const SprintTimer = () => {
 
     const sessionProgress = useSelector((state: StateSchema) => state.activities.sessionProgress);
-    const duration = useSelector((state: StateSchema) => state.interface.number);
+    const duration = useSelector(getNumber);
     const [seconds, setSeconds] = useState(0);
     const userCounter = useSelector((state: StateSchema) => state.sessionData.counter);
     const dispatch = useDispatch();
