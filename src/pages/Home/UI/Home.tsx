@@ -1,12 +1,10 @@
 import React, { useEffect } from 'react';
 import Result from '../../Result/Result';
-import { Interface } from '../../../component/Interface';
-import ExampleArea from '../../../component/ExampleArea';
+import { Interface } from 'component/Interface';
+import ExampleArea from 'component/ExampleArea';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-    activitiesSessionActions,
-} from '../../../redux/Slices/frontSlices/activitiesSession/activitiesSession';
-import { StateSchema } from '../../../redux/types';
+import { activitiesSessionActions } from 'redux/Slices/frontSlices/activitiesSession/activitiesSession';
+import { StateSchema } from 'redux/types';
 
 const Home = () => {
 

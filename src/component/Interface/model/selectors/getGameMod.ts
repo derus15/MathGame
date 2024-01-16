@@ -1,3 +1,3 @@
-import { StateSchema } from '../../../../redux/types';
+import { StateSchema } from 'redux/types';
 
 export const getGameMod = (state: StateSchema) => state.interface.mode;

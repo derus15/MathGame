@@ -1,4 +1,4 @@
-import { SignList } from '../../../../app/types/config';
+import { SignList } from 'app/types/config';
 
 export interface InterfaceSchema {
     time: number,

@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import style from '../Interface/Interface.module.css';
 import { interfaceActions } from '../../model/slice/interfaceSlice';
 import MyTime from '../../../MyParams/MyTime';
-import { StateSchema } from '../../../../redux/types';
+import { StateSchema } from 'redux/types';
 import Select from '../InterfaceSelects/Select/Select';
 import { getTime } from '../../model/selectors/getTime';
-import { exampleActions } from '../../../../redux/Slices/frontSlices/example/exampleSlice';
+import { exampleActions } from 'redux/Slices/frontSlices/example/exampleSlice';
 import { getSignsList } from '../../model/selectors/getSignsList';
 
 const ChangeTime = () => {

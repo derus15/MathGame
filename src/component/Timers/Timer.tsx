@@ -1,6 +1,6 @@
 import React, { Dispatch, SetStateAction, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { StateSchema } from '../../redux/types';
+import { StateSchema } from 'redux/types';
 
 interface TimerProps {
     seconds: number,

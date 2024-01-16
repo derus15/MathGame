@@ -1,5 +1,5 @@
 import { SessionDataSchema } from './Slices/frontSlices/sessionData/types';
-import { InterfaceSchema } from '../component/Interface/model/slice/types';
+import { InterfaceSchema } from 'component/Interface';
 import { ExampleSchema } from './Slices/frontSlices/example/types';
 import { AuthSchema } from './Slices/backSlices/auth/types';
 import { AccountSchema } from './Slices/backSlices/account/types';

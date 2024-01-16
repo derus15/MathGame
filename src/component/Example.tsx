@@ -1,7 +1,7 @@
 import React, { Dispatch } from 'react';
 import { useSelector } from 'react-redux';
-import normalizationExample from '../helpers/normalizationExample/normalizationExample';
-import { StateSchema } from '../redux/types';
+import normalizationExample from 'helpers/normalizationExample/normalizationExample';
+import { StateSchema } from 'redux/types';
 
 interface ExampleProps {
     setAnswer: Dispatch<React.SetStateAction<string>>,

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import style from './Header.module.css';
-import { authActions, fetchAuthMe } from '../../redux/Slices/backSlices/auth/authSlice';
+import { authActions, fetchAuthMe } from 'redux/Slices/backSlices/auth/authSlice';
 import ProfileSvg from '/public/assets/profile.svg';
 import LogoutSvg from '/public/assets/logout.svg';
 

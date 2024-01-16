@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Modal from '../../../../UI/Modal/Modal';
+import Modal from 'UI/Modal/Modal';
 import style from '../Footer.module.css';
-import { OutlineButton } from '../../../../UI/Button/OutlineButton/OutlineButton';
+import { OutlineButton } from 'UI/Button/OutlineButton/OutlineButton';
 
 const VersionHistory = () => {
     const [modalVersion, setModalVersion] = useState(false);
@@ -13,7 +13,7 @@ const VersionHistory = () => {
     return (
         <>
             <OutlineButton className={style.extra} onClick={showModalVersion}>
-                v 2.1.43
+                v 2.1.44
             </OutlineButton>
             <Modal visible={modalVersion} setVisible={setModalVersion}>
                 <span className={style.versionNumber}>v 1.0 </span>

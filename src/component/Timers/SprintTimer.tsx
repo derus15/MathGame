@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { classNames } from '../../helpers/classNames/classNames';
-import { activitiesSessionActions } from '../../redux/Slices/frontSlices/activitiesSession/activitiesSession';
-import { sessionDataActions } from '../../redux/Slices/frontSlices/sessionData/sessionDataSlice';
-import { StateSchema } from '../../redux/types';
+import { classNames } from 'helpers/classNames/classNames';
+import { activitiesSessionActions } from 'redux/Slices/frontSlices/activitiesSession/activitiesSession';
+import { sessionDataActions } from 'redux/Slices/frontSlices/sessionData/sessionDataSlice';
+import { StateSchema } from 'redux/types';
 import { getNumber } from '../Interface';
 
 const SprintTimer = () => {

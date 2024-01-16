@@ -1,7 +1,7 @@
 import React from 'react';
 import { toast } from 'react-toastify';
 import style from '../Footer.module.css';
-import { OutlineButton } from '../../../../UI/Button/OutlineButton/OutlineButton';
+import { OutlineButton } from 'UI/Button/OutlineButton/OutlineButton';
 
 const SupportMe = () => {
 

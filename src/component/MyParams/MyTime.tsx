@@ -3,12 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import style from '../Interface/UI/Interface/Interface.module.css';
 import Modal from '../../UI/Modal/Modal';
 import PersonParamsInput from '../../UI/Input/PersonParamsInput/PersonParamsInput';
-import { StateSchema } from '../../redux/types';
-import { OutlineButton } from '../../UI/Button/OutlineButton/OutlineButton';
-import { classNames } from '../../helpers/classNames/classNames';
-import { interfaceActions } from '../Interface/model/slice/interfaceSlice';
-import { testNumber } from '../../helpers/testNumber/testNumber';
-import { getTime } from '../Interface';
+import { StateSchema } from 'redux/types';
+import { OutlineButton } from 'UI/Button/OutlineButton/OutlineButton';
+import { classNames } from 'helpers/classNames/classNames';
+import { interfaceActions, getTime } from '../Interface';
+import { testNumber } from 'helpers/testNumber/testNumber';
 
 interface MyTimeProps {
     standardTime: number[];

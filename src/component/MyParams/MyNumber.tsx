@@ -2,13 +2,12 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import style from '../Interface/UI/Interface/Interface.module.css';
 import PersonParamsInput from '../../UI/Input/PersonParamsInput/PersonParamsInput';
-import { StateSchema } from '../../redux/types';
-import { OutlineButton } from '../../UI/Button/OutlineButton/OutlineButton';
-import { classNames } from '../../helpers/classNames/classNames';
+import { StateSchema } from 'redux/types';
+import { OutlineButton } from 'UI/Button/OutlineButton/OutlineButton';
+import { classNames } from 'helpers/classNames/classNames';
 import Modal from '../../UI/Modal/Modal';
-import { testNumber } from '../../helpers/testNumber/testNumber';
-import { interfaceActions } from '../Interface/model/slice/interfaceSlice';
-import { getNumber } from '../Interface';
+import { testNumber } from 'helpers/testNumber/testNumber';
+import { getNumber, interfaceActions } from 'component/Interface';
 
 interface MyNumberProps {
     standardNumber: number[];

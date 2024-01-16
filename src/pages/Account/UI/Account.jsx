@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import style from './Account.module.css';
-import { timeNormalization } from '../../../helpers/timeNormalization/timeNormalization';
-import { getData } from '../../../redux/Slices/backSlices/account/accountSlice';
+import { timeNormalization } from 'helpers/timeNormalization/timeNormalization';
+import { getData } from 'redux/Slices/backSlices/account/accountSlice';
 import Avatar from '../../../../public/assets/Avatar.jpg';
 
 const Account = () => {

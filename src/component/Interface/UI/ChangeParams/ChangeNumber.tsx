@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import style from '../Interface/Interface.module.css';
 import { interfaceActions } from '../../model/slice/interfaceSlice';
 import MyNumber from '../../../MyParams/MyNumber';
-import { StateSchema } from '../../../../redux/types';
+import { StateSchema } from 'redux/types';
 import Select from '../InterfaceSelects/Select/Select';
 import { getNumber } from '../../model/selectors/getNumber';
-import { exampleActions } from '../../../../redux/Slices/frontSlices/example/exampleSlice';
+import { exampleActions } from 'redux/Slices/frontSlices/example/exampleSlice';
 import { getSignsList } from '../../model/selectors/getSignsList';
 
 const ChangeNumber = () => {

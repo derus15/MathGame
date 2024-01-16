@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import style from '../Interface/Interface.module.css';
 import { interfaceActions } from '../../model/slice/interfaceSlice';
 import SelectSign from '../InterfaceSelects/SelectSign/SelectSign';
-import { StateSchema } from '../../../../redux/types';
-import { SignList } from '../../../../app/types/config';
+import { StateSchema } from 'redux/types';
+import { SignList } from 'app/types/config';
 import { getSignsList } from '../../model/selectors/getSignsList';
 
 const ChangeSigns = () => {

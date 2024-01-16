@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import style from '../Footer.module.css';
-import { OutlineButton } from '../../../../UI/Button/OutlineButton/OutlineButton';
+import { OutlineButton } from 'UI/Button/OutlineButton/OutlineButton';
 
 const ThemeSwitcher = () => {
     const themesList = ['black', 'ocean', 'PP'];

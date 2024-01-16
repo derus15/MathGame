@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { activitiesSessionActions } from '../../redux/Slices/frontSlices/activitiesSession/activitiesSession';
-import { sessionDataActions } from '../../redux/Slices/frontSlices/sessionData/sessionDataSlice';
-import { StateSchema } from '../../redux/types';
+import { activitiesSessionActions } from 'redux/Slices/frontSlices/activitiesSession/activitiesSession';
+import { sessionDataActions } from 'redux/Slices/frontSlices/sessionData/sessionDataSlice';
+import { StateSchema } from 'redux/types';
 import Timer from './Timer';
 import { getTime } from '../Interface';
 
