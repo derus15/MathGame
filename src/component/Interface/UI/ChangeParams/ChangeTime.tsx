@@ -6,21 +6,19 @@ import MyTime from '../../../MyParams/MyTime';
 import { StateSchema } from 'redux/types';
 import Select from '../InterfaceSelects/Select/Select';
 import { getTime } from '../../model/selectors/getTime';
-import { exampleActions } from 'redux/Slices/frontSlices/example/exampleSlice';
-import { getSignsList } from '../../model/selectors/getSignsList';
+import { useRefreshExample } from 'component/Example';
 
 const ChangeTime = () => {
 
     const dispatch = useDispatch();
     const sessionProgress = useSelector((state: StateSchema) => state.activities.sessionProgress);
-    const signList = useSelector(getSignsList);
     const time = useSelector(getTime);
-    
+    const { refreshExample } = useRefreshExample();
+
     function changeTimeInSession(time: number) {
         if (!sessionProgress) {
             dispatch(interfaceActions.changeTime(time));
-            dispatch(exampleActions.generateNumber(2));
-            dispatch(exampleActions.generateSign(signList));
+            refreshExample();
         }
     }
 

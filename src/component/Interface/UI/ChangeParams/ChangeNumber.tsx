@@ -6,21 +6,19 @@ import MyNumber from '../../../MyParams/MyNumber';
 import { StateSchema } from 'redux/types';
 import Select from '../InterfaceSelects/Select/Select';
 import { getNumber } from '../../model/selectors/getNumber';
-import { exampleActions } from 'redux/Slices/frontSlices/example/exampleSlice';
-import { getSignsList } from '../../model/selectors/getSignsList';
+import { useRefreshExample } from 'component/Example';
 
 const ChangeNumber = () => {
 
     const dispatch = useDispatch();
     const sessionProgress = useSelector((state: StateSchema) => state.activities.sessionProgress);
-    const signList = useSelector(getSignsList);
     const number = useSelector(getNumber);
+    const { refreshExample } = useRefreshExample();
     
     function changeNumberInSession(number: number) {
         if (!sessionProgress) {
             dispatch(interfaceActions.changeNumber(number));
-            dispatch(exampleActions.generateNumber(2));
-            dispatch(exampleActions.generateSign(signList));
+            refreshExample();
         }
     }
 

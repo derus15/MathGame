@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { ExampleSchema } from './types';
 
-const initialState:ExampleSchema = {
+const initialState: ExampleSchema = {
     numbersList: [1, 2],
     sign: '+',
+    answer: '3',
 };
 
 const exampleSlice = createSlice({
@@ -30,6 +31,10 @@ const exampleSlice = createSlice({
 
         },
 
+        setAnswer: (state, action) => {
+            state.answer = action.payload;
+        },
+        
     },
 
 });

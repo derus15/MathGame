@@ -5,21 +5,19 @@ import { interfaceActions } from '../../model/slice/interfaceSlice';
 import { StateSchema } from '../../../../redux/types';
 import Select from '../InterfaceSelects/Select/Select';
 import { getGameMod } from '../../model/selectors/getGameMod';
-import { getSignsList } from '../../model/selectors/getSignsList';
-import { exampleActions } from '../../../../redux/Slices/frontSlices/example/exampleSlice';
+import { useRefreshExample } from 'component/Example';
 
 const ChangeModes = () => {
 
     const dispatch = useDispatch();
     const sessionProgress = useSelector((state: StateSchema) => state.activities.sessionProgress);
-    const signList = useSelector(getSignsList);
     const mode = useSelector(getGameMod);
+    const { refreshExample } = useRefreshExample();
 
     function changeGameModeInSession(mode: string) {
         if (!sessionProgress) {
             dispatch(interfaceActions.changeGameMode(mode));
-            dispatch(exampleActions.generateNumber(2));
-            dispatch(exampleActions.generateSign(signList));
+            refreshExample();
         }
     }
 

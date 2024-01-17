@@ -8,6 +8,7 @@ import { classNames } from 'helpers/classNames/classNames';
 import Modal from '../../UI/Modal/Modal';
 import { testNumber } from 'helpers/testNumber/testNumber';
 import { getNumber, interfaceActions } from 'component/Interface';
+import { useRefreshExample } from 'component/Example';
 
 interface MyNumberProps {
     standardNumber: number[];
@@ -20,6 +21,7 @@ const MyNumber = ({ standardNumber }: MyNumberProps) => {
     const sessionProgress = useSelector((state: StateSchema) => state.activities.sessionProgress);
     const isActive = !standardNumber.includes(duration);
     const dispatch = useDispatch();
+    const { refreshExample } = useRefreshExample();
 
     const showModalMyNumber = () => {
         if (!sessionProgress) {
@@ -33,6 +35,7 @@ const MyNumber = ({ standardNumber }: MyNumberProps) => {
 
         if (isNumber) {
             dispatch(interfaceActions.changeNumber((value === '0') ? 10 : value));
+            refreshExample();
         }
     }
 

@@ -8,6 +8,7 @@ import { OutlineButton } from 'UI/Button/OutlineButton/OutlineButton';
 import { classNames } from 'helpers/classNames/classNames';
 import { interfaceActions, getTime } from '../Interface';
 import { testNumber } from 'helpers/testNumber/testNumber';
+import { useRefreshExample } from 'component/Example';
 
 interface MyTimeProps {
     standardTime: number[];
@@ -20,6 +21,7 @@ const MyTime = ({ standardTime }: MyTimeProps) => {
     const sessionProgress = useSelector((state: StateSchema) => state.activities.sessionProgress);
     const isActive = !standardTime.includes(duration);
     const dispatch = useDispatch();
+    const { refreshExample } = useRefreshExample();
 
     const showModalMyTime = () => {
         if (!sessionProgress) {
@@ -34,6 +36,7 @@ const MyTime = ({ standardTime }: MyTimeProps) => {
 
         if (isNumber) {
             dispatch(interfaceActions.changeTime((value === '0') ? 15 : value));
+            refreshExample();
         }
     }
 
