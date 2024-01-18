@@ -61,6 +61,7 @@ const ExampleArea = () => {
                     onInput={answered}
                     signal={answer}
                 />
+                {__IS_DEV__ && <div style={{ fontSize: '2rem', color: 'white' }}>{answer}</div>}
             </div>
             <InstructionsProvider />
         </>

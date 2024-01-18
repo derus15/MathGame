@@ -22,25 +22,20 @@ function normalizationExample(props: normalizationExampleProps) {
         sign,
         setAnswer,
     } = props;
-    
+
     let [num_1, num_2] = numbersList;
-    
+
+    if (num_1 === 0) {
+        num_1 += 1;
+    }
+
     if ((sign === '-') && (num_1 < num_2)) {
+
         [num_1, num_2] = [num_2, num_1];
 
     } else if (sign === '/') {
 
-        if (num_1 === 0) {
-            num_1 += 1;
-        }
-
-        if (num_1 > 10 && num_1 < 100) {
-            num_2 = Math.floor(num_2 / 10) + 1;
-        }
-
-        num_1 *= num_2; // (num_1 * num_2) / num_2 = num_1
-        // nums = [1, 30];
-        // (30 * 1) / 30 = 30 / 30 = 1
+        num_1 *= num_2;
     }
 
     const answerExample = String(signFunction[sign](num_1, num_2));
