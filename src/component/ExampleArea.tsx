@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useMemo } from 'react';
+import React, { ChangeEvent, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import SprintTimer from './Timers/SprintTimer';
 import StandardTimer from './Timers/StandardTimer';
@@ -20,7 +20,7 @@ const ExampleArea = () => {
     const sessionProgress = useSelector((state: StateSchema) => state.activities.sessionProgress);
     const { refreshExample } = useRefreshExample();
 
-    useMemo(() => {
+    useEffect(() => {
         dispatch(sessionDataActions.resetCounter());
     }, []);
 

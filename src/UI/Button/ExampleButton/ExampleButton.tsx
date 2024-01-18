@@ -1,11 +1,13 @@
 import React, { ButtonHTMLAttributes, FC } from 'react';
 import style from './ExampleButton.module.css';
+import { classNames } from 'helpers/classNames/classNames';
 
 interface buttonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     random?: boolean,
+    className?: string,
 }
 
-const ExampleButton:FC<buttonProps> = ({ children, random = false, ...props }) => {
+const ExampleButton:FC<buttonProps> = ({ className, children, random = false, ...props }) => {
 
     if (random) {
         const textList = ['Хорошо', 'Ладно', 'Понятно', 'Прекрасно', 'Великолепно', 'Превосходно'];
@@ -14,7 +16,7 @@ const ExampleButton:FC<buttonProps> = ({ children, random = false, ...props }) =
 
     return (
         <div>
-            <button type="button" className={style.btn} {...props}>
+            <button type="button" className={classNames(style.btn, {}, [className])} {...props}>
                 {children}
             </button>
         </div>
