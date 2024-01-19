@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import style from './Header.module.css';
 import HeaderAccount from './HeaderAccount';
-import Modifications from '../Modifications/Modifications';
+import { OneTry } from 'component/Modifications';
 import Toast from 'UI/Toaster/Toast';
 
 const Header = () => (
@@ -11,7 +11,7 @@ const Header = () => (
             <Link to="/">
                 <h1 className={style.logo}>MathGame</h1>
             </Link>
-            <Modifications />
+            <OneTry />
             <Toast />
         </div>
         <HeaderAccount />

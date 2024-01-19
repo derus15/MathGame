@@ -5,6 +5,7 @@ import { activitiesSessionReducer } from './Slices/frontSlices/activitiesSession
 import { exampleReducer } from 'component/Example';
 import { sessionDataReducer } from './Slices/frontSlices/sessionData/sessionDataSlice';
 import { interfaceReducer } from 'component/Interface';
+import { modificationsReducer } from 'component/Modifications';
 
 export const store = configureStore({
     reducer: {
@@ -14,5 +15,6 @@ export const store = configureStore({
         auth: authReducer,
         account: accountReducer,
         activities: activitiesSessionReducer,
+        modifications: modificationsReducer,
     },
 });

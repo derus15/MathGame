@@ -8,17 +8,17 @@ import InstructionsProvider from './Instructions/InstructionsProvider';
 import { activitiesSessionActions } from 'redux/Slices/frontSlices/activitiesSession/activitiesSession';
 import { sessionDataActions } from 'redux/Slices/frontSlices/sessionData/sessionDataSlice';
 import { StateSchema } from 'redux/types';
-import { testNumber } from 'helpers/testNumber/testNumber';
 import { getGameMod } from 'component/Interface';
+import { useModifications } from 'component/Modifications';
 
 const ExampleArea = () => {
 
     const dispatch = useDispatch();
     const answer = useSelector(getAnswer);
     const gameMode = useSelector(getGameMod);
-    const permanentMod = useSelector((state: StateSchema) => state.interface.modifications);
     const sessionProgress = useSelector((state: StateSchema) => state.activities.sessionProgress);
     const { refreshExample } = useRefreshExample();
+    const [oneTry] = useModifications();
 
     useEffect(() => {
         dispatch(sessionDataActions.resetCounter());
@@ -29,19 +29,9 @@ const ExampleArea = () => {
             dispatch(activitiesSessionActions.startSession());
         }
     };
-
-    function permanentMode(e: ChangeEvent<HTMLInputElement>) {
-        const isNumber = testNumber(e.target.value);
-        if (permanentMod && isNumber) {
-            const userAnswer = String(e.target.value).length;
-            if (userAnswer === answer.length && e.target.value !== answer) {
-                dispatch(activitiesSessionActions.endSession());
-            }
-        }
-    }
-
+    
     function answered(e: ChangeEvent<HTMLInputElement>) {
-        permanentMode(e);
+        oneTry(e);
         if (e.target.value === answer) {
             dispatch(sessionDataActions.incrementCounter());
             refreshExample();

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Instructions from './Instructions';
 import { useSelector } from 'react-redux';
-import { StateSchema } from '../../redux/types';
+import { getModificationsList } from 'component/Modifications';
 
 const InstructionsProvider = () => {
 
-    const one = useSelector((state: StateSchema) => state.interface.modifications);
+    const modList = useSelector(getModificationsList);
+    const one = modList.includes('one');
     const [isOpen, setIsOpen] = useState(null);
     const [key, setKey] = useState('initial');
 

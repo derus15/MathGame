@@ -1,31 +1,31 @@
 import React from 'react';
-import style from '../Header/Header.module.css';
+import style from '../../../Header/Header.module.css';
 import OneIcon from '/public/assets/oneIcon.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { classNames } from 'helpers/classNames/classNames';
-import { interfaceActions } from 'component/Interface';
 import { StateSchema } from 'redux/types';
+import { modificationsActions } from '../../model/slice/modificationsSlice';
+import { getModificationsList } from 'component/Modifications/model/selectors/getModificationsList';
 
-const Modifications = () => {
+export const OneTry = () => {
     
     const dispatch = useDispatch();
-    const active = useSelector((state: StateSchema) => state.interface.modifications);
+    const modsList = useSelector(getModificationsList);
     const sessionProgress = useSelector((state: StateSchema) => state.activities.sessionProgress);
-
+    const isActive = modsList.includes('one');
+    
     const changeMod = () => {
         if (!sessionProgress) {
-            dispatch(interfaceActions.changeModifications('one'));
+            dispatch(modificationsActions.changeModifications('one'));
         }
     };
 
     return (
         <div>
             <OneIcon
-                className={classNames(style.modifications, { [style.svgModeActive]: active })}
+                className={classNames(style.modifications, { [style.svgModeActive]: isActive })}
                 onClick={changeMod}
             />
         </div>
     );
 };
-
-export default Modifications;

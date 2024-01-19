@@ -5,5 +5,4 @@ export interface InterfaceSchema {
     number: number,
     mode: string,
     signList: SignList[],
-    modifications: string,
 }
