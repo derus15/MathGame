@@ -1,5 +1,5 @@
 import React from 'react';
-import style from '../../../Header/Header.module.css';
+import style from './OneTry.module.css';
 import OneIcon from '/public/assets/oneIcon.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { classNames } from 'helpers/classNames/classNames';

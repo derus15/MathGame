@@ -7,7 +7,7 @@
     right: 0;
     width: 450px;
     height: 70px;
-    background: var(--interface-color);
+    background: var(--interface-background-color);
     color: var(--active-color);
     animation: init .5s linear;
 }

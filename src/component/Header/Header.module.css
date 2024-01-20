@@ -8,6 +8,7 @@
     font-size: 35px;
     color: var(--header-timer-example);
     cursor: pointer;
+    transition-duration: .3s;
 }
 
 .link {
@@ -26,27 +27,12 @@
     justify-content: space-between;
 }
 
-@keyframes init {
-
-    0% {
-        opacity: 0;
-    }
-
-    50% {
-        opacity: .5;
-    }
-
-    100% {
-        opacity: 1;
-    }
-
-}
-
 .username {
     font-size: 21px;
     color: var(--active-color);
     animation: inherit;
     cursor: pointer;
+    transition-duration: .3s;
 }
 
 .username:hover, .logout:hover, .profile:hover, .logoutContainer:hover {
@@ -62,26 +48,8 @@
     height: 30px;
     animation: inherit;
     cursor: pointer;
-}
-
-.modifications {
-    margin-top: 19px;
-    margin-left: 20px;
-    fill: var(--base-color);
-    cursor: pointer;
-}
-
-.svgModeActive {
-    fill: var(--active-color);
-}
-
-.modifications:hover {
-    opacity: 70%;
-    fill: var(--active-color);
-}
-
-.modifications:active {
-    fill: var(--base-color);
+    fill: var(--svg-color);
+    transition-duration: .3s;
 }
 
 .logoutContainer {
@@ -90,4 +58,23 @@
     width: 22px;
     height: 22px;
     animation: inherit;
+    fill: var(--svg-color);
+    transition-duration: .3s;
+}
+
+
+@keyframes init {
+
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: .5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
 }

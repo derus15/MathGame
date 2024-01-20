@@ -10,7 +10,7 @@ html {
 
 body, html {
     background-color: var(--background-color);
-    transition-duration: .2s;
+    transition-duration: .3s;
 }
 
 body {
@@ -77,6 +77,7 @@ body {
     top: 200px;
     left: 190px;
     animation: init ease-in-out .2s;
+    transition-duration: .3s;
 }
 
 .timerActive {

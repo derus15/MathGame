@@ -8,6 +8,8 @@
     font-size: 1.9rem;
     text-align: center;
     animation: blink infinite 2s;
+    fill: var(--svg-color);
+    transition-duration: .3s;
 }
 
 .instructions.hidden {

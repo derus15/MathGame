@@ -7,7 +7,7 @@
 .support {
     padding: 8px 10px;
     border-radius: 20px;
-    background-color: var(--interface-color);
+    background-color: var(--interface-background-color);
     animation-duration: 2.4s;
     animation-name: init;
 }

@@ -13,13 +13,14 @@ input {
     cursor: text;
     box-sizing: border-box;
     border-radius: 10px;
-    background-color: var(--interface-color);
+    background-color: var(--interface-background-color);
     font-family: inherit;
     font-size: 17px;
     width: 230px;
     height: 35px;
     padding: 1rem;
     display: inline-block;
+    transition-duration: .3s;
     transition: box-shadow 0.2s;
 }
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import style from '../../component/Interface/UI/Interface/Interface.module.css';
+import style from './Lines.module.css';
 
 const Lines = () => {
     const [rotate, setRotate] = useState(false);

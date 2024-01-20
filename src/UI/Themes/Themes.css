@@ -1,30 +1,59 @@
 [dataTheme='black'] {
     --background-color: #2C2E31;
-    --base-color: gray;
+    --base-color: rgb(128, 128, 128);
     --active-color: white;
-    --interface-color: rgba(26, 26, 29, 0.49);
+    --interface-background-color: rgba(26, 26, 29, 0.49);
     --line-color: rgb(100, 102, 105);
     --header-timer-example: white;
-    --modal-color: #303033;;
+    --modal-color: #303033;
+    --svg-color: white;
+    --interface-select-unactive: rgb(128, 128, 128);
+    --modification-unactive: rgb(128, 128, 128);
+    --footer-color: rgb(128, 128, 128);
+    --footer-hover: white;
 }
-
 
 [dataTheme='PP'] {
     --background-color: #FFC0CB;
     --base-color: #F43EA2;
     --active-color: rgb(255, 255, 255);
-    --interface-color: #FFADBB;
+    --interface-background-color: #FFADBB;
     --line-color: #FF7088;
     --header-timer-example: #F43EA2;
     --modal-color: #FFADBB;
+    --svg-color: white;
+    --interface-select-unactive: #F43EA2;
+    --modification-unactive: #F43EA2;
+    --footer-color: #F43EA2;
+    --footer-hover: white;
 }
 
 [dataTheme='ocean'] {
     --background-color: #161b22;
     --base-color: #93A3B1;
     --active-color: white;
-    --interface-color: #192d36;
+    --interface-background-color: #192d36;
     --line-color: #6d7a85;
     --header-timer-example: white;
     --modal-color: #161b22;
+    --svg-color: white;
+    --interface-select-unactive: #93A3B1;
+    --modification-unactive: #93A3B1;
+    --footer-color: #93A3B1;
+    --footer-hover: white;
+}
+
+[dataTheme='chemodan'] {
+    --background-color: #e6ccb2;
+    --base-color: #9c6644;
+    --active-color: #7f5539;
+    --interface-background-color: #ddb892;
+    --line-color: #7f5539;
+    --header-timer-example: #7f5539;
+    --modal-color: #ddb892;
+    --svg-color: #7f5539;
+    --interface-select-unactive: #ede0d4;
+    --modification-unactive: #ddb892;
+    --footer-hover: #ede0d4;
+    --footer-color: #9c6644;
 }

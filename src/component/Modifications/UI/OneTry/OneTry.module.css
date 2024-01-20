@@ -1,0 +1,20 @@
+.modifications {
+    margin-top: 19px;
+    margin-left: 20px;
+    fill: var(--modification-unactive);
+    cursor: pointer;
+    transition-duration: .3s;
+}
+
+.svgModeActive {
+    fill: var(--svg-color);
+}
+
+.modifications:hover {
+    opacity: 70%;
+    fill: var(--active-color);
+}
+
+.modifications:active {
+    fill: var(--base-color);
+}

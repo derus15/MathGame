@@ -1,0 +1,35 @@
+.number {
+    font-size: 17px;
+    background-color: transparent;
+    color: var(--interface-select-unactive);
+}
+
+.number:hover {
+    color: var(--active-color);
+}
+
+.number:active {
+    color: var(--interface-select-unactive);
+}
+
+.numberActive {
+    color: var(--active-color);
+}
+
+.time {
+    font-size: 16px;
+    background-color: transparent;
+    color: var(--interface-select-unactive);
+}
+
+.time:hover {
+    color: var(--active-color);
+}
+
+.time:active {
+    color: var(--interface-select-unactive);
+}
+
+.timeActive {
+    color: var(--active-color);
+}

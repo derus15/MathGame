@@ -1,7 +1,8 @@
 .signs {
     background-color: inherit;
     font-size: 19px;
-    color: var(--base-color);
+    color: var(--interface-select-unactive);
+    transition-duration: .3s;
 }
 
 .signs:hover {
@@ -9,7 +10,7 @@
 }
 
 .signs:active {
-    color: var(--base-color);
+    color: var(--interface-select-unactive);
 }
 
 .signsActive {

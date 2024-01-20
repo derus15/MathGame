@@ -10,15 +10,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--interface-color);
+    background-color: var(--interface-background-color);
     border-radius: 12px;
     width: 900px;
     height: 31px;
     user-select: none;
     animation: init ease-in-out .2s;
+    transition-duration: .3s;
 }
-
-/*Режимы*/
 
 .containerModes {
     position: absolute;
@@ -26,46 +25,8 @@
     gap: 140px;
     flex-direction: row;
     background-color: transparent;
+    transition-duration: .3s;
 }
-
-/**/
-
-/*Вертикальные линии*/
-
-.containerLines {
-    position: absolute;
-    display: flex;
-    background-color: transparent;
-}
-
-.rightLine {
-    position: absolute;
-    right: 270px;
-    top: -10px;
-}
-
-.leftLine {
-    position: absolute;
-    left: 255px;
-    top: -10px;
-}
-
-.verticalLine {
-    height: 21px;
-    width: 4px;
-    border-radius: 20px;
-    background-color: var(--line-color);
-    transition-property: transform;
-    transition-duration: 0.5s;
-}
-
-.rotateLine {
-    transform: rotate(90deg);
-}
-
-/**/
-
-/*Выбор времени*/
 
 .containerTime {
     position: absolute;
@@ -76,44 +37,8 @@
     flex-direction: row;
     background-color: transparent;
     animation: init ease-in-out .3s;
+    transition-duration: .3s;
 }
-
-@keyframes init {
-    0% {
-        opacity: 0;
-    }
-
-    50% {
-        opacity: .5;
-    }
-
-    100% {
-        opacity: 1;
-    }
-
-}
-
-.time {
-    font-size: 16px;
-    background-color: transparent;
-    color: var(--base-color);
-}
-
-.time:hover {
-    color: var(--active-color);
-}
-
-.time:active {
-    color: var(--base-color);
-}
-
-.timeActive {
-    color: var(--active-color);
-}
-
-/**/
-
-/*Выбор кол-ва*/
 
 .containerNumber {
     position: absolute;
@@ -124,29 +49,8 @@
     background-color: transparent;
     flex-direction: row;
     animation: init ease-in-out .3s;
+    transition-duration: .3s;
 }
-
-.number {
-    font-size: 17px;
-    background-color: transparent;
-    color: var(--base-color);
-}
-
-.number:hover {
-    color: var(--active-color);
-}
-
-.number:active {
-    color: var(--base-color);
-}
-
-.numberActive {
-    color: var(--active-color);
-}
-
-/**/
-
-/*Знаки*/
 
 .containerSigns {
     position: absolute;
@@ -156,9 +60,8 @@
     gap: 31px;
     background-color: transparent;
     display: flex;
+    transition-duration: .3s;
 }
-
-/**/
 
 @media screen and (max-width:990px) {
     .mainContainer{
@@ -167,14 +70,6 @@
 
     .containerModes {
         gap: 78px;
-    }
-
-    .rightLine {
-        right: 205px;
-    }
-
-    .leftLine {
-        left: 191px;
     }
 
     .containerSigns {
@@ -190,4 +85,20 @@
         margin-left: 570px;
         gap: 27px;
     }
+}
+
+
+@keyframes init {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: .5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
 }

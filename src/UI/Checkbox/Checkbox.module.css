@@ -1,6 +1,6 @@
 .checkbox {
     border-radius: 10px;
-    background-color: var(--interface-color);
+    background-color: var(--interface-background-color);
     width: 230px;
     height: 35px;
     display: inline-block;
@@ -46,7 +46,7 @@ input:checked {
 input:checked::before {
     content: url("/public/assets/checkV2.svg");
     font-size: 1em;
-    color: var(--interface-color);
+    color: var(--interface-background-color);
     position: absolute;
     right: -.5px;
     top: -2px;
