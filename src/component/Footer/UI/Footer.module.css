@@ -25,6 +25,7 @@ a:active {
 
 .extra:hover {
     color: var(--footer-hover);
+    transition: none;
 }
 
 .extra:active {

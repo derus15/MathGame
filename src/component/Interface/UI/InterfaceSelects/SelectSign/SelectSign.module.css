@@ -7,6 +7,7 @@
 
 .signs:hover {
     color: var(--active-color);
+    transition: none;
 }
 
 .signs:active {
