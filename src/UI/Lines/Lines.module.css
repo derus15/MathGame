@@ -24,7 +24,6 @@
     border-radius: 20px;
     background-color: var(--line-color);
     transition-property: transform;
-    transition-duration: 0.5s;
 }
 
 .rotateLine {

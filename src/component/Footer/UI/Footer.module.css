@@ -20,12 +20,11 @@ a:active {
     display: inline-block;
     color: var(--footer-color);
     font-size: 1.8rem;
-    transition-duration: .3s;
+    transition-duration: .125s;
 }
 
 .extra:hover {
     color: var(--footer-hover);
-    transition: none;
 }
 
 .extra:active {
@@ -41,7 +40,7 @@ a:active {
 .versionNumber {
     font-size: 2.5rem;
     background-color: var(--modal-color);
-    color: #ede0d4;
+    color: #ffff;
 }
 
 .versionText {

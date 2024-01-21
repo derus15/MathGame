@@ -20,7 +20,7 @@ input {
     height: 35px;
     padding: 1rem;
     display: inline-block;
-    transition-duration: .3s;
+    transition-duration: .125s;
     transition: box-shadow 0.2s;
 }
 

@@ -3,7 +3,7 @@
     margin-left: 20px;
     fill: var(--modification-unactive);
     cursor: pointer;
-    transition-duration: .3s;
+    transition-duration: .125s;
 }
 
 .svgModeActive {

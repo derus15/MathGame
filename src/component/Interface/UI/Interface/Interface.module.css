@@ -25,7 +25,6 @@
     gap: 140px;
     flex-direction: row;
     background-color: transparent;
-    transition-duration: .3s;
 }
 
 .containerTime {
@@ -37,7 +36,6 @@
     flex-direction: row;
     background-color: transparent;
     animation: init ease-in-out .3s;
-    transition-duration: .3s;
 }
 
 .containerNumber {
@@ -49,7 +47,6 @@
     background-color: transparent;
     flex-direction: row;
     animation: init ease-in-out .3s;
-    transition-duration: .3s;
 }
 
 .containerSigns {
@@ -60,7 +57,6 @@
     gap: 31px;
     background-color: transparent;
     display: flex;
-    transition-duration: .3s;
 }
 
 @media screen and (max-width:990px) {
@@ -86,7 +82,6 @@
         gap: 27px;
     }
 }
-
 
 @keyframes init {
     0% {

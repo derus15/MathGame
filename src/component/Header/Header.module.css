@@ -49,7 +49,7 @@
     animation: inherit;
     cursor: pointer;
     fill: var(--svg-color);
-    transition-duration: .3s;
+    transition-duration: .125s;
 }
 
 .logoutContainer {
@@ -59,7 +59,7 @@
     height: 22px;
     animation: inherit;
     fill: var(--svg-color);
-    transition-duration: .3s;
+    transition-duration: .125s;
 }
 
 

@@ -2,12 +2,11 @@
     font-size: 16px;
     background-color: transparent;
     color: var(--interface-select-unactive);
-    transition-duration: .3s;
+    transition-duration: .125s;
 }
 
 .element:hover {
     color: var(--active-color);
-    transition: none;
 }
 
 .element:active {
