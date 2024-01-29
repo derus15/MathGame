@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import style from './MyParams.module.css';
 import PersonParamsInput from '../../UI/Input/PersonParamsInput/PersonParamsInput';
-import { StateSchema } from 'redux/types';
 import { OutlineButton } from 'UI/Button/OutlineButton/OutlineButton';
 import { classNames } from 'helpers/classNames/classNames';
 import Modal from 'UI/Modal/Modal';
 import { testNumber } from 'helpers/testNumber/testNumber';
 import { getNumber, interfaceActions } from 'component/Interface';
 import { useRefreshExample } from 'component/Example';
+import { getSessionProgress } from 'component/Session';
 
 interface MyNumberProps {
     standardNumber: number[];
@@ -18,7 +18,7 @@ const MyNumber = ({ standardNumber }: MyNumberProps) => {
 
     const [isModal, setIsModal] = useState(false);
     const duration = useSelector(getNumber);
-    const sessionProgress = useSelector((state: StateSchema) => state.activities.sessionProgress);
+    const sessionProgress = useSelector(getSessionProgress);
     const isActive = !standardNumber.includes(duration);
     const dispatch = useDispatch();
     const { refreshExample } = useRefreshExample();

@@ -3,12 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import style from './MyParams.module.css';
 import Modal from 'UI/Modal/Modal';
 import PersonParamsInput from '../../UI/Input/PersonParamsInput/PersonParamsInput';
-import { StateSchema } from 'redux/types';
 import { OutlineButton } from 'UI/Button/OutlineButton/OutlineButton';
 import { classNames } from 'helpers/classNames/classNames';
 import { interfaceActions, getTime } from '../Interface';
 import { testNumber } from 'helpers/testNumber/testNumber';
 import { useRefreshExample } from 'component/Example';
+import { getSessionProgress } from 'component/Session';
 
 interface MyTimeProps {
     standardTime: number[];
@@ -18,7 +18,7 @@ const MyTime = ({ standardTime }: MyTimeProps) => {
 
     const [isModal, setIsModal] = useState(false);
     const duration = useSelector(getTime);
-    const sessionProgress = useSelector((state: StateSchema) => state.activities.sessionProgress);
+    const sessionProgress = useSelector(getSessionProgress);
     const isActive = !standardTime.includes(duration);
     const dispatch = useDispatch();
     const { refreshExample } = useRefreshExample();

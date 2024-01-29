@@ -1,4 +1,4 @@
-export interface ActivitiesSessionSchema {
+export interface SessionSchema {
     sessionProgress: boolean,
     result: boolean
 }

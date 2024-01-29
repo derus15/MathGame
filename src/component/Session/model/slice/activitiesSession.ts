@@ -1,14 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { ActivitiesSessionSchema } from './types';
+import { SessionSchema } from './types';
 
-const initialState: ActivitiesSessionSchema = {
+const initialState: SessionSchema = {
     sessionProgress: false,
     result: false,
 };
 
-export const activitiesSessionSlice = createSlice({
+export const sessionSlice = createSlice({
 
-    name: 'activities',
+    name: 'session',
     initialState,
     reducers: {
 
@@ -33,6 +33,6 @@ export const activitiesSessionSlice = createSlice({
     },
 });
 
-export const { actions: activitiesSessionActions } = activitiesSessionSlice;
+export const { actions: sessionActions } = sessionSlice;
 
-export const { reducer: activitiesSessionReducer } = activitiesSessionSlice;
+export const { reducer: sessionReducer } = sessionSlice;

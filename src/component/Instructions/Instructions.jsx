@@ -3,11 +3,12 @@ import style from './Instructions.module.css';
 import { classNames } from '../../helpers/classNames/classNames';
 import Cross from '/public/assets/cross.svg';
 import { useSelector } from 'react-redux';
+import { getSessionProgress } from 'component/Session';
 
 const Instructions = ({ setIsOpen, instructions }) => {
 
     const [isVisible, setIsVisible] = useState(true);
-    const sessionProgress = useSelector((state) => state.activities.sessionProgress);
+    const sessionProgress = useSelector(getSessionProgress);
 
     useEffect(() => {
         let timeout;

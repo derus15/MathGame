@@ -3,15 +3,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import style from '../Interface/Interface.module.css';
 import { interfaceActions } from '../../model/slice/interfaceSlice';
 import MyTime from '../../../MyParams/MyTime';
-import { StateSchema } from 'redux/types';
 import Select from '../InterfaceSelects/Select/Select';
 import { getTime } from '../../model/selectors/getTime';
 import { useRefreshExample } from 'component/Example';
+import { getSessionProgress } from 'component/Session';
 
 const ChangeTime = () => {
 
     const dispatch = useDispatch();
-    const sessionProgress = useSelector((state: StateSchema) => state.activities.sessionProgress);
+    const sessionProgress = useSelector(getSessionProgress);
     const time = useSelector(getTime);
     const { refreshExample } = useRefreshExample();
 

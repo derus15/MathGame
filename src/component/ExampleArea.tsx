@@ -5,18 +5,17 @@ import StandardTimer from './Timers/StandardTimer';
 import { Example, useRefreshExample, getAnswer } from 'component/Example';
 import ExampleInput from 'UI/Input/ExampleInput/ExampleInput';
 import InstructionsProvider from './Instructions/InstructionsProvider';
-import { activitiesSessionActions } from 'redux/Slices/frontSlices/activitiesSession/activitiesSession';
 import { sessionDataActions } from 'redux/Slices/frontSlices/sessionData/sessionDataSlice';
-import { StateSchema } from 'redux/types';
 import { getGameMod } from 'component/Interface';
 import { useModifications } from 'component/Modifications';
+import { getSessionProgress, sessionActions } from 'component/Session';
 
 const ExampleArea = () => {
 
     const dispatch = useDispatch();
     const answer = useSelector(getAnswer);
     const gameMode = useSelector(getGameMod);
-    const sessionProgress = useSelector((state: StateSchema) => state.activities.sessionProgress);
+    const sessionProgress = useSelector(getSessionProgress);
     const { refreshExample } = useRefreshExample();
     const [oneTry] = useModifications();
 
@@ -26,7 +25,7 @@ const ExampleArea = () => {
 
     const startSessionHandler = () => {
         if (!sessionProgress) {
-            dispatch(activitiesSessionActions.startSession());
+            dispatch(sessionActions.startSession());
         }
     };
     

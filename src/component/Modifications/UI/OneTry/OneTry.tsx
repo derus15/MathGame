@@ -3,15 +3,15 @@ import style from './OneTry.module.css';
 import OneIcon from '/public/assets/oneIcon.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { classNames } from 'helpers/classNames/classNames';
-import { StateSchema } from 'redux/types';
 import { modificationsActions } from '../../model/slice/modificationsSlice';
 import { getModificationsList } from 'component/Modifications/model/selectors/getModificationsList';
+import { getSessionProgress } from 'component/Session';
 
 export const OneTry = () => {
     
     const dispatch = useDispatch();
     const modsList = useSelector(getModificationsList);
-    const sessionProgress = useSelector((state: StateSchema) => state.activities.sessionProgress);
+    const sessionProgress = useSelector(getSessionProgress);
     const isActive = modsList.includes('one');
     
     const changeMod = () => {

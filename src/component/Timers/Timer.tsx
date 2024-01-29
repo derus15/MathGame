@@ -1,6 +1,6 @@
 import React, { Dispatch, SetStateAction, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { StateSchema } from 'redux/types';
+import { getSessionProgress } from 'component/Session';
 
 interface TimerProps {
     seconds: number,
@@ -11,7 +11,7 @@ interface TimerProps {
 
 const Timer = ({ seconds, milliseconds, setMilliseconds, setSeconds }: TimerProps) => {
 
-    const sessionProgress = useSelector((state: StateSchema) => state.activities.sessionProgress);
+    const sessionProgress = useSelector(getSessionProgress);
 
     useEffect(() => {
         let interval: ReturnType<typeof setInterval>;

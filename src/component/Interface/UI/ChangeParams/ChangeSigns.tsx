@@ -3,15 +3,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import style from '../Interface/Interface.module.css';
 import { interfaceActions } from '../../model/slice/interfaceSlice';
 import SelectSign from '../InterfaceSelects/SelectSign/SelectSign';
-import { StateSchema } from 'redux/types';
 import { SignList } from 'app/types/config';
 import { getSignsList } from '../../model/selectors/getSignsList';
 import { useRefreshExample } from 'component/Example';
+import { getSessionProgress } from 'component/Session';
 
 const ChangeSigns = () => {
 
     const dispatch = useDispatch();
-    const sessionProgress = useSelector((state: StateSchema) => state.activities.sessionProgress);
+    const sessionProgress = useSelector(getSessionProgress);
     const signs = useSelector(getSignsList);
     const { refreshExample } = useRefreshExample();
 

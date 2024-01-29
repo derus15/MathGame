@@ -5,8 +5,9 @@ import ExampleButton from '../../UI/Button/ExampleButton/ExampleButton';
 import axios from '../../helpers/api/axios';
 import { normalizationOfTheEnd } from 'helpers/normalizationOfTheEnd/normalizationOfTheEnd';
 import { Link } from 'react-router-dom';
-import { activitiesSessionActions } from 'redux/Slices/frontSlices/activitiesSession/activitiesSession';
 import { StateSchema } from 'redux/types';
+import { sessionActions } from 'component/Session';
+import { getGameMod, getSignsList } from 'component/Interface';
 
 const Result = () => {
 
@@ -16,8 +17,8 @@ const Result = () => {
     const standardNumberRes = useSelector((state: StateSchema) => state.sessionData.counter);
     const sprintTimeRes = useSelector((state: StateSchema) => state.sessionData.time);
 
-    const mode = useSelector((state: StateSchema) => state.interface.mode);
-    const sign = useSelector((state: StateSchema) => state.interface.signList);
+    const mode = useSelector(getGameMod);
+    const sign = useSelector(getSignsList);
 
     const sprintTextRes = normalizationOfTheEnd(sprintTimeRes);
 
@@ -35,7 +36,7 @@ const Result = () => {
     };
     
     const closeResultHandle = () => {
-        dispatch(activitiesSessionActions.closeResult());
+        dispatch(sessionActions.closeResult());
     };
 
     useEffect(() => {

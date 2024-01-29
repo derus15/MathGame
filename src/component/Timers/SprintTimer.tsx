@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { classNames } from 'helpers/classNames/classNames';
-import { activitiesSessionActions } from 'redux/Slices/frontSlices/activitiesSession/activitiesSession';
 import { sessionDataActions } from 'redux/Slices/frontSlices/sessionData/sessionDataSlice';
 import { StateSchema } from 'redux/types';
 import { getNumber } from '../Interface';
+import { getSessionProgress, sessionActions } from 'component/Session';
 
 const SprintTimer = () => {
 
-    const sessionProgress = useSelector((state: StateSchema) => state.activities.sessionProgress);
+    const sessionProgress = useSelector(getSessionProgress);
     const duration = useSelector(getNumber);
     const [seconds, setSeconds] = useState(0);
     const userCounter = useSelector((state: StateSchema) => state.sessionData.counter);
@@ -18,7 +18,7 @@ const SprintTimer = () => {
         const durationNum = Number(duration);
 
         if (durationNum <= userCounter) {
-            dispatch(activitiesSessionActions.endSession());
+            dispatch(sessionActions.endSession());
         }
     }, [userCounter]);
 

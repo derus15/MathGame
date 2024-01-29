@@ -3,10 +3,11 @@ import style from './ExampleInput.module.css';
 import { classNames } from '../../../helpers/classNames/classNames';
 import { useSelector } from 'react-redux';
 import { testNumber } from '../../../helpers/testNumber/testNumber';
+import { getSessionProgress } from 'component/Session';
 
 const ExampleInput = ({ focus, signal = null, ...props }) => {
     const [answerSignal, setAnswerSignal] = useState(false);
-    const sessionProgress = useSelector((state) => state.activities.sessionProgress);
+    const sessionProgress = useSelector(getSessionProgress);
     const inputRef = useRef(null);
 
     const checkNumber = (e) => {

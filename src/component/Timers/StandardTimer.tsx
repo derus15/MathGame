@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { activitiesSessionActions } from 'redux/Slices/frontSlices/activitiesSession/activitiesSession';
 import { sessionDataActions } from 'redux/Slices/frontSlices/sessionData/sessionDataSlice';
-import { StateSchema } from 'redux/types';
 import Timer from './Timer';
 import { getTime } from '../Interface';
+import { getSessionProgress, sessionActions } from 'component/Session';
 
 const StandardTimer = () => {
 
     const duration = useSelector(getTime);
-    const sessionProgress = useSelector((state: StateSchema) => state.activities.sessionProgress);
+    const sessionProgress = useSelector(getSessionProgress);
     const [seconds, setSeconds] = useState(duration);
     const [milliseconds, setMilliseconds] = useState(0);
     const dispatch = useDispatch();
@@ -26,7 +25,7 @@ const StandardTimer = () => {
     
     useEffect(() => {
         if (seconds === 0 && milliseconds === 0) {
-            dispatch(activitiesSessionActions.endSession());
+            dispatch(sessionActions.endSession());
         }
     }, [milliseconds]);
 

@@ -1,9 +1,9 @@
 import { ChangeEvent } from 'react';
 import { testNumber } from 'helpers/testNumber/testNumber';
-import { activitiesSessionActions } from 'redux/Slices/frontSlices/activitiesSession/activitiesSession';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAnswer } from 'component/Example';
 import { getModificationsList } from '../selectors/getModificationsList';
+import { sessionActions } from 'component/Session';
 
 export const useModifications = () => {
 
@@ -17,7 +17,7 @@ export const useModifications = () => {
         if (oneTry && isNumber) {
             const userAnswer = String(e.target.value).length;
             if (userAnswer === answer.length && e.target.value !== answer) {
-                dispatch(activitiesSessionActions.endSession());
+                dispatch(sessionActions.endSession());
             }
         }
     };

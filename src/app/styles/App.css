@@ -8,13 +8,9 @@ html {
     font-size: 62.5%;
 }
 
-body, html {
+body {
     background-color: var(--background-color);
     transition-duration: .3s;
-}
-
-body {
-    margin: 0;
 }
 
 .container {
@@ -22,9 +18,8 @@ body {
     width: 90%;
     max-width: 1270px;
     height: 96vh;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 25px;
+    margin: 25px auto;
+    margin-bottom: 0;
     user-select: none;
     animation: init ease-in-out .2s;
 }

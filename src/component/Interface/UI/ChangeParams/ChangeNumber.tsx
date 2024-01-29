@@ -3,15 +3,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import style from '../Interface/Interface.module.css';
 import { interfaceActions } from '../../model/slice/interfaceSlice';
 import MyNumber from '../../../MyParams/MyNumber';
-import { StateSchema } from 'redux/types';
 import Select from '../InterfaceSelects/Select/Select';
 import { getNumber } from '../../model/selectors/getNumber';
 import { useRefreshExample } from 'component/Example';
+import { getSessionProgress } from 'component/Session';
 
 const ChangeNumber = () => {
 
     const dispatch = useDispatch();
-    const sessionProgress = useSelector((state: StateSchema) => state.activities.sessionProgress);
+    const sessionProgress = useSelector(getSessionProgress);
     const number = useSelector(getNumber);
     const { refreshExample } = useRefreshExample();
     
