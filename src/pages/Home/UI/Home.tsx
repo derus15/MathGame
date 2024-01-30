@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import Result from '../../Result/Result';
-import { Interface } from 'component/Interface';
+import { Interface } from 'widgets/Interface';
 import ExampleArea from 'component/ExampleArea';
 import { useDispatch, useSelector } from 'react-redux';
-import { getResult, sessionActions } from 'component/Session';
+import { getResult, sessionActions } from 'entities/Session';
 
 const Home = () => {
 
@@ -12,17 +12,14 @@ const Home = () => {
 
     useEffect(() => () => { dispatch(sessionActions.resetSession()); }, []);
 
+    if (isResult) {
+        return <Result />;
+    }
+    
     return (
-        // eslint-disable-next-line react/jsx-no-useless-fragment
         <>
-            {isResult ? (
-                <Result />
-            ) : (
-                <>
-                    <Interface />
-                    <ExampleArea />
-                </>
-            )}
+            <Interface />
+            <ExampleArea />
         </>
     );
 };

@@ -1,21 +1,17 @@
 import React, { ChangeEvent, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import SprintTimer from './Timers/SprintTimer';
-import StandardTimer from './Timers/StandardTimer';
-import { Example, useRefreshExample, getAnswer } from 'component/Example';
-import ExampleInput from 'UI/Input/ExampleInput/ExampleInput';
-import InstructionsProvider from './Instructions/InstructionsProvider';
+import { Example, useRefreshExample, getAnswer } from 'entities/Example';
+import ExampleInput from 'shared/UI/Input/ExampleInput/ExampleInput';
 import { sessionDataActions } from 'redux/Slices/frontSlices/sessionData/sessionDataSlice';
-import { getGameMod } from 'component/Interface';
-import { useModifications } from 'component/Modifications';
-import { getSessionProgress, sessionActions } from 'component/Session';
+import { useModifications } from 'features/Modifications';
+import { sessionActions } from 'entities/Session';
+import { InstructionsProvider } from 'widgets/Instructions';
+import { TimersProvider } from 'widgets/Timers';
 
 const ExampleArea = () => {
 
     const dispatch = useDispatch();
     const answer = useSelector(getAnswer);
-    const gameMode = useSelector(getGameMod);
-    const sessionProgress = useSelector(getSessionProgress);
     const { refreshExample } = useRefreshExample();
     const [oneTry] = useModifications();
 
@@ -24,25 +20,21 @@ const ExampleArea = () => {
     }, []);
 
     const startSessionHandler = () => {
-        if (!sessionProgress) {
-            dispatch(sessionActions.startSession());
-        }
+        dispatch(sessionActions.startSession());
     };
     
-    function answered(e: ChangeEvent<HTMLInputElement>) {
+    const answered = (e: ChangeEvent<HTMLInputElement>) => {
         oneTry(e);
         if (e.target.value === answer) {
             dispatch(sessionDataActions.incrementCounter());
             refreshExample();
             e.target.value = '';
         }
-    }
+    };
 
     return (
         <>
-            {gameMode === 'Стандарт' 
-                ? <StandardTimer />
-                : <SprintTimer />}
+            <TimersProvider />
             <div className="exampleContainer">
                 <Example />
                 <ExampleInput

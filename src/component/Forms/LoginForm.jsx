@@ -4,11 +4,11 @@ import { useForm } from 'react-hook-form';
 import { Navigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import style from './Forms.module.css';
-import LoginInput from '../../UI/Input/LoginInput/LoginInput';
-import LoginButton from '../../UI/Button/LoginButton/LoginButton';
+import LoginInput from 'shared/UI/Input/LoginInput/LoginInput';
+import LoginButton from 'shared/UI/Button/LoginButton/LoginButton';
 import { fetchAuth } from 'redux/Slices/backSlices/auth/authSlice';
-import Checkbox from '../../UI/Checkbox/Checkbox';
-import Loader from '../../UI/Loader/Loader';
+import Checkbox from 'shared/UI/Checkbox/Checkbox';
+import Loader from 'shared/UI/Loader/Loader';
 
 const LoginForm = () => {
 

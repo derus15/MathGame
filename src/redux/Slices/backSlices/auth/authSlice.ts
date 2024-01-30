@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from '../../../../helpers/api/axios';
+import axios from '../../../../shared/api/axios';
 import { AuthSchema, TokenSchema, UserSchema } from './types';
 
 export const fetchAuth = createAsyncThunk<TokenSchema, {rejectValue: string}>(

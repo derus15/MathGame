@@ -4,10 +4,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import style from './Forms.module.css';
-import LoginInput from '../../UI/Input/LoginInput/LoginInput';
-import LoginButton from '../../UI/Button/LoginButton/LoginButton';
+import LoginInput from 'shared/UI/Input/LoginInput/LoginInput';
+import LoginButton from 'shared/UI/Button/LoginButton/LoginButton';
 import { fetchRegister } from '../../redux/Slices/backSlices/auth/authSlice';
-import Loader from '../../UI/Loader/Loader';
+import Loader from 'shared/UI/Loader/Loader';
 
 const RegisterForm = () => {
     const dispatch = useDispatch();

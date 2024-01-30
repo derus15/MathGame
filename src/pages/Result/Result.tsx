@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import style from './Result.module.css';
-import ExampleButton from '../../UI/Button/ExampleButton/ExampleButton';
-import axios from '../../helpers/api/axios';
-import { normalizationOfTheEnd } from 'helpers/normalizationOfTheEnd/normalizationOfTheEnd';
+import ExampleButton from 'shared/UI/Button/ExampleButton/ExampleButton';
+import axios from '../../shared/api/axios';
+import { normalizationOfTheEnd } from 'shared/lib/normalizationOfTheEnd/normalizationOfTheEnd';
 import { Link } from 'react-router-dom';
-import { StateSchema } from 'redux/types';
-import { sessionActions } from 'component/Session';
-import { getGameMod, getSignsList } from 'component/Interface';
+import { StateSchema } from 'app/Providers/Store/types';
+import { sessionActions } from 'entities/Session';
+import { getGameMod, getSignsList } from 'widgets/Interface';
 
 const Result = () => {
 
