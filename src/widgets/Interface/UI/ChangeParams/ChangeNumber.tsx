@@ -4,7 +4,7 @@ import style from '../Interface/Interface.module.css';
 import { interfaceActions } from '../../model/slice/interfaceSlice';
 import MyNumber from 'features/MyParams/MyNumber';
 import Select from '../InterfaceSelects/Select/Select';
-import { getNumber } from '../../model/selectors/getNumber';
+import { getInterfaceNumber } from '../../model/selectors/getInterfaceNumber';
 import { useRefreshExample } from 'entities/Example';
 import { getSessionProgress } from 'entities/Session';
 
@@ -12,7 +12,7 @@ const ChangeNumber = () => {
 
     const dispatch = useDispatch();
     const sessionProgress = useSelector(getSessionProgress);
-    const number = useSelector(getNumber);
+    const number = useSelector(getInterfaceNumber);
     const { refreshExample } = useRefreshExample();
     
     function changeNumberInSession(number: number) {

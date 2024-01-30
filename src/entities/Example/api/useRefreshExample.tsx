@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { exampleActions } from '../model/slice/exampleSlice';
-import { getSignsList } from 'widgets/Interface';
+import { getInterfaceSignsList } from 'widgets/Interface';
 
 export const useRefreshExample = () => {
     
     const dispatch = useDispatch();
-    const signList = useSelector(getSignsList);    
+    const signList = useSelector(getInterfaceSignsList);
     
     const refreshExample = () => {
         dispatch(exampleActions.generateSign(signList));

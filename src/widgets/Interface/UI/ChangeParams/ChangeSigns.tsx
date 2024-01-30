@@ -4,7 +4,7 @@ import style from '../Interface/Interface.module.css';
 import { interfaceActions } from '../../model/slice/interfaceSlice';
 import SelectSign from '../InterfaceSelects/SelectSign/SelectSign';
 import { SignList } from 'app/types/config';
-import { getSignsList } from '../../model/selectors/getSignsList';
+import { getInterfaceSignsList } from '../../model/selectors/getInterfaceSignsList';
 import { useRefreshExample } from 'entities/Example';
 import { getSessionProgress } from 'entities/Session';
 
@@ -12,7 +12,7 @@ const ChangeSigns = () => {
 
     const dispatch = useDispatch();
     const sessionProgress = useSelector(getSessionProgress);
-    const signs = useSelector(getSignsList);
+    const signs = useSelector(getInterfaceSignsList);
     const { refreshExample } = useRefreshExample();
 
     function changeSignInSession(sign: SignList) {

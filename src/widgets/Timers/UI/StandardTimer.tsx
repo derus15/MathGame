@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { sessionDataActions } from 'redux/Slices/frontSlices/sessionData/sessionDataSlice';
 import Timer from './Timer';
-import { getTime } from '../../Interface';
 import { getSessionProgress, sessionActions } from 'entities/Session';
+import { getInterfaceTime } from 'widgets/Interface';
+import { sessionDataActions } from 'entities/SessionData';
 
 const StandardTimer = () => {
 
-    const duration = useSelector(getTime);
+    const duration = useSelector(getInterfaceTime);
     const sessionProgress = useSelector(getSessionProgress);
     const [seconds, setSeconds] = useState(duration);
     const [milliseconds, setMilliseconds] = useState(0);
@@ -16,7 +16,7 @@ const StandardTimer = () => {
     useEffect(() => {
         if (sessionProgress) {
             // сохранение времени в permanentMode
-            dispatch(sessionDataActions.saveTime(duration - seconds));
+            dispatch(sessionDataActions.saveSessionTime(duration - seconds));
         } else {
             // слежение за выставленным игроком временем
             setSeconds(duration);

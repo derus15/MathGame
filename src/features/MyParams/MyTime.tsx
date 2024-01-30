@@ -5,7 +5,7 @@ import Modal from 'shared/UI/Modal/Modal';
 import PersonParamsInput from 'shared/UI/Input/PersonParamsInput/PersonParamsInput';
 import { OutlineButton } from 'shared/UI/Button/OutlineButton/OutlineButton';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { interfaceActions, getTime } from '../../widgets/Interface';
+import { interfaceActions, getInterfaceTime } from '../../widgets/Interface';
 import { testNumber } from 'shared/lib/testNumber/testNumber';
 import { useRefreshExample } from 'entities/Example';
 import { getSessionProgress } from 'entities/Session';
@@ -17,7 +17,7 @@ interface MyTimeProps {
 const MyTime = ({ standardTime }: MyTimeProps) => {
 
     const [isModal, setIsModal] = useState(false);
-    const duration = useSelector(getTime);
+    const duration = useSelector(getInterfaceTime);
     const sessionProgress = useSelector(getSessionProgress);
     const isActive = !standardTime.includes(duration);
     const dispatch = useDispatch();

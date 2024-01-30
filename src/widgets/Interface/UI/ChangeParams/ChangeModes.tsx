@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import style from '../Interface/Interface.module.css';
 import { interfaceActions } from '../../model/slice/interfaceSlice';
 import Select from '../InterfaceSelects/Select/Select';
-import { getGameMod } from '../../model/selectors/getGameMod';
+import { getInterfaceGameMode } from '../../model/selectors/getInterfaceGameMode';
 import { useRefreshExample } from 'entities/Example';
 import { getSessionProgress } from 'entities/Session';
 
@@ -11,7 +11,7 @@ const ChangeModes = () => {
 
     const dispatch = useDispatch();
     const sessionProgress = useSelector(getSessionProgress);
-    const mode = useSelector(getGameMod);
+    const mode = useSelector(getInterfaceGameMode);
     const { refreshExample } = useRefreshExample();
 
     function changeGameModeInSession(mode: string) {

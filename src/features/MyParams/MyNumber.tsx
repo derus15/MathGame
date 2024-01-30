@@ -6,7 +6,7 @@ import { OutlineButton } from 'shared/UI/Button/OutlineButton/OutlineButton';
 import { classNames } from 'shared/lib/classNames/classNames';
 import Modal from 'shared/UI/Modal/Modal';
 import { testNumber } from 'shared/lib/testNumber/testNumber';
-import { getNumber, interfaceActions } from 'widgets/Interface';
+import { getInterfaceNumber, interfaceActions } from 'widgets/Interface';
 import { useRefreshExample } from 'entities/Example';
 import { getSessionProgress } from 'entities/Session';
 
@@ -17,7 +17,7 @@ interface MyNumberProps {
 const MyNumber = ({ standardNumber }: MyNumberProps) => {
 
     const [isModal, setIsModal] = useState(false);
-    const duration = useSelector(getNumber);
+    const duration = useSelector(getInterfaceNumber);
     const sessionProgress = useSelector(getSessionProgress);
     const isActive = !standardNumber.includes(duration);
     const dispatch = useDispatch();

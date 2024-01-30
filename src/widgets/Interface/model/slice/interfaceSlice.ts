@@ -4,7 +4,7 @@ import { InterfaceSchema } from './types';
 const initialState: InterfaceSchema = {
     time: Number(localStorage.getItem('durationTime')) || 15,
     number: Number(localStorage.getItem('durationNumber')) || 10,
-    mode: localStorage.getItem('mode') || 'Стандарт',
+    gameMode: localStorage.getItem('mode') || 'Стандарт',
     signList: JSON.parse(localStorage.getItem('signList')) || ['+', '-'],
 };
 
@@ -34,7 +34,7 @@ export const interfaceSlice = createSlice({
         },
 
         changeGameMode: (state, action) => {
-            state.mode = action.payload;
+            state.gameMode = action.payload;
             localStorage.setItem('mode', action.payload);
         },
 

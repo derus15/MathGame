@@ -25,11 +25,11 @@ export const sessionSlice = createSlice({
             }
         },
 
-        resetSession: (state) => {
+        resetSessionProgress: (state) => {
             state.sessionProgress = false;
         },
         
-        closeResult: (state) => {
+        closeResultPage: (state) => {
             state.result = false;
         },
     },

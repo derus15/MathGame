@@ -2,11 +2,11 @@ import React, { ChangeEvent, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Example, useRefreshExample, getAnswer } from 'entities/Example';
 import ExampleInput from 'shared/UI/Input/ExampleInput/ExampleInput';
-import { sessionDataActions } from 'redux/Slices/frontSlices/sessionData/sessionDataSlice';
 import { useModifications } from 'features/Modifications';
 import { sessionActions } from 'entities/Session';
 import { InstructionsProvider } from 'widgets/Instructions';
 import { TimersProvider } from 'widgets/Timers';
+import { sessionDataActions } from 'entities/SessionData';
 
 const ExampleArea = () => {
 
@@ -16,7 +16,7 @@ const ExampleArea = () => {
     const [oneTry] = useModifications();
 
     useEffect(() => {
-        dispatch(sessionDataActions.resetCounter());
+        dispatch(sessionDataActions.resetSessionPoints());
     }, []);
 
     const startSessionHandler = () => {
@@ -26,7 +26,7 @@ const ExampleArea = () => {
     const answered = (e: ChangeEvent<HTMLInputElement>) => {
         oneTry(e);
         if (e.target.value === answer) {
-            dispatch(sessionDataActions.incrementCounter());
+            dispatch(sessionDataActions.incrementSessionPoints());
             refreshExample();
             e.target.value = '';
         }

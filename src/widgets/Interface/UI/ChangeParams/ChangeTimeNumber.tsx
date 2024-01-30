@@ -2,11 +2,11 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import ChangeTime from './ChangeTime';
 import ChangeNumber from './ChangeNumber';
-import { getGameMod } from '../../model/selectors/getGameMod';
+import { getInterfaceGameMode } from '../../model/selectors/getInterfaceGameMode';
 
 const ChangeTimeNumber = () => {
 
-    const gameMode = useSelector(getGameMod);
+    const gameMode = useSelector(getInterfaceGameMode);
 
     return gameMode === 'Стандарт' ? (
         <ChangeTime />

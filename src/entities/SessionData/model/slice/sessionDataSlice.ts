@@ -2,8 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 import { SessionDataSchema } from './types';
 
 const initialState: SessionDataSchema = {
-    counter: 0,
-    time: 0,
+    sessionPoints: 0,
+    sessionTime: 0,
 };
 
 export const sessionDataSlice = createSlice({
@@ -12,16 +12,16 @@ export const sessionDataSlice = createSlice({
     initialState,
     reducers: {
 
-        incrementCounter: (state) => {
-            state.counter += 1;
+        incrementSessionPoints: (state) => {
+            state.sessionPoints += 1;
         },
 
-        resetCounter: (state) => {
-            state.counter = 0;
+        resetSessionPoints: (state) => {
+            state.sessionPoints = 0;
         },
 
-        saveTime: (state, action) => {
-            state.time = action.payload;
+        saveSessionTime: (state, action) => {
+            state.sessionTime = action.payload;
         },
 
     },

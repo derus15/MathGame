@@ -5,18 +5,18 @@ const Loading = () => {
 
     const [content, setContent] = useState('');
     const listOfContent = '1 + 2 = 3';
-    let counter = 0;
+    let currenPosition = 0;
     let interval;
 
     const animation = () => {
 
         interval = setInterval(() => {
-            const currentChar = listOfContent[counter];
+            const currentChar = listOfContent[currenPosition];
             setContent((prevContent) => prevContent + currentChar);
-            counter += 1;
-            if (counter === listOfContent.length + 1) {
+            currenPosition += 1;
+            if (currenPosition === listOfContent.length + 1) {
                 setContent('');
-                counter = 0;
+                currenPosition = 0;
             }
 
         }, [150]);

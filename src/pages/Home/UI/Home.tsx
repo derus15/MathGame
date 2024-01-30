@@ -10,7 +10,7 @@ const Home = () => {
     const isResult = useSelector(getResult);
     const dispatch = useDispatch();
 
-    useEffect(() => () => { dispatch(sessionActions.resetSession()); }, []);
+    useEffect(() => () => { dispatch(sessionActions.resetSessionProgress()); }, []);
 
     if (isResult) {
         return <Result />;

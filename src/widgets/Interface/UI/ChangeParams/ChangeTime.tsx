@@ -4,7 +4,7 @@ import style from '../Interface/Interface.module.css';
 import { interfaceActions } from '../../model/slice/interfaceSlice';
 import MyTime from 'features/MyParams/MyTime';
 import Select from '../InterfaceSelects/Select/Select';
-import { getTime } from '../../model/selectors/getTime';
+import { getInterfaceTime } from '../../model/selectors/getInterfaceTime';
 import { useRefreshExample } from 'entities/Example';
 import { getSessionProgress } from 'entities/Session';
 
@@ -12,7 +12,7 @@ const ChangeTime = () => {
 
     const dispatch = useDispatch();
     const sessionProgress = useSelector(getSessionProgress);
-    const time = useSelector(getTime);
+    const time = useSelector(getInterfaceTime);
     const { refreshExample } = useRefreshExample();
 
     function changeTimeInSession(time: number) {
