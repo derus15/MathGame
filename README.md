@@ -9,11 +9,12 @@
 
 **MathGame** - кастомное веб-приложение для тренировки устного счета. Для погружения в состояние потока на сайте отсутствует кнопка подтверждения ответа. При верном решении пример сменится на следующий
 
-Уже на сайте:
+Уже в приложении:
 
 - 2 режима игры
 - Личный аккаунт со статистикой
 - Удобные настройки для игровой сессии
+- 4 темы на выбор
 
 Приложение находится на стадии разработки. В ближайшее время будет добавлено:
 
@@ -27,11 +28,12 @@
 
 **MathGame** is a custom web application for practicing mental arithmetic. There is no answer confirmation button on the site to dive into the flow state. If the solution is correct, the example will change to the next one
 
-Already on the site:
+Already in the app:
 
 - 2 game modes
 - Personal account with statistics
 - Convenient settings for the game session
+- 4 color themes to choose
 
 Application in development. It will be added soon:
 
