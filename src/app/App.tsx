@@ -3,13 +3,13 @@ import 'app/styles/Themes.css';
 import React, { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Footer } from 'widgets/Footer';
-import Header from 'widgets/Header/Header';
 import Loading from 'shared/UI/Loading/Loading';
 import { NotFound } from 'pages/NotFound';
 import { Auth } from 'pages/Auth';
 import { Account } from 'pages/Account';
 import { Home } from 'pages/Home';
 import { PrivateRoute } from 'shared/lib/PrivateRoute/PrivateRoute';
+import { Header } from 'widgets/Header';
 
 const App = () => (
     <div className="container">

@@ -1,3 +1,5 @@
+// LEGACY
+
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'shared/api/axios';
 import { AccountSchema } from './types';

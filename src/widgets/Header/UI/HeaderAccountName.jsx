@@ -6,7 +6,7 @@ import { authActions, fetchAuthMe } from 'redux/Slices/backSlices/auth/authSlice
 import ProfileSvg from '/public/assets/profile.svg';
 import LogoutSvg from '/public/assets/logout.svg';
 
-const HeaderAccount = () => {
+const HeaderAccountName = () => {
 
     const isAuth = useSelector((state) => state.auth.isAuth);
     const dispatch = useDispatch();
@@ -45,4 +45,4 @@ const HeaderAccount = () => {
     );
 };
 
-export default HeaderAccount;
+export default HeaderAccountName;

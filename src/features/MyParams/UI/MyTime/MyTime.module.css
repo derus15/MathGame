@@ -1,0 +1,18 @@
+
+.time {
+    font-size: 16px;
+    background-color: transparent;
+    color: var(--interface-select-unactive);
+}
+
+.time:hover {
+    color: var(--active-color);
+}
+
+.time:active {
+    color: var(--interface-select-unactive);
+}
+
+.timeActive {
+    color: var(--active-color);
+}

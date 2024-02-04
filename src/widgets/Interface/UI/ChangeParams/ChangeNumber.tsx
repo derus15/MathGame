@@ -2,11 +2,11 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import style from '../Interface/Interface.module.css';
 import { interfaceActions } from '../../model/slice/interfaceSlice';
-import MyNumber from 'features/MyParams/MyNumber';
 import Select from '../InterfaceSelects/Select/Select';
 import { getInterfaceNumber } from '../../model/selectors/getInterfaceNumber';
 import { useRefreshExample } from 'entities/Example';
 import { getSessionProgress } from 'entities/Session';
+import { MyNumber } from 'features/MyParams';
 
 const ChangeNumber = () => {
 

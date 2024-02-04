@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import style from './MyParams.module.css';
+import style from './MyTime.module.css';
 import Modal from 'shared/UI/Modal/Modal';
 import PersonParamsInput from 'shared/UI/Input/PersonParamsInput/PersonParamsInput';
 import { OutlineButton } from 'shared/UI/Button/OutlineButton/OutlineButton';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { interfaceActions, getInterfaceTime } from '../../widgets/Interface';
+import { interfaceActions, getInterfaceTime } from '../../../../widgets/Interface';
 import { testNumber } from 'shared/lib/testNumber/testNumber';
 import { useRefreshExample } from 'entities/Example';
 import { getSessionProgress } from 'entities/Session';
@@ -14,7 +14,7 @@ interface MyTimeProps {
     standardTime: number[];
 }
 
-const MyTime = ({ standardTime }: MyTimeProps) => {
+export const MyTime = ({ standardTime }: MyTimeProps) => {
 
     const [isModal, setIsModal] = useState(false);
     const duration = useSelector(getInterfaceTime);
@@ -55,5 +55,3 @@ const MyTime = ({ standardTime }: MyTimeProps) => {
         </>
     );
 };
-
-export default MyTime;

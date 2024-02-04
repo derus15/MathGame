@@ -34,8 +34,9 @@ export const InstructionsProvider = () => {
     }, []);
 
     return (
-        <div>
+        // eslint-disable-next-line react/jsx-no-useless-fragment
+        <>
             {isOpen && <Instructions setIsOpen={setIsOpen} instructions={instruction} />}
-        </div>
+        </>
     );
 };

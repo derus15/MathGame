@@ -10,7 +10,7 @@ import { getInterfaceGameMode, getInterfaceSignsList } from 'widgets/Interface';
 import { getSessionPoints, getSessionTime } from 'entities/SessionData';
 import axios from 'shared/api/axios';
 
-const Result = () => {
+export const Result = () => {
 
     const isAuth = useSelector((state: StateSchema) => state.auth.isAuth);
     const dispatch = useDispatch();
@@ -73,5 +73,3 @@ const Result = () => {
         </div>
     );
 };
-
-export default Result;

@@ -2,11 +2,11 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import style from '../Interface/Interface.module.css';
 import { interfaceActions } from '../../model/slice/interfaceSlice';
-import MyTime from 'features/MyParams/MyTime';
 import Select from '../InterfaceSelects/Select/Select';
 import { getInterfaceTime } from '../../model/selectors/getInterfaceTime';
 import { useRefreshExample } from 'entities/Example';
 import { getSessionProgress } from 'entities/Session';
+import { MyTime } from 'features/MyParams';
 
 const ChangeTime = () => {
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import style from './MyParams.module.css';
+import style from './MyNumber.module.css';
 import PersonParamsInput from 'shared/UI/Input/PersonParamsInput/PersonParamsInput';
 import { OutlineButton } from 'shared/UI/Button/OutlineButton/OutlineButton';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -14,7 +14,7 @@ interface MyNumberProps {
     standardNumber: number[];
 }
 
-const MyNumber = ({ standardNumber }: MyNumberProps) => {
+export const MyNumber = ({ standardNumber }: MyNumberProps) => {
 
     const [isModal, setIsModal] = useState(false);
     const duration = useSelector(getInterfaceNumber);
@@ -54,5 +54,3 @@ const MyNumber = ({ standardNumber }: MyNumberProps) => {
         </>
     );
 };
-
-export default MyNumber;

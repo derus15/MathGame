@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import style from './Header.module.css';
-import HeaderAccount from './HeaderAccount';
+import HeaderAccountName from './HeaderAccountName';
 import { OneTry } from 'features/Modifications';
 import Toast from 'shared/UI/Toaster/Toast';
 
-const Header = () => (
+export const Header = () => (
     <header className={style.containerHeader}>
         <div className={style.logoModsContainer}>
             <Link to="/">
@@ -14,8 +14,6 @@ const Header = () => (
             <OneTry />
             <Toast />
         </div>
-        <HeaderAccount />
+        <HeaderAccountName />
     </header>
 );
-
-export default Header;
