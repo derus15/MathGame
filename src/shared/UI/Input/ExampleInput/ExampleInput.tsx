@@ -1,16 +1,22 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
 import style from './ExampleInput.module.css';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useSelector } from 'react-redux';
 import { testNumber } from 'shared/lib/testNumber/testNumber';
 import { getSessionProgress } from 'entities/Session';
 
-const ExampleInput = ({ focus, signal = null, ...props }) => {
+interface ExampleInputProps {
+    focus: () => void;
+    onInput: (e: ChangeEvent<HTMLInputElement>) => void;
+    signalAnswer: string;
+}
+
+const ExampleInput = ({ focus, signalAnswer = null, ...props }: ExampleInputProps) => {
     const [answerSignal, setAnswerSignal] = useState(false);
     const sessionProgress = useSelector(getSessionProgress);
     const inputRef = useRef(null);
 
-    const checkNumber = (e) => {
+    const checkNumber = (e: ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target;
         const isNumber = testNumber(value);
         if (!isNumber) {
@@ -30,9 +36,9 @@ const ExampleInput = ({ focus, signal = null, ...props }) => {
 
     useEffect(() => {
         changeInputColor();
-    }, [signal]);
+    }, [signalAnswer]);
 
-    const actionWithSpace = (e) => {
+    const actionWithSpace = (e: KeyboardEvent): null => {
         if (!sessionProgress && e.keyCode === 32 && inputRef.current) {
             inputRef.current.focus();
         }

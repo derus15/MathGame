@@ -46,7 +46,7 @@ const Home = () => {
                 <ExampleInput
                     focus={startSessionHandler}
                     onInput={checkAnswer}
-                    signal={answer}
+                    signalAnswer={answer}
                 />
                 {__IS_DEV__ && <div style={{ fontSize: '2rem', color: 'white' }}>{answer}</div>}
             </div>
