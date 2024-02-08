@@ -1,13 +1,6 @@
-// LEGACY
-
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'shared/api/axios';
+import { createSlice } from '@reduxjs/toolkit';
 import { AccountSchema } from './types';
-
-export const getData = createAsyncThunk<string>('/account', async () => {
-    const { data } = await axios.get('/account');
-    return data;
-});
+import { fetchAccountData } from '../services/fetchAccountData';
 
 const initialState:AccountSchema = {
     data: null,
@@ -22,15 +15,15 @@ const accountSlice = createSlice({
     extraReducers: (builder) => {
 
         builder
-            .addCase(getData.pending, (state) => {
+            .addCase(fetchAccountData.pending, (state) => {
                 state.data = null;
                 state.status = 'loading';
             })
-            .addCase(getData.fulfilled, (state, action) => {
+            .addCase(fetchAccountData.fulfilled, (state, action) => {
                 state.data = action.payload;
                 state.status = 'loaded';
             })
-            .addCase(getData.rejected, (state) => {
+            .addCase(fetchAccountData.rejected, (state) => {
                 state.data = null;
                 state.status = 'error';
             });

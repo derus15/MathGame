@@ -2,22 +2,22 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import style from './Account.module.css';
 import { timeNormalization } from 'shared/lib/timeNormalization/timeNormalization';
-import { getData } from 'redux/Slices/backSlices/account/accountSlice';
 import Avatar from '../../../../public/assets/Avatar.jpg';
+import { fetchAccountData, getAccountName, getTotalExample, getTotalTime } from 'features/FetchAccountData';
 
 const Account = () => {
 
     const dispatch = useDispatch();
 
-    const data = useSelector((state) => state.account.data);
-    const fetchingTime = data?.counterTime?.[0]?.total_time;
-    const exampleCount = data?.counterExample?.[0]?.total_example;
-    const name = data?.user?.name;
+    const totalTime = useSelector(getTotalTime);
+    const totalExample = useSelector(getTotalExample);
+    const name = useSelector(getAccountName);
 
-    const normalTime = timeNormalization(fetchingTime);
+    const normalizeTotalTime = timeNormalization(totalTime);
 
     useEffect(() => {
-        dispatch(getData());
+        // @ts-ignore
+        dispatch(fetchAccountData());
     }, []);
 
     return (
@@ -30,7 +30,7 @@ const Account = () => {
                     <div className={style.circleContainer}>
                         <span className={style.circleTitle}>Решено примеров</span>
                         <div className={style.circle}>
-                            {exampleCount || 0}
+                            {totalExample || 0}
                         </div>
                     </div>
 
@@ -41,7 +41,7 @@ const Account = () => {
 
                     <div className={style.circleContainer}>
                         <span className={style.circleTitle}>Часов в игре</span>
-                        <div className={style.circle}>{normalTime}</div>
+                        <div className={style.circle}>{normalizeTotalTime}</div>
                     </div>
                 </div>
 
