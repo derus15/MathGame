@@ -1,20 +1,8 @@
 // LEGACY
 
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from '../../../../shared/api/axios';
-import { AuthSchema, TokenSchema, UserSchema } from './types';
-
-export const fetchRegister = createAsyncThunk<TokenSchema, {rejectValue: string}>(
-    '/auth/fetchRegister',
-    async (params, { rejectWithValue }) => {
-        try {
-            const { data } = await axios.post('/auth/register', params);
-            return data;
-        } catch (error) {
-            return rejectWithValue(error);
-        }
-    },
-);
+import { AuthSchema, UserSchema } from './types';
+import axios from 'shared/api/axios';
 
 export const fetchAuthMe = createAsyncThunk<UserSchema>(
     '/auth/fetchAuthMe',
@@ -44,21 +32,6 @@ const authSlice = createSlice({
         },
     },
     extraReducers: (builder) => {
-
-        builder
-            .addCase(fetchRegister.pending, (state) => {
-                state.data = null;
-                state.statusReg = 'loading';
-            })
-            .addCase(fetchRegister.fulfilled, (state, action) => {
-                state.data = action.payload;
-                state.statusReg = 'loaded';
-                state.isAuth = true;
-            })
-            .addCase(fetchRegister.rejected, (state) => {
-                state.data = null;
-                state.statusReg = 'error';
-            });
 
         builder
             .addCase(fetchAuthMe.pending, (state) => {

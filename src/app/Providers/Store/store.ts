@@ -8,6 +8,7 @@ import { sessionDataReducer } from 'entities/SessionData';
 import { accountReducer } from 'features/FetchAccountData';
 import { userReducer } from 'entities/User';
 import { loginReducer } from 'features/LoginByUsername';
+import { registerReducer } from 'features/RegisterByUsername';
 
 export const store = configureStore({
     reducer: {
@@ -20,5 +21,6 @@ export const store = configureStore({
         modifications: modificationsReducer,
         user: userReducer,
         login: loginReducer,
+        register: registerReducer,
     },
 });

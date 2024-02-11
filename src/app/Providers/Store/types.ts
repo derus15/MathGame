@@ -7,6 +7,7 @@ import { SessionDataSchema } from 'entities/SessionData';
 import { AccountSchema } from 'features/FetchAccountData';
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/LoginByUsername';
+import { RegisterSchema } from 'features/RegisterByUsername';
 
 export interface StateSchema {
     sessionData: SessionDataSchema,
@@ -18,4 +19,5 @@ export interface StateSchema {
     modifications: ModificationsSchema,
     user: UserSchema,
     login: LoginSchema,
+    register: RegisterSchema,
 }
