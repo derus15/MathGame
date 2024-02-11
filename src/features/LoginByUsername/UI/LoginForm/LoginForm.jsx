@@ -1,69 +1,39 @@
-// LEGACY
-
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
-import { Navigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
-import style from './Forms.module.css';
+import style from './Loginform.module.css';
 import LoginInput from 'shared/UI/Input/LoginInput/LoginInput';
 import LoginButton from 'shared/UI/Button/LoginButton/LoginButton';
-import { fetchAuth } from 'redux/Slices/backSlices/auth/authSlice';
 import Checkbox from 'shared/UI/Checkbox/Checkbox';
 import Loader from 'shared/UI/Loader/Loader';
+import { getLoginLoadingStatus, loginByUsername } from 'features/LoginByUsername';
+import { getIsAuth } from 'entities/User';
+import { Navigate } from 'react-router-dom';
 
-const LoginForm = () => {
+export const LoginForm = () => {
 
     const [isRemember, setIsRemember] = useState(JSON.parse(localStorage.getItem('remember')) || false);
+    const status = useSelector(getLoginLoadingStatus);
+    const isAuth = useSelector(getIsAuth);
     const dispatch = useDispatch();
-    const isAuth = useSelector((state) => state.auth.isAuth);
-
-    const status = useSelector((state) => state.auth.statusLog);
     const isLoading = status === 'loading';
 
     const { handleSubmit, register } = useForm({
         mode: 'onChange',
-
         defaultValues: {
             email: isRemember ? localStorage.getItem('email') : '',
             password: isRemember ? localStorage.getItem('password') : '',
         },
     });
-
-    const onSubmit = async (values) => {
-
-        const data = await dispatch(fetchAuth(values));
-        const error = data.payload;
-
-        localStorage.setItem('remember', isRemember);
-
+    const onSubmit = (values) => {
+        
         if (isRemember) {
             localStorage.setItem('email', values.email);
             localStorage.setItem('password', values.password);
         }
 
-        if (error && error.response) {
-            const errorStatus = error.response.status;
-            let errorMessage;
+        dispatch(loginByUsername(values));
 
-            if (errorStatus === 400) {
-                errorMessage = 'Неверный логин или пароль';
-            } else if (errorStatus === 404) {
-                errorMessage = 'Пользователь не найден';
-            } else if (errorStatus === 500) {
-                errorMessage = 'Ошибка сервера, попробуйте позже';
-            }
-
-            toast.error(errorMessage);
-        }
-
-        if ('token' in data.payload) {
-            localStorage.setItem('token', data.payload.token);
-        }
-
-        if (!('token' in data.payload) && !(error && error.response)) {
-            toast.error('Сервер не отвечает. Попробуйте позже');
-        }
     };
 
     if (isAuth) {
@@ -85,5 +55,3 @@ const LoginForm = () => {
         </form>
     );
 };
-
-export default LoginForm;

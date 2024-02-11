@@ -1,6 +1,6 @@
 import React from 'react';
-import LoginForm from '../../../component/Forms/LoginForm';
-import RegisterForm from '../../../component/Forms/RegisterForm';
+import { LoginForm } from 'features/LoginByUsername';
+import RegisterForm from 'component/Forms/RegisterForm';
 
 const Auth = () => (
 

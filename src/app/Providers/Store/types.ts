@@ -5,6 +5,8 @@ import { ModificationsSchema } from 'features/Modifications';
 import { SessionSchema } from 'entities/Session';
 import { SessionDataSchema } from 'entities/SessionData';
 import { AccountSchema } from 'features/FetchAccountData';
+import { UserSchema } from 'entities/User';
+import { LoginSchema } from 'features/LoginByUsername';
 
 export interface StateSchema {
     sessionData: SessionDataSchema,
@@ -14,4 +16,6 @@ export interface StateSchema {
     account: AccountSchema,
     session: SessionSchema,
     modifications: ModificationsSchema,
+    user: UserSchema,
+    login: LoginSchema,
 }

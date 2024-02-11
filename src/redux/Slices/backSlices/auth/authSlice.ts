@@ -4,18 +4,6 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from '../../../../shared/api/axios';
 import { AuthSchema, TokenSchema, UserSchema } from './types';
 
-export const fetchAuth = createAsyncThunk<TokenSchema, {rejectValue: string}>(
-    '/auth/fetchAuth',
-    async (params, { rejectWithValue }) => {
-        try {
-            const { data } = await axios.post('/auth/login', params);
-            return data;
-        } catch (error) {
-            return rejectWithValue(error);
-        }
-    },
-);
-
 export const fetchRegister = createAsyncThunk<TokenSchema, {rejectValue: string}>(
     '/auth/fetchRegister',
     async (params, { rejectWithValue }) => {
@@ -70,21 +58,6 @@ const authSlice = createSlice({
             .addCase(fetchRegister.rejected, (state) => {
                 state.data = null;
                 state.statusReg = 'error';
-            });
-
-        builder
-            .addCase(fetchAuth.pending, (state) => {
-                state.data = null;
-                state.statusLog = 'loading';
-            })
-            .addCase(fetchAuth.fulfilled, (state, action) => {
-                state.data = action.payload;
-                state.statusLog = 'loaded';
-                state.isAuth = true;
-            })
-            .addCase(fetchAuth.rejected, (state) => {
-                state.data = null;
-                state.statusLog = 'error';
             });
 
         builder
