@@ -53,6 +53,7 @@ module.exports = {
         'import/no-absolute-path': 'off',
         'react/jsx-wrap-multilines': 'off',
         'jsx-a11y/control-has-associated-label': 'off',
+        'consistent-return': 'off',
     },
     globals: {
         __IS_DEV__: true,

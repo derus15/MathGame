@@ -26,13 +26,14 @@ export const LoginForm = () => {
         },
     });
     const onSubmit = (values) => {
-        
+
         if (isRemember) {
             localStorage.setItem('email', values.email);
             localStorage.setItem('password', values.password);
         }
 
         dispatch(loginByUsername(values));
+        localStorage.setItem('remember', isRemember);
 
     };
 

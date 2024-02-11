@@ -4,15 +4,15 @@ import style from './Result.module.css';
 import ExampleButton from 'shared/UI/Button/ExampleButton/ExampleButton';
 import { normalizationOfTheEnd } from 'shared/lib/normalizationOfTheEnd/normalizationOfTheEnd';
 import { Link } from 'react-router-dom';
-import { StateSchema } from 'app/Providers/Store/types';
 import { sessionActions } from 'entities/Session';
 import { getInterfaceGameMode, getInterfaceSignsList } from 'widgets/Interface';
 import { getSessionPoints, getSessionTime } from 'entities/SessionData';
 import axios from 'shared/api/axios';
+import { getIsAuth } from 'entities/User';
 
 export const Result = () => {
 
-    const isAuth = useSelector((state: StateSchema) => state.auth.isAuth);
+    const isAuth = useSelector(getIsAuth);
     const dispatch = useDispatch();
     
     const standardNumberRes = useSelector(getSessionPoints);
