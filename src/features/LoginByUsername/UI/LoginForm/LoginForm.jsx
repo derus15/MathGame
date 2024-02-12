@@ -6,9 +6,10 @@ import LoginInput from 'shared/UI/Input/LoginInput/LoginInput';
 import LoginButton from 'shared/UI/Button/LoginButton/LoginButton';
 import Checkbox from 'shared/UI/Checkbox/Checkbox';
 import Loader from 'shared/UI/Loader/Loader';
-import { getLoginLoadingStatus, loginByUsername } from 'features/LoginByUsername';
 import { getIsAuth } from 'entities/User';
 import { Navigate } from 'react-router-dom';
+import { getLoginLoadingStatus } from '../../model/selectors/getLoginLoadingStatus';
+import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 
 export const LoginForm = () => {
 

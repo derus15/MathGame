@@ -9,7 +9,7 @@ export const registerByUsername = createAsyncThunk<string, {rejectValue: string}
         try {
 
             const { data } = await axios.post('/auth/register', params);
-            console.log(data);
+
             dispatch(userActions.setAuth(true));
             localStorage.setItem('token', data.token);
 
@@ -19,8 +19,8 @@ export const registerByUsername = createAsyncThunk<string, {rejectValue: string}
             if (error.code === 'ERR_NETWORK') {
                 return toast.error('Сервер не отвечает. Попробуйте позже');
             }
-            console.log(error);
-            toast.error(error.response.data.error);
+
+            toast.error(error.response.data.message);
             return rejectWithValue(error.response.data);
 
         }
