@@ -2,8 +2,9 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'shared/api/axios';
 import { userActions } from 'entities/User';
 import { toast } from 'react-toastify';
+import { RegisterParamsData } from '../../slice/types';
 
-export const registerByUsername = createAsyncThunk<string, {rejectValue: string}>(
+export const registerByUsername = createAsyncThunk<string, RegisterParamsData, {rejectValue: string}>(
     '/auth/register',
     async (params, { rejectWithValue, dispatch }) => {
         try {

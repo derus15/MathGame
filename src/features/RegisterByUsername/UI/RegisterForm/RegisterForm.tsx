@@ -3,22 +3,24 @@ import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import style from './RegisterForm.module.css';
-import LoginInput from 'shared/UI/Input/LoginInput/LoginInput';
+import AuthInput from 'shared/UI/Input/LoginInput/AuthInput';
 import LoginButton from 'shared/UI/Button/LoginButton/LoginButton';
 import Loader from 'shared/UI/Loader/Loader';
 import { getRegisterLoadingStatus, registerByUsername } from 'features/RegisterByUsername';
 import { getIsAuth } from 'entities/User';
+import { store } from 'app/Providers/Store/store';
+import { RegisterParamsData } from '../../model/slice/types';
 
 export const RegisterForm = () => {
 
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<typeof store.dispatch>();
     const isAuth = useSelector(getIsAuth);
     const status = useSelector(getRegisterLoadingStatus);
     const isLoading = status === 'loading';
 
     const { handleSubmit, register } = useForm({ mode: 'onChange' });
 
-    const onSubmit = async (values) => {
+    const onSubmit = async (values: RegisterParamsData) => {
         dispatch(registerByUsername(values));
     };
 
@@ -33,9 +35,9 @@ export const RegisterForm = () => {
                     <Loader isLoading={isLoading} position={style.positionRegisterLoader} />
                     <div className={style.registerHeader}>Регистрация</div>
                 </div>
-                <LoginInput placeholder="Имя" {...register('name')} />
-                <LoginInput placeholder="Почта" {...register('email')} type="email" inputmode="email" />
-                <LoginInput placeholder="Пароль" {...register('password')} />
+                <AuthInput placeholder="Имя" {...register('name')} />
+                <AuthInput placeholder="Почта" {...register('email')} type="email" />
+                <AuthInput placeholder="Пароль" {...register('password')} />
                 <LoginButton disabled={isLoading}>Зарегистрироваться</LoginButton>
             </div>
         </form>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import style from './Loginform.module.css';
-import LoginInput from 'shared/UI/Input/LoginInput/LoginInput';
+import AuthInput from 'shared/UI/Input/LoginInput/AuthInput';
 import LoginButton from 'shared/UI/Button/LoginButton/LoginButton';
 import Checkbox from 'shared/UI/Checkbox/Checkbox';
 import Loader from 'shared/UI/Loader/Loader';
@@ -10,13 +10,15 @@ import { getIsAuth } from 'entities/User';
 import { Navigate } from 'react-router-dom';
 import { getLoginLoadingStatus } from '../../model/selectors/getLoginLoadingStatus';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
+import { store } from 'app/Providers/Store/store';
+import { LoginParamsData } from 'features/LoginByUsername/model/slice/types';
 
 export const LoginForm = () => {
 
     const [isRemember, setIsRemember] = useState(JSON.parse(localStorage.getItem('remember')) || false);
     const status = useSelector(getLoginLoadingStatus);
     const isAuth = useSelector(getIsAuth);
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<typeof store.dispatch>();
     const isLoading = status === 'loading';
 
     const { handleSubmit, register } = useForm({
@@ -26,7 +28,7 @@ export const LoginForm = () => {
             password: isRemember ? localStorage.getItem('password') : '',
         },
     });
-    const onSubmit = (values) => {
+    const onSubmit = (values: LoginParamsData) => {
 
         if (isRemember) {
             localStorage.setItem('email', values.email);
@@ -49,8 +51,8 @@ export const LoginForm = () => {
                     <Loader isLoading={isLoading} position={style.positionLoginLoader} />
                     <div className={style.loginHeader}>Логин</div>
                 </div>
-                <LoginInput placeholder="Почта" {...register('email')} type="email" />
-                <LoginInput placeholder="Пароль" {...register('password')} />
+                <AuthInput placeholder="Почта" {...register('email')} type="email" />
+                <AuthInput placeholder="Пароль" {...register('password')} />
                 <Checkbox label="Запомни меня" checked={isRemember} setIsChecked={setIsRemember} />
                 <LoginButton disabled={isLoading}>Войти</LoginButton>
             </div>
