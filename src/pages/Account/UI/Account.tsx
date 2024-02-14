@@ -3,7 +3,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import style from './Account.module.css';
 import { timeNormalization } from 'shared/lib/timeNormalization/timeNormalization';
 import Avatar from '../../../../public/assets/Avatar.jpg';
-import { fetchAccountData, getAccountName, getTotalExample, getTotalTime } from 'features/FetchAccountData';
+import {
+    fetchAccountData,
+    getAccountLoadingStatus,
+    getAccountName,
+    getTotalExample,
+    getTotalTime,
+} from 'features/FetchAccountData';
+import Loading from 'shared/UI/Loading/Loading';
 
 const Account = () => {
 
@@ -12,6 +19,7 @@ const Account = () => {
     const totalTime = useSelector(getTotalTime);
     const totalExample = useSelector(getTotalExample);
     const name = useSelector(getAccountName);
+    const isLoading = useSelector(getAccountLoadingStatus) === 'loading';
 
     const normalizeTotalTime = timeNormalization(totalTime);
 
@@ -19,6 +27,10 @@ const Account = () => {
         // @ts-ignore
         dispatch(fetchAccountData());
     }, []);
+
+    if (isLoading) {
+        return <Loading />;
+    }
 
     return (
 

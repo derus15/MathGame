@@ -16,10 +16,9 @@ import { LoginParamsData } from 'features/LoginByUsername/model/slice/types';
 export const LoginForm = () => {
 
     const [isRemember, setIsRemember] = useState(JSON.parse(localStorage.getItem('remember')) || false);
-    const status = useSelector(getLoginLoadingStatus);
     const isAuth = useSelector(getIsAuth);
     const dispatch = useDispatch<typeof store.dispatch>();
-    const isLoading = status === 'loading';
+    const isLoading = useSelector(getLoginLoadingStatus) === 'loading';
 
     const { handleSubmit, register } = useForm({
         mode: 'onChange',
