@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import style from './Account.module.css';
 import { timeNormalization } from 'shared/lib/timeNormalization/timeNormalization';
 import Avatar from '../../../../public/assets/Avatar.jpg';
@@ -11,10 +11,11 @@ import {
     getTotalTime,
 } from 'features/FetchAccountData';
 import Loading from 'shared/UI/Loading/Loading';
+import { useAppDispatch } from 'shared/lib/hooks/reduxHooks/reduxHooks';
 
 const Account = () => {
 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const totalTime = useSelector(getTotalTime);
     const totalExample = useSelector(getTotalExample);
@@ -24,7 +25,6 @@ const Account = () => {
     const normalizeTotalTime = timeNormalization(totalTime);
 
     useEffect(() => {
-        // @ts-ignore
         dispatch(fetchAccountData());
     }, []);
 

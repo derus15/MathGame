@@ -6,11 +6,10 @@ const Loading = () => {
     const [content, setContent] = useState('');
     const listOfContent = '1 + 2 = 3';
     let currenPosition = 0;
-    let interval;
 
-    const animation = () => {
+    useEffect(() => {
 
-        interval = setInterval(() => {
+        const interval = setInterval(() => {
             const currentChar = listOfContent[currenPosition];
             setContent((prevContent) => prevContent + currentChar);
             currenPosition += 1;
@@ -19,12 +18,8 @@ const Loading = () => {
                 currenPosition = 0;
             }
 
-        }, [150]);
+        }, 150);
 
-    };
-
-    useEffect(() => {
-        animation();
         return () => {
             clearInterval(interval);
         };

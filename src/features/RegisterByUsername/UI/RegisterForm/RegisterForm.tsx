@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import style from './RegisterForm.module.css';
 import AuthInput from 'shared/UI/Input/LoginInput/AuthInput';
@@ -8,12 +8,12 @@ import LoginButton from 'shared/UI/Button/LoginButton/LoginButton';
 import Loader from 'shared/UI/Loader/Loader';
 import { getRegisterLoadingStatus, registerByUsername } from 'features/RegisterByUsername';
 import { getIsAuth } from 'entities/User';
-import { store } from 'app/Providers/Store/store';
 import { RegisterParamsData } from '../../model/slice/types';
+import { useAppDispatch } from 'shared/lib/hooks/reduxHooks/reduxHooks';
 
 export const RegisterForm = () => {
 
-    const dispatch = useDispatch<typeof store.dispatch>();
+    const dispatch = useAppDispatch();
     const isAuth = useSelector(getIsAuth);
     const status = useSelector(getRegisterLoadingStatus);
     const isLoading = status === 'loading';

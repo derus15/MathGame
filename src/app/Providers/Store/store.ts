@@ -24,3 +24,5 @@ export const store = configureStore({
         initAuthData: initAuthDataReducer,
     },
 });
+
+export type AppDispatch = typeof store.dispatch

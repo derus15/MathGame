@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import style from './Loginform.module.css';
 import AuthInput from 'shared/UI/Input/LoginInput/AuthInput';
@@ -10,14 +10,14 @@ import { getIsAuth } from 'entities/User';
 import { Navigate } from 'react-router-dom';
 import { getLoginLoadingStatus } from '../../model/selectors/getLoginLoadingStatus';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
-import { store } from 'app/Providers/Store/store';
 import { LoginParamsData } from 'features/LoginByUsername/model/slice/types';
+import { useAppDispatch } from 'shared/lib/hooks/reduxHooks/reduxHooks';
 
 export const LoginForm = () => {
 
     const [isRemember, setIsRemember] = useState(JSON.parse(localStorage.getItem('remember')) || false);
     const isAuth = useSelector(getIsAuth);
-    const dispatch = useDispatch<typeof store.dispatch>();
+    const dispatch = useAppDispatch();
     const isLoading = useSelector(getLoginLoadingStatus) === 'loading';
 
     const { handleSubmit, register } = useForm({
