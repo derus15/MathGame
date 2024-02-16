@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 import style from './Lines.module.css';
 
 const Lines = () => {
@@ -23,4 +23,4 @@ const Lines = () => {
     );
 };
 
-export default Lines;
+export default memo(Lines);

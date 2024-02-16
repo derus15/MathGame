@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react';
+import React, { ChangeEvent, memo } from 'react';
 import style from './PersonParamsInput.module.css';
 import { testNumber } from 'shared/lib/testNumber/testNumber';
 
@@ -31,4 +31,4 @@ const PersonParamsInput = ({ ...props }: PersonParamsInputProps) => {
     );
 };
 
-export default PersonParamsInput;
+export default memo(PersonParamsInput);

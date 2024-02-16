@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { memo, ReactNode } from 'react';
 import style from './Select.module.css';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { OutlineButton } from 'shared/UI/Button/OutlineButton/OutlineButton';
@@ -25,4 +25,4 @@ const Select = ({ children = '', params, callback, globalState }: SelectProps) =
     );
 };
 
-export default Select;
+export default memo(Select);

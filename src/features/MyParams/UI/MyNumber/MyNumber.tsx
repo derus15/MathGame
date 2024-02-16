@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import style from './MyNumber.module.css';
 import PersonParamsInput from 'shared/UI/Input/PersonParamsInput/PersonParamsInput';
@@ -14,7 +14,7 @@ interface MyNumberProps {
     standardNumber: number[];
 }
 
-export const MyNumber = ({ standardNumber }: MyNumberProps) => {
+export const MyNumber = memo(({ standardNumber }: MyNumberProps) => {
 
     const [isModal, setIsModal] = useState(false);
     const duration = useSelector(getInterfaceNumber);
@@ -53,4 +53,4 @@ export const MyNumber = ({ standardNumber }: MyNumberProps) => {
             </Modal>
         </>
     );
-};
+});

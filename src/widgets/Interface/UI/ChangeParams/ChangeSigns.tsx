@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { memo, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import style from '../Interface/Interface.module.css';
 import { interfaceActions } from '../../model/slice/interfaceSlice';
@@ -35,4 +35,4 @@ const ChangeSigns = () => {
     );
 };
 
-export default ChangeSigns;
+export default memo(ChangeSigns);

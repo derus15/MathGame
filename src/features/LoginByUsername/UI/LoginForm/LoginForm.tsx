@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import style from './Loginform.module.css';
@@ -13,7 +13,7 @@ import { loginByUsername } from '../../model/services/loginByUsername/loginByUse
 import { LoginParamsData } from 'features/LoginByUsername/model/slice/types';
 import { useAppDispatch } from 'shared/lib/hooks/reduxHooks/reduxHooks';
 
-export const LoginForm = () => {
+export const LoginForm = memo(() => {
 
     const [isRemember, setIsRemember] = useState(JSON.parse(localStorage.getItem('remember')) || false);
     const isAuth = useSelector(getIsAuth);
@@ -57,4 +57,4 @@ export const LoginForm = () => {
             </div>
         </form>
     );
-};
+});

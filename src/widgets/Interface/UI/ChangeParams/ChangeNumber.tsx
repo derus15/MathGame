@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import style from '../Interface/Interface.module.css';
 import { interfaceActions } from '../../model/slice/interfaceSlice';
@@ -50,4 +50,4 @@ const ChangeNumber = () => {
     );
 };
 
-export default ChangeNumber;
+export default memo(ChangeNumber);

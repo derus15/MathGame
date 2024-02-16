@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import Instructions from './Instructions';
 import { useSelector } from 'react-redux';
 import { getModificationsList } from 'features/Modifications';
 
-export const InstructionsProvider = () => {
+export const InstructionsProvider = memo(() => {
 
     const modList = useSelector(getModificationsList);
     const one = modList.includes('one');
@@ -39,4 +39,4 @@ export const InstructionsProvider = () => {
             {isOpen && <Instructions setIsOpen={setIsOpen} instructions={instruction} />}
         </>
     );
-};
+});

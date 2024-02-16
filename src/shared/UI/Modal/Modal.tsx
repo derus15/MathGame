@@ -1,4 +1,4 @@
-import React, { Dispatch, FC, ReactNode, SetStateAction } from 'react';
+import React, { Dispatch, FC, memo, ReactNode, SetStateAction } from 'react';
 import style from './Modal.module.css';
 import { classNames } from 'shared/lib/classNames/classNames';
 
@@ -22,4 +22,4 @@ const Modal:FC<modalProps> = ({ children, visible, setVisible }) => (
     )
 );
 
-export default Modal;
+export default memo(Modal);

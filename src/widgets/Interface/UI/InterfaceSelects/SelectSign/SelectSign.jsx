@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import style from './SelectSign.module.css';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { OutlineButton } from 'shared/UI/Button/OutlineButton/OutlineButton';
@@ -17,4 +17,4 @@ const SelectSign = ({ children, callback, sign, globalState }) => {
     );
 };
 
-export default SelectSign;
+export default memo(SelectSign);

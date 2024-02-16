@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect } from 'react';
+import React, { ChangeEvent, memo, useEffect } from 'react';
 import { Interface } from 'widgets/Interface';
 import { useDispatch, useSelector } from 'react-redux';
 import { getResult, sessionActions } from 'entities/Session';
@@ -55,4 +55,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default memo(Home);

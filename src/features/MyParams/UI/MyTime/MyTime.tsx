@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import style from './MyTime.module.css';
 import Modal from 'shared/UI/Modal/Modal';
@@ -14,7 +14,7 @@ interface MyTimeProps {
     standardTime: number[];
 }
 
-export const MyTime = ({ standardTime }: MyTimeProps) => {
+export const MyTime = memo(({ standardTime }: MyTimeProps) => {
 
     const [isModal, setIsModal] = useState(false);
     const duration = useSelector(getInterfaceTime);
@@ -54,4 +54,4 @@ export const MyTime = ({ standardTime }: MyTimeProps) => {
             </Modal>
         </>
     );
-};
+});

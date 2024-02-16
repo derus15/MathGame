@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useSelector } from 'react-redux';
 import ChangeTime from './ChangeTime';
 import ChangeNumber from './ChangeNumber';
@@ -15,4 +15,4 @@ const ChangeTimeNumber = () => {
     );
 };
 
-export default ChangeTimeNumber;
+export default memo(ChangeTimeNumber);

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import style from './Instructions.module.css';
 import { classNames } from 'shared/lib/classNames/classNames';
 import Cross from '/public/assets/cross.svg';
@@ -47,4 +47,4 @@ const Instructions = ({ setIsOpen, instructions }) => {
     );
 };
 
-export default Instructions;
+export default memo(Instructions);
