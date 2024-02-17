@@ -6,16 +6,20 @@ interface modalProps {
     children?: ReactNode,
     visible: boolean,
     setVisible: Dispatch<SetStateAction<boolean>>
+    className?: string;
 }
 
-const Modal:FC<modalProps> = ({ children, visible, setVisible }) => (
+const Modal:FC<modalProps> = ({ children, visible, setVisible, className }) => (
 
     visible && (
         <div
-            className={classNames(style.myModal, { [style.myModalActive]: visible }, [])}
+            className={classNames(style.myModal, { [style.myModalActive]: visible })}
             onClick={() => setVisible(false)}
         >
-            <div className={style.myModalContent} onClick={(e) => e.stopPropagation()}>
+            <div
+                className={classNames(style.myModalContent, {}, [className])}
+                onClick={(e) => e.stopPropagation()}
+            >
                 {children}
             </div>
         </div>

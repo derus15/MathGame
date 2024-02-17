@@ -34,18 +34,19 @@ a:active {
 .errorEmail {
     color: white;
     user-select: text;
-    background-color: var(--modal-color);
+    background-color: var(--background-color);
 }
 
 .versionNumber {
     font-size: 2.5rem;
-    background-color: var(--modal-color);
+    background-color: var(--background-color);
     color: #ffff;
 }
 
 .versionText {
-    color: var(--active-color);
-    background-color: var(--modal-color);
+    color: var(--footer-color);
+    background-color: var(--background-color);
+    margin-top: 10px;
 }
 
 .leftBlock {
@@ -65,6 +66,40 @@ a:active {
     justify-content: flex-end;
     gap: 120px;
     width: 100%;
+}
+
+.versionModal::-webkit-scrollbar {
+    width: 10px;
+}
+
+.versionModal::-webkit-scrollbar-track {
+    background: var(--background-color);
+}
+
+.versionModal::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background: var(--base-color);
+}
+
+.versionModal::-webkit-scrollbar-track {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.versionModal::-webkit-scrollbar-thumb:hover {
+    background: var(--base-color);
+    opacity: 70%;
+}
+
+.versionModal::-webkit-scrollbar-thumb:active {
+    background: var(--base-color);
+    opacity: 80%;
+}
+
+.versionModal {
+    max-height: 80vh;
+    overflow-y: scroll;
 }
 
 @media screen and (max-width: 1200px) {

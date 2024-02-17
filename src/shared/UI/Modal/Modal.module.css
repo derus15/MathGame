@@ -11,9 +11,8 @@
 
 .myModalContent {
     padding: 20px;
-    background-color: var(--modal-color);
+    background-color: var(--background-color);
     border-radius: 15px;
-    max-height: 1000px;
     min-width: 200px;
     color: var(--base-color);
     font-size: 20px;
