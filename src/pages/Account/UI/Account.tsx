@@ -12,6 +12,7 @@ import {
 } from 'features/FetchAccountData';
 import Loading from 'shared/UI/Loading/Loading';
 import { useAppDispatch } from 'shared/lib/hooks/reduxHooks/reduxHooks';
+import { UpdateUserButton } from 'features/UpdateUserData';
 
 const Account = () => {
 
@@ -56,6 +57,8 @@ const Account = () => {
                         <div className={style.circle}>{normalizeTotalTime}</div>
                     </div>
                 </div>
+                
+                <UpdateUserButton />
 
             </div>
 
