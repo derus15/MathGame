@@ -38,6 +38,30 @@ describe('normalizationExample.test', () => {
         expect(mockSetAnswer.mock.results[0].value).toEqual('10');
     });
 
+    it('should be correct example with -', () => {
+        const mockSetAnswer = jest.fn((answer) => answer);
+        const numsList = [0, 30];
+        const sign = '-';
+        expect(normalizationExample({
+            numbersList: numsList,
+            sign,
+            setAnswer: mockSetAnswer,
+        })).toEqual('30 - 1 =');
+        expect(mockSetAnswer.mock.results[0].value).toEqual('29');
+    });
+
+    it('should be correct example with -', () => {
+        const mockSetAnswer = jest.fn((answer) => answer);
+        const numsList = [30, 0];
+        const sign = '-';
+        expect(normalizationExample({
+            numbersList: numsList,
+            sign,
+            setAnswer: mockSetAnswer,
+        })).toEqual('30 - 0 =');
+        expect(mockSetAnswer.mock.results[0].value).toEqual('30');
+    });
+
     it('should be correct example with *', () => {
         const mockSetAnswer = jest.fn((answer) => answer);
         const numsList = [10, 30];
@@ -95,6 +119,30 @@ describe('normalizationExample.test', () => {
             sign,
             setAnswer: mockSetAnswer,
         })).toEqual('30 / 30 =');
+        expect(mockSetAnswer.mock.results[0].value).toEqual('1');
+    });
+
+    it('should be correct example with boundary value 0 and 0', () => {
+        const mockSetAnswer = jest.fn((answer) => answer);
+        const numsList = [0, 0];
+        const sign = '/';
+        expect(normalizationExample({
+            numbersList: numsList,
+            sign,
+            setAnswer: mockSetAnswer,
+        })).toEqual('1 / 1 =');
+        expect(mockSetAnswer.mock.results[0].value).toEqual('1');
+    });
+
+    it('should be correct example with boundary value 0 and 1', () => {
+        const mockSetAnswer = jest.fn((answer) => answer);
+        const numsList = [1, 0];
+        const sign = '/';
+        expect(normalizationExample({
+            numbersList: numsList,
+            sign,
+            setAnswer: mockSetAnswer,
+        })).toEqual('1 / 1 =');
         expect(mockSetAnswer.mock.results[0].value).toEqual('1');
     });
 

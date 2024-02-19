@@ -34,6 +34,10 @@ function normalizationExample(props: normalizationExampleProps) {
         [num_1, num_2] = [num_2, num_1];
 
     } else if (sign === '/') {
+        
+        if (num_2 === 0) {
+            num_2 += 1;
+        }
 
         num_1 *= num_2;
     }
