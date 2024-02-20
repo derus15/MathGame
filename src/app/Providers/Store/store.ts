@@ -9,6 +9,7 @@ import { userReducer } from 'entities/User';
 import { loginReducer } from 'features/LoginByUsername';
 import { registerReducer } from 'features/RegisterByUsername';
 import { initAuthDataReducer } from 'widgets/Header';
+import { userDataReducer } from 'features/UpdateUserData';
 
 export const store = configureStore({
     reducer: {
@@ -22,6 +23,7 @@ export const store = configureStore({
         login: loginReducer,
         register: registerReducer,
         initAuthData: initAuthDataReducer,
+        userData: userDataReducer,
     },
 });
 
