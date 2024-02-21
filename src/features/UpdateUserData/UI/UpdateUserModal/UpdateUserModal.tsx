@@ -8,8 +8,8 @@ import { useForm } from 'react-hook-form';
 import { UpdateUserDataParams } from 'features/UpdateUserData/model/slice/types';
 import { toast } from 'react-toastify';
 import { useSelector } from 'react-redux';
-import { checkValidPassword } from '../../model/services/checkValidPassword';
 import { getIsValidPassword } from '../../model/selectors/getIsValidPassword';
+import { CheckValidPassword } from '../CheckValidPassword/CheckValidPassword';
 
 const UpdateUserModal = () => {
 
@@ -24,37 +24,26 @@ const UpdateUserModal = () => {
 
         const userData = {
             name: values.name,
-            password: watch('passwordFirst'),
+            password: passwordFirst,
         };
 
         if (passwordFirst !== passwordConfirm) {
-            return toast.error('Пароли не совпдаают');
+            return toast.error('Пароли не совпадают');
         }
         
         dispatch(updateUserData(userData));
     };
     
-    const checkPassword = (values: string) => {
-        dispatch(checkValidPassword(values));
-    };
-    
     if (!isValidPassword) {
-        return (
-            <form className={style.inputContainer} onSubmit={handleSubmit(checkPassword)}>
-                <span className={style.title}>Редактирование профиля</span>
-                <AuthInput
-                    key="password"
-                    placeholder="Введите пароль"
-                    {...register('password')}
-                />
-                <LoginButton>Подтвердить</LoginButton>
-            </form>
-        );
+        return <CheckValidPassword />;
     }
 
     return (
         <form className={style.inputContainer} onSubmit={handleSubmit(onSubmit)}>
-            <span className={style.title}>Редактирование профиля</span>
+            <div className={style.textContainer}>
+                <span className={style.header}>Редактирование профиля</span>
+                <span className={style.title}>Заполните поля, которые хотите изменить</span>
+            </div>
             <AuthInput placeholder="Новое имя" {...register('name')} />
             <AuthInput
                 key="passwordFirst"

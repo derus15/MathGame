@@ -29,7 +29,7 @@ const userDataSlice = createSlice({
             })
             .addCase(updateUserData.fulfilled, (state, action) => {
                 state.successMessage = action.payload;
-                state.loadingStatus = 'loading';
+                state.loadingStatus = 'loaded';
             })
             .addCase(updateUserData.rejected, (state, action) => {
                 state.error = action.payload;
@@ -42,7 +42,7 @@ const userDataSlice = createSlice({
             })
             .addCase(checkValidPassword.fulfilled, (state, action) => {
                 state.isValid = JSON.parse(action.payload);
-                state.loadingStatus = 'loading';
+                state.loadingStatus = 'loaded';
             })
             .addCase(checkValidPassword.rejected, (state, action) => {
                 state.error = action.payload;

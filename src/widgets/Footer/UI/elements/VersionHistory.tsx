@@ -13,7 +13,7 @@ const VersionHistory = () => {
     return (
         <>
             <OutlineButton className={style.extra} onClick={showModalVersion}>
-                v 2.2.0
+                v 2.2.3
             </OutlineButton>
             <Modal className={style.versionModal} visible={modalVersion} setVisible={setModalVersion}>
                 <span className={style.versionNumber}>v 1.0 </span>

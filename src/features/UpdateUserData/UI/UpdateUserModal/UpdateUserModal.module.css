@@ -1,11 +1,44 @@
 .inputContainer {
     display: flex;
+    width: 310px;
+    height: 340px;
     flex-direction: column;
-    height: 100%;
-    justify-content: center;
-    gap: 20px;
+    align-items: center;
+    gap: 25px;
+    animation: init ease-in-out .2s;
+}
+
+.textContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.header {
+    font-size: 22px;
 }
 
 .title {
+    font-size: 15px;
+    text-align: center;
+}
+
+.loaderContainer {
+    display: flex;
+
+}
+
+@keyframes init {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: .5;
+    }
+
+    100% {
+        opacity: 1;
+    }
 
 }
