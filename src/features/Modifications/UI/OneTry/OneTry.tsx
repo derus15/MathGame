@@ -6,6 +6,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { modificationsActions } from '../../model/slice/modificationsSlice';
 import { getModificationsList } from 'features/Modifications/model/selectors/getModificationsList';
 import { getSessionProgress } from 'entities/Session';
+import { OutlineButton } from 'shared/UI/Button/OutlineButton/OutlineButton';
 
 export const OneTry = () => {
     
@@ -21,11 +22,11 @@ export const OneTry = () => {
     };
 
     return (
-        <div>
+        <OutlineButton className={style.modificationsButton}>
             <OneIcon
                 className={classNames(style.modifications, { [style.svgModeActive]: isActive })}
                 onClick={changeMod}
             />
-        </div>
+        </OutlineButton>
     );
 };
