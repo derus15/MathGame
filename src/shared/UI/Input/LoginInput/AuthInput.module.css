@@ -2,6 +2,7 @@ input {
 }
 
 ::-webkit-input-placeholder {
+    font-size: 17px;
     color: var(--base-color);
 }
 

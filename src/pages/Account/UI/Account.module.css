@@ -23,6 +23,7 @@
 .avatarBackground {
     display: flex;
     justify-content: center;
+    position: relative;
     width: 100%;
     background-color: var(--interface-background-color);
     height: 220px;
@@ -47,7 +48,7 @@
     font-size: 31px;
     position: absolute;
     color: var(--active-color);
-    top: 275px;
+    top: 158px;
     transition-duration: .3s;
 }
 

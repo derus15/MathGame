@@ -8,6 +8,7 @@ import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/LoginByUsername';
 import { RegisterSchema } from 'features/RegisterByUsername';
 import { InitAuthDataeSchema } from 'widgets/Header';
+import { UpdateUserDataSchema } from 'features/UpdateUserData';
 
 export interface StateSchema {
     sessionData: SessionDataSchema,
@@ -20,4 +21,5 @@ export interface StateSchema {
     login: LoginSchema,
     register: RegisterSchema,
     initAuthData: InitAuthDataeSchema,
+    userData: UpdateUserDataSchema,
 }
