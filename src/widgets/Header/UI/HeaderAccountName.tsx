@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import style from './Header.module.css';
 import ProfileSvg from '/public/assets/profile.svg';
@@ -7,12 +7,13 @@ import LogoutSvg from '/public/assets/logout.svg';
 import { getIsAuth, userActions } from 'entities/User';
 import { initAuthData } from '../model/services/initAuthData/initAuthData';
 import { getHeaderUsername } from '../model/selectors/getHeaderUsername';
+import { useAppDispatch } from 'shared/lib/hooks/reduxHooks/reduxHooks';
 
 const HeaderAccountName = () => {
 
     const isAuth = useSelector(getIsAuth);
     const username = useSelector(getHeaderUsername);
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const Logout = () => {
         dispatch(userActions.logout());

@@ -1,17 +1,22 @@
-import React, { memo, useEffect, useState } from 'react';
+import React, { Dispatch, memo, SetStateAction, useEffect, useState } from 'react';
 import style from './Instructions.module.css';
 import { classNames } from 'shared/lib/classNames/classNames';
 import Cross from '/public/assets/cross.svg';
 import { useSelector } from 'react-redux';
 import { getSessionProgress } from 'entities/Session';
 
-const Instructions = ({ setIsOpen, instructions }) => {
+interface InstructionsProps {
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+    instructions: string;
+}
+
+const Instructions = ({ setIsOpen, instructions }: InstructionsProps) => {
 
     const [isVisible, setIsVisible] = useState(true);
     const sessionProgress = useSelector(getSessionProgress);
 
     useEffect(() => {
-        let timeout;
+        let timeout: ReturnType<typeof setTimeout>;
 
         if (sessionProgress) {
             setIsVisible(false);
@@ -27,7 +32,7 @@ const Instructions = ({ setIsOpen, instructions }) => {
     
     const closeInstruction = () => {
         setIsVisible((prevState) => !prevState);
-        localStorage.setItem('isInstruction', !isVisible);
+        localStorage.setItem('isInstruction', String(!isVisible));
         setTimeout(() => {
             setIsOpen((prev) => !prev);
         }, 500);

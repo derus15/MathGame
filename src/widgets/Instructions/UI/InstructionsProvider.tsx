@@ -3,17 +3,17 @@ import Instructions from './Instructions';
 import { useSelector } from 'react-redux';
 import { getModificationsList } from 'features/Modifications';
 
+const instructionsObj:Record<string, string> = {
+    'initial': 'Для начала сессии нажмите на поле ввода или Space',
+    'one': 'Режим одной ошибки: в случае ошибки сессия закончится',
+};
+
 export const InstructionsProvider = memo(() => {
 
     const modList = useSelector(getModificationsList);
     const one = modList.includes('one');
     const [isOpen, setIsOpen] = useState(null);
     const [key, setKey] = useState('initial');
-
-    const instructionsObj:Record<string, string> = {
-        'initial': 'Для начала сессии нажмите на поле ввода или Space',
-        'one': 'Режим одной ошибки: в случае ошибки сессия закончится',
-    };
     const [instruction, setInstruction] = useState(instructionsObj[key]);
 
     useEffect(() => {

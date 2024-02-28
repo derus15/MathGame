@@ -3,7 +3,7 @@ import axios from 'shared/api/axios';
 import { toast } from 'react-toastify';
 import { userActions } from 'entities/User';
 
-export const initAuthData = createAsyncThunk<string, {rejectValue: string}>(
+export const initAuthData = createAsyncThunk<string>(
     '/auth/me',
     async (params, { dispatch }) => {
         try {
