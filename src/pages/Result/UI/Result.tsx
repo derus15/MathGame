@@ -1,47 +1,35 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import style from './Result.module.css';
 import ExampleButton from 'shared/UI/Button/ExampleButton/ExampleButton';
 import { normalizationOfTheEnd } from 'shared/lib/normalizationOfTheEnd/normalizationOfTheEnd';
 import { Link } from 'react-router-dom';
 import { sessionActions } from 'entities/Session';
-import { getInterfaceGameMode, getInterfaceSignsList } from 'widgets/Interface';
-import { getSessionPoints, getSessionTime } from 'entities/SessionData';
-import axios from 'shared/api/axios';
+import { getInterfaceGameMode } from 'widgets/Interface';
+import { getSessionPoints, getSessionTime,
+    saveSessionDataInLocalStorage, sendSessionData } from 'entities/SessionData';
 import { getIsAuth } from 'entities/User';
+import { useAppDispatch } from 'shared/lib/hooks/reduxHooks/reduxHooks';
 
 export const Result = () => {
 
     const isAuth = useSelector(getIsAuth);
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     
     const standardNumberRes = useSelector(getSessionPoints);
     const sprintTimeRes = useSelector(getSessionTime);
-
     const mode = useSelector(getInterfaceGameMode);
-    const sign = useSelector(getInterfaceSignsList);
-
     const sprintTextRes = normalizationOfTheEnd(sprintTimeRes);
 
-    const actualDataSprint = {
-        mode,
-        number: standardNumberRes,
-        time: sprintTimeRes,
-        sign,
-    };
-
-    const sendData = async () => {
-        if (isAuth) {
-            await axios.post('/session', actualDataSprint);
-        }
-    };
-    
     const closeResultHandle = () => {
         dispatch(sessionActions.closeResultPage());
     };
 
     useEffect(() => {
-        sendData().catch((err) => console.log(err));
+        if (isAuth) {
+            dispatch(sendSessionData(null));
+        }
+        saveSessionDataInLocalStorage();
         return () => {
             closeResultHandle();
         };

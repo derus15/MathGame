@@ -3,6 +3,7 @@ import axios from 'shared/api/axios';
 import { userActions } from 'entities/User';
 import { toast } from 'react-toastify';
 import { RegisterParamsData } from '../../slice/types';
+import { saveLastSessionData } from 'entities/SessionData';
 
 export const registerByUsername = createAsyncThunk<string, RegisterParamsData, {rejectValue: string}>(
     '/auth/register',
@@ -13,6 +14,8 @@ export const registerByUsername = createAsyncThunk<string, RegisterParamsData, {
 
             dispatch(userActions.setAuth(true));
             localStorage.setItem('token', data.token);
+
+            dispatch(saveLastSessionData());
 
             return data;
 
