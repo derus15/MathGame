@@ -13,6 +13,7 @@
 
 .link {
     height: 25px;
+    animation: init ease-in-out .2s;
 }
 
 .containerAccount {

@@ -47,7 +47,7 @@ export const LoginForm = memo(() => {
         <form onSubmit={handleSubmit(onSubmit)}>
             <div className={style.container}>
                 <div className={style.loaderContainer}>
-                    <Loader isLoading={isLoading} position={style.positionLoginLoader} />
+                    <Loader isLoading={isLoading} className={style.positionLoginLoader} />
                     <div className={style.loginHeader}>Логин</div>
                 </div>
                 <AuthInput placeholder="Почта" {...register('email')} type="email" />

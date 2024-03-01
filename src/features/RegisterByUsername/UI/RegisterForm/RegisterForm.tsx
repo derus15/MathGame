@@ -32,7 +32,7 @@ export const RegisterForm = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
             <div className={style.container}>
                 <div className={style.loaderContainer}>
-                    <Loader isLoading={isLoading} position={style.positionRegisterLoader} />
+                    <Loader isLoading={isLoading} className={style.positionRegisterLoader} />
                     <div className={style.registerHeader}>Регистрация</div>
                 </div>
                 <AuthInput placeholder="Имя" {...register('name')} />

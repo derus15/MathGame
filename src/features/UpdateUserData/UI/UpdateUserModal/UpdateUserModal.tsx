@@ -10,13 +10,16 @@ import { toast } from 'react-toastify';
 import { useSelector } from 'react-redux';
 import { getIsValidPassword } from '../../model/selectors/getIsValidPassword';
 import { CheckValidPassword } from '../CheckValidPassword/CheckValidPassword';
+import Loader from 'shared/UI/Loader/Loader';
+import { getUpdateDataLoadingStatus } from '../../model/selectors/getUpdateDataLoadingStatus';
 
 const UpdateUserModal = () => {
 
     const dispatch = useAppDispatch();
     const isValidPassword = useSelector(getIsValidPassword);
     const { handleSubmit, register, watch } = useForm({ mode: 'onChange' });
-
+    const isLoading = useSelector(getUpdateDataLoadingStatus) === 'loading'; 
+    
     const onSubmit = (values: UpdateUserDataParams) => {
         
         const passwordFirst = watch('passwordFirst');
@@ -55,7 +58,10 @@ const UpdateUserModal = () => {
                 placeholder="Повторите пароль"
                 {...register('passwordConfirm')}
             />
-            <LoginButton>Сохранить</LoginButton>
+            <div className={style.loaderContainer}>
+                <Loader isLoading={isLoading} className={style.loader} />
+                <LoginButton>Сохранить</LoginButton>
+            </div>
         </form>
     );
 };

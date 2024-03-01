@@ -4,12 +4,12 @@ import { classNames } from 'shared/lib/classNames/classNames';
 
 interface loaderProps {
     isLoading: boolean,
-    position?: string,
+    className?: string,
 }
 
-const Loader:FC<loaderProps> = ({ isLoading, position }) => (
+const Loader:FC<loaderProps> = ({ isLoading, className }) => (
 
-    <div className={classNames(style.loader, { [style.loaderActive]: isLoading }, [position])} />
+    <div className={classNames(style.loader, { [style.loaderActive]: isLoading }, [className])} />
 );
 
 export default Loader;
