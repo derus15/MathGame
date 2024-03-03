@@ -3,6 +3,63 @@ import Modal from 'shared/UI/Modal/Modal';
 import style from '../Footer.module.css';
 import { OutlineButton } from 'shared/UI/Button/OutlineButton/OutlineButton';
 
+interface Version {
+    versionNumber: string;
+    versionText: string[];
+}
+
+interface VersionsObj {
+    [key: string]: Version;
+}
+
+const versionsObj: VersionsObj = {
+    1: {
+        versionNumber: 'v 1.0',
+        versionText: [
+            ' - Первая рабочая версия приложения',
+        ],
+    },
+    2: {
+        versionNumber: 'v 1.1',
+        versionText: [
+            '- Добавлена новая тема',
+            '- Исправление мелких ошибок и багов',
+        ],
+    },
+    3: {
+        versionNumber: 'v 1.2',
+        versionText: [
+            '- Добавлен новый режим игры',
+            '- Добавлено поле для установки собственного времени',
+            '- Исправление мелких ошибок и багов',
+        ],
+    },
+    4: {
+        versionNumber: 'v 2.0',
+        versionText: [
+            '- Добавлен личный кабинет и статистика',
+            '- Добавлено отображение секунд',
+            '- Исправление мелких ошибок и багов',
+        ],
+    },
+    5: {
+        versionNumber: 'v 2.1',
+        versionText: [
+            '- Переезд проекта на кастомную сборку webpack',
+            '- Исправления и рефакторинг на уровне кода',
+        ],
+    },
+    6: {
+        versionNumber: 'v 2.2',
+        versionText: [
+            '- Добавление модификатора одной попытки',
+            '- Добавление инструкции для новых пользователей',
+            '- Добавление горячих клавиш для быстрого начала',
+            '- Исправление мелких ошибок и багов',
+        ],
+    },
+};
+
 const VersionHistory = () => {
     const [modalVersion, setModalVersion] = useState(false);
 
@@ -13,58 +70,23 @@ const VersionHistory = () => {
     return (
         <>
             <OutlineButton className={style.extra} onClick={showModalVersion}>
-                v 2.2.6
+                v 2.2.8
             </OutlineButton>
             <Modal className={style.versionModal} visible={modalVersion} setVisible={setModalVersion}>
-                <span className={style.versionNumber}>v 1.0 </span>
-                <p className={style.versionText}>
-                    - Первая рабочая версия приложения
-                </p>
-                <br />
-                <span className={style.versionNumber}>v 1.1 </span>
-                <p className={style.versionText}>
-                    - Добавлена новая тема
-                    <br />
-                    - Исправление мелких ошибок и багов
-                </p>
-                <br />
-                <span className={style.versionNumber}>v 1.2 </span>
-                <p className={style.versionText}>
-                    - Добавлен новый режим игры
-                    <br />
-                    - Добавлено поле для установки собственного времени
-                    <br />- Исправление мелких ошибок и багов
-                </p>
-                <br />
-                <span className={style.versionNumber}>v 2.0 </span>
-                <p className={style.versionText}>
-                    - Добавлен личный кабинет и статистика
-                    <br />
-                    - Добавлено отображение секунд
-                    <br />
-                    - Исправление мелких ошибок и багов
-                    <br />
-                </p>
-                <br />
-                <span className={style.versionNumber}>v 2.1 </span>
-                <p className={style.versionText}>
-                    - Переезд проекта на кастомную сборку webpack
-                    <br />
-                    - Исправления и рефакторинг на уровне кода
-                    <br />
-                </p>
-                <br />
-                <span className={style.versionNumber}>v 2.2 </span>
-                <p className={style.versionText}>
-                    - Добавление модификатора одной попытки
-                    <br />
-                    - Добавление инструкции для новых пользователей
-                    <br />
-                    - Добавление горячих клавиш для быстрого начала
-                    <br />
-                    - Исправление мелких ошибок и багов
-                    <br />
-                </p>
+                {Object.keys(versionsObj).map((key) => (
+                    <div key={key} className={style.versionContainer}>
+
+                        <span className={style.versionNumber}>{versionsObj[key].versionNumber}</span>
+                        <p className={style.versionText}>
+                            {versionsObj[key].versionText.map((text: string) => (
+                                <div key={text + Math.random()}>
+                                    {text}
+                                </div>
+                            ))}
+                        </p>
+
+                    </div>
+                ))}
             </Modal>
         </>
     );

@@ -102,6 +102,14 @@ a:active {
     overflow-y: scroll;
 }
 
+.versionContainer {
+    margin-bottom: 24px;
+}
+
+.versionContainer:last-child {
+    margin-bottom: 0;
+}
+
 @media screen and (max-width: 1200px) {
 
     .extra {
