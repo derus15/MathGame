@@ -10,10 +10,12 @@ import { Account } from 'pages/Account';
 import { Home } from 'pages/Home';
 import { PrivateRoute } from 'shared/lib/PrivateRoute/PrivateRoute';
 import { Header } from 'widgets/Header';
+import Toast from 'shared/UI/Toaster/Toast';
 
 const App = () => (
     <div className="container">
         <Header />
+        <Toast />
         <Suspense fallback={<Loading />}>
             <Routes>
                 <Route path="/" element={<Home />} />
