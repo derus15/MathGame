@@ -50,7 +50,12 @@
 
 .epsContainer {
     display: flex;
+    color: var(--base-color);
     justify-content: space-between;
+}
+
+.epsValue {
+    color: var(--active-color);
 }
 
 @keyframes init {

@@ -39,15 +39,15 @@ export const Result = () => {
             <div className={style.result}>
                 <div className={style.epsContainer}>
                     <span>Ваше время:</span>
-                    <span>{timeResult}</span>
+                    <span className={style.epsValue}>{timeResult}</span>
                 </div>
                 <div className={style.epsContainer}>
                     <span>Примеров решено:</span>
-                    <span>{numberResult}</span>
+                    <span className={style.epsValue}>{numberResult}</span>
                 </div>
                 <div className={style.epsContainer}>
                     <span title="Примеров в секунду">ПВС:</span>
-                    <span>{EPS}</span>
+                    <span className={style.epsValue}>{EPS}</span>
                 </div>
                 <ExampleButton
                     className={style.btn}
