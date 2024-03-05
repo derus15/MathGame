@@ -2,24 +2,22 @@ import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import style from './Result.module.css';
 import ExampleButton from 'shared/UI/Button/ExampleButton/ExampleButton';
-import { normalizationOfTheEnd } from 'shared/lib/normalizationOfTheEnd/normalizationOfTheEnd';
 import { Link } from 'react-router-dom';
 import { sessionActions } from 'entities/Session';
-import { getInterfaceGameMode } from 'widgets/Interface';
 import { getSessionPoints, getSessionTime,
     saveSessionDataInLocalStorage, sendSessionData } from 'entities/SessionData';
 import { getIsAuth } from 'entities/User';
 import { useAppDispatch } from 'shared/lib/hooks/reduxHooks/reduxHooks';
+import { calculateEPS } from 'shared/lib/calculateEPS/calculateEPS';
 
 export const Result = () => {
 
     const isAuth = useSelector(getIsAuth);
     const dispatch = useAppDispatch();
     
-    const standardNumberRes = useSelector(getSessionPoints);
-    const sprintTimeRes = useSelector(getSessionTime);
-    const mode = useSelector(getInterfaceGameMode);
-    const sprintTextRes = normalizationOfTheEnd(sprintTimeRes);
+    const numberResult = useSelector(getSessionPoints);
+    const timeResult = useSelector(getSessionTime);
+    const EPS = calculateEPS(numberResult, timeResult);
 
     const closeResultHandle = () => {
         dispatch(sessionActions.closeResultPage());
@@ -37,14 +35,22 @@ export const Result = () => {
 
     return (
         <div className={style.resultContainer}>
+            <h3 className={style.title}>Результаты сессии</h3>
             <div className={style.result}>
-
-                {mode === 'Спринт' ? (
-                    <div>Ваше время: {sprintTextRes}</div>
-                ) : (
-                    <div>Примеров решено: {standardNumberRes}</div>
-                )}
+                <div className={style.epsContainer}>
+                    <span>Ваше время:</span>
+                    <span>{timeResult}</span>
+                </div>
+                <div className={style.epsContainer}>
+                    <span>Примеров решено:</span>
+                    <span>{numberResult}</span>
+                </div>
+                <div className={style.epsContainer}>
+                    <span title="Примеров в секунду">ПВС:</span>
+                    <span>{EPS}</span>
+                </div>
                 <ExampleButton
+                    className={style.btn}
                     onClick={closeResultHandle}
                     random
                 />

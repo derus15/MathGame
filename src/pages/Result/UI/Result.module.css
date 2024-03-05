@@ -2,15 +2,28 @@
     display: flex;
     position: relative;
     justify-content: center;
-    align-items: center;
-    top: 35%;
+    height: 85%;
     animation: init ease-in-out .2s;
+    font-size: 25px;
+    color: var(--active-color);
 }
 
 .result {
+    display: flex;
+    flex-direction: column;
     text-align: center;
-    font-size: 25px;
-    color: var(--active-color);
+    margin-top: 190px;
+    font-size: 22px;
+    min-width: 400px;
+    gap: 12px;
+}
+
+.title {
+    position: absolute;
+    top: 10%;
+    display: flex;
+    width: 100%;
+    justify-content: center;
 }
 
 .instructionLink {
@@ -18,12 +31,26 @@
     margin-right: 6px;
     text-decoration: underline;
     cursor: pointer;
+    transition-duration: .125s;
+}
+
+.instructionLink:hover {
+    color: var(--footer-hover);
 }
 
 .instruction {
     font-size: 17px;
-    margin-top: 80px;
+    margin-top: 55px;
     color: var(--base-color);
+}
+
+.btn {
+    margin-top: 65px;
+}
+
+.epsContainer {
+    display: flex;
+    justify-content: space-between;
 }
 
 @keyframes init {

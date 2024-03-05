@@ -7,6 +7,7 @@
     color: var(--base-color);
     margin-top: 20px;
     cursor: pointer;
+    transition-duration: .125s;
     font-family: 'Montserrat', sans-serif;
 }
 
