@@ -4,6 +4,7 @@ import { SessionSchema } from './types';
 const initialState: SessionSchema = {
     sessionProgress: false,
     result: false,
+    unexpectedEnd: false,
 };
 
 export const sessionSlice = createSlice({
@@ -15,6 +16,7 @@ export const sessionSlice = createSlice({
         startSession: (state) => {
             if (!state.sessionProgress) {
                 state.sessionProgress = true;
+                state.unexpectedEnd = false;
             }
         },
 
@@ -22,6 +24,12 @@ export const sessionSlice = createSlice({
             if (state.sessionProgress) {
                 state.sessionProgress = false;
                 state.result = true;
+            }
+        },
+
+        unexpectedEnd: (state) => {
+            if (state.sessionProgress) {
+                state.unexpectedEnd = true;
             }
         },
 

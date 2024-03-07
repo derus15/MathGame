@@ -1,4 +1,5 @@
 export interface SessionSchema {
     sessionProgress: boolean,
-    result: boolean
+    result: boolean,
+    unexpectedEnd?: boolean,
 }

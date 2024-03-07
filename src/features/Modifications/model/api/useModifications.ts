@@ -17,6 +17,7 @@ export const useModifications = () => {
         if (oneTry && isNumber) {
             const userAnswer = String(e.target.value).length;
             if (userAnswer === answer.length && e.target.value !== answer) {
+                dispatch(sessionActions.unexpectedEnd());
                 dispatch(sessionActions.endSession());
             }
         }

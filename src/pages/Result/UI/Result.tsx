@@ -9,6 +9,7 @@ import { getSessionPoints, getSessionTime,
 import { getIsAuth } from 'entities/User';
 import { useAppDispatch } from 'shared/lib/hooks/reduxHooks/reduxHooks';
 import { calculateEPS } from 'shared/lib/calculateEPS/calculateEPS';
+import { getUnexpectedEnd } from 'entities/Session/model/selectors/getUnexpectedEnd';
 
 export const Result = () => {
 
@@ -18,6 +19,7 @@ export const Result = () => {
     const numberResult = useSelector(getSessionPoints);
     const timeResult = useSelector(getSessionTime);
     const EPS = calculateEPS(numberResult, timeResult);
+    const unexpectedEnd = useSelector(getUnexpectedEnd);
 
     const closeResultHandle = () => {
         dispatch(sessionActions.closeResultPage());
@@ -35,7 +37,7 @@ export const Result = () => {
 
     return (
         <div className={style.resultContainer}>
-            <h3 className={style.title}>Результаты сессии</h3>
+            <h3 className={style.title}>{unexpectedEnd ? 'Допущена ошибка' : 'Результаты сессии'}</h3>
             <div className={style.result}>
                 <div className={style.epsContainer}>
                     <span>Ваше время:</span>

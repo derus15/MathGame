@@ -19,10 +19,8 @@ const Modal:FC<modalProps> = ({ children, visible, setVisible, className }) => {
     
     useEffect(() => {
         window.addEventListener('keydown', handleCloseModal);
-        console.log('monte');
         return () => {
             window.removeEventListener('keydown', handleCloseModal);
-            console.log('разъебало');
         };
     }, [visible]);
     
