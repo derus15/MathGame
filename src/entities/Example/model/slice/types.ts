@@ -4,4 +4,5 @@ export interface ExampleSchema {
     numbersList: number[],
     sign: SignList,
     answer: string
+    example: string;
 }

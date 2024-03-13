@@ -1,0 +1,49 @@
+.exampleModal::-webkit-scrollbar {
+    width: 10px;
+}
+
+.exampleModal::-webkit-scrollbar-track {
+    background: var(--background-color);
+}
+
+.exampleModal::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background: var(--base-color);
+}
+
+.exampleModal::-webkit-scrollbar-track {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.exampleModal::-webkit-scrollbar-thumb:hover {
+    background: var(--base-color);
+    opacity: 70%;
+}
+
+.exampleModal::-webkit-scrollbar-thumb:active {
+    background: var(--base-color);
+    opacity: 80%;
+}
+
+.exampleModal {
+    min-height: 15vh;
+    max-height: 80vh;
+    min-width: 25vw;
+    overflow-y: scroll;
+}
+
+.exampleContainer {
+    display: flex;
+    position: relative;
+    padding: 10px;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 28px;
+    color: var(--active-color);
+}
+
+.answer {
+    color: var(--footer-color);
+}

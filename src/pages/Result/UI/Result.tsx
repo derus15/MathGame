@@ -4,12 +4,15 @@ import style from './Result.module.css';
 import ExampleButton from 'shared/UI/Button/ExampleButton/ExampleButton';
 import { Link } from 'react-router-dom';
 import { sessionActions } from 'entities/Session';
-import { getSessionPoints, getSessionTime,
-    saveSessionDataInLocalStorage, sendSessionData } from 'entities/SessionData';
+import {
+    getSessionPoints, getSessionTime,
+    saveSessionDataInLocalStorage, sendSessionData, sessionDataActions,
+} from 'entities/SessionData';
 import { getIsAuth } from 'entities/User';
 import { useAppDispatch } from 'shared/lib/hooks/reduxHooks/reduxHooks';
 import { calculateEPS } from 'shared/lib/calculateEPS/calculateEPS';
 import { getUnexpectedEnd } from 'entities/Session/model/selectors/getUnexpectedEnd';
+import ExampleModal from 'pages/Result/UI/ExampleModal/ExampleModal';
 
 export const Result = () => {
 
@@ -32,6 +35,7 @@ export const Result = () => {
         saveSessionDataInLocalStorage();
         return () => {
             closeResultHandle();
+            dispatch(sessionDataActions.resetExampleList());
         };
     }, []);
 
@@ -51,11 +55,10 @@ export const Result = () => {
                     <span title="Примеров в секунду">ПВС:</span>
                     <span className={style.epsValue}>{EPS}</span>
                 </div>
-                <ExampleButton
-                    className={style.btn}
-                    onClick={closeResultHandle}
-                    random
-                />
+                <div className={style.buttonContainer}>
+                    <ExampleModal />
+                    <ExampleButton onClick={closeResultHandle} random />
+                </div>
                 {!isAuth && (
                     <div className={style.instruction}>
                         <Link to="/auth" className={style.instructionLink}>

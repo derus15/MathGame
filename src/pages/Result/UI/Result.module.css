@@ -44,10 +44,6 @@
     color: var(--base-color);
 }
 
-.btn {
-    margin-top: 65px;
-}
-
 .epsContainer {
     display: flex;
     color: var(--base-color);
@@ -56,6 +52,13 @@
 
 .epsValue {
     color: var(--active-color);
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 40px;
 }
 
 @keyframes init {

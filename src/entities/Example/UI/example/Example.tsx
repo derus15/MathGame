@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import normalizationExample from 'shared/lib/normalizationExample/normalizationExample';
 import { StateSchema } from 'app/Providers/Store/types';
@@ -12,10 +12,17 @@ export const Example = memo(() => {
     const dispatch = useDispatch();
     const setAnswer = (answer: string) => { dispatch(exampleActions.setAnswer(answer)); };
     
-    const example = normalizationExample({ numbersList, sign, setAnswer });
+    const example = useMemo(
+        () => normalizationExample({ numbersList, sign, setAnswer }),
+        [sign, numbersList],
+    );
+
+    useEffect(() => {
+        dispatch(exampleActions.setExample(example));
+    }, [example]);
 
     return (
-        <div className={style.example}> 
+        <div className={style.example}>
             {example}
         </div>
     );

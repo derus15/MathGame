@@ -5,6 +5,7 @@ const initialState: ExampleSchema = {
     numbersList: [1, 2],
     sign: '+',
     answer: '3',
+    example: undefined,
 };
 
 const exampleSlice = createSlice({
@@ -35,6 +36,10 @@ const exampleSlice = createSlice({
             state.answer = action.payload;
         },
         
+        setExample: (state, action) => {
+            state.example = action.payload;
+        },
+
     },
 
 });

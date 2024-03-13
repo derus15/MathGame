@@ -3,7 +3,7 @@ import { Interface } from 'widgets/Interface';
 import { useDispatch, useSelector } from 'react-redux';
 import { getResult, sessionActions } from 'entities/Session';
 import { TimersProvider } from 'widgets/Timers';
-import { Example, getAnswer, useRefreshExample } from 'entities/Example';
+import { Example, getAnswer, getExample, useRefreshExample } from 'entities/Example';
 import ExampleInput from 'shared/UI/Input/ExampleInput/ExampleInput';
 import { InstructionsProvider } from 'widgets/Instructions';
 import { useModifications } from 'features/Modifications';
@@ -15,8 +15,11 @@ const Home = () => {
     const isResult = useSelector(getResult);
     const dispatch = useDispatch();
     const answer = useSelector(getAnswer);
+    const example = useSelector(getExample);
     const { refreshExample } = useRefreshExample();
     const [oneTry] = useModifications();
+
+    useEffect(() => { dispatch(sessionDataActions.resetExampleList()); }, []);
     
     useEffect(() => () => { dispatch(sessionActions.resetSessionProgress()); }, []);
 
@@ -28,6 +31,7 @@ const Home = () => {
         oneTry(e);
         if (e.target.value === answer) {
             dispatch(sessionDataActions.incrementSessionPoints());
+            dispatch(sessionDataActions.updateExampleList([example, answer]));
             refreshExample();
             e.target.value = '';
         }
