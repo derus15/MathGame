@@ -10,12 +10,11 @@ const ExampleModal = () => {
 
     const [modalExample, setModalExample] = useState(false);
     const lastExample = useSelector(getExample);
-
+    const exampleList = useSelector(getSessionExampleList);
+    
     const showModalExample = () => {
         setModalExample(true);
     };
-    
-    const exampleList = useSelector(getSessionExampleList);
 
     return (
         <>

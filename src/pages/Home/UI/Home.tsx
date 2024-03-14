@@ -19,11 +19,10 @@ const Home = () => {
     const { refreshExample } = useRefreshExample();
     const [oneTry] = useModifications();
 
-    useEffect(() => { dispatch(sessionDataActions.resetExampleList()); }, []);
-    
     useEffect(() => () => { dispatch(sessionActions.resetSessionProgress()); }, []);
 
     const startSessionHandler = () => {
+        dispatch(sessionDataActions.resetExampleList());
         dispatch(sessionActions.startSession());
     };
 

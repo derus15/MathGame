@@ -36,3 +36,20 @@
     animation-duration: .3s;
     animation-name: init;
 }
+
+.closeCrossButton {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top: 10%;
+    right: 5%;
+    cursor: pointer;
+}
+
+.closeCross {
+    fill: var(--active-color);
+}
+
+.closeCross:hover {
+    fill: var(--footer-color);
+}
