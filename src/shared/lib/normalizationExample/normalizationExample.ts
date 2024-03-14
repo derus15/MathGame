@@ -12,7 +12,8 @@ const signFunction:Record<SignList, (a: number, b: number) => number> = {
 interface normalizationExampleProps {
     numbersList: number[],
     sign: SignList,
-    setAnswer: Dispatch<SetStateAction<string>>
+    setAnswer: Dispatch<SetStateAction<string>>,
+    setExample: Dispatch<SetStateAction<string>>,
 }
 
 function normalizationExample(props: normalizationExampleProps) {
@@ -21,6 +22,7 @@ function normalizationExample(props: normalizationExampleProps) {
         numbersList,
         sign,
         setAnswer,
+        setExample,
     } = props;
 
     let [num_1, num_2] = numbersList;
@@ -43,9 +45,11 @@ function normalizationExample(props: normalizationExampleProps) {
     }
 
     const answerExample = String(signFunction[sign](num_1, num_2));
+    const example = `${num_1} ${sign} ${num_2} =`;
     setAnswer(answerExample);
+    setExample(example);
 
-    return (`${num_1} ${sign} ${num_2} =`);
+    return example;
 }
 
 export default normalizationExample;

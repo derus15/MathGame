@@ -10,6 +10,7 @@ describe('normalizationExample.test', () => {
             numbersList: numsList,
             sign,
             setAnswer: mockSetAnswer,
+            setExample: mockSetAnswer,
         })).toEqual('10 + 30 =');
         expect(mockSetAnswer.mock.results[0].value).toEqual('40');
     });
@@ -22,6 +23,7 @@ describe('normalizationExample.test', () => {
             numbersList: numsList,
             sign,
             setAnswer: mockSetAnswer,
+            setExample: mockSetAnswer,
         })).toEqual('30 - 10 =');
         expect(mockSetAnswer.mock.results[0].value).toEqual('20');
     });
@@ -34,6 +36,7 @@ describe('normalizationExample.test', () => {
             numbersList: numsList,
             sign,
             setAnswer: mockSetAnswer,
+            setExample: mockSetAnswer,
         })).toEqual('40 - 30 =');
         expect(mockSetAnswer.mock.results[0].value).toEqual('10');
     });
@@ -46,6 +49,7 @@ describe('normalizationExample.test', () => {
             numbersList: numsList,
             sign,
             setAnswer: mockSetAnswer,
+            setExample: mockSetAnswer,
         })).toEqual('30 - 1 =');
         expect(mockSetAnswer.mock.results[0].value).toEqual('29');
     });
@@ -58,6 +62,7 @@ describe('normalizationExample.test', () => {
             numbersList: numsList,
             sign,
             setAnswer: mockSetAnswer,
+            setExample: mockSetAnswer,
         })).toEqual('30 - 0 =');
         expect(mockSetAnswer.mock.results[0].value).toEqual('30');
     });
@@ -70,6 +75,7 @@ describe('normalizationExample.test', () => {
             numbersList: numsList,
             sign,
             setAnswer: mockSetAnswer,
+            setExample: mockSetAnswer,
         })).toEqual('10 * 30 =');
         expect(mockSetAnswer.mock.results[0].value).toEqual('300');
     });
@@ -82,6 +88,7 @@ describe('normalizationExample.test', () => {
             numbersList: numsList,
             sign,
             setAnswer: mockSetAnswer,
+            setExample: mockSetAnswer,
         })).toEqual('270 / 30 =');
         expect(mockSetAnswer.mock.results[0].value).toEqual('9');
     });
@@ -94,6 +101,7 @@ describe('normalizationExample.test', () => {
             numbersList: numsList,
             sign,
             setAnswer: mockSetAnswer,
+            setExample: mockSetAnswer,
         })).toEqual('3000 / 30 =');
         expect(mockSetAnswer.mock.results[0].value).toEqual('100');
     });
@@ -106,6 +114,7 @@ describe('normalizationExample.test', () => {
             numbersList: numsList,
             sign,
             setAnswer: mockSetAnswer,
+            setExample: mockSetAnswer,
         })).toEqual('300 / 30 =');
         expect(mockSetAnswer.mock.results[0].value).toEqual('10');
     });
@@ -118,6 +127,7 @@ describe('normalizationExample.test', () => {
             numbersList: numsList,
             sign,
             setAnswer: mockSetAnswer,
+            setExample: mockSetAnswer,
         })).toEqual('30 / 30 =');
         expect(mockSetAnswer.mock.results[0].value).toEqual('1');
     });
@@ -130,6 +140,7 @@ describe('normalizationExample.test', () => {
             numbersList: numsList,
             sign,
             setAnswer: mockSetAnswer,
+            setExample: mockSetAnswer,
         })).toEqual('1 / 1 =');
         expect(mockSetAnswer.mock.results[0].value).toEqual('1');
     });
@@ -142,6 +153,7 @@ describe('normalizationExample.test', () => {
             numbersList: numsList,
             sign,
             setAnswer: mockSetAnswer,
+            setExample: mockSetAnswer,
         })).toEqual('1 / 1 =');
         expect(mockSetAnswer.mock.results[0].value).toEqual('1');
     });
