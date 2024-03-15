@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import style from './Result.module.css';
-import ExampleButton from 'shared/UI/Button/ExampleButton/ExampleButton';
+import { ExampleButton } from 'shared/UI/Button/ExampleButton/ExampleButton';
 import { Link } from 'react-router-dom';
 import { sessionActions } from 'entities/Session';
 import {

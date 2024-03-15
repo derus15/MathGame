@@ -7,7 +7,7 @@ interface buttonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string,
 }
 
-const ExampleButton:FC<buttonProps> = ({ className, children, random = false, ...props }) => {
+export const ExampleButton:FC<buttonProps> = ({ className, children, random = false, ...props }) => {
 
     if (random) {
         const textList = ['Хорошо', 'Ладно', 'Понятно', 'Прекрасно', 'Великолепно', 'Превосходно'];
@@ -22,5 +22,3 @@ const ExampleButton:FC<buttonProps> = ({ className, children, random = false, ..
         </div>
     );
 };
-
-export default ExampleButton;

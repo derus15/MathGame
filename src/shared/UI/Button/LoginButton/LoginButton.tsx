@@ -7,7 +7,7 @@ interface loginButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
     disabled?: boolean
 }
 
-const LoginButton:FC<loginButtonProps> = ({ children, className, disabled, ...props }) => (
+export const LoginButton:FC<loginButtonProps> = ({ children, className, disabled, ...props }) => (
 
     <div>
         <button
@@ -20,5 +20,3 @@ const LoginButton:FC<loginButtonProps> = ({ children, className, disabled, ...pr
         </button>
     </div>
 );
-
-export default LoginButton;

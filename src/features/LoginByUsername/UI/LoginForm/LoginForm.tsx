@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import style from './Loginform.module.css';
 import AuthInput from 'shared/UI/Input/LoginInput/AuthInput';
-import LoginButton from 'shared/UI/Button/LoginButton/LoginButton';
+import { LoginButton } from 'shared/UI/Button/LoginButton/LoginButton';
 import Checkbox from 'shared/UI/Checkbox/Checkbox';
 import Loader from 'shared/UI/Loader/Loader';
 import { getIsAuth } from 'entities/User';

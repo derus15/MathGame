@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Modal from 'shared/UI/Modal/Modal';
 import style from './ExampleModal.module.css';
 import { useSelector } from 'react-redux';
-import ExampleButton from 'shared/UI/Button/ExampleButton/ExampleButton';
+import { ExampleButton } from 'shared/UI/Button/ExampleButton/ExampleButton';
 import { getSessionExampleList } from 'entities/SessionData/model/selectors/getSessionExampleList';
 import { getExample } from 'entities/Example';
 

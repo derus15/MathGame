@@ -9,6 +9,7 @@
     cursor: pointer;
     transition-duration: .125s;
     font-family: 'Montserrat', sans-serif;
+    opacity: 100%;
 }
 
 .btn:hover {

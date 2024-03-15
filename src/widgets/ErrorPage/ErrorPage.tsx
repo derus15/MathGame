@@ -1,5 +1,5 @@
 import React from 'react';
-import ExampleButton from 'shared/UI/Button/ExampleButton/ExampleButton';
+import { ExampleButton } from 'shared/UI/Button/ExampleButton/ExampleButton';
 import style from './ErrorPage.module.css';
 
 const ErrorPage = () => {
