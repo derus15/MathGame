@@ -14,24 +14,6 @@ const exampleSlice = createSlice({
     initialState,
     reducers: {
 
-        generateNumber: (state, action) => {
-
-            const numberArray = [];
-
-            for (let i = 0; i < action.payload; i += 1) {
-                numberArray.push(Math.floor(Math.random() * 100));
-            }
-            state.numbersList = numberArray;
-        },
-
-        generateSign: (state, action) => {
-
-            const signList = action.payload;
-            const randomIndex = Math.floor(Math.random() * signList.length);
-            state.sign = signList[randomIndex];
-
-        },
-
         setAnswer: (state, action) => {
             state.answer = action.payload;
         },

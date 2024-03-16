@@ -1,15 +1,17 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { exampleActions } from '../model/slice/exampleSlice';
+import generateExample from 'shared/lib/normalizationExample/generateExample';
 import { getInterfaceSignsList } from 'widgets/Interface';
 
 export const useRefreshExample = () => {
-    
+
     const dispatch = useDispatch();
     const signList = useSelector(getInterfaceSignsList);
-    
+
     const refreshExample = () => {
-        dispatch(exampleActions.generateSign(signList));
-        dispatch(exampleActions.generateNumber(2));
+        const { example, answer } = generateExample({ signList });
+        dispatch(exampleActions.setAnswer(answer));
+        dispatch(exampleActions.setExample(example));
     };
     
     return { refreshExample };
