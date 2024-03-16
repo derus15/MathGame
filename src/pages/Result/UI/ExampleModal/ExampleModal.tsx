@@ -21,7 +21,7 @@ const ExampleModal = () => {
             <ExampleButton onClick={showModalExample}>Подробнее</ExampleButton>
             <Modal visible={modalExample} setVisible={setModalExample} className={style.exampleModal}>
                 <div className={style.exampleContainer}>
-                    {exampleList.map((example) => (<span>{example}</span>))}
+                    {exampleList.map((example) => (<span key={Math.random()}>{example}</span>))}
                     <span>{lastExample} __</span>
                 </div>
             </Modal>

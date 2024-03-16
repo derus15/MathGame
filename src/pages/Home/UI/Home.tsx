@@ -1,7 +1,7 @@
 import React, { ChangeEvent, memo, useEffect } from 'react';
 import { Interface } from 'widgets/Interface';
 import { useDispatch, useSelector } from 'react-redux';
-import { getResult, sessionActions } from 'entities/Session';
+import { getResult, getSessionProgress, sessionActions } from 'entities/Session';
 import { TimersProvider } from 'widgets/Timers';
 import { Example, getAnswer, getExample, useRefreshExample } from 'entities/Example';
 import ExampleInput from 'shared/UI/Input/ExampleInput/ExampleInput';
@@ -16,13 +16,16 @@ const Home = () => {
     const dispatch = useDispatch();
     const answer = useSelector(getAnswer);
     const example = useSelector(getExample);
+    const sessionProgress = useSelector(getSessionProgress);
     const { refreshExample } = useRefreshExample();
     const [oneTry] = useModifications();
 
     useEffect(() => () => { dispatch(sessionActions.resetSessionProgress()); }, []);
 
     const startSessionHandler = () => {
-        dispatch(sessionDataActions.resetExampleList());
+        if (!sessionProgress) {
+            dispatch(sessionDataActions.resetExampleList());
+        }
         dispatch(sessionActions.startSession());
     };
 
