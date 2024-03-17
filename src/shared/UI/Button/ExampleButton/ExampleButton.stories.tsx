@@ -2,6 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { ExampleButton } from 'shared/UI/Button/ExampleButton/ExampleButton';
 import React from 'react';
 import 'app/styles/Themes.css';
+import 'app/styles/App.css';
 
 const meta = {
     title: 'shared/Button/ExampleButton',

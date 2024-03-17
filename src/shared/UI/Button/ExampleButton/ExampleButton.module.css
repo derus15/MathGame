@@ -1,15 +1,15 @@
 .btn {
+    min-width: 100px;
+    min-height: 42px;
     padding: 11px 13px;
     background-color: var(--interface-background-color);
     border-radius: 15px;
-    border: var(--interface-background-color), solid, 1px;
     font-size: 20px;
+    border: none;
     color: var(--base-color);
-    margin-top: 20px;
     cursor: pointer;
     transition-duration: .125s;
-    font-family: 'Montserrat', sans-serif;
-    opacity: 100%;
+    font-family: inherit;
 }
 
 .btn:hover {
