@@ -10,16 +10,18 @@ const signFunction:Record<SignList, (a: number, b: number) => number> = {
 
 interface normalizationExampleProps {
     signList: SignList[],
+    numberForTest?: number[],
 }
 
 const generateExample = (props: normalizationExampleProps) => {
 
     const {
         signList,
+        numberForTest = [],
     } = props;
 
-    let num_1 = Math.floor(Math.random() * 100);
-    let num_2 = Math.floor(Math.random() * 100);
+    let num_1 = numberForTest[0] ?? Math.floor(Math.random() * 100);
+    let num_2 = numberForTest[1] ?? Math.floor(Math.random() * 100);
 
     const randomIndex = Math.floor(Math.random() * signList.length);
     const sign = signList[randomIndex];
