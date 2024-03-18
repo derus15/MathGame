@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { ExampleButton } from 'shared/UI/Button/ExampleButton/ExampleButton';
-import { themeDecorator } from '../../../../../config/storybook/Decorators/themeDecorator';
+import { ThemeDecorator } from '../../../../../config/storybook/Decorators/ThemeDecorator';
 import 'app/styles/Themes.css';
 import 'app/styles/App.css';
 
@@ -8,6 +8,9 @@ const meta = {
     title: 'shared/Button/ExampleButton',
     component: ExampleButton,
     parameters: {
+        backgrounds: {
+            default: 'dark',
+        },
         layout: 'centered',
     },
     tags: ['autodocs'],
@@ -21,22 +24,22 @@ const meta = {
 type Story = StoryObj<typeof meta>;
 
 export const Ocean: Story = {
-    decorators: [themeDecorator('ocean')],
+    decorators: [ThemeDecorator('ocean')],
     args: {},
 };
 
 export const Black: Story = {
-    decorators: [themeDecorator('black')],
+    decorators: [ThemeDecorator('black')],
     args: {},
 };
 
 export const PP: Story = {
-    decorators: [themeDecorator('PP')],
+    decorators: [ThemeDecorator('PP')],
     args: {},
 };
 
 export const Chemodan: Story = {
-    decorators: [themeDecorator('chemodan')],
+    decorators: [ThemeDecorator('chemodan')],
     args: {},
 };
 

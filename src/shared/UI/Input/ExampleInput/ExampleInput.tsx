@@ -8,10 +8,11 @@ import { getSessionProgress } from 'entities/Session';
 interface ExampleInputProps {
     focus: () => void;
     onInput: (e: ChangeEvent<HTMLInputElement>) => void;
-    signalAnswer: string;
+    signalAnswer?: string;
 }
 
 const ExampleInput = ({ focus, signalAnswer = null, ...props }: ExampleInputProps) => {
+
     const [answerSignal, setAnswerSignal] = useState(false);
     const sessionProgress = useSelector(getSessionProgress);
     const inputRef = useRef(null);

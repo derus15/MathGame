@@ -61,6 +61,7 @@ body {
     justify-content: center;
     align-items: center;
     display: flex;
+    gap: 5px;
     width: 100%;
     animation: init ease-in-out .2s;
 }
@@ -101,19 +102,3 @@ body {
     }
 
 }
-
-/*Стили для таймера полоски*/
-
-/*style={{*/
-/*      fontSize: '2rem',*/
-/*      color: 'var(--header-timer-example)',*/
-/*      position: 'absolute',*/
-/*      bottom: '79px',*/
-/*      left: '205px',*/
-/*      height: '3px',*/
-/*      animation: 'init ease-in-out .3s',*/
-/*      width: `${width}px`,*/
-/*      background: 'var(--base-color)',*/
-/*      cursor: 'pointer',*/
-/*      transition: 'width 1s linear',*/
-/*  }}*/

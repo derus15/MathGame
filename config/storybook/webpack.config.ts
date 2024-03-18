@@ -1,4 +1,4 @@
-import webpack from 'webpack';
+import webpack, { DefinePlugin } from 'webpack';
 import path from 'path';
 import { BuildPaths } from '../../src/app/types/config';
 
@@ -17,6 +17,10 @@ export default ({ config }: {config: webpack.Configuration}) => {
         use: ['style-loader', 'css-loader'],
         include: path.resolve(__dirname, '../src'),
     });
+
+    config!.plugins!.push(new DefinePlugin({
+        __IS_DEV__: JSON.stringify(true),
+    }));
 
     return config;
 };

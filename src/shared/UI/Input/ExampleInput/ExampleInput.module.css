@@ -2,23 +2,18 @@
     font-family: inherit;
     font-size: 30px;
     border: none;
-    border-bottom-width: 2px;
-    border-bottom-style: solid;
-    border-bottom-color: var(--base-color);
+    border-bottom: 2px solid var(--base-color);
     width: 90px;
     text-align: center;
-    margin-left: 5px;
     background-color: inherit;
     color: var(--header-timer-example);
     padding: 5px;
-    cursor: pointer;
+    cursor: text;
 }
 
 .nptActive {
     border-bottom-color: #0FBE26;
 }
-
-/*Скрытие поля ввода*/
 
 [contenteditable="true"]:focus,
 input:focus,
