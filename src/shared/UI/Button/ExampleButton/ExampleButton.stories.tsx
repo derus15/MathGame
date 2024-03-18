@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { ExampleButton } from 'shared/UI/Button/ExampleButton/ExampleButton';
-import React from 'react';
+import { themeDecorator } from '../../../../../config/storybook/Decorators/themeDecorator';
 import 'app/styles/Themes.css';
 import 'app/styles/App.css';
 
@@ -11,73 +11,33 @@ const meta = {
         layout: 'centered',
     },
     tags: ['autodocs'],
+    args: {
+        children: 'Хорошо',
+        random: false,
+    },
 
 } satisfies Meta<typeof ExampleButton>;
 
 type Story = StoryObj<typeof meta>;
 
 export const Ocean: Story = {
-    decorators: [
-        (Story) => (
-            // @ts-ignore
-            // eslint-disable-next-line react/no-unknown-property
-            <div datatheme="ocean">
-                <Story />
-            </div>
-        ),
-    ],
-    args: {
-        children: 'Хорошо',
-        random: false,
-    },
+    decorators: [themeDecorator('ocean')],
+    args: {},
 };
 
 export const Black: Story = {
-    decorators: [
-        (Story) => (
-            // @ts-ignore
-            // eslint-disable-next-line react/no-unknown-property
-            <div datatheme="black">
-                <Story />
-            </div>
-        ),
-    ],
-    args: {
-        children: 'Хорошо',
-        random: false,
-    },
+    decorators: [themeDecorator('black')],
+    args: {},
 };
 
 export const PP: Story = {
-    decorators: [
-        (Story) => (
-            // @ts-ignore
-            // eslint-disable-next-line react/no-unknown-property
-            <div datatheme="PP">
-                <Story />
-            </div>
-        ),
-    ],
-    args: {
-        children: 'Хорошо',
-        random: false,
-    },
+    decorators: [themeDecorator('PP')],
+    args: {},
 };
 
 export const Chemodan: Story = {
-    decorators: [
-        (Story) => (
-            // @ts-ignore
-            // eslint-disable-next-line react/no-unknown-property
-            <div datatheme="chemodan">
-                <Story />
-            </div>
-        ),
-    ],
-    args: {
-        children: 'Хорошо',
-        random: false,
-    },
+    decorators: [themeDecorator('chemodan')],
+    args: {},
 };
 
 export default meta;

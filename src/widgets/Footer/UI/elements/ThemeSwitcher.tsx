@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import style from '../Footer.module.css';
 import { OutlineButton } from 'shared/UI/Button/OutlineButton/OutlineButton';
+import { ThemeList } from 'app/types/config';
 
 const ThemeSwitcher = () => {
 
-    const themesList = ['black', 'ocean', 'PP', 'chemodan'];
+    const themesList: ThemeList[] = ['black', 'ocean', 'PP', 'chemodan'];
     const [themeIndex, setThemeIndex] = useState(() => {
         const savedThemeIndex = localStorage.getItem('theme');
         return savedThemeIndex ? Number(savedThemeIndex) : 1;
