@@ -1,4 +1,4 @@
-[dataTheme='black'] {
+[data-theme='black'] {
     --background-color: #2C2E31;
     --base-color: rgb(128, 128, 128);
     --active-color: white;
@@ -12,7 +12,7 @@
     --footer-hover: white;
 }
 
-[dataTheme='PP'] {
+[data-theme='PP'] {
     --background-color: #FFC0CB;
     --base-color: #F43EA2;
     --active-color: rgb(255, 255, 255);
@@ -26,7 +26,7 @@
     --footer-hover: white;
 }
 
-[dataTheme='ocean'] {
+[data-theme='ocean'] {
     --background-color: #161b22;
     --base-color: #93A3B1;
     --active-color: white;
@@ -40,7 +40,7 @@
     --footer-hover: white;
 }
 
-[dataTheme='chemodan'] {
+[data-theme='chemodan'] {
     --background-color: #e6ccb2;
     --base-color: #9c6644;
     --active-color: #7f5539;

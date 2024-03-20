@@ -17,9 +17,17 @@ const ThemeSwitcher = () => {
     }
 
     useEffect(() => {
-        localStorage.setItem('theme', JSON.stringify(themeIndex));
+
         const body = document.querySelector('body');
-        body.setAttribute('datatheme', themesList[themeIndex]);
+        const deprecatedAttribute = body.getAttribute('datatheme');
+        localStorage.setItem('theme', JSON.stringify(themeIndex));
+
+        if (deprecatedAttribute) {
+            body.removeAttribute('datatheme');
+        }
+
+        body.setAttribute('data-theme', themesList[themeIndex]);
+
     }, [themeIndex]);
 
     return (
@@ -27,7 +35,7 @@ const ThemeSwitcher = () => {
             onClick={changeTheme}
             className={style.extra}
         >
-            {[themesList[themeIndex]]}
+            {themesList[themeIndex]}
         </OutlineButton>
     );
 };
