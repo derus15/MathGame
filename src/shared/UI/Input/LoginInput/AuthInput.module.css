@@ -1,9 +1,14 @@
-input {
+.authContainer {
+    position: relative;
+    align-items: center;
+    display: flex;
+    transition-duration: 1s;
 }
 
 ::-webkit-input-placeholder {
     font-size: 17px;
     color: var(--base-color);
+    margin-top: 10px
 }
 
 .npt {
@@ -19,7 +24,7 @@ input {
     font-size: 17px;
     width: 230px;
     height: 35px;
-    padding: 1rem;
+    padding: 1px;
     display: inline-block;
     transition-duration: .125s;
     transition: box-shadow 0.2s;
@@ -31,4 +36,31 @@ input {
 
 .npt:focus {
     box-shadow: 0 0 0 1px var(--active-color);
+}
+
+.visiblePassword:not(:placeholder-shown) {
+    font-size: 28px;
+    padding: 1px 30px;
+}
+
+.notVisiblePassword {
+    font-size: 17px;
+}
+
+.passBtn {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    right: 11px;
+    border-radius: 50%;
+    border: 2px var(--base-color) solid;
+    opacity: 60%;
+}
+
+.passBtn:hover {
+    border-color: var(--active-color);
+}
+
+.passBtn:active {
+    border-color: var(--base-color);
 }

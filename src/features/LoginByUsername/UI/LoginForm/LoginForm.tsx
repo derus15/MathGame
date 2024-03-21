@@ -51,7 +51,7 @@ export const LoginForm = memo(() => {
                     <div className={style.loginHeader}>Логин</div>
                 </div>
                 <AuthInput placeholder="Почта" {...register('email')} type="email" />
-                <AuthInput placeholder="Пароль" {...register('password')} />
+                <AuthInput placeholder="Пароль" {...register('password')} password />
                 <Checkbox label="Запомни меня" checked={isRemember} setIsChecked={setIsRemember} />
                 <LoginButton disabled={isLoading}>Войти</LoginButton>
             </div>

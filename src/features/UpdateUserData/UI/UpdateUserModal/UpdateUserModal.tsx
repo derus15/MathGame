@@ -51,11 +51,13 @@ const UpdateUserModal = () => {
             <AuthInput
                 key="passwordFirst"
                 placeholder="Новый пароль"
+                password
                 {...register('passwordFirst')}
             />
             <AuthInput
                 key="passwordConfirm"
                 placeholder="Повторите пароль"
+                password
                 {...register('passwordConfirm')}
             />
             <div className={style.loaderContainer}>

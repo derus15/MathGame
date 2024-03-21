@@ -22,6 +22,7 @@ export const CheckValidPassword = () => {
                 key="password"
                 autoFocus
                 placeholder="Введите пароль"
+                password
                 {...register('password')}
             />
             <LoginButton>Подтвердить</LoginButton>

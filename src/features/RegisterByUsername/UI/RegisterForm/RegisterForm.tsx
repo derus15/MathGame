@@ -37,7 +37,7 @@ export const RegisterForm = () => {
                 </div>
                 <AuthInput placeholder="Имя" {...register('name')} />
                 <AuthInput placeholder="Почта" {...register('email')} type="email" />
-                <AuthInput placeholder="Пароль" {...register('password')} />
+                <AuthInput placeholder="Пароль" {...register('password')} password />
                 <LoginButton disabled={isLoading}>Зарегистрироваться</LoginButton>
             </div>
         </form>
