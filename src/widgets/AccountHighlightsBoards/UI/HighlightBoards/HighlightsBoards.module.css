@@ -1,0 +1,33 @@
+.highlightContainer {
+    width: 50%;
+    height: 160px;
+    position: relative;
+    background: var(--interface-background-color);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 30px;
+    border-radius: 10px;
+}
+
+.title {
+    color: var(--base-color);
+    font-size: 21px;
+}
+
+.infoContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 30px;
+    justify-content: center;
+    text-align: center;
+    color: var(--active-color);
+    font-size: 20px;
+}
