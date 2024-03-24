@@ -61,7 +61,7 @@
     background-color: var(--background-color);
     width: 130px;
     height: 130px;
-    font-size: 27px;
+    font-size: 26px;
     color: var(--active-color);
     margin-top: 50px;
     transition-duration: .3s;

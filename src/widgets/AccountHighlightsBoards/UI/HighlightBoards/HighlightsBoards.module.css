@@ -1,33 +1,33 @@
 .highlightContainer {
     width: 50%;
-    height: 160px;
+    height: 150px;
     position: relative;
     background: var(--interface-background-color);
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    margin-top: 30px;
     border-radius: 10px;
+}
+
+.columnContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+    justify-content: center;
+    text-align: center;
+    color: var(--active-color);
 }
 
 .title {
     color: var(--base-color);
-    font-size: 21px;
+    font-size: 18px;
 }
 
-.infoContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+.eps {
+    font-size: 26px;
 }
 
-.column {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 30px;
-    justify-content: center;
-    text-align: center;
-    color: var(--active-color);
-    font-size: 20px;
+.additionalParameter {
+    font-size: 22px;
 }

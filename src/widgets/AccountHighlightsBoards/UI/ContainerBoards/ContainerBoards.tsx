@@ -4,52 +4,52 @@ import { HighlightsBoards } from '../HighlightBoards/HighlightsBoards';
 
 export interface HighlightsBoardParams {
     title: string,
-    value_1: string,
-    value_2: number,
+    eps: string,
+    additionalParameter: string,
 }
 
 export const ContainerBoards = () => {
     
-    const timeHighlightsBoardsData: HighlightsBoardParams[] = [
+    const timeHighlightsBoardsFakeData: HighlightsBoardParams[] = [
         {
-            title: '15 секунд',
-            value_1: '4',
-            value_2: 0.26,
+            title: '0:15',
+            eps: '0.26',
+            additionalParameter: '4',
         },
         {
-            title: '30 секунд',
-            value_1: '6',
-            value_2: 0.2,
+            title: '0:30',
+            eps: '0.20',
+            additionalParameter: '6',
         },
         {
-            title: '60 секунд',
-            value_1: '10',
-            value_2: 0.16,
+            title: '1:00',
+            eps: '0.16',
+            additionalParameter: '10',
         },
     ];
 
-    const numberHighlightsBoardsData: HighlightsBoardParams[] = [
+    const numberHighlightsBoardsFakeData: HighlightsBoardParams[] = [
         {
-            title: '10 примеров',
-            value_1: '0:13',
-            value_2: 0.76,
+            title: '10',
+            eps: '0.66',
+            additionalParameter: '0:15',
         },
         {
-            title: '15 примеров',
-            value_1: '0:45',
-            value_2: 0.33,
+            title: '15',
+            eps: '0.33',
+            additionalParameter: '0:45',
         },
         {
-            title: '20 примеров',
-            value_1: '1:10',
-            value_2: 0.28,
+            title: '20',
+            eps: '0.28',
+            additionalParameter: '1:10',
         },
     ];
     
     return (
         <div className={style.containerBoards}>
-            <HighlightsBoards dataList={timeHighlightsBoardsData} />
-            <HighlightsBoards dataList={numberHighlightsBoardsData} />
+            <HighlightsBoards dataList={timeHighlightsBoardsFakeData} />
+            <HighlightsBoards dataList={numberHighlightsBoardsFakeData} />
         </div>
     );
 };
