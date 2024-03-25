@@ -12,6 +12,7 @@ export const TimersProvider = memo(() => {
 
     useEffect(() => {
         dispatch(sessionDataActions.resetSessionPoints());
+        dispatch(sessionDataActions.resetSessionTime());
     }, []);
 
     return (

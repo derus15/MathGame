@@ -4,6 +4,7 @@ import { SessionDataSchema } from './types';
 const initialState: SessionDataSchema = {
     sessionPoints: 0,
     sessionTime: 0,
+    sessionEPS: '0.00',
     sessionExampleList: [],
 };
 
@@ -23,6 +24,14 @@ export const sessionDataSlice = createSlice({
 
         saveSessionTime: (state, action) => {
             state.sessionTime = action.payload;
+        },
+
+        resetSessionTime: (state) => {
+            state.sessionTime = 0;
+        },
+
+        saveEPS: (state, action) => {
+            state.sessionEPS = action.payload;
         },
         
         updateExampleList: (state, action) => {

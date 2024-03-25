@@ -21,7 +21,7 @@ export const Result = () => {
     
     const numberResult = useSelector(getSessionPoints);
     const timeResult = useSelector(getSessionTime);
-    const EPS = calculateEPS(numberResult, timeResult);
+    const eps = calculateEPS(numberResult, timeResult);
     const unexpectedEnd = useSelector(getUnexpectedEnd);
 
     const closeResultHandle = () => {
@@ -29,6 +29,7 @@ export const Result = () => {
     };
 
     useEffect(() => {
+        dispatch(sessionDataActions.saveEPS(eps));
         if (isAuth) {
             dispatch(sendSessionData(null));
         }
@@ -53,7 +54,7 @@ export const Result = () => {
                 </div>
                 <div className={style.epsContainer}>
                     <span title="Примеров в секунду">ПВС:</span>
-                    <span className={style.epsValue}>{EPS}</span>
+                    <span className={style.epsValue}>{eps}</span>
                 </div>
                 <div className={style.buttonContainer}>
                     <ExampleModal />
