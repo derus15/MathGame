@@ -65,7 +65,7 @@ export const HighlightsBoards = ({ dataList = defaultProps, description }: Highl
                 </span>
             )}
             {dataList.map((element) => (
-                <div className={style.columnContainer}>
+                <div className={style.columnContainer} key={element.title}>
                     <span className={style.title}>{element.title}</span>
                     <span className={style.eps}>{element.eps}</span>
                     <span className={style.additionalParameter}>{element.additionalParameter}</span>
