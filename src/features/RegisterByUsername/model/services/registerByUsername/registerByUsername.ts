@@ -15,7 +15,7 @@ export const registerByUsername = createAsyncThunk<string, RegisterParamsData, {
             dispatch(userActions.setAuth(true));
             localStorage.setItem('token', data.token);
 
-            dispatch(saveLastSessionData());
+            // dispatch(saveLastSessionData());
 
             return data;
 

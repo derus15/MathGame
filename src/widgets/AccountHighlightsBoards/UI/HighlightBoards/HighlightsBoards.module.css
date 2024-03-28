@@ -19,6 +19,30 @@
     color: var(--active-color);
 }
 
+.epsDescription {
+    position: absolute;
+    left: 10px;
+    top: 60px;
+    color: var(--base-color);
+    font-size: 18px;
+}
+
+.descriptionProps {
+    position: absolute;
+    left: 10px;
+    top: 105px;
+    color: var(--base-color);
+    font-size: 18px;
+}
+
+.descriptionFocus {
+    animation: init ease-in-out .125s;
+}
+
+.descriptionBlur {
+    animation: delete ease-in-out .125s;
+}
+
 .title {
     color: var(--base-color);
     font-size: 18px;
@@ -30,4 +54,55 @@
 
 .additionalParameter {
     font-size: 22px;
+}
+
+@media screen and (max-width: 1120px) {
+
+    .description {
+        top: 63px;
+        font-size: 16px;
+    }
+
+    .title {
+        font-size: 16px;
+    }
+
+    .eps {
+        font-size: 22px;
+    }
+
+    .additionalParameter {
+        font-size: 18px;
+    }
+
+}
+
+@keyframes init {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: .5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
+}
+
+@keyframes delete {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: .5;
+    }
+
+    100% {
+        opacity: 0;
+    }
+
 }

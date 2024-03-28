@@ -9,6 +9,7 @@ import { LoginSchema } from 'features/LoginByUsername';
 import { RegisterSchema } from 'features/RegisterByUsername';
 import { InitAuthDataeSchema } from 'widgets/Header';
 import { UpdateUserDataSchema } from 'features/UpdateUserData';
+import { HighlightBoardSchema } from 'widgets/AccountHighlightsBoards';
 
 export interface StateSchema {
     sessionData: SessionDataSchema,
@@ -22,4 +23,5 @@ export interface StateSchema {
     register: RegisterSchema,
     initAuthData: InitAuthDataeSchema,
     userData: UpdateUserDataSchema,
+    highlightBoard: HighlightBoardSchema,
 }

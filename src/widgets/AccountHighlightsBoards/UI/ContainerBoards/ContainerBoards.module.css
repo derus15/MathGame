@@ -1,6 +1,6 @@
 .containerBoards {
     display: flex;
     justify-content: center;
-    margin-top: 40px;
+    margin-top: 30px;
     gap: 30px;
 }

@@ -10,6 +10,7 @@ import { loginReducer } from 'features/LoginByUsername';
 import { registerReducer } from 'features/RegisterByUsername';
 import { initAuthDataReducer } from 'widgets/Header';
 import { userDataReducer } from 'features/UpdateUserData';
+import { highlightBoardReducer } from 'widgets/AccountHighlightsBoards';
 
 export const store = configureStore({
     reducer: {
@@ -24,6 +25,7 @@ export const store = configureStore({
         register: registerReducer,
         initAuthData: initAuthDataReducer,
         userData: userDataReducer,
+        highlightBoard: highlightBoardReducer,
     },
 });
 
