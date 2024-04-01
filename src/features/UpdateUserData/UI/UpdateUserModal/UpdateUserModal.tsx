@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './UpdateUserModal.module.css';
-import AuthInput from 'shared/UI/Input/LoginInput/AuthInput';
+import AuthInput from 'shared/UI/Input/AuthInput/AuthInput';
 import { LoginButton } from 'shared/UI/Button/LoginButton/LoginButton';
 import { updateUserData } from 'features/UpdateUserData/model/services/updateUserData';
 import { useAppDispatch } from 'shared/lib/hooks/reduxHooks/reduxHooks';

@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './CheckValidPassword.module.css';
-import AuthInput from 'shared/UI/Input/LoginInput/AuthInput';
+import AuthInput from 'shared/UI/Input/AuthInput/AuthInput';
 import { LoginButton } from 'shared/UI/Button/LoginButton/LoginButton';
 import { useForm } from 'react-hook-form';
 import { checkValidPassword } from '../../model/services/checkValidPassword';

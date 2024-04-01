@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import style from './RegisterForm.module.css';
-import AuthInput from 'shared/UI/Input/LoginInput/AuthInput';
+import AuthInput from 'shared/UI/Input/AuthInput/AuthInput';
 import { LoginButton } from 'shared/UI/Button/LoginButton/LoginButton';
 import Loader from 'shared/UI/Loader/Loader';
 import { getRegisterLoadingStatus, registerByUsername } from 'features/RegisterByUsername';

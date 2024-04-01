@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { InitAuthDataeSchema } from './types';
+import { InitAuthDataSchema } from './types';
 import { initAuthData } from 'widgets/Header/model/services/initAuthData/initAuthData';
 
-const initialState: InitAuthDataeSchema = {
+const initialState: InitAuthDataSchema = {
     username: null,
+    loadingStatus: null,
 };
 
 const initAuthDataSlice = createSlice({
@@ -16,12 +17,15 @@ const initAuthDataSlice = createSlice({
         builder
             .addCase(initAuthData.pending, (state) => {
                 state.username = null;
+                state.loadingStatus = 'loading';
             })
             .addCase(initAuthData.fulfilled, (state, action) => {
                 state.username = action.payload;
+                state.loadingStatus = 'loaded';
             })
             .addCase(initAuthData.rejected, (state) => {
                 state.username = null;
+                state.loadingStatus = 'error';
             });
     },
 });

@@ -13,7 +13,16 @@ const AuthInput = forwardRef((props: LoginInputProps, ref: ForwardedRef<HTMLInpu
 
     const { name, className, password, ...otherProps } = props;
     const [isVisiblePassword, setIsVisiblePassword] = useState(password);
+    const [isMouseEnter, setIsMouseEnter] = useState(false);
+    
+    const handleShowButton = () => {
+        setIsMouseEnter(true);
+    }; 
 
+    const handleHideButton = () => {
+        setIsMouseEnter(false);
+    };
+    
     const handleShowPassword = () => {
         setIsVisiblePassword((prevState) => !prevState);
     };
@@ -21,6 +30,8 @@ const AuthInput = forwardRef((props: LoginInputProps, ref: ForwardedRef<HTMLInpu
     return (
         <div
             className={style.authContainer}
+            onMouseEnter={handleShowButton}
+            onMouseLeave={handleHideButton}
         >
             <input
                 className={classNames(
@@ -36,7 +47,7 @@ const AuthInput = forwardRef((props: LoginInputProps, ref: ForwardedRef<HTMLInpu
                 {...otherProps}
                 autoComplete="off"
             />
-            {password && (
+            {password && isMouseEnter && (
                 <OutlineButton
                     onClick={handleShowPassword}
                     className={style.passBtn}

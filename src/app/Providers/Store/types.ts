@@ -7,7 +7,7 @@ import { AccountSchema } from 'features/FetchAccountData';
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/LoginByUsername';
 import { RegisterSchema } from 'features/RegisterByUsername';
-import { InitAuthDataeSchema } from 'widgets/Header';
+import { InitAuthDataSchema } from 'widgets/Header';
 import { UpdateUserDataSchema } from 'features/UpdateUserData';
 import { HighlightBoardSchema } from 'widgets/AccountHighlightsBoards';
 
@@ -21,7 +21,7 @@ export interface StateSchema {
     user: UserSchema,
     login: LoginSchema,
     register: RegisterSchema,
-    initAuthData: InitAuthDataeSchema,
+    initAuthData: InitAuthDataSchema,
     userData: UpdateUserDataSchema,
     highlightBoard: HighlightBoardSchema,
 }

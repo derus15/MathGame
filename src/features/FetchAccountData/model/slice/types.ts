@@ -21,5 +21,5 @@ export interface AccountDataSchema {
 
 export interface AccountSchema {
     data: AccountDataSchema | null,
-    status: 'loading' | 'loaded' | 'error' | '',
+    loadingStatus: 'loading' | 'loaded' | 'error' | '',
 }

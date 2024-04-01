@@ -4,7 +4,7 @@ import { fetchAccountData } from '../services/fetchAccountData';
 
 const initialState:AccountSchema = {
     data: null,
-    status: '',
+    loadingStatus: '',
 };
 
 const accountSlice = createSlice({
@@ -17,15 +17,15 @@ const accountSlice = createSlice({
         builder
             .addCase(fetchAccountData.pending, (state) => {
                 state.data = null;
-                state.status = 'loading';
+                state.loadingStatus = 'loading';
             })
             .addCase(fetchAccountData.fulfilled, (state, action) => {
                 state.data = action.payload;
-                state.status = 'loaded';
+                state.loadingStatus = 'loaded';
             })
             .addCase(fetchAccountData.rejected, (state) => {
                 state.data = null;
-                state.status = 'error';
+                state.loadingStatus = 'error';
             });
     },
 });
