@@ -5,7 +5,7 @@ import { loginByUsername } from 'features/LoginByUsername/model/services/loginBy
 const initialState: LoginSchema = {
     token: null,
     error: null,
-    loadingStatus: '',
+    loadingStatus: null,
 };
 
 const loginSLice = createSlice({

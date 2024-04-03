@@ -1,3 +1,5 @@
+import { LoadingStatus } from 'app/types/config';
+
 interface UserSchema {
     _id: string,
     name: string,
@@ -20,6 +22,6 @@ export interface AccountDataSchema {
 }
 
 export interface AccountSchema {
-    data: AccountDataSchema | null,
-    loadingStatus: 'loading' | 'loaded' | 'error' | '',
+    data: AccountDataSchema,
+    loadingStatus: LoadingStatus,
 }

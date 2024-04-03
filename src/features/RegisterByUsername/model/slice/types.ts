@@ -1,3 +1,5 @@
+import { LoadingStatus } from 'app/types/config';
+
 interface ErrorSchema {
     message: string;
 }
@@ -9,7 +11,7 @@ export interface RegisterParamsData {
 }
 
 export interface RegisterSchema {
-    token: string | null;
-    error: ErrorSchema | null ;
-    loadingStatus: 'loading' | 'loaded' | 'error' | '';
+    token: string;
+    error: ErrorSchema;
+    loadingStatus: LoadingStatus;
 }

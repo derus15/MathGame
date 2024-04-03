@@ -4,7 +4,7 @@ import { fetchAccountData } from '../services/fetchAccountData';
 
 const initialState:AccountSchema = {
     data: null,
-    loadingStatus: '',
+    loadingStatus: null,
 };
 
 const accountSlice = createSlice({

@@ -5,7 +5,7 @@ import { HighlightBoardSchema } from 'widgets/AccountHighlightsBoards/model/slic
 const initialState: HighlightBoardSchema = {
     timeBoard: [],
     numberBoard: [],
-    loadingStatus: '',
+    loadingStatus: null,
 };
 
 const highlightBoardSlice = createSlice({

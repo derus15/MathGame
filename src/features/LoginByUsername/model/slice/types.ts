@@ -1,3 +1,5 @@
+import { LoadingStatus } from 'app/types/config';
+
 interface ErrorSchema {
     message: string;
 }
@@ -8,7 +10,7 @@ export interface LoginParamsData {
 }
 
 export interface LoginSchema {
-    token: string | null;
-    error: ErrorSchema | null ;
-    loadingStatus: 'loading' | 'loaded' | 'error' | '';
+    token: string;
+    error: ErrorSchema;
+    loadingStatus: LoadingStatus;
 }

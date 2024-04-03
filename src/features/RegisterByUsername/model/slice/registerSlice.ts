@@ -7,7 +7,7 @@ import { RegisterSchema } from 'features/RegisterByUsername/model/slice/types';
 const initialState: RegisterSchema = {
     token: null,
     error: null,
-    loadingStatus: '',
+    loadingStatus: null,
 };
 
 const registerSLice = createSlice({

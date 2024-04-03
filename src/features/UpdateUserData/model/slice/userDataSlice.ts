@@ -7,7 +7,7 @@ const initialState: UpdateUserDataSchema = {
     successMessage: null,
     error: null,
     isValid: false,
-    loadingStatus: '',
+    loadingStatus: null,
 };
 
 const userDataSlice = createSlice({
