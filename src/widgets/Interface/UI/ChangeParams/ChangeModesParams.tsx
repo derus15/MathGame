@@ -4,15 +4,17 @@ import ChangeTime from './ChangeTime';
 import ChangeNumber from './ChangeNumber';
 import { getInterfaceGameMode } from '../../model/selectors/getInterfaceGameMode';
 
-const ChangeTimeNumber = () => {
+const gameModesList: Record<string, React.ReactElement> = {
+    'Стандарт': <ChangeTime />,
+    'Спринт': <ChangeNumber />,
+};
+
+const ChangeModesParams = () => {
 
     const gameMode = useSelector(getInterfaceGameMode);
 
-    return gameMode === 'Стандарт' ? (
-        <ChangeTime />
-    ) : (
-        <ChangeNumber />
-    );
+    return gameModesList[gameMode];
+
 };
 
-export default memo(ChangeTimeNumber);
+export default memo(ChangeModesParams);

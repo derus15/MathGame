@@ -5,4 +5,5 @@ export interface InterfaceSchema {
     number: number,
     gameMode: string,
     signList: SignList[],
+    secretCounter: number
 }

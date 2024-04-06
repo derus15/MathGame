@@ -6,6 +6,7 @@ const initialState: InterfaceSchema = {
     number: Number(localStorage.getItem('durationNumber')) || 10,
     gameMode: localStorage.getItem('mode') || 'Стандарт',
     signList: JSON.parse(localStorage.getItem('signList')) || ['+', '-'],
+    secretCounter: 0,
 };
 
 export const interfaceSlice = createSlice({
@@ -36,6 +37,10 @@ export const interfaceSlice = createSlice({
         changeGameMode: (state, action) => {
             state.gameMode = action.payload;
             localStorage.setItem('mode', action.payload);
+        },
+        
+        incrementSecretCounter: (state) => {
+            state.secretCounter += 1;
         },
 
     },

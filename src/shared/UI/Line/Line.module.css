@@ -1,0 +1,7 @@
+.Line {
+    height: 21px;
+    width: 4px;
+    border-radius: 20px;
+    background-color: var(--line-color);
+    transition-property: transform;
+}

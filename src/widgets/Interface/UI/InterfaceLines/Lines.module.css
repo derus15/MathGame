@@ -18,14 +18,6 @@
     transition-duration: .3s;
 }
 
-.verticalLine {
-    height: 21px;
-    width: 4px;
-    border-radius: 20px;
-    background-color: var(--line-color);
-    transition-property: transform;
-}
-
 .rotateLine {
     transform: rotate(90deg);
 }

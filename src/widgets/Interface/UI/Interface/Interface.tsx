@@ -2,8 +2,8 @@ import React, { memo } from 'react';
 import style from './Interface.module.css';
 import ChangeModes from '../ChangeParams/ChangeModes';
 import ChangeSigns from '../ChangeParams/ChangeSigns';
-import Lines from 'shared/UI/Lines/Lines';
-import ChangeTimeNumber from '../ChangeParams/ChangeTimeNumber';
+import Lines from '../InterfaceLines/Lines';
+import ChangeTimeNumber from '../ChangeParams/ChangeModesParams';
 
 export const Interface = memo(() => (
     <div className={style.center}>
