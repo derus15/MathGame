@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Timer from './Timer';
+import BaseTimer from './BaseTimer';
 import { getSessionProgress, sessionActions } from 'entities/Session';
 import { getInterfaceTime } from 'widgets/Interface';
 import { sessionDataActions } from 'entities/SessionData';
 
-const StandardTimer = () => {
+export const StandardTimer = memo(() => {
 
     const duration = useSelector(getInterfaceTime);
     const sessionProgress = useSelector(getSessionProgress);
@@ -30,13 +30,11 @@ const StandardTimer = () => {
     }, [milliseconds]);
 
     return (
-        <Timer
+        <BaseTimer
             setMilliseconds={setMilliseconds}
             milliseconds={milliseconds}
             setSeconds={setSeconds}
             seconds={seconds}
         />
     );
-};
-
-export default StandardTimer;
+});

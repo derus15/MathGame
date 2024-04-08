@@ -13,7 +13,7 @@ import { Header } from 'widgets/Header';
 import Toast from 'shared/UI/Toaster/Toast';
 
 const App = () => (
-    <div className="container">
+    <div className="mainContainer">
         <Header />
         <Toast />
         <Suspense fallback={<Loading />}>

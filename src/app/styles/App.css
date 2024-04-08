@@ -13,7 +13,7 @@ body {
     transition-duration: .3s;
 }
 
-.container {
+.mainContainer {
     position: relative;
     width: 90%;
     max-width: 1270px;
@@ -44,23 +44,11 @@ body {
     }
 }
 
-.exampleContainer {
-    position: absolute;
-    top: 45%;
-    left: 0;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    gap: 5px;
-    width: 100%;
-    animation: init ease-in-out .2s;
-}
-
 .timer {
     font-size: 2rem;
     color: var(--header-timer-example);
     position: absolute;
-    top: 200px;
+    bottom: 128px;
     left: 190px;
     animation: init ease-in-out .2s;
     transition-duration: .3s;

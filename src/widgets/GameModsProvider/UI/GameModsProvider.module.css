@@ -1,0 +1,11 @@
+.gameModeContainer {
+    position: absolute;
+    top: 45%;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    gap: 5px;
+    width: 100%;
+    animation: init ease-in-out .2s;
+}

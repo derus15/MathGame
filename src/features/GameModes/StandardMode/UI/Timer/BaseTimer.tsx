@@ -9,7 +9,7 @@ interface TimerProps {
     setMilliseconds: Dispatch<SetStateAction<number>>,
 }
 
-const Timer = ({ seconds, milliseconds, setMilliseconds, setSeconds }: TimerProps) => {
+const BaseTimer = ({ seconds, milliseconds, setMilliseconds, setSeconds }: TimerProps) => {
 
     const sessionProgress = useSelector(getSessionProgress);
 
@@ -53,4 +53,4 @@ const Timer = ({ seconds, milliseconds, setMilliseconds, setSeconds }: TimerProp
     );
 };
 
-export default Timer;
+export default BaseTimer;

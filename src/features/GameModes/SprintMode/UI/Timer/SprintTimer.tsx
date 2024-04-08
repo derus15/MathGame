@@ -5,7 +5,7 @@ import { getSessionProgress, sessionActions } from 'entities/Session';
 import { getInterfaceNumber } from 'widgets/Interface';
 import { getSessionPoints, sessionDataActions } from 'entities/SessionData';
 
-const SprintTimer = () => {
+export const SprintTimer = () => {
 
     const sessionProgress = useSelector(getSessionProgress);
     const duration = useSelector(getInterfaceNumber);
@@ -43,5 +43,3 @@ const SprintTimer = () => {
         </div>
     );
 };
-
-export default SprintTimer;

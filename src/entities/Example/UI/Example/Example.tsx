@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { useSelector } from 'react-redux';
 import style from './Example.module.css';
-import { getExample } from 'entities/Example';
+import { getExample } from '../../model/selectors/getExample';
 
 export const Example = memo(() => {
 
