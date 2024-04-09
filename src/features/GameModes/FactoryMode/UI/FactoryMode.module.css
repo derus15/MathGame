@@ -1,0 +1,17 @@
+.example {
+    display: flex;
+    color: var(--header-timer-example);
+    font-size: 3.6rem;
+    background: transparent;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+    transition-duration: .3s;
+}
+
+@media screen and (max-width:1080px){
+
+    .example {
+        font-size: 3.3rem;
+    }
+
+}

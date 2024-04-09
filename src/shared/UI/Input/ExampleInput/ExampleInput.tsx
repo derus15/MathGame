@@ -6,12 +6,13 @@ import { testNumber } from 'shared/lib/testNumber/testNumber';
 import { getSessionProgress } from 'entities/Session';
 
 interface ExampleInputProps {
-    focus: () => void;
-    onInput: (e: ChangeEvent<HTMLInputElement>) => void;
+    focus?: () => void;
+    onInput?: (e: ChangeEvent<HTMLInputElement>) => void;
     signalAnswer?: string;
+    onlyNumber?: boolean;
 }
 
-const ExampleInput = ({ focus, signalAnswer = null, ...props }: ExampleInputProps) => {
+const ExampleInput = ({ focus, onlyNumber, signalAnswer = null, ...props }: ExampleInputProps) => {
 
     const [answerSignal, setAnswerSignal] = useState(false);
     const sessionProgress = useSelector(getSessionProgress);
@@ -20,7 +21,7 @@ const ExampleInput = ({ focus, signalAnswer = null, ...props }: ExampleInputProp
     const checkNumber = (e: ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target;
         const isNumber = testNumber(value);
-        if (!isNumber) {
+        if (!isNumber && onlyNumber) {
             e.target.value = '';
         }
     };

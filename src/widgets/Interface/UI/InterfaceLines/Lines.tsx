@@ -1,13 +1,23 @@
-import React, { memo, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import style from './Lines.module.css';
 import { Line } from 'shared/UI/Line/Line';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { interfaceActions } from 'widgets/Interface';
+import { StateSchema } from 'app/Providers/Store/types';
+import { getSessionProgress } from 'entities/Session';
 
 const Lines = () => {
 
     const [rotate, setRotate] = useState(false);
     const dispatch = useDispatch();
+    // const isSecretCounter = useSelector((state: StateSchema) => state.interface.secretCounter) === 5;
+    // const sessionProgress = useSelector(getSessionProgress);
+    //
+    // useEffect(() => {
+    //     if (isSecretCounter && !sessionProgress) {
+    //         dispatch(interfaceActions.changeGameMode('Завод'));
+    //     }
+    // }, [isSecretCounter]);
 
     function handleClick() {
         setRotate((prevState) => !prevState);

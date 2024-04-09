@@ -10,6 +10,7 @@ import { RegisterSchema } from 'features/RegisterByUsername';
 import { InitAuthDataSchema } from 'widgets/Header';
 import { UpdateUserDataSchema } from 'features/UpdateUserData';
 import { HighlightBoardSchema } from 'widgets/AccountHighlightsBoards';
+import { FactorySchema } from 'features/GameModes/FactoryMode';
 
 export interface StateSchema {
     sessionData: SessionDataSchema,
@@ -24,4 +25,5 @@ export interface StateSchema {
     initAuthData: InitAuthDataSchema,
     userData: UpdateUserDataSchema,
     highlightBoard: HighlightBoardSchema,
+    factoryMode: FactorySchema,
 }

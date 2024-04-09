@@ -33,6 +33,7 @@ export const SprintMode = ({ startSessionHandler }: StandardModeProps) => {
             <SprintTimer />
             <Example />
             <ExampleInput
+                onlyNumber
                 focus={startSessionHandler}
                 onInput={checkAnswer}
                 signalAnswer={answer}

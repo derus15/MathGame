@@ -33,6 +33,7 @@ export const StandardMode = ({ startSessionHandler }: StandardModeProps) => {
             <StandardTimer />
             <Example />
             <ExampleInput
+                onlyNumber
                 focus={startSessionHandler}
                 onInput={checkAnswer}
                 signalAnswer={answer}
