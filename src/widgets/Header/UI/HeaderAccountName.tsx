@@ -8,11 +8,14 @@ import { getIsAuth, userActions } from 'entities/User';
 import { initAuthData } from '../model/services/initAuthData/initAuthData';
 import { getHeaderUsername } from '../model/selectors/getHeaderUsername';
 import { useAppDispatch } from 'shared/lib/hooks/reduxHooks/reduxHooks';
+import { getHeaderLoadingStatus } from 'widgets/Header/model/selectors/getHeaderLoadingStatus';
+import Loader from 'shared/UI/Loader/Loader';
 
 const HeaderAccountName = () => {
 
     const isAuth = useSelector(getIsAuth);
     const username = useSelector(getHeaderUsername);
+    const isLoading = useSelector(getHeaderLoadingStatus) === 'loading';
     const dispatch = useAppDispatch();
 
     const Logout = () => {
@@ -40,6 +43,7 @@ const HeaderAccountName = () => {
                 </div>
             ) : (
                 <Link className={style.link} to="/auth">
+                    <Loader isLoading={isLoading} className={style.loader} />
                     <svg className={style.profile}>
                         <ProfileSvg />
                     </svg>

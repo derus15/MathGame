@@ -12,9 +12,15 @@
 }
 
 .link {
+    display: flex;
+    gap: 10px;
     height: 25px;
     transition-duration: .125s;
     animation: init ease-in-out .2s;
+}
+
+.loader {
+    margin-top: 4px;
 }
 
 .containerAccount {
