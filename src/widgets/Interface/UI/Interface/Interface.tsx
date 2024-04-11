@@ -6,7 +6,7 @@ import Lines from '../InterfaceLines/Lines';
 import ChangeTimeNumber from '../ChangeParams/ChangeModesParams';
 
 export const Interface = memo(() => (
-    <div className={style.center}>
+    <div className={style.center} data-testid="interface">
         <div className={style.mainContainer}>
             <ChangeSigns />
             <ChangeModes />
