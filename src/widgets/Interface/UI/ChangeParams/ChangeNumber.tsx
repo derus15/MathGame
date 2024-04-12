@@ -27,21 +27,21 @@ const ChangeNumber = () => {
             <Select
                 globalState={number}
                 callback={() => changeNumberInSession(10)}
-                params={10}
+                currentState={10}
             >
                 10
             </Select>
             <Select
                 globalState={number}
                 callback={() => changeNumberInSession(15)}
-                params={15}
+                currentState={15}
             >
                 15
             </Select>
             <Select
                 globalState={number}
                 callback={() => changeNumberInSession(20)}
-                params={20}
+                currentState={20}
             >
                 20
             </Select>

@@ -27,10 +27,34 @@ const ChangeSigns = () => {
     
     return (
         <div className={style.containerSigns}>
-            <SelectSign sign="+" globalState={signs} callback={() => changeSignInSession('+')}>+</SelectSign>
-            <SelectSign sign="-" globalState={signs} callback={() => changeSignInSession('-')}>-</SelectSign>
-            <SelectSign sign="*" globalState={signs} callback={() => changeSignInSession('*')}>x</SelectSign>
-            <SelectSign sign="/" globalState={signs} callback={() => changeSignInSession('/')}>/</SelectSign>
+            <SelectSign
+                currentSign="+"
+                globalState={signs}
+                callback={() => changeSignInSession('+')}
+            >
+                +
+            </SelectSign>
+            <SelectSign
+                currentSign="-"
+                globalState={signs}
+                callback={() => changeSignInSession('-')}
+            >
+                -
+            </SelectSign>
+            <SelectSign
+                currentSign="*"
+                globalState={signs}
+                callback={() => changeSignInSession('*')}
+            >
+                x
+            </SelectSign>
+            <SelectSign
+                currentSign="/"
+                globalState={signs}
+                callback={() => changeSignInSession('/')}
+            >
+                /
+            </SelectSign>
         </div>
     );
 };

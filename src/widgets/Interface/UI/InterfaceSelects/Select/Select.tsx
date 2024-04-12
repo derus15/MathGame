@@ -6,13 +6,13 @@ import { OutlineButton } from 'shared/UI/Button/OutlineButton/OutlineButton';
 interface SelectProps {
     globalState?: string | number;
     callback?: (a: string | number) => void;
-    params?: string | number;
+    currentState?: string | number;
     children?: ReactNode;
 }
 
-const Select = ({ children = '', params, callback, globalState }: SelectProps) => {
+const Select = ({ children = '', currentState, callback, globalState }: SelectProps) => {
 
-    const isActive = Boolean(globalState === params);
+    const isActive = Boolean(globalState === currentState);
 
     return (
         <OutlineButton

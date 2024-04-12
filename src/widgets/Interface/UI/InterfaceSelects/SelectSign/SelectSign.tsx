@@ -7,13 +7,13 @@ import { SignList } from 'app/types/config';
 interface SelectProps {
     globalState?: SignList[];
     callback?: (a: string | number) => void;
-    sign?: SignList;
+    currentSign?: SignList;
     children?: ReactNode;
 }
 
-const SelectSign = ({ children, callback, sign, globalState }: SelectProps) => {
+const SelectSign = ({ children = '', callback, currentSign, globalState = [] }: SelectProps) => {
 
-    const isSelectedSigns = Boolean(globalState.includes(sign));
+    const isSelectedSigns = Boolean(globalState.includes(currentSign));
 
     return (
         <OutlineButton

@@ -27,21 +27,21 @@ const ChangeTime = () => {
             <Select
                 globalState={time}
                 callback={() => changeTimeInSession(15)}
-                params={15}
+                currentState={15}
             >
                 0:15
             </Select>
             <Select
                 globalState={time}
                 callback={() => changeTimeInSession(30)}
-                params={30}
+                currentState={30}
             >
                 0:30
             </Select>
             <Select
                 globalState={time}
                 callback={() => changeTimeInSession(60)}
-                params={60}
+                currentState={60}
             >
                 1:00
             </Select>

@@ -1,9 +1,9 @@
 import React, { memo } from 'react';
 import style from './Interface.module.css';
-import ChangeModes from '../ChangeParams/ChangeModes';
+import ChangeModes from '../ChangeParams/ChangeMods';
 import ChangeSigns from '../ChangeParams/ChangeSigns';
 import Lines from '../InterfaceLines/Lines';
-import ChangeTimeNumber from '../ChangeParams/ChangeModesParams';
+import ChangeTimeNumber from '../ChangeParams/ChangeModsParams';
 
 export const Interface = memo(() => (
     <div className={style.center} data-testid="interface">
