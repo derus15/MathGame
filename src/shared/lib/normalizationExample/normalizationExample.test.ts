@@ -1,7 +1,7 @@
 import generateExample from './generateExample';
 import { SignList } from 'app/types/config';
 
-describe('generateExample.test', () => {
+describe('generateExample', () => {
 
     it('should be correct Example with +', () => {
         const signList: SignList[] = ['+'];

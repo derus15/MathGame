@@ -3,11 +3,10 @@ import style from './AccountUserInfo.module.css';
 import Avatar from '../../../../public/assets/Avatar.jpg';
 import { UpdateUserButton } from 'features/UpdateUserData';
 import { useSelector } from 'react-redux';
-import {
-    getAccountName,
-    getTotalExample, getTotalTime,
-} from 'features/FetchAccountData';
 import { timeNormalization } from 'shared/lib/timeNormalization/timeNormalization';
+import { getTotalTime } from '../model/selectors/getTotalTime';
+import { getTotalExample } from '../model/selectors/getTotalExample';
+import { getAccountName } from '../model/selectors/getAccountName';
 
 export const AccountUserInfo = () => {
     

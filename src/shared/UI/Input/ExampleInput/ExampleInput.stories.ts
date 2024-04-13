@@ -17,7 +17,7 @@ const meta = {
         docs: {
             description: {
                 component: 'Специфический Input компонент. Вызывает колбэк при фокусировке(focus). '
-                    + 'Пропускает на ввод исключительно цифры. '
+                    + 'Пропускает на ввод исключительно цифры(onlyNumber). '
                     + 'Можно сфокусироваться с помощью кнопки "Space" ',
             },
         },
@@ -27,6 +27,7 @@ const meta = {
         focus: fn(),
         onInput: fn(),
         signalAnswer: 'answer',
+        onlyNumber: true,
     },
 
 } satisfies Meta<typeof ExampleInput>;
