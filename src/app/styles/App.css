@@ -32,6 +32,13 @@ body {
     animation: init ease-in-out .2s;
 }
 
+.interfaceContainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    top: 38px;
+}
+
 @keyframes blink {
     0% {
         opacity: 1;

@@ -10,8 +10,8 @@ import { registerReducer } from 'features/RegisterByUsername';
 import { initAuthDataReducer } from 'widgets/Header';
 import { userDataReducer } from 'features/UpdateUserData';
 import { highlightBoardReducer } from 'widgets/AccountHighlightsBoards';
-import { factoryModeReducer } from 'features/GameModes/FactoryMode';
 import { accountReducer } from 'widgets/AccountUserInfo';
+import { factoryModeReducer } from 'features/GameMods/FactoryMode';
 
 export const store = configureStore({
     reducer: {

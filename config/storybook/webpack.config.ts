@@ -22,5 +22,16 @@ export default ({ config }: {config: webpack.Configuration}) => {
         __IS_DEV__: JSON.stringify(true),
     }));
 
+    // @ts-ignore
+    const fileLoaderRule = config.module.rules.find((rule) => rule.test && rule.test.test('.svg'));
+    // @ts-ignore
+    fileLoaderRule.exclude = /\.svg$/;
+
+    config.module.rules.push({
+        test: /\.svg$/,
+        enforce: 'pre',
+        loader: require.resolve('@svgr/webpack'),
+    });
+
     return config;
 };

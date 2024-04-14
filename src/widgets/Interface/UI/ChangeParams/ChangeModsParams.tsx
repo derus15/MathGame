@@ -9,12 +9,10 @@ const gameModsList: Record<string, React.ReactElement> = {
     'Спринт': <ChangeNumber />,
 };
 
-const ChangeModsParams = () => {
+export const ChangeModsParams = memo(() => {
 
     const gameMode = useSelector(getInterfaceGameMode);
 
     return gameModsList[gameMode];
 
-};
-
-export default memo(ChangeModsParams);
+});

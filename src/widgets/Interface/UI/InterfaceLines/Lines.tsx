@@ -6,7 +6,7 @@ import { interfaceActions } from 'widgets/Interface';
 import { StateSchema } from 'app/Providers/Store/types';
 import { getSessionProgress } from 'entities/Session';
 
-const Lines = () => {
+export const Lines = memo(() => {
 
     const [rotate, setRotate] = useState(false);
     const dispatch = useDispatch();
@@ -37,6 +37,4 @@ const Lines = () => {
             <Line className={rotation('leftLine')} onClick={handleClick} />
         </div>
     );
-};
-
-export default memo(Lines);
+});

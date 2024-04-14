@@ -1,11 +1,3 @@
-.center {
-    display: flex;
-    position: relative;
-    top: 30px;
-    justify-content: center;
-    margin-top: 8px;
-}
-
 .mainContainer {
     display: flex;
     justify-content: center;

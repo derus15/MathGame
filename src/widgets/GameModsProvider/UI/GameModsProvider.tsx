@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import { StandardMode } from 'features/GameModes/StandardMode';
 import style from './GameModsProvider.module.css';
-import { SprintMode } from 'features/GameModes/SprintMode';
 import { useDispatch, useSelector } from 'react-redux';
 import { getInterfaceGameMode } from 'widgets/Interface';
 import { sessionDataActions } from 'entities/SessionData';
+import { StandardMode } from 'features/GameMods/StandardMode';
+import { SprintMode } from 'features/GameMods/SprintMode';
 
 interface GameModsProviderProps {
     startSessionHandler: () => void,

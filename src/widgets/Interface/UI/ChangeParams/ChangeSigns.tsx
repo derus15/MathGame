@@ -8,7 +8,7 @@ import { getInterfaceSignsList } from '../../model/selectors/getInterfaceSignsLi
 import { useRefreshExample } from 'entities/Example';
 import { getSessionProgress } from 'entities/Session';
 
-const ChangeSigns = () => {
+export const ChangeSigns = memo(() => {
 
     const dispatch = useDispatch();
     const sessionProgress = useSelector(getSessionProgress);
@@ -57,6 +57,4 @@ const ChangeSigns = () => {
             </SelectSign>
         </div>
     );
-};
-
-export default memo(ChangeSigns);
+});

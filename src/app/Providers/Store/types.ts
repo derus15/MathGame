@@ -9,8 +9,8 @@ import { RegisterSchema } from 'features/RegisterByUsername';
 import { InitAuthDataSchema } from 'widgets/Header';
 import { UpdateUserDataSchema } from 'features/UpdateUserData';
 import { HighlightBoardSchema } from 'widgets/AccountHighlightsBoards';
-import { FactorySchema } from 'features/GameModes/FactoryMode';
 import { AccountSchema } from 'widgets/AccountUserInfo';
+import { FactorySchema } from 'features/GameMods/FactoryMode';
 
 export interface StateSchema {
     sessionData: SessionDataSchema,

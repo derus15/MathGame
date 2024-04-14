@@ -7,7 +7,7 @@ import { getInterfaceGameMode } from '../../model/selectors/getInterfaceGameMode
 import { useRefreshExample } from 'entities/Example';
 import { getSessionProgress } from 'entities/Session';
 
-const ChangeMods = () => {
+export const ChangeMods = memo(() => {
 
     const dispatch = useDispatch();
     const sessionProgress = useSelector(getSessionProgress);
@@ -40,6 +40,4 @@ const ChangeMods = () => {
             <Select globalState={mode}>Скоро...</Select>
         </div>
     );
-};
-
-export default memo(ChangeMods);
+});

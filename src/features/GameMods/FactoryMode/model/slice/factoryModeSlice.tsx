@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { FactorySchema } from 'features/GameModes/FactoryMode/model/slice/types';
+import { FactorySchema } from '../slice/types';
 
 const initialState: FactorySchema = {
     exampleProduce: 0,

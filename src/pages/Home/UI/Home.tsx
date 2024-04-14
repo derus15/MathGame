@@ -28,7 +28,9 @@ const Home = () => {
     
     return (
         <>
-            <Interface />
+            <div className="interfaceContainer">
+                <Interface />
+            </div>
             <GameModsProvider startSessionHandler={startSessionHandler} />
             <InstructionsProvider />
         </>
