@@ -12,6 +12,7 @@ import { userDataReducer } from 'features/UpdateUserData';
 import { highlightBoardReducer } from 'widgets/AccountHighlightsBoards';
 import { accountReducer } from 'widgets/AccountUserInfo';
 import { factoryModeReducer } from 'features/GameMods/FactoryMode';
+import { instructionsReducer } from 'widgets/Instructions';
 
 export const store = configureStore({
     reducer: {
@@ -28,6 +29,7 @@ export const store = configureStore({
         userData: userDataReducer,
         highlightBoard: highlightBoardReducer,
         factoryMode: factoryModeReducer,
+        instructions: instructionsReducer,
     },
 });
 

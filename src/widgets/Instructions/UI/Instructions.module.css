@@ -12,13 +12,13 @@
     transition-duration: .3s;
 }
 
-.instructions.hidden {
-    opacity: 0;
-    animation: delete normal .5s;
-}
-
 .instructions.noAnimation {
     display: none;
+}
+
+.hidden {
+    opacity: 0;
+    animation: delete normal .5s;
 }
 
 .btn {

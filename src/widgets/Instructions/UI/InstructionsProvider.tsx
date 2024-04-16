@@ -1,42 +1,56 @@
 import React, { memo, useEffect, useState } from 'react';
-import Instructions from './Instructions';
+import { classNames } from 'shared/lib/classNames/classNames';
+import style from 'widgets/Instructions/UI/Instructions.module.css';
+import Cross from '../../../../public/assets/cross.svg';
 import { useSelector } from 'react-redux';
-import { getModificationsList } from 'features/Modifications';
-
-const instructionsObj:Record<string, string> = {
-    'initial': 'Для начала сессии нажмите на поле ввода или Space',
-    'one': 'Режим одной ошибки: в случае ошибки сессия закончится',
-};
+import { getSessionProgress } from 'entities/Session';
+import { StateSchema } from 'app/Providers/Store/types';
 
 export const InstructionsProvider = memo(() => {
 
-    const modList = useSelector(getModificationsList);
-    const one = modList.includes('one');
-    const [isOpen, setIsOpen] = useState(null);
-    const [key, setKey] = useState('initial');
-    const [instruction, setInstruction] = useState(instructionsObj[key]);
+    const [isOpen, setIsOpen] = useState(JSON.parse(localStorage.getItem('isInstruction')) 
+    ?? true);
+    const [isVisible, setIsVisible] = useState(true);
+    const sessionProgress = useSelector(getSessionProgress);
+
+    const initialValue = 'Для начала сессии нажмите на поле ввода или Space';
+    const instruction = useSelector((state: StateSchema) => state.instructions.instruction) || initialValue;
 
     useEffect(() => {
-        setKey('one');
-        setInstruction(instructionsObj[key]);
-        if (one) {
-            setIsOpen(true);
-        }
-    }, [one]);
+        let timeout: ReturnType<typeof setTimeout>;
 
-    useEffect(() => {
-        const isInstruction = JSON.parse(localStorage.getItem('isInstruction'));
-        if (isInstruction !== null) {
-            setIsOpen(isInstruction);
-        } else {
-            setIsOpen(true);
+        if (sessionProgress) {
+            setIsVisible(false);
+            timeout = setTimeout(() => {
+                setIsOpen(false);
+            }, 500);
         }
-    }, []);
+
+        return () => {
+            clearTimeout(timeout);
+        };
+    }, [sessionProgress]);
+
+    const closeInstruction = () => {
+        setIsVisible((prevState) => !prevState);
+        setTimeout(() => {
+            setIsOpen(false);
+        }, 200);
+        localStorage.setItem('isInstruction', String(false));
+    };
 
     return (
-        // eslint-disable-next-line react/jsx-no-useless-fragment
-        <>
-            {isOpen && <Instructions setIsOpen={setIsOpen} instructions={instruction} />}
-        </>
+        isOpen && (
+            <div className={classNames(style.instructions, { [style.hidden]: !isVisible })}>
+                {instruction}
+                <button
+                    className={style.btn}
+                    type="button"
+                    onClick={closeInstruction}
+                >
+                    <Cross />
+                </button>
+            </div>
+        )
     );
 });

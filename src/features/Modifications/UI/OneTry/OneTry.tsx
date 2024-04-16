@@ -7,6 +7,7 @@ import { modificationsActions } from '../../model/slice/modificationsSlice';
 import { getModificationsList } from 'features/Modifications/model/selectors/getModificationsList';
 import { getSessionProgress } from 'entities/Session';
 import { OutlineButton } from 'shared/UI/Button/OutlineButton/OutlineButton';
+import { instructionsActions } from 'widgets/Instructions';
 
 export const OneTry = () => {
     
@@ -18,6 +19,9 @@ export const OneTry = () => {
     const changeMod = () => {
         if (!sessionProgress) {
             dispatch(modificationsActions.changeModifications('one'));
+            dispatch(instructionsActions.setInstruction(
+                'Режим одной ошибки: в случае ошибки сессия закончится',
+            ));
         }
     };
 
