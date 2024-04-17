@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import style from './Loading.module.css';
+import { PageLayout } from 'shared/UI/PageLayout/PageLayout';
 
 const Loading = () => {
 
@@ -26,11 +27,12 @@ const Loading = () => {
     }, []);
 
     return (
-
-        <div className={style.content}>
-            {content}
-            <span className={style.cursor}>|</span>
-        </div>
+        <PageLayout>
+            <div className={style.content}>
+                {content}
+                <span className={style.cursor}>|</span>
+            </div>
+        </PageLayout>
     );
 };
 

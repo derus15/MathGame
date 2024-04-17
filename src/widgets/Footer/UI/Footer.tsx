@@ -6,9 +6,14 @@ import VersionHistory from './elements/VersionHistory';
 import style from './Footer.module.css';
 import GithubLink from './elements/GithubLink';
 import ErrorReport from './elements/ErrorReport';
+import { classNames } from 'shared/lib/classNames/classNames';
 
-export const Footer = () => (
-    <footer className={style.footer}>
+interface FooterProps {
+    className?: string,
+}
+ 
+export const Footer = ({ className }: FooterProps) => (
+    <footer className={classNames(style.footer, {}, [className])}>
         <div className={style.leftBlock}>
             <SupportMe />
             <GithubLink />

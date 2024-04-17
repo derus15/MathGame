@@ -1,5 +1,4 @@
 .mainContainer {
-    margin-top: 65px;
     left: 160px;
     animation: init ease-in-out .2s;
 }
@@ -20,10 +19,13 @@
 
 }
 
+.footer {
+    position: relative;
+}
+
 .anotherTiles {
     filter: blur(5px);
     display: grid;
-    grid-template-columns: 1fr 1fr;
     gap: 80px;
 }
 
@@ -32,6 +34,7 @@
     justify-content: center;
     position: relative;
     bottom: 130px;
+    margin-bottom: 20px;
     width: 100%;
     transition-duration: .3s;
 }
@@ -48,7 +51,7 @@
 }
 
 .tiles {
-    margin-top: 40px;
+    margin-top: 35px;
     width: 100%;
     height: 200px;
     border-radius: 10px;

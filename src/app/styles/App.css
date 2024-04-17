@@ -13,6 +13,35 @@ body {
     transition-duration: .3s;
 }
 
+body::-webkit-scrollbar {
+    width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--background-color);
+}
+
+body::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background: var(--base-color);
+}
+
+body::-webkit-scrollbar-track {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: var(--base-color);
+    opacity: 70%;
+}
+
+body::-webkit-scrollbar-thumb:active {
+    background: var(--base-color);
+    opacity: 80%;
+}
+
 .mainContainer {
     position: relative;
     width: 90%;

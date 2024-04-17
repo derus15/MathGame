@@ -6,6 +6,7 @@ import { InstructionsProvider } from 'widgets/Instructions';
 import { sessionDataActions } from 'entities/SessionData';
 import { Result } from 'pages/Result';
 import { GameModsProvider } from 'widgets/GameModsProvider';
+import { PageLayout } from 'shared/UI/PageLayout/PageLayout';
 
 const Home = () => {
 
@@ -27,13 +28,13 @@ const Home = () => {
     }
     
     return (
-        <>
+        <PageLayout>
             <div className="interfaceContainer">
                 <Interface />
             </div>
             <GameModsProvider startSessionHandler={startSessionHandler} />
             <InstructionsProvider />
-        </>
+        </PageLayout>
     );
 };
 

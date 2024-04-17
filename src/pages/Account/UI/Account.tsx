@@ -9,6 +9,8 @@ import {
     getBoardLoadingStatus,
     HighlightsBoards, 
 } from 'widgets/AccountHighlightsBoards';
+import { Footer } from 'widgets/Footer';
+import { PageLayout } from 'shared/UI/PageLayout/PageLayout';
 
 const Account = () => {
 
@@ -27,11 +29,19 @@ const Account = () => {
     }
 
     return (
-
-        <div className={style.mainContainer}>
-            <AccountUserInfo />
-            <HighlightsBoards />
-        </div>
+        <PageLayout hideFooter>
+            <div className={style.mainContainer}>
+                <AccountUserInfo />
+                <HighlightsBoards />
+                <div className={style.anotherTiles}>
+                    <div className={style.tiles} />
+                </div>
+                <div className={style.soonContainer}>
+                    <span className={style.comingSoon}>Скоро будет добавлено...</span>
+                </div>
+                <Footer className={style.footer} />
+            </div>
+        </PageLayout>
     );
 };
 
