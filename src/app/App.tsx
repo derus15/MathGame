@@ -9,9 +9,11 @@ import { Account } from 'pages/Account';
 import { Home } from 'pages/Home';
 import { PrivateRoute } from 'shared/lib/PrivateRoute/PrivateRoute';
 import Toast from 'shared/UI/Toaster/Toast';
+import { Header } from 'widgets/Header';
 
 const App = () => (
     <div className="mainContainer">
+        <Header />
         <Toast />
         <Suspense fallback={<Loading />}>
             <Routes>

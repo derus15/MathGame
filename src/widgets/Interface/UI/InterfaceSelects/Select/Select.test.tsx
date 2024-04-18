@@ -1,7 +1,7 @@
 import { screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { renderProviders } from '../../../../../../config/jest/Providers/renderProviders';
-import Select from 'widgets/Interface/UI/InterfaceSelects/Select/Select';
+import Select from '../Select/Select';
 
 describe('Select', () => {
 
