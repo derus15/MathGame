@@ -6,7 +6,7 @@
     width: 90px;
     text-align: center;
     background-color: inherit;
-    color: var(--header-timer-example);
+    color: var(--second-active-color);
     padding: 5px;
     cursor: text;
 }

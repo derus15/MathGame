@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { exampleActions } from '../model/slice/exampleSlice';
-import generateExample from 'shared/lib/normalizationExample/generateExample';
+import generateExample from 'shared/lib/generateExample/generateExample';
 import { getInterfaceSignsList } from 'widgets/Interface';
 
 export const useRefreshExample = () => {

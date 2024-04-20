@@ -1,7 +1,7 @@
 .element {
     font-size: 16px;
     background-color: transparent;
-    color: var(--interface-select-unactive);
+    color: var(--base-color);
     transition-duration: .125s;
 }
 
@@ -10,7 +10,7 @@
 }
 
 .element:active {
-    color: var(--interface-select-unactive);
+    color: var(--base-color);
 }
 
 .elementActive {

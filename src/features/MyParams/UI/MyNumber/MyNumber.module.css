@@ -1,7 +1,7 @@
 .number {
     font-size: 17px;
     background-color: transparent;
-    color: var(--interface-select-unactive);
+    color: var(--base-color);
 }
 
 .number:hover {
@@ -9,7 +9,7 @@
 }
 
 .number:active {
-    color: var(--interface-select-unactive);
+    color: var(--base-color);
 }
 
 .numberActive {

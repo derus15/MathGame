@@ -5,7 +5,7 @@ import { ThemeList } from 'app/types/config';
 
 const ThemeSwitcher = () => {
 
-    const themesList: ThemeList[] = ['black', 'ocean', 'PP', 'chemodan'];
+    const themesList: ThemeList[] = ['black', 'ocean', 'PP', 'chemodan', 'norton'];
     const [themeIndex, setThemeIndex] = useState(() => {
         const savedThemeIndex = localStorage.getItem('theme');
         return savedThemeIndex ? Number(savedThemeIndex) : 1;

@@ -18,7 +18,7 @@
 }
 
 .btn:hover {
-    color: var(--footer-hover);
+    color: var(--active-color);
     transition: none;
 }
 

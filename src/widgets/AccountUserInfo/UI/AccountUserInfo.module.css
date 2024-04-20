@@ -48,7 +48,7 @@
 
 .circleTitle {
     position: absolute;
-    color: var(--active-color);
+    color: var(--second-active-color);
     font-size: 2.4rem;
     margin-top: 3px;
     transition-duration: .3s;
@@ -63,7 +63,7 @@
     width: 130px;
     height: 130px;
     font-size: 26px;
-    color: var(--active-color);
+    color: var(--second-active-color);
     margin-top: 50px;
     transition-duration: .3s;
 }

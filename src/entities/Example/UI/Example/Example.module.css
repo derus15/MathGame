@@ -1,5 +1,5 @@
 .example {
-    color: var(--header-timer-example);
+    color: var(--second-active-color);
     font-size: 3.6rem;
     background: transparent;
     opacity: 1;

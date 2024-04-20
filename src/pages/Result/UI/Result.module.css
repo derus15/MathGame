@@ -5,7 +5,6 @@
     height: 85%;
     animation: init ease-in-out .2s;
     font-size: 25px;
-    color: var(--active-color);
 }
 
 .result {
@@ -24,6 +23,7 @@
     display: flex;
     width: 100%;
     justify-content: center;
+    color: var(--second-active-color);
 }
 
 .instructionLink {
@@ -35,7 +35,7 @@
 }
 
 .instructionLink:hover {
-    color: var(--footer-hover);
+    color: var(--active-color);
 }
 
 .instruction {

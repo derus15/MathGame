@@ -1,7 +1,7 @@
 .signs {
     background-color: inherit;
     font-size: 19px;
-    color: var(--interface-select-unactive);
+    color: var(--base-color);
     transition-duration: .125s;
 }
 
@@ -10,7 +10,7 @@
 }
 
 .signs:active {
-    color: var(--interface-select-unactive);
+    color: var(--base-color);
 }
 
 .signsActive {

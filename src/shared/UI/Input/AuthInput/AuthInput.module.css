@@ -15,7 +15,7 @@
     border: none;
     text-align: center;
     margin: 0;
-    color: var(--header-timer-example);
+    color: var(--second-active-color);
     cursor: text;
     box-sizing: border-box;
     border-radius: 10px;

@@ -24,7 +24,7 @@ a:active {
 }
 
 .extra:hover {
-    color: var(--footer-hover);
+    color: var(--active-color);
 }
 
 .extra:active {
@@ -32,7 +32,7 @@ a:active {
 }
 
 .errorEmail {
-    color: white;
+    color: var(--active-color);
     user-select: text;
     background-color: var(--background-color);
 }
@@ -40,7 +40,7 @@ a:active {
 .versionNumber {
     font-size: 2.5rem;
     background-color: var(--background-color);
-    color: #ffff;
+    color: var(--active-color);
 }
 
 .versionText {

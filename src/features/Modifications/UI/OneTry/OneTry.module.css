@@ -5,7 +5,7 @@
 }
 
 .svgModeActive {
-    fill: var(--svg-color);
+    fill: var(--active-color);
 }
 
 .modificationsButton {

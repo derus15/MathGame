@@ -82,7 +82,7 @@ body::-webkit-scrollbar-thumb:active {
 
 .timer {
     font-size: 2rem;
-    color: var(--header-timer-example);
+    color: var(--second-active-color);
     position: absolute;
     bottom: 128px;
     left: 190px;

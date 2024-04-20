@@ -41,7 +41,7 @@
     flex-direction: column;
     justify-content: center;
     font-size: 28px;
-    color: var(--active-color);
+    color: var(--second-active-color);
 }
 
 .answer {

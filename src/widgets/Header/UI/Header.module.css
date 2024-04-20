@@ -6,7 +6,7 @@
 
 .logo {
     font-size: 35px;
-    color: var(--header-timer-example);
+    color: var(--second-active-color);
     cursor: pointer;
     transition-duration: .3s;
 }
@@ -38,7 +38,7 @@
 
 .username {
     font-size: 21px;
-    color: var(--active-color);
+    color: var(--second-active-color);
     animation: inherit;
     cursor: pointer;
     transition-duration: .125s;
@@ -57,7 +57,7 @@
     height: 30px;
     animation: inherit;
     cursor: pointer;
-    fill: var(--svg-color);
+    fill: var(--active-color);
     transition-duration: .125s;
 }
 
@@ -67,7 +67,7 @@
     width: 22px;
     height: 22px;
     animation: inherit;
-    fill: var(--svg-color);
+    fill: var(--active-color);
     transition-duration: .125s;
 }
 
