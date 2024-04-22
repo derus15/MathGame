@@ -1,7 +1,7 @@
-export const timeNormalization = (seconds: number): string => {
+export const timeNormalization = (seconds: number, isHours: boolean = true): string => {
 
     if (!seconds) {
-        return ('00:00:00');
+        return isHours ? '00:00:00' : '00:00';
     }
 
     let hours = Math.floor(seconds / 3600).toString();
@@ -19,5 +19,5 @@ export const timeNormalization = (seconds: number): string => {
         sec = `0${sec}`;
     }
 
-    return (`${hours}:${minutes}:${sec}`);
+    return isHours ? `${hours}:${minutes}:${sec}` : `${minutes}:${sec}`;
 };

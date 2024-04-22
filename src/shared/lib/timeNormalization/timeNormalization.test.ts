@@ -7,6 +7,11 @@ describe('timeNormalization', () => {
         expect(timeNormalization(seconds)).toEqual('00:00:00');
     });
 
+    it('should be min time without hours', () => {
+        const seconds = 0;
+        expect(timeNormalization(seconds, false)).toEqual('00:00');
+    });
+
     it('should be 1 second', () => {
         const seconds = 1;
         expect(timeNormalization(seconds)).toEqual('00:00:01');
@@ -17,6 +22,11 @@ describe('timeNormalization', () => {
         expect(timeNormalization(seconds)).toEqual('00:01:00');
     });
 
+    it('should be one minutes without hours', () => {
+        const seconds = 60;
+        expect(timeNormalization(seconds, false)).toEqual('01:00');
+    });
+
     it('should be ten minutes', () => {
         const seconds = 600;
         expect(timeNormalization(seconds)).toEqual('00:10:00');
@@ -25,6 +35,11 @@ describe('timeNormalization', () => {
     it('should be 1 hour', () => {
         const seconds = 3600;
         expect(timeNormalization(seconds)).toEqual('01:00:00');
+    });
+
+    it('should be 1 hour without hour', () => {
+        const seconds = 3600;
+        expect(timeNormalization(seconds, false)).toEqual('00:00');
     });
 
     it('should be max time', () => {

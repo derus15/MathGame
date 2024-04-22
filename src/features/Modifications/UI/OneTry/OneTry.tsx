@@ -26,10 +26,12 @@ export const OneTry = () => {
     };
 
     return (
-        <OutlineButton className={style.modificationsButton}>
+        <OutlineButton
+            className={style.modificationsButton}
+            onClick={changeMod}
+        >
             <OneIcon
                 className={classNames(style.modifications, { [style.svgModeActive]: isActive })}
-                onClick={changeMod}
             />
         </OutlineButton>
     );

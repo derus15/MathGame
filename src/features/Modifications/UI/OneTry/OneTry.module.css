@@ -15,9 +15,8 @@
     height: 26px;
 }
 
-.modifications:hover {
+.modificationsButton:hover {
     opacity: 70%;
-    fill: var(--active-color);
 }
 
 .modifications:active {
