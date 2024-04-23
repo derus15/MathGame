@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { UserSchema } from 'entities/User/model/slice/types';
+import { initAuthData } from '../services/initAuthData';
 
 const initialState: UserSchema = {
     isAuth: false,
@@ -20,6 +21,19 @@ const userSlice = createSlice({
             localStorage.removeItem('token');
         },
 
+    },
+    extraReducers: (builder) => {
+
+        builder
+            .addCase(initAuthData.pending, (state) => {
+                state.isAuth = false;
+            })
+            .addCase(initAuthData.fulfilled, (state) => {
+                state.isAuth = true;
+            })
+            .addCase(initAuthData.rejected, (state) => {
+                state.isAuth = false;
+            });
     },
 });
 

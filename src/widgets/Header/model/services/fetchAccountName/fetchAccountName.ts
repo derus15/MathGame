@@ -3,13 +3,12 @@ import axios from 'shared/api/axios';
 import { toast } from 'react-toastify';
 import { userActions } from 'entities/User';
 
-export const initAuthData = createAsyncThunk<string>(
-    '/auth/me',
+export const fetchAccountName = createAsyncThunk<string>(
+    '/account/name',
     async (params, { dispatch }) => {
         try {
 
-            const { data } = await axios.get('/auth/me');
-            dispatch(userActions.setAuth(true));
+            const { data } = await axios.get('/account/name');
             return data.name;
 
         } catch (error) {

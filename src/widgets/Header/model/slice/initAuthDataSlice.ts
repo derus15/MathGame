@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { InitAuthDataSchema } from './types';
-import { initAuthData } from 'widgets/Header/model/services/initAuthData/initAuthData';
+import { fetchAccountName } from '../services/fetchAccountName/fetchAccountName';
 
 const initialState: InitAuthDataSchema = {
     username: null,
@@ -15,15 +15,15 @@ const initAuthDataSlice = createSlice({
     extraReducers: (builder) => {
 
         builder
-            .addCase(initAuthData.pending, (state) => {
+            .addCase(fetchAccountName.pending, (state) => {
                 state.username = null;
                 state.loadingStatus = 'loading';
             })
-            .addCase(initAuthData.fulfilled, (state, action) => {
+            .addCase(fetchAccountName.fulfilled, (state, action) => {
                 state.username = action.payload;
                 state.loadingStatus = 'loaded';
             })
-            .addCase(initAuthData.rejected, (state) => {
+            .addCase(fetchAccountName.rejected, (state) => {
                 state.username = null;
                 state.loadingStatus = 'error';
             });

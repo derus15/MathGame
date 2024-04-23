@@ -5,7 +5,7 @@ import style from './Header.module.css';
 import ProfileSvg from '/public/assets/profile.svg';
 import LogoutSvg from '/public/assets/logout.svg';
 import { getIsAuth, userActions } from 'entities/User';
-import { initAuthData } from '../model/services/initAuthData/initAuthData';
+import { fetchAccountName } from '../model/services/fetchAccountName/fetchAccountName';
 import { getHeaderUsername } from '../model/selectors/getHeaderUsername';
 import { useAppDispatch } from 'shared/lib/hooks/reduxHooks/reduxHooks';
 import { getHeaderLoadingStatus } from 'widgets/Header/model/selectors/getHeaderLoadingStatus';
@@ -23,9 +23,8 @@ const HeaderAccountName = () => {
     };
 
     useEffect(() => {
-        const token = localStorage.getItem('token');
-        if (token) {
-            dispatch(initAuthData());
+        if (isAuth) {
+            dispatch(fetchAccountName());
         }
     }, [isAuth]);
 
