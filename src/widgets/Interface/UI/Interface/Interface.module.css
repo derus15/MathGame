@@ -1,77 +1,73 @@
 .mainContainer {
     display: flex;
-    justify-content: center;
+    position: relative;
     align-items: center;
-    background-color: var(--interface-background-color);
+    justify-content: space-between;
+    background: var(--interface-background-color);
     border-radius: 12px;
-    width: 900px;
     height: 31px;
     user-select: none;
     animation: init ease-in-out .2s;
     transition-duration: .3s;
 }
 
-.containerModes {
-    position: absolute;
+.containerMods {
     display: flex;
-    gap: 140px;
+    justify-content: space-between;
+    margin-right: 25px;
+    margin-left: 50px;
+    width: 490px;
     flex-direction: row;
     background-color: transparent;
 }
 
 .containerTime {
-    position: absolute;
-    margin-left: 705px;
-    margin-bottom: 0;
-    gap: 16px;
     display: flex;
+    justify-content: space-between;
+    margin-bottom: 0;
+    margin-right: 20px;
+    width: 160px;
     flex-direction: row;
     background-color: transparent;
     animation: init ease-in-out .3s;
 }
 
 .containerNumber {
-    position: absolute;
-    margin-left: 705px;
-    margin-bottom: 0;
-    gap: 27px;
     display: flex;
+    justify-content: space-between;
+    margin-bottom: 0;
+    margin-right: 20px;
+    width: 160px;
     background-color: transparent;
     flex-direction: row;
     animation: init ease-in-out .3s;
 }
 
 .containerSigns {
-    position: absolute;
-    margin-right: 720px;
-    margin-top: 2px;
-    font-size: 19px;
-    gap: 31px;
-    background-color: transparent;
     display: flex;
+    justify-content: space-between;
+    margin-top: 2px;
+    width: 130px;
+    margin-left: 25px;
+    font-size: 19px;
+    background-color: transparent;
 }
 
 @media screen and (max-width:990px) {
-    .mainContainer{
-        width: 750px;
-    }
-
-    .containerModes {
-        gap: 78px;
+    .containerMods {
+        width: 350px
     }
 
     .containerSigns {
-        margin-right: 585px;
+        width: 120px;
     }
 
     .containerTime {
-        margin-left: 570px;
-        gap: 16px;
+        width: 150px;;
     }
 
     .containerNumber {
-        margin-left: 570px;
-        gap: 27px;
+        width: 150px;
     }
 }
 

@@ -22,7 +22,7 @@ export const ChangeMods = memo(() => {
     }
 
     return (
-        <div className={style.containerModes}>
+        <div className={style.containerMods}>
             <Select
                 globalState={mode}
                 callback={() => changeGameModeInSession('Спринт')}

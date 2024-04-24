@@ -32,9 +32,9 @@ export const Lines = memo(() => {
     }
 
     return (
-        <div className={style.containerLines}>
+        <>
             <Line className={rotation('rightLine')} onClick={handleClick} />
             <Line className={rotation('leftLine')} onClick={handleClick} />
-        </div>
+        </>
     );
 });

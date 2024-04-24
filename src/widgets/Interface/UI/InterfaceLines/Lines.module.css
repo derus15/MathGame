@@ -1,20 +1,12 @@
-.containerLines {
-    position: absolute;
-    display: flex;
-    background-color: transparent;
-}
-
 .rightLine {
-    position: absolute;
-    right: 270px;
-    top: -10px;
+    position: relative;
+    right: 10px;
     transition-duration: .3s;
 }
 
 .leftLine {
-    position: absolute;
-    left: 255px;
-    top: -10px;
+    position: relative;
+    right: 545px;
     transition-duration: .3s;
 }
 
@@ -25,11 +17,11 @@
 @media screen and (max-width:990px) {
 
     .rightLine {
-        right: 205px;
+        right: 10px;
     }
 
     .leftLine {
-        left: 191px;
+        right: 400px;
     }
 
 }
