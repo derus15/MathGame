@@ -12,7 +12,8 @@ const ChangeNumber = () => {
 
     const dispatch = useDispatch();
     const sessionProgress = useSelector(getSessionProgress);
-    const number = useSelector(getInterfaceNumber);
+    const numbersList = [10, 15, 20];
+    const currentNumber = useSelector(getInterfaceNumber);
     const { refreshExample } = useRefreshExample();
     
     function changeNumberInSession(number: number) {
@@ -24,28 +25,18 @@ const ChangeNumber = () => {
 
     return (
         <div className={style.containerNumber}>
-            <Select
-                globalState={number}
-                callback={() => changeNumberInSession(10)}
-                currentState={10}
-            >
-                10
-            </Select>
-            <Select
-                globalState={number}
-                callback={() => changeNumberInSession(15)}
-                currentState={15}
-            >
-                15
-            </Select>
-            <Select
-                globalState={number}
-                callback={() => changeNumberInSession(20)}
-                currentState={20}
-            >
-                20
-            </Select>
-            <MyNumber standardNumber={[10, 15, 20]} />
+            {numbersList.map((number) => (
+
+                <Select
+                    globalState={currentNumber}
+                    callback={() => changeNumberInSession(number)}
+                    currentState={number}
+                >
+                    {number}
+                </Select>
+
+            ))}
+            <MyNumber standardNumber={numbersList} />
         </div>
     );
 };

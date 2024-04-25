@@ -3,17 +3,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import style from '../Interface/Interface.module.css';
 import { interfaceActions } from '../../model/slice/interfaceSlice';
 import Select from '../InterfaceSelects/Select/Select';
-import { getInterfaceTime } from '../../model/selectors/getInterfaceTime';
 import { useRefreshExample } from 'entities/Example';
 import { getSessionProgress } from 'entities/Session';
-import { MyTime } from 'features/MyParams';
 
-const ChangeTime = () => {
+const ChangeRounds = () => {
 
     const dispatch = useDispatch();
     const sessionProgress = useSelector(getSessionProgress);
-    const timesList = [15, 30, 60];
-    const currentTime = useSelector(getInterfaceTime);
+    const roundsList = [3, 5, 7];
+    const currentRound = 3;
     const { refreshExample } = useRefreshExample();
 
     function changeTimeInSession(time: number) {
@@ -25,20 +23,27 @@ const ChangeTime = () => {
 
     return (
         <div className={style.containerTime}>
-            {timesList.map((time) => (
+            {roundsList.map((round) => (
 
                 <Select
-                    globalState={time}
-                    callback={() => changeTimeInSession(time)}
-                    currentState={currentTime}
+                    currentState={round}
+                    globalState={currentRound}
+                    callback={() => changeTimeInSession(round)}
                 >
-                    {time === 60 ? '1:00' : `0:${time}`}
+                    {round}
                 </Select>
 
             ))}
-            <MyTime standardTime={timesList} />
+
+            <Select
+                globalState={currentRound}
+                callback={() => changeTimeInSession(60)}
+                currentState={10}
+            >
+                __
+            </Select>
         </div>
     );
 };
 
-export default memo(ChangeTime);
+export default memo(ChangeRounds);

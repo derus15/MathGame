@@ -11,7 +11,8 @@ export const ChangeMods = memo(() => {
 
     const dispatch = useDispatch();
     const sessionProgress = useSelector(getSessionProgress);
-    const mode = useSelector(getInterfaceGameMode);
+    const ModsList = ['Спринт', 'Стандарт'];
+    const currentMode = useSelector(getInterfaceGameMode);
     const { refreshExample } = useRefreshExample();
 
     function changeGameModeInSession(mode: string) {
@@ -23,21 +24,18 @@ export const ChangeMods = memo(() => {
 
     return (
         <div className={style.containerMods}>
-            <Select
-                globalState={mode}
-                callback={() => changeGameModeInSession('Спринт')}
-                currentState="Спринт"
-            >
-                Спринт
-            </Select>
-            <Select
-                globalState={mode}
-                callback={() => changeGameModeInSession('Стандарт')}
-                currentState="Стандарт"
-            >
-                Стандарт
-            </Select>
-            <Select globalState={mode}>Скоро...</Select>
+            {ModsList.map((mode) => (
+
+                <Select
+                    globalState={currentMode}
+                    callback={() => changeGameModeInSession(mode)}
+                    currentState={mode}
+                >
+                    {mode}
+                </Select>
+
+            ))}
+            <Select globalState={currentMode}>Скоро...</Select>
         </div>
     );
 });

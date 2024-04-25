@@ -1,0 +1,27 @@
+.timerContainer {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    bottom: 127px;
+    justify-content: space-around;
+    gap: 420px;
+    font-size: 2rem;
+    color: var(--second-active-color);
+    animation: init ease-in-out .2s;
+    transition-duration: .3s;
+}
+
+@keyframes init {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: .5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
+}

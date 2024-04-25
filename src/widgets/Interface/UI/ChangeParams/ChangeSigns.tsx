@@ -12,7 +12,8 @@ export const ChangeSigns = memo(() => {
 
     const dispatch = useDispatch();
     const sessionProgress = useSelector(getSessionProgress);
-    const signs = useSelector(getInterfaceSignsList);
+    const signsList: SignList[] = ['+', '-', '*', '/'];
+    const currentSigns = useSelector(getInterfaceSignsList);
     const { refreshExample } = useRefreshExample();
 
     function changeSignInSession(sign: SignList) {
@@ -23,38 +24,21 @@ export const ChangeSigns = memo(() => {
 
     useEffect(() => {
         refreshExample();
-    }, [signs]);
+    }, [currentSigns]);
     
     return (
         <div className={style.containerSigns}>
-            <SelectSign
-                currentSign="+"
-                globalState={signs}
-                callback={() => changeSignInSession('+')}
-            >
-                +
-            </SelectSign>
-            <SelectSign
-                currentSign="-"
-                globalState={signs}
-                callback={() => changeSignInSession('-')}
-            >
-                -
-            </SelectSign>
-            <SelectSign
-                currentSign="*"
-                globalState={signs}
-                callback={() => changeSignInSession('*')}
-            >
-                x
-            </SelectSign>
-            <SelectSign
-                currentSign="/"
-                globalState={signs}
-                callback={() => changeSignInSession('/')}
-            >
-                /
-            </SelectSign>
+            {signsList.map((sign: SignList) => (
+
+                <SelectSign
+                    currentSign={sign}
+                    globalState={currentSigns}
+                    callback={() => changeSignInSession(sign)}
+                >
+                    {sign === '*' ? 'x' : sign}
+                </SelectSign>
+
+            ))}
         </div>
     );
 });
