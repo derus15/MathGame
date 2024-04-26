@@ -1,0 +1,9 @@
+.itemContainer {
+    display: flex;
+    color: var(--base-color);
+    justify-content: space-between;
+}
+
+.itemValue {
+    color: var(--active-color);
+}

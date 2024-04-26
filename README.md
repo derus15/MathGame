@@ -14,7 +14,7 @@
 - 2 режима игры
 - Личный аккаунт со статистикой
 - Удобные настройки для игровой сессии
-- 4 темы на выбор
+- 5 тем на выбор
 
 Приложение находится на стадии разработки. В ближайшее время будет добавлено:
 
@@ -33,7 +33,7 @@ Already in the app:
 - 2 game modes
 - Personal account with statistics
 - Convenient settings for the game session
-- 4 color themes to choose
+- 5 color themes to choose
 
 Application in development. It will be added soon:
 

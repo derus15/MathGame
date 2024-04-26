@@ -4,7 +4,7 @@ import { Example, getAnswer, getExample, useRefreshExample } from 'entities/Exam
 import ExampleInput from 'shared/UI/Input/ExampleInput/ExampleInput';
 import { useModifications } from 'features/Modifications';
 import { sessionDataActions } from 'entities/SessionData';
-import style from '../HungerMode.module.css';
+import style from './HungerMode.module.css';
 import { HungerTimer } from './Timer/HungerTimer';
 import { HungerPointsCounter } from './Counter/HungerPointsCounter';
 

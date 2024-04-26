@@ -26,34 +26,6 @@
     color: var(--second-active-color);
 }
 
-.instructionLink {
-    color: var(--base-color);
-    margin-right: 6px;
-    text-decoration: underline;
-    cursor: pointer;
-    transition-duration: .125s;
-}
-
-.instructionLink:hover {
-    color: var(--active-color);
-}
-
-.instruction {
-    font-size: 17px;
-    margin-top: 55px;
-    color: var(--base-color);
-}
-
-.epsContainer {
-    display: flex;
-    color: var(--base-color);
-    justify-content: space-between;
-}
-
-.epsValue {
-    color: var(--active-color);
-}
-
 .buttonContainer {
     display: flex;
     justify-content: space-around;
