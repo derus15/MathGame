@@ -1,6 +1,6 @@
 import React, { memo, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import BaseTimer from './BaseTimer';
+import { BaseTimer } from './BaseTimer';
 import { getSessionProgress, sessionActions } from 'entities/Session';
 import { getInterfaceTime } from 'widgets/Interface';
 import { sessionDataActions } from 'entities/SessionData';
@@ -9,32 +9,28 @@ export const StandardTimer = memo(() => {
 
     const duration = useSelector(getInterfaceTime);
     const sessionProgress = useSelector(getSessionProgress);
-    const [seconds, setSeconds] = useState(duration);
-    const [milliseconds, setMilliseconds] = useState(0);
+    const [timerTime, setTimerTime] = useState(0);
     const dispatch = useDispatch();
 
     useEffect(() => {
         if (sessionProgress) {
             // сохранение времени в permanentMode
-            dispatch(sessionDataActions.saveSessionTime(duration - seconds));
+            dispatch(sessionDataActions.saveSessionTime(duration - Math.floor(timerTime)));
         } else {
             // слежение за выставленным игроком временем
-            setSeconds(duration);
+            setTimerTime(duration);
         }
-    }, [seconds, duration]);
+    }, [timerTime, duration]);
     
-    useEffect(() => {
-        if (seconds === 0 && milliseconds === 0) {
-            dispatch(sessionActions.endSession());
-        }
-    }, [milliseconds]);
+    const endSession = () => {
+        dispatch(sessionActions.endSession());
+    };
 
     return (
         <BaseTimer
-            setMilliseconds={setMilliseconds}
-            milliseconds={milliseconds}
-            setSeconds={setSeconds}
-            seconds={seconds}
+            onFinishCallback={endSession}
+            setTime={setTimerTime}
+            time={timerTime}
         />
     );
 });
