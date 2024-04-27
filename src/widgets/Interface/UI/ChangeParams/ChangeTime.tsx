@@ -28,6 +28,7 @@ const ChangeTime = () => {
             {timesList.map((time) => (
 
                 <Select
+                    key={time}
                     globalState={time}
                     callback={() => changeTimeInSession(time)}
                     currentState={currentTime}

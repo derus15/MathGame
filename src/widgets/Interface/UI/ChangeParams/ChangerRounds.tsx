@@ -26,6 +26,7 @@ const ChangeRounds = () => {
             {roundsList.map((round) => (
 
                 <Select
+                    key={round}
                     currentState={round}
                     globalState={currentRound}
                     callback={() => changeTimeInSession(round)}

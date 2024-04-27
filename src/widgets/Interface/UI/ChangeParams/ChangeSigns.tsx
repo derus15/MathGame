@@ -31,6 +31,7 @@ export const ChangeSigns = memo(() => {
             {signsList.map((sign: SignList) => (
 
                 <SelectSign
+                    key={sign}
                     currentSign={sign}
                     globalState={currentSigns}
                     callback={() => changeSignInSession(sign)}

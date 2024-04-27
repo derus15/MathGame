@@ -28,6 +28,7 @@ const ChangeNumber = () => {
             {numbersList.map((number) => (
 
                 <Select
+                    key={number}
                     globalState={currentNumber}
                     callback={() => changeNumberInSession(number)}
                     currentState={number}

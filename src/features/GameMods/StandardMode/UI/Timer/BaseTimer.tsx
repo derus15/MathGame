@@ -3,13 +3,12 @@ import { useSelector } from 'react-redux';
 import { getSessionProgress } from 'entities/Session';
 
 interface TimerProps {
-    seconds: number,
-    milliseconds: number,
-    setSeconds: Dispatch<SetStateAction<number>>,
-    setMilliseconds: Dispatch<SetStateAction<number>>,
+    onFinishCallback: () => void;
+    time: number;
+    setTime: Dispatch<SetStateAction<number>>
 }
 
-const BaseTimer = ({ seconds, milliseconds, setMilliseconds, setSeconds }: TimerProps) => {
+export const BaseTimer = ({ time, onFinishCallback, setTime }: TimerProps) => {
 
     const sessionProgress = useSelector(getSessionProgress);
 
@@ -19,32 +18,26 @@ const BaseTimer = ({ seconds, milliseconds, setMilliseconds, setSeconds }: Timer
         if (sessionProgress) {
             interval = setInterval(() => {
 
-                setMilliseconds((milliseconds) => {
-                    if (milliseconds === 0) {
+                setTime((prevTime) => {
 
-                        setSeconds((seconds) => {
-
-                            if (seconds === 0 && milliseconds === 0) {
-                                clearInterval(interval);
-                            }
-                            return seconds - 1;
-
-                        });
-                        return 9;
-
+                    if (prevTime - 0.1 <= 0) {
+                        onFinishCallback();
+                        clearInterval(interval);
+                        return 0;
                     }
-                    return milliseconds - 1;
+
+                    return prevTime - 0.1;
 
                 });
 
             }, 100);
         }
 
-        return () => {
-            clearInterval(interval);
-        };
-
+        return () => clearInterval(interval);
     }, [sessionProgress]);
+
+    const seconds = Math.floor(time);
+    const milliseconds = Math.floor((time % 1) * 10); // Получаем десятые доли секунды
 
     return (
         <div className="timer">
@@ -52,5 +45,3 @@ const BaseTimer = ({ seconds, milliseconds, setMilliseconds, setSeconds }: Timer
         </div>
     );
 };
-
-export default BaseTimer;

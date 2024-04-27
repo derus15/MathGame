@@ -27,6 +27,7 @@ export const ChangeMods = memo(() => {
             {ModsList.map((mode) => (
 
                 <Select
+                    key={mode}
                     globalState={currentMode}
                     callback={() => changeGameModeInSession(mode)}
                     currentState={mode}
