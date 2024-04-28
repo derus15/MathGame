@@ -36,13 +36,13 @@ const HeaderAccountName = () => {
                     <Link className={style.link} to="/account">
                         <span className={style.username}>{username}</span>
                     </Link>
+                    {isLoading && <Loader isLoading={isLoading} className={style.loader} />}
                     <Link to="/account" onClick={Logout} className={style.logoutContainer}>
                         <LogoutSvg />
                     </Link>
                 </div>
             ) : (
                 <Link className={style.link} to="/auth">
-                    <Loader isLoading={isLoading} className={style.loader} />
                     <svg className={style.profile}>
                         <ProfileSvg />
                     </svg>

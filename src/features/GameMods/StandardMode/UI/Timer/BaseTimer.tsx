@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { getSessionProgress } from 'entities/Session';
 
 interface TimerProps {
-    onFinishCallback: () => void;
+    onFinishCallback?: () => void;
     time: number;
     setTime: Dispatch<SetStateAction<number>>
 }
