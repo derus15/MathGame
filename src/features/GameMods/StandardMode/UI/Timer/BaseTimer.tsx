@@ -40,8 +40,8 @@ export const BaseTimer = ({ time, onFinishCallback, setTime }: TimerProps) => {
     const milliseconds = Math.floor((time % 1) * 10); // Получаем десятые доли секунды
 
     return (
-        <div className="timer">
+        <>
             {seconds},{milliseconds}
-        </div>
+        </>
     );
 };

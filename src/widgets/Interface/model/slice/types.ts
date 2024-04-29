@@ -6,4 +6,5 @@ export interface InterfaceSchema {
     gameMode: string,
     signList: SignList[],
     secretCounter: number
+    rounds: number,
 }

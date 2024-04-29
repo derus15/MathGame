@@ -10,9 +10,15 @@ interface ExampleInputProps {
     onInput?: (e: ChangeEvent<HTMLInputElement>) => void;
     signalAnswer?: string;
     onlyNumber?: boolean;
+    autofocus?: boolean;
 }
 
-const ExampleInput = ({ focus, onlyNumber, signalAnswer = null, ...props }: ExampleInputProps) => {
+const ExampleInput = ({ 
+    focus,
+    onlyNumber, 
+    autofocus = false,
+    signalAnswer = null,
+    ...props }: ExampleInputProps) => {
 
     const [answerSignal, setAnswerSignal] = useState(false);
     const sessionProgress = useSelector(getSessionProgress);
@@ -60,6 +66,7 @@ const ExampleInput = ({ focus, onlyNumber, signalAnswer = null, ...props }: Exam
                 onChange={(e) => {
                     checkNumber(e);
                 }}
+                autoFocus={autofocus}
                 ref={inputRef}
                 onFocus={focus}
                 inputMode="numeric"

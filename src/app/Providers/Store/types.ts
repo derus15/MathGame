@@ -12,6 +12,7 @@ import { HighlightBoardSchema } from 'widgets/AccountHighlightsBoards';
 import { AccountSchema } from 'widgets/AccountUserInfo';
 import { FactorySchema } from 'features/GameMods/FactoryMode';
 import { InstructionsSchema } from 'widgets/Instructions';
+import { HungerSchema } from 'features/GameMods/HungerMode';
 
 export interface StateSchema {
     sessionData: SessionDataSchema,
@@ -28,4 +29,5 @@ export interface StateSchema {
     highlightBoard: HighlightBoardSchema,
     factoryMode: FactorySchema,
     instructions: InstructionsSchema,
+    hungerMode: HungerSchema,
 }

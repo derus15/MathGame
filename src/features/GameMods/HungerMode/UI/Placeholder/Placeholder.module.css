@@ -1,0 +1,29 @@
+.placeholderContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 24px;
+    color: var(--second-active-color);
+    animation: init ease-in-out .2s;
+}
+
+.textUntil {
+    font-size: 20px;
+    animation: init ease-in-out .2s;
+    margin-top: 15px;
+    color: var(--base-color);
+}
+
+@keyframes init {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: .5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

@@ -13,6 +13,7 @@ import { highlightBoardReducer } from 'widgets/AccountHighlightsBoards';
 import { accountReducer } from 'widgets/AccountUserInfo';
 import { factoryModeReducer } from 'features/GameMods/FactoryMode';
 import { instructionsReducer } from 'widgets/Instructions';
+import { hungerModeReducer } from 'features/GameMods/HungerMode';
 
 export const store = configureStore({
     reducer: {
@@ -30,6 +31,7 @@ export const store = configureStore({
         highlightBoard: highlightBoardReducer,
         factoryMode: factoryModeReducer,
         instructions: instructionsReducer,
+        hungerMode: hungerModeReducer,
     },
 });
 

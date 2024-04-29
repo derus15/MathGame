@@ -5,18 +5,19 @@ import { interfaceActions } from '../../model/slice/interfaceSlice';
 import Select from '../InterfaceSelects/Select/Select';
 import { useRefreshExample } from 'entities/Example';
 import { getSessionProgress } from 'entities/Session';
+import { getInterfaceRounds } from 'widgets/Interface/model/selectors/getInterfaceRounds';
 
 const ChangeRounds = () => {
 
     const dispatch = useDispatch();
     const sessionProgress = useSelector(getSessionProgress);
     const roundsList = [3, 5, 7];
-    const currentRound = 3;
+    const currentRound = useSelector(getInterfaceRounds);
     const { refreshExample } = useRefreshExample();
 
-    function changeTimeInSession(time: number) {
+    function changeRoundInSession(round: number) {
         if (!sessionProgress) {
-            dispatch(interfaceActions.changeTime(time));
+            dispatch(interfaceActions.changeRounds(round));
             refreshExample();
         }
     }
@@ -29,7 +30,7 @@ const ChangeRounds = () => {
                     key={round}
                     currentState={round}
                     globalState={currentRound}
-                    callback={() => changeTimeInSession(round)}
+                    callback={() => changeRoundInSession(round)}
                 >
                     {round}
                 </Select>
@@ -38,7 +39,7 @@ const ChangeRounds = () => {
 
             <Select
                 globalState={currentRound}
-                callback={() => changeTimeInSession(60)}
+                callback={() => changeRoundInSession(60)}
                 currentState={10}
             >
                 __

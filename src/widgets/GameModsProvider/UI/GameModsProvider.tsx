@@ -5,6 +5,7 @@ import { getInterfaceGameMode } from 'widgets/Interface';
 import { sessionDataActions } from 'entities/SessionData';
 import { StandardMode } from 'features/GameMods/StandardMode';
 import { SprintMode } from 'features/GameMods/SprintMode';
+import { HungerMode } from 'features/GameMods/HungerMode';
 
 interface GameModsProviderProps {
     startSessionHandler: () => void,
@@ -18,6 +19,7 @@ export const GameModsProvider = ({ startSessionHandler }: GameModsProviderProps)
     const gameModeList: Record<string, React.ReactElement> = {
         'Стандарт': <StandardMode startSessionHandler={startSessionHandler} />,
         'Спринт': <SprintMode startSessionHandler={startSessionHandler} />,
+        'Голод': <HungerMode startSessionHandler={startSessionHandler} />,
     };
 
     useEffect(() => {

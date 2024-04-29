@@ -27,10 +27,12 @@ export const StandardTimer = memo(() => {
     };
 
     return (
-        <BaseTimer
-            onFinishCallback={endSession}
-            setTime={setTimerTime}
-            time={timerTime}
-        />
+        <div className="timer">
+            <BaseTimer
+                onFinishCallback={endSession}
+                setTime={setTimerTime}
+                time={timerTime}
+            />
+        </div>
     );
 });
