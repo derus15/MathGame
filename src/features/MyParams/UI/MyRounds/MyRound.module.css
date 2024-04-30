@@ -1,0 +1,15 @@
+.round {
+    color: var(--base-color);
+}
+
+.round:hover {
+    color: var(--active-color);
+}
+
+.round:active {
+    color: var(--base-color);
+}
+
+.roundActive {
+    color: var(--active-color);
+}

@@ -6,6 +6,7 @@ import Select from '../InterfaceSelects/Select/Select';
 import { useRefreshExample } from 'entities/Example';
 import { getSessionProgress } from 'entities/Session';
 import { getInterfaceRounds } from 'widgets/Interface/model/selectors/getInterfaceRounds';
+import { MyRound } from 'features/MyParams';
 
 const ChangeRounds = () => {
 
@@ -37,13 +38,7 @@ const ChangeRounds = () => {
 
             ))}
 
-            <Select
-                globalState={currentRound}
-                callback={() => changeRoundInSession(60)}
-                currentState={10}
-            >
-                __
-            </Select>
+            <MyRound standardRound={roundsList} />
         </div>
     );
 };

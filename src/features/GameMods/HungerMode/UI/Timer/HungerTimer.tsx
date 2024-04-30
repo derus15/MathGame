@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BaseTimer } from 'features/GameMods/StandardMode/UI/Timer/BaseTimer';
 import { sessionActions } from 'entities/Session';
+import style from './HungerTimer.module.css';
 import { getSessionPoints } from 'entities/SessionData';
 
 export const HungerTimer = () => {
@@ -21,7 +22,7 @@ export const HungerTimer = () => {
     };
     
     return (
-        <div>
+        <div className={style.hungerTimerContainer}>
             <BaseTimer time={time} setTime={setTime} onFinishCallback={endSession} />
         </div>
     );

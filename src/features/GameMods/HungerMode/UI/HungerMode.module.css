@@ -5,10 +5,14 @@
     bottom: 127px;
     justify-content: space-around;
     gap: 420px;
-    font-size: 2rem;
+    font-size: 20px;
     color: var(--second-active-color);
     animation: init ease-in-out .2s;
     transition-duration: .3s;
+}
+
+.timerContainerActive {
+    justify-content: space-around;
 }
 
 @keyframes init {

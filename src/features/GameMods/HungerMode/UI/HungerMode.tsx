@@ -53,7 +53,6 @@ export const HungerMode = ({ startSessionHandler }: HungerModeProps) => {
             <>
                 <div className={style.timerContainer}>
                     <RoundCounter />
-                    <HungerPointsCounter />
                 </div>;
                 <Placeholder />
             </>
