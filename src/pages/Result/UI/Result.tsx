@@ -5,7 +5,7 @@ import { ExampleButton } from 'shared/UI/Button/ExampleButton/ExampleButton';
 import { sessionActions } from 'entities/Session';
 import {
     getSessionPoints, getSessionTime,
-    saveSessionDataInLocalStorage, sendSessionData, sessionDataActions,
+    sendSessionData, sessionDataActions,
 } from 'entities/SessionData';
 import { getIsAuth } from 'entities/User';
 import { useAppDispatch } from 'shared/lib/hooks/reduxHooks/reduxHooks';
@@ -16,15 +16,19 @@ import { PageLayout } from 'shared/UI/PageLayout/PageLayout';
 import { timeNormalization } from 'shared/lib/timeNormalization/timeNormalization';
 import { ResultItem } from './ResultItem/ResultItem';
 import { InviteRegister } from './InviteRegister/InviteRegister';
+import { getInterfaceGameMode } from 'widgets/Interface';
+import { getCurrentRound, hungerModeActions } from 'features/GameMods/HungerMode';
 
 export const Result = () => {
 
     const isAuth = useSelector(getIsAuth);
     const dispatch = useAppDispatch();
+    const gameMode = useSelector(getInterfaceGameMode);
     
     const numberResult = useSelector(getSessionPoints);
     const sessionTime = useSelector(getSessionTime);
     const timeResult = timeNormalization(sessionTime, sessionTime >= 3600);
+    const round = useSelector(getCurrentRound);
     const eps = calculateEPS(numberResult, sessionTime);
     const unexpectedEnd = useSelector(getUnexpectedEnd);
 
@@ -37,10 +41,11 @@ export const Result = () => {
         if (isAuth) {
             dispatch(sendSessionData(null));
         }
-        saveSessionDataInLocalStorage();
+        // saveSessionDataInLocalStorage();
         return () => {
             closeResultHandle();
             dispatch(sessionDataActions.resetExampleList());
+            dispatch(hungerModeActions.setRounds(1));
         };
     }, []);
 
@@ -50,6 +55,7 @@ export const Result = () => {
                 <h3 className={style.title}>{unexpectedEnd ? 'Допущена ошибка' : 'Результаты сессии'}</h3>
                 <div className={style.result}>
                     <ResultItem title="Примеров решено:" value={numberResult} />
+                    {gameMode === 'Голод' && <ResultItem title="Раундов завершено:" value={round - 1} />}
                     <ResultItem title="Ваше время:" value={timeResult} />
                     <ResultItem title="ПВС:" value={eps} description="Примеров в секунду" />
                     <div className={style.buttonContainer}>

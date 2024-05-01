@@ -7,7 +7,7 @@ const initialState: HungerSchema = {
     hungerPoints: 0,
 };
 
-const HungerModeSlice = createSlice({
+const hungerModeSlice = createSlice({
 
     name: 'hungerMode',
     initialState,
@@ -25,6 +25,10 @@ const HungerModeSlice = createSlice({
             state.hungerPoints = action.payload;
         },
 
+        resetHungerPoints: (state) => {
+            state.hungerPoints = 2;
+        },
+
         startRound: (state) => {
             state.isRoundProgress = true;
         },
@@ -36,6 +40,6 @@ const HungerModeSlice = createSlice({
     },
 });
 
-export const { actions: hungerModeActions } = HungerModeSlice;
+export const { actions: hungerModeActions } = hungerModeSlice;
 
-export const { reducer: hungerModeReducer } = HungerModeSlice;
+export const { reducer: hungerModeReducer } = hungerModeSlice;

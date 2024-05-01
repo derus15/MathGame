@@ -5,7 +5,7 @@ import { getInterfaceGameMode } from 'widgets/Interface';
 import { sessionDataActions } from 'entities/SessionData';
 import { StandardMode } from 'features/GameMods/StandardMode';
 import { SprintMode } from 'features/GameMods/SprintMode';
-import { HungerMode } from 'features/GameMods/HungerMode';
+import { HungerMode, hungerModeActions } from 'features/GameMods/HungerMode';
 
 interface GameModsProviderProps {
     startSessionHandler: () => void,
@@ -25,6 +25,7 @@ export const GameModsProvider = ({ startSessionHandler }: GameModsProviderProps)
     useEffect(() => {
         dispatch(sessionDataActions.resetSessionPoints());
         dispatch(sessionDataActions.resetSessionTime());
+        dispatch(hungerModeActions.resetHungerPoints());
     }, []);
 
     return (

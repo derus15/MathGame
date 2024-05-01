@@ -11,6 +11,16 @@
     transition-duration: .3s;
 }
 
+.roundCounter {
+    font-size: 2rem;
+    color: var(--second-active-color);
+    position: absolute;
+    bottom: 127px;
+    left: 15%;
+    animation: init ease-in-out .2s;
+    transition-duration: .3s;
+}
+
 .timerContainerActive {
     justify-content: space-around;
 }

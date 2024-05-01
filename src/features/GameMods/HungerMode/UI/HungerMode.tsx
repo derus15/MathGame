@@ -12,6 +12,7 @@ import { getSessionProgress } from 'entities/Session';
 import { Placeholder } from '../UI/Placeholder/Placeholder';
 import { RoundCounter } from '../UI/Counter/RoundCounter';
 import { hungerModeActions } from 'features/GameMods/HungerMode';
+import { classNames } from 'shared/lib/classNames/classNames';
 
 interface HungerModeProps {
     startSessionHandler: () => void,
@@ -47,23 +48,27 @@ export const HungerMode = ({ startSessionHandler }: HungerModeProps) => {
     useEffect(() => {
         setIsInputFocused(true);
     }, [isRoundProgress]);
-    
+
     if (!isRoundProgress && sessionProgress) {
         return (
             <>
                 <div className={style.timerContainer}>
                     <RoundCounter />
-                </div>;
+                </div>
                 <Placeholder />
             </>
         );
     }
-    
+
     return (
         <>
-            <div className={style.timerContainer}>
-                {sessionProgress ? <HungerTimer /> : <RoundCounter />}
-                <HungerPointsCounter />
+            <div className={classNames('', {
+                [style.timerContainer]: isRoundProgress,
+                [style.roundCounter]: !isRoundProgress,
+            })}
+            >
+                {isRoundProgress ? <HungerTimer /> : <RoundCounter />}
+                {isRoundProgress && <HungerPointsCounter /> }
             </div>
             <Example />
             <ExampleInput

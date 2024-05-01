@@ -17,7 +17,6 @@ export const RoundCounter = () => {
 
         if (currentRounds > rounds && !isRoundProgress) {
             dispatch(sessionActions.endSession());
-            dispatch(hungerModeActions.setRounds(1));
         }
 
         dispatch(hungerModeActions.setHungerPoint(currentRounds * 2));
