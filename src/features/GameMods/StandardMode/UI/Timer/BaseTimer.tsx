@@ -20,13 +20,13 @@ export const BaseTimer = ({ time, onFinishCallback, setTime }: TimerProps) => {
 
                 setTime((prevTime) => {
 
-                    if (prevTime - 0.1 <= 0) {
+                    if (prevTime <= 100) {
                         onFinishCallback();
                         clearInterval(interval);
                         return 0;
                     }
 
-                    return prevTime - 0.1;
+                    return prevTime - 100;
 
                 });
 
@@ -36,8 +36,8 @@ export const BaseTimer = ({ time, onFinishCallback, setTime }: TimerProps) => {
         return () => clearInterval(interval);
     }, [sessionProgress]);
 
-    const seconds = Math.floor(time);
-    const milliseconds = Math.floor((time % 1) * 10); // Получаем десятые доли секунды
+    const seconds = Math.floor(time / 1000);
+    const milliseconds = Math.floor((time % 1000) / 100);
 
     return (
         <>

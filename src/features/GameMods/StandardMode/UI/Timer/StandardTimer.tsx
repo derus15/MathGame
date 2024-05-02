@@ -15,10 +15,10 @@ export const StandardTimer = memo(() => {
     useEffect(() => {
         if (sessionProgress) {
             // сохранение времени в permanentMode
-            dispatch(sessionDataActions.saveSessionTime(duration - Math.floor(timerTime)));
+            dispatch(sessionDataActions.saveSessionTime(duration - Math.floor(timerTime / 1000)));
         } else {
             // слежение за выставленным игроком временем
-            setTimerTime(duration);
+            setTimerTime(duration * 1000);
         }
     }, [timerTime, duration]);
     

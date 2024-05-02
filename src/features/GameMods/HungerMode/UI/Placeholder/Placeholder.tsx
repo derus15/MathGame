@@ -28,7 +28,7 @@ export const Placeholder = () => {
     
     return (
         <div className={style.placeholderContainer}>
-            <span>Раунд {currentRound - 1} завершен</span>
+            <span>Раунд {currentRound} завершен</span>
             <span className={style.textUntil}>Следующий начнется через {timeUntil}</span>
         </div>
     );

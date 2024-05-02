@@ -45,7 +45,7 @@ export const Result = () => {
         return () => {
             closeResultHandle();
             dispatch(sessionDataActions.resetExampleList());
-            dispatch(hungerModeActions.setRounds(1));
+            dispatch(hungerModeActions.setRounds(0));
         };
     }, []);
 
@@ -55,7 +55,7 @@ export const Result = () => {
                 <h3 className={style.title}>{unexpectedEnd ? 'Допущена ошибка' : 'Результаты сессии'}</h3>
                 <div className={style.result}>
                     <ResultItem title="Примеров решено:" value={numberResult} />
-                    {gameMode === 'Голод' && <ResultItem title="Раундов завершено:" value={round - 1} />}
+                    {gameMode === 'Голод' && <ResultItem title="Раундов завершено:" value={round} />}
                     <ResultItem title="Ваше время:" value={timeResult} />
                     <ResultItem title="ПВС:" value={eps} description="Примеров в секунду" />
                     <div className={style.buttonContainer}>

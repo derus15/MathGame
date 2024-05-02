@@ -15,11 +15,11 @@ export const RoundCounter = () => {
 
     useEffect(() => {
 
-        if (currentRounds > rounds && !isRoundProgress) {
+        if (currentRounds === rounds && !isRoundProgress) {
             dispatch(sessionActions.endSession());
         }
 
-        dispatch(hungerModeActions.setHungerPoint(currentRounds * 2));
+        dispatch(hungerModeActions.setHungerPoint(2 * currentRounds + 2));
     }, [rounds]);
 
     return (

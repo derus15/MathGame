@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { HungerSchema } from 'features/GameMods/HungerMode';
 
 const initialState: HungerSchema = {
-    currentRound: 1,
+    currentRound: 0,
     isRoundProgress: false,
     hungerPoints: 0,
 };
