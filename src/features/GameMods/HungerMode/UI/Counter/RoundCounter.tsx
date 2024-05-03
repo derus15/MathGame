@@ -10,6 +10,7 @@ export const RoundCounter = () => {
     const currentRounds = useSelector(getCurrentRound);
     const rounds = useSelector(getInterfaceRounds);
     const isRoundProgress = useSelector(getIsRoundProgress);
+    const exampleStep = 2;
 
     const dispatch = useDispatch();
 
@@ -19,7 +20,7 @@ export const RoundCounter = () => {
             dispatch(sessionActions.endSession());
         }
 
-        dispatch(hungerModeActions.setHungerPoint(2 * currentRounds + 2));
+        dispatch(hungerModeActions.setHungerPoint(exampleStep * currentRounds + exampleStep));
     }, [rounds]);
 
     return (

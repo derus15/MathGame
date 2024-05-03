@@ -26,7 +26,7 @@ const meta = {
     args: {
         focus: fn(),
         onInput: fn(),
-        signalAnswer: 'answer',
+        signal: 'answer',
         onlyNumber: true,
     },
 

@@ -36,7 +36,7 @@ export const StandardMode = ({ startSessionHandler }: StandardModeProps) => {
                 onlyNumber
                 focus={startSessionHandler}
                 onInput={checkAnswer}
-                signalAnswer={answer}
+                signal={answer}
             />
             {__IS_DEV__ && <div style={{ fontSize: '2rem', color: 'white' }}>{answer}</div>}
         </>

@@ -12,6 +12,7 @@ import { RoundCounter } from '../UI/Counter/RoundCounter';
 import { hungerModeActions } from 'features/GameMods/HungerMode';
 import { useCheckAnswer } from '../../common/useCheckAnswer';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { getSessionPoints } from 'entities/SessionData';
 
 interface HungerModeProps {
     startSessionHandler: () => void,
@@ -24,6 +25,7 @@ export const HungerMode = ({ startSessionHandler }: HungerModeProps) => {
 
     const dispatch = useDispatch();
     const sessionProgress = useSelector(getSessionProgress);
+    const globalPoints = useSelector(getSessionPoints);
     const answer = useSelector(getAnswer);
     const { checkAnswer } = useCheckAnswer();
 
@@ -63,7 +65,7 @@ export const HungerMode = ({ startSessionHandler }: HungerModeProps) => {
                 onlyNumber
                 focus={startHungerMode}
                 onInput={checkAnswer}
-                signalAnswer={answer}
+                signal={globalPoints}
             />
             {__IS_DEV__ && <div style={{ fontSize: '2rem', color: 'white' }}>{answer}</div>}
         </>

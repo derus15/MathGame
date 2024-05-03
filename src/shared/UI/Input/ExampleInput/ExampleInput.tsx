@@ -8,7 +8,7 @@ import { getSessionProgress } from 'entities/Session';
 interface ExampleInputProps {
     focus?: () => void;
     onInput?: (e: ChangeEvent<HTMLInputElement>) => void;
-    signalAnswer?: string;
+    signal?: string | number;
     onlyNumber?: boolean;
     autofocus?: boolean;
 }
@@ -17,7 +17,7 @@ const ExampleInput = ({
     focus,
     onlyNumber, 
     autofocus = false,
-    signalAnswer = null,
+    signal = null,
     ...props }: ExampleInputProps) => {
 
     const [answerSignal, setAnswerSignal] = useState(false);
@@ -44,7 +44,7 @@ const ExampleInput = ({
 
     useEffect(() => {
         changeInputColor();
-    }, [signalAnswer]);
+    }, [signal]);
 
     const actionWithSpace = (e: KeyboardEvent): null => {
         if (!sessionProgress && e.keyCode === 32 && inputRef.current) {
