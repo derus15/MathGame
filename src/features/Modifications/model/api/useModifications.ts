@@ -1,7 +1,7 @@
 import { ChangeEvent } from 'react';
 import { testNumber } from 'shared/lib/testNumber/testNumber';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAnswer } from 'entities/Example';
+import { getExampleAnswer } from 'entities/Example';
 import { getModificationsList } from '../selectors/getModificationsList';
 import { sessionActions } from 'entities/Session';
 import { getInterfaceGameMode } from 'widgets/Interface';
@@ -9,7 +9,7 @@ import { hungerModeActions } from 'features/GameMods/HungerMode';
 
 export const useModifications = () => {
 
-    const answer = useSelector(getAnswer);
+    const answer = useSelector(getExampleAnswer);
     const dispatch = useDispatch();
     const modsList = useSelector(getModificationsList);
     const gameMode = useSelector(getInterfaceGameMode);

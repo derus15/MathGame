@@ -9,9 +9,10 @@ export const useRefreshExample = () => {
     const signList = useSelector(getInterfaceSignsList);
 
     const refreshExample = () => {
-        const { example, answer } = generateExample({ signList });
+        const { example, answer, sign } = generateExample({ signList });
         dispatch(exampleActions.setAnswer(answer));
         dispatch(exampleActions.setExample(example));
+        dispatch(exampleActions.setSign(sign));
     };
     
     return { refreshExample };

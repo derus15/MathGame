@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { getAnswer, getExample, useRefreshExample } from 'entities/Example';
+import { getExampleAnswer, getExample, useRefreshExample } from 'entities/Example';
 import { useModifications } from 'features/Modifications';
 import { ChangeEvent, useCallback } from 'react';
 import { sessionDataActions } from 'entities/SessionData';
@@ -7,7 +7,7 @@ import { sessionDataActions } from 'entities/SessionData';
 export const useCheckAnswer = () => {
 
     const dispatch = useDispatch();
-    const answer = useSelector(getAnswer);
+    const answer = useSelector(getExampleAnswer);
     const example = useSelector(getExample);
 
     const { refreshExample } = useRefreshExample();
@@ -21,7 +21,7 @@ export const useCheckAnswer = () => {
             refreshExample();
             e.target.value = '';
         }
-    }, [answer, example]);
+    }, [answer, example, oneTry]);
     
     return {
         checkAnswer,

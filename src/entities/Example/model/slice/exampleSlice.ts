@@ -21,6 +21,10 @@ const exampleSlice = createSlice({
         setExample: (state, action) => {
             state.example = action.payload;
         },
+        
+        setSign: (state, action) => {
+            state.sign = action.payload;
+        },
 
     },
 

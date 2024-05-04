@@ -5,6 +5,8 @@ import { sessionActions } from 'entities/Session';
 import style from './HungerTimer.module.css';
 import { getSessionPoints, getSessionTime, sessionDataActions } from 'entities/SessionData';
 import { hungerModeActions } from 'features/GameMods/HungerMode';
+import { useCalculateHungerTime } from '../../../hooks/useCalculateHungerTime';
+import { getExampleAnswer, getExampleSign } from 'entities/Example';
 
 export const HungerTimer = () => {
 
@@ -12,14 +14,17 @@ export const HungerTimer = () => {
     const [time, setTime] = useState(10_000);
     const [isShowTooltip, setIsShowTooltip] = useState(false);
     const [isStartNewRound, setIsStartNewRound] = useState(false);
+    const [hungerTime, setHungerTime] = useState(2);
 
     const globalTime = useSelector(getSessionTime);
-    const [spentTime, setSpentTime] = useState(globalTime === 0 ? 0 : globalTime);
     const globalPoints = useSelector(getSessionPoints);
+    const answer = useSelector(getExampleAnswer);
+    const sign = useSelector(getExampleSign);
 
     useEffect(() => {
 
         let timeout: ReturnType<typeof setTimeout>;
+        setHungerTime(useCalculateHungerTime(answer, sign));
 
         if (globalPoints > 0 && isStartNewRound) {
 
@@ -28,7 +33,7 @@ export const HungerTimer = () => {
                 setIsShowTooltip(false);
             }, 400);
 
-            setTime((prevState) => prevState + 2000);
+            setTime((prevState) => prevState + (hungerTime * 1000));
         }
 
         return () => clearTimeout(timeout);
@@ -36,8 +41,7 @@ export const HungerTimer = () => {
 
     useEffect(() => {
         if (time % 1000 === 0) {
-            setSpentTime((spentTime) => spentTime + 1);
-            dispatch(sessionDataActions.saveSessionTime(spentTime));
+            dispatch(sessionDataActions.saveSessionTime(globalTime + 1));
         }
     }, [time]);
     
@@ -55,7 +59,7 @@ export const HungerTimer = () => {
             <div className={style.hungerTimer}>
                 <BaseTimer time={time} setTime={setTime} onFinishCallback={endSession} />
             </div>
-            {isShowTooltip && <div className={style.hungerCounter}>+ 2</div>}
+            {isShowTooltip && <div className={style.hungerCounter}>+ {hungerTime}</div>}
         </div>
     );
 };

@@ -1,5 +1,5 @@
 import React, { ChangeEvent } from 'react';
-import { Example, getAnswer, getExample, useRefreshExample } from 'entities/Example';
+import { Example, getExampleAnswer, getExample, useRefreshExample } from 'entities/Example';
 import ExampleInput from 'shared/UI/Input/ExampleInput/ExampleInput';
 import { useDispatch, useSelector } from 'react-redux';
 import { useModifications } from 'features/Modifications';
@@ -13,7 +13,7 @@ interface StandardModeProps {
 export const StandardMode = ({ startSessionHandler }: StandardModeProps) => {
 
     const dispatch = useDispatch();
-    const answer = useSelector(getAnswer);
+    const answer = useSelector(getExampleAnswer);
     const example = useSelector(getExample);
     const { refreshExample } = useRefreshExample();
     const [oneTry] = useModifications();

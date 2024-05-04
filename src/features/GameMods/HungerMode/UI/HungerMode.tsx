@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Example, getAnswer } from 'entities/Example';
+import { Example, getExampleAnswer } from 'entities/Example';
 import ExampleInput from 'shared/UI/Input/ExampleInput/ExampleInput';
 import style from './HungerMode.module.css';
 import { HungerTimer } from './Timer/HungerTimer';
@@ -10,7 +10,7 @@ import { getSessionProgress } from 'entities/Session';
 import { Placeholder } from '../UI/Placeholder/Placeholder';
 import { RoundCounter } from '../UI/Counter/RoundCounter';
 import { hungerModeActions } from 'features/GameMods/HungerMode';
-import { useCheckAnswer } from '../../common/useCheckAnswer';
+import { useCheckAnswer } from 'features/GameMods/hooks/useCheckAnswer';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { getSessionPoints } from 'entities/SessionData';
 
@@ -26,7 +26,7 @@ export const HungerMode = ({ startSessionHandler }: HungerModeProps) => {
     const dispatch = useDispatch();
     const sessionProgress = useSelector(getSessionProgress);
     const globalPoints = useSelector(getSessionPoints);
-    const answer = useSelector(getAnswer);
+    const answer = useSelector(getExampleAnswer);
     const { checkAnswer } = useCheckAnswer();
 
     const startHungerMode = () => {
