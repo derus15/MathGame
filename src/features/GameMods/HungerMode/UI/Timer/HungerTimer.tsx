@@ -40,7 +40,7 @@ export const HungerTimer = () => {
     }, [globalPoints]);
 
     useEffect(() => {
-        if (time % 1000 === 0) {
+        if (time % 1000 === 0 && isStartNewRound) {
             dispatch(sessionDataActions.saveSessionTime(globalTime + 1));
         }
     }, [time]);

@@ -6,6 +6,13 @@ import Select from '../InterfaceSelects/Select/Select';
 import { getInterfaceGameMode } from '../../model/selectors/getInterfaceGameMode';
 import { useRefreshExample } from 'entities/Example';
 import { getSessionProgress } from 'entities/Session';
+import { instructionsActions } from 'widgets/Instructions';
+
+const instructionsObject: Record<string, string> = {
+    'Спринт': 'Решайте примеры, пока они не кончатся',
+    'Стандарт': 'Решайте примеры, пока идет время',
+    'Голод': 'Решайте примеры, продлевая время раунда',
+};
 
 export const ChangeMods = memo(() => {
 
@@ -18,6 +25,7 @@ export const ChangeMods = memo(() => {
     function changeGameModeInSession(mode: string) {
         if (!sessionProgress) {
             dispatch(interfaceActions.changeGameMode(mode));
+            dispatch(instructionsActions.setInstruction(instructionsObject[mode]));
             refreshExample();
         }
     }
