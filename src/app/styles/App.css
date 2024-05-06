@@ -80,6 +80,26 @@ body::-webkit-scrollbar-thumb:active {
     }
 }
 
+.instructionsContainer {
+    position: absolute;
+    width: 100%;
+    top: 75%;
+    animation: blink infinite 2s;
+}
+
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: .7;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 .timer {
     font-size: 2rem;
     color: var(--second-active-color);

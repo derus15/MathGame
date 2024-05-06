@@ -1,30 +1,29 @@
 .instructions {
-    position: absolute;
     color: var(--base-color);
     display: flex;
-    width: 100%;
     justify-content: center;
-    top: 75%;
+    align-items: center;
     font-size: 1.9rem;
     text-align: center;
-    animation: blink infinite 2s;
     fill: var(--active-color);
     transition-duration: .3s;
 }
 
-.instructions.noAnimation {
-    display: none;
+.hidden {
+    animation: delete normal .15s;
 }
 
-.hidden {
-    opacity: 0;
-    animation: delete normal .5s;
+.init {
+    animation: init ease-in-out .15s;
 }
 
 .btn {
     background: transparent;
+    height: 20px;
     border: none;
     cursor: pointer;
+    padding: 0;
+    margin-left: 5px;
 }
 
 @keyframes delete {
@@ -36,14 +35,17 @@
     }
 }
 
-@keyframes blink {
+@keyframes init {
     0% {
-        opacity: 1;
+        opacity: 0;
     }
+
     50% {
-        opacity: .7;
+        opacity: .5;
     }
+
     100% {
         opacity: 1;
     }
+
 }

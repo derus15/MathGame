@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { InstructionsSchema } from '../slice/types';
 
 const initialState: InstructionsSchema = {
-    instruction: null,
+    instruction: 'Для начала сессии нажмите на поле ввода или Space',
 };
 
 const instructionsSlice = createSlice({

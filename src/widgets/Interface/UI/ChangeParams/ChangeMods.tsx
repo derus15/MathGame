@@ -18,7 +18,7 @@ export const ChangeMods = memo(() => {
 
     const dispatch = useDispatch();
     const sessionProgress = useSelector(getSessionProgress);
-    const ModsList = ['Спринт', 'Стандарт'];
+    const ModsList = ['Спринт', 'Стандарт', 'Голод'];
     const currentMode = useSelector(getInterfaceGameMode);
     const { refreshExample } = useRefreshExample();
 
@@ -44,7 +44,6 @@ export const ChangeMods = memo(() => {
                 </Select>
 
             ))}
-            <Select globalState={currentMode}>Скоро...</Select>
         </div>
     );
 });

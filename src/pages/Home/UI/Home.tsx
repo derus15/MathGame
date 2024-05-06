@@ -33,7 +33,9 @@ const Home = () => {
                 <Interface />
             </div>
             <GameModsProvider startSessionHandler={startSessionHandler} />
-            <InstructionsProvider />
+            <div className="instructionsContainer">
+                <InstructionsProvider />
+            </div>
         </PageLayout>
     );
 };

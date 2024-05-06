@@ -11,7 +11,7 @@
 
 Уже в приложении:
 
-- 2 режима игры
+- 3 режима игры
 - Личный аккаунт со статистикой
 - Удобные настройки для игровой сессии
 - 5 тем на выбор
@@ -21,7 +21,7 @@
 - Уровень профиля
 - Подробная статистика в личном кабинете
 - База знаний с советами для устного счета
-- Новый режим игры
+- Новые режимы игры
 - Английский язык
 
 ---
@@ -30,15 +30,15 @@
 
 Already in the app:
 
-- 2 game modes
+- 3 game modes
 - Personal account with statistics
 - Convenient settings for the game session
-- 5 color themes to choose
+- 5 color themes
 
 Application in development. It will be added soon:
 
 - Account level
 - Detailed statistics in the personal account
 - Knowledge base with tips for mental math
-- New game mode
+- New game mods
 - English language
