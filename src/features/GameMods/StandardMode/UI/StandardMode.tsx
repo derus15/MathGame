@@ -1,10 +1,9 @@
-import React, { ChangeEvent } from 'react';
-import { Example, getExampleAnswer, getExample, useRefreshExample } from 'entities/Example';
+import React from 'react';
+import { Example, getExampleAnswer } from 'entities/Example';
 import ExampleInput from 'shared/UI/Input/ExampleInput/ExampleInput';
-import { useDispatch, useSelector } from 'react-redux';
-import { useModifications } from 'features/Modifications';
-import { sessionDataActions } from 'entities/SessionData';
+import { useSelector } from 'react-redux';
 import { StandardTimer } from '../UI/Timer/StandardTimer';
+import { useCheckAnswer } from 'features/GameMods/hooks/useCheckAnswer';
 
 interface StandardModeProps {
     startSessionHandler: () => void,
@@ -12,21 +11,8 @@ interface StandardModeProps {
 
 export const StandardMode = ({ startSessionHandler }: StandardModeProps) => {
 
-    const dispatch = useDispatch();
     const answer = useSelector(getExampleAnswer);
-    const example = useSelector(getExample);
-    const { refreshExample } = useRefreshExample();
-    const [oneTry] = useModifications();
-
-    const checkAnswer = (e: ChangeEvent<HTMLInputElement>) => {
-        oneTry(e);
-        if (e.target.value === answer) {
-            dispatch(sessionDataActions.incrementSessionPoints());
-            dispatch(sessionDataActions.updateExampleList([example, answer]));
-            refreshExample();
-            e.target.value = '';
-        }
-    };
+    const { checkAnswer } = useCheckAnswer();
 
     return (
         <>

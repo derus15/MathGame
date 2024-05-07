@@ -14,9 +14,7 @@ export const SprintTimer = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        const durationNum = Number(duration);
-
-        if (durationNum <= userCounter) {
+        if (duration <= userCounter) {
             dispatch(sessionActions.endSession());
         }
     }, [userCounter]);

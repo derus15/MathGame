@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Example, getExampleAnswer } from 'entities/Example';
 import ExampleInput from 'shared/UI/Input/ExampleInput/ExampleInput';
@@ -21,8 +21,6 @@ interface HungerModeProps {
 export const HungerMode = ({ startSessionHandler }: HungerModeProps) => {
 
     const isRoundProgress = useSelector(getIsRoundProgress);
-    const [isInputFocused, setIsInputFocused] = useState(false);
-
     const dispatch = useDispatch();
     const sessionProgress = useSelector(getSessionProgress);
     const globalPoints = useSelector(getSessionPoints);
@@ -33,10 +31,6 @@ export const HungerMode = ({ startSessionHandler }: HungerModeProps) => {
         startSessionHandler();
         dispatch(hungerModeActions.startRound());
     };
-    
-    useEffect(() => {
-        setIsInputFocused(true);
-    }, [isRoundProgress]);
 
     if (!isRoundProgress && sessionProgress) {
         return (
@@ -61,7 +55,7 @@ export const HungerMode = ({ startSessionHandler }: HungerModeProps) => {
             </div>
             <Example />
             <ExampleInput
-                autofocus={isInputFocused}
+                autofocus={isRoundProgress}
                 onlyNumber
                 focus={startHungerMode}
                 onInput={checkAnswer}
