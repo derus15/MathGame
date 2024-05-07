@@ -5,7 +5,7 @@ import { sessionActions } from 'entities/Session';
 import style from './HungerTimer.module.css';
 import { getSessionPoints, getSessionTime, sessionDataActions } from 'entities/SessionData';
 import { hungerModeActions } from 'features/GameMods/HungerMode';
-import { useCalculateHungerTime } from '../../../hooks/useCalculateHungerTime';
+import { useCalculateHungerTime } from '../../../hooks/useCalculateHungerTime/useCalculateHungerTime';
 import { getExampleAnswer, getExampleSign } from 'entities/Example';
 
 export const HungerTimer = () => {
