@@ -1,12 +1,17 @@
 import webpack from 'webpack';
-import { BuildOptions } from '../../src/app/types/config';
 import { buildCssLoader } from './loaders/buildCssLoaders';
+import { BuildOptions } from './types/types';
 
 export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
 
     const typescriptLoader = {
         test: /\.tsx?$/, //  выбираем какие модули мы обрабатываем ts, tsx. По умолчанию только js
-        use: 'ts-loader',
+        use: [{
+            loader: 'ts-loader',
+            options: {
+                transpileOnly: true,
+            },
+        }],
         exclude: /node_modules/, // node_modules не трогаем
     };
 
@@ -26,7 +31,7 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     };
 
     const babelLoader = {
-        test: /\.(js|jsx|tsx)$/,
+        test: /\.(js|jsx|tsx|ts)$/,
         exclude: /node_modules/,
         use: {
             loader: 'babel-loader',

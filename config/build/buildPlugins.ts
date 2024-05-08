@@ -3,7 +3,8 @@ import HTMLWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ReactRefreshPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
-import { BuildOptions } from '../../src/app/types/config';
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+import { BuildOptions } from './types/types';
 
 export function buildPlugins({ paths, isDev }: BuildOptions): webpack.Configuration['plugins'] {
 
@@ -21,6 +22,7 @@ export function buildPlugins({ paths, isDev }: BuildOptions): webpack.Configurat
         }),
         new webpack.HotModuleReplacementPlugin(),
         new ReactRefreshPlugin(),
+        new ForkTsCheckerWebpackPlugin(),
     ];
 
     if (isDev) {
