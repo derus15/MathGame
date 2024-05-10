@@ -14,10 +14,8 @@ export const sessionSlice = createSlice({
     reducers: {
 
         startSession: (state) => {
-            if (!state.sessionProgress) {
-                state.sessionProgress = true;
-                state.unexpectedEnd = false;
-            }
+            state.sessionProgress = true;
+            state.unexpectedEnd = false;
         },
 
         endSession: (state) => {

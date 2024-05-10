@@ -4,15 +4,13 @@ import ExampleInput from 'shared/UI/Input/ExampleInput/ExampleInput';
 import { useSelector } from 'react-redux';
 import { StandardTimer } from '../UI/Timer/StandardTimer';
 import { useCheckAnswer } from 'features/GameMods/hooks/useCheckAnswer';
+import { useStartSession } from 'features/GameMods/hooks/useStartSession';
 
-interface StandardModeProps {
-    startSessionHandler: () => void,
-}
-
-export const StandardMode = ({ startSessionHandler }: StandardModeProps) => {
+export const StandardMode = () => {
 
     const answer = useSelector(getExampleAnswer);
     const { checkAnswer } = useCheckAnswer();
+    const { startSessionHandler } = useStartSession();
 
     return (
         <>

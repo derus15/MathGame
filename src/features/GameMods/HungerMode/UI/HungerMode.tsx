@@ -13,12 +13,9 @@ import { hungerModeActions } from 'features/GameMods/HungerMode';
 import { useCheckAnswer } from 'features/GameMods/hooks/useCheckAnswer';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { getSessionPoints } from 'entities/SessionData';
+import { useStartSession } from 'features/GameMods/hooks/useStartSession';
 
-interface HungerModeProps {
-    startSessionHandler: () => void,
-}
-
-export const HungerMode = ({ startSessionHandler }: HungerModeProps) => {
+export const HungerMode = () => {
 
     const isRoundProgress = useSelector(getIsRoundProgress);
     const dispatch = useDispatch();
@@ -26,6 +23,7 @@ export const HungerMode = ({ startSessionHandler }: HungerModeProps) => {
     const globalPoints = useSelector(getSessionPoints);
     const answer = useSelector(getExampleAnswer);
     const { checkAnswer } = useCheckAnswer();
+    const { startSessionHandler } = useStartSession();
 
     const startHungerMode = () => {
         startSessionHandler();
