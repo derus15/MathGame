@@ -6,6 +6,7 @@ const initialState: SessionDataSchema = {
     sessionTime: 0,
     sessionEPS: '0.00',
     sessionExampleList: [],
+    sessionIdealTimeFlags: [],
 };
 
 export const sessionDataSlice = createSlice({
@@ -13,6 +14,14 @@ export const sessionDataSlice = createSlice({
     name: 'sessionData',
     initialState,
     reducers: {
+        
+        setSessionTimeFlags: (state) => {
+            state.sessionIdealTimeFlags = [...state.sessionIdealTimeFlags, Date.now()];
+        },
+
+        resetSessionTimeFlags: (state) => {
+            state.sessionIdealTimeFlags = [];
+        },
 
         incrementSessionPoints: (state) => {
             state.sessionPoints += 1;

@@ -19,6 +19,7 @@ const Home = () => {
     const startSessionHandler = () => {
         if (!sessionProgress) {
             dispatch(sessionDataActions.resetExampleList());
+            dispatch(sessionDataActions.setSessionTimeFlags());
         }
         dispatch(sessionActions.startSession());
     };
