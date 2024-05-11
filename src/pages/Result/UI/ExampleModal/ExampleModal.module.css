@@ -9,13 +9,13 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    gap: 50px;
+    gap: 25px;
 }
 
 .exampleContainer {
     display: flex;
     position: relative;
-    padding: 10px;
+    padding: 0 10px 10px 10px;
     flex-direction: column;
     gap: 3px;
     font-size: 28px;
@@ -23,16 +23,30 @@
     color: var(--second-active-color);
 }
 
+.exampleTitle {
+    font-size: 22px;
+    text-align: center;
+    color: var(--base-color);
+    margin-bottom: 20px;
+}
+
 .timeContainer {
     display: flex;
     position: relative;
-    padding: 10px;
+    padding: 0 10px 10px 10px;
     flex-direction: column;
     gap: 3px;
     font-size: 28px;
     text-align: start;
     width: 120px;
     color: var(--second-active-color);
+}
+
+.timeTitle {
+    font-size: 22px;
+    text-align: center;
+    color: var(--base-color);
+    margin-bottom: 20px;
 }
 
 .answer {

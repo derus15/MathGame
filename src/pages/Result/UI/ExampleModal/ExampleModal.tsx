@@ -28,11 +28,13 @@ const ExampleModal = () => {
             <Modal visible={modalExample} setVisible={setModalExample} className={style.exampleModal}>
                 <div className={style.mainContainer}>
                     <div className={style.exampleContainer}>
+                        <span className={style.exampleTitle}>Примеры</span>
                         {exampleList.map((example) => (<span key={Math.random()}>{example}</span>))}
                         {!sprintMode && <span>{lastExample} __</span>}
                         {!exampleList.length && sprintMode && <div>Нет Данных</div>}
                     </div>
                     <div className={style.timeContainer}>
+                        <span className={style.timeTitle}>Время</span>
                         {exampleTime.map((time) => (
 
                             <span key={Math.random()}>
