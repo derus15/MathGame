@@ -6,6 +6,7 @@ import { getModificationsList } from '../selectors/getModificationsList';
 import { sessionActions } from 'entities/Session';
 import { getInterfaceGameMode } from 'widgets/Interface';
 import { hungerModeActions } from 'features/GameMods/HungerMode';
+import { sessionDataActions } from 'entities/SessionData';
 
 export const useModifications = () => {
 
@@ -22,6 +23,7 @@ export const useModifications = () => {
             if (userAnswer === answer.length && e.target.value !== answer) {
                 dispatch(sessionActions.unexpectedEnd());
                 if (gameMode === 'Голод') { dispatch(hungerModeActions.endRound()); }
+                dispatch(sessionDataActions.setSessionTimeFlags());
                 dispatch(sessionActions.endSession());
             }
         }
