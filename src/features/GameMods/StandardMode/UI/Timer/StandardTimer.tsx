@@ -23,6 +23,7 @@ export const StandardTimer = memo(() => {
     }, [duration]);
 
     const endSession = () => {
+        dispatch(sessionDataActions.setSessionTimeFlags());
         dispatch(sessionActions.endSession());
     };
 

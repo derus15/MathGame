@@ -16,6 +16,7 @@ export const useCheckAnswer = () => {
     const checkAnswer = useCallback((e: ChangeEvent<HTMLInputElement>) => {
         oneTry(e);
         if (e.target.value === answer) {
+            dispatch(sessionDataActions.setSessionTimeFlags());
             dispatch(sessionDataActions.incrementSessionPoints());
             dispatch(sessionDataActions.updateExampleList([example, answer]));
             refreshExample();

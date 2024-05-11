@@ -1,3 +1,57 @@
+.exampleModal {
+    min-height: 15vh;
+    max-height: 80vh;
+    min-width: 25vw;
+    overflow-y: scroll;
+}
+
+.mainContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 25px;
+}
+
+.exampleContainer {
+    display: flex;
+    position: relative;
+    padding: 0 10px 10px 10px;
+    flex-direction: column;
+    gap: 3px;
+    font-size: 28px;
+    width: 220px;
+    color: var(--second-active-color);
+}
+
+.exampleTitle {
+    font-size: 22px;
+    text-align: center;
+    color: var(--base-color);
+    margin-bottom: 20px;
+}
+
+.timeContainer {
+    display: flex;
+    position: relative;
+    padding: 0 10px 10px 10px;
+    flex-direction: column;
+    gap: 3px;
+    font-size: 28px;
+    text-align: start;
+    width: 120px;
+    color: var(--second-active-color);
+}
+
+.timeTitle {
+    font-size: 22px;
+    text-align: center;
+    color: var(--base-color);
+    margin-bottom: 20px;
+}
+
+.answer {
+    color: var(--footer-color);
+}
 .exampleModal::-webkit-scrollbar {
     width: 10px;
 }
@@ -25,25 +79,4 @@
 .exampleModal::-webkit-scrollbar-thumb:active {
     background: var(--base-color);
     opacity: 80%;
-}
-
-.exampleModal {
-    min-height: 15vh;
-    max-height: 80vh;
-    min-width: 25vw;
-    overflow-y: scroll;
-}
-
-.exampleContainer {
-    display: flex;
-    position: relative;
-    padding: 10px;
-    flex-direction: column;
-    justify-content: center;
-    font-size: 28px;
-    color: var(--second-active-color);
-}
-
-.answer {
-    color: var(--footer-color);
 }

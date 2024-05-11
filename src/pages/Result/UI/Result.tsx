@@ -46,6 +46,7 @@ export const Result = () => {
             closeResultHandle();
             dispatch(sessionDataActions.resetExampleList());
             dispatch(hungerModeActions.setRounds(0));
+            dispatch(sessionDataActions.resetSessionTimeFlags());
         };
     }, []);
 

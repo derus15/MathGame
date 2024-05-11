@@ -9,11 +9,12 @@ export const useStartSession = () => {
 
     const startSessionHandler = () => {
         if (!sessionProgress) {
-            dispatch(sessionDataActions.resetExampleList());
             dispatch(sessionActions.startSession());
+            dispatch(sessionDataActions.setSessionTimeFlags());
+            dispatch(sessionDataActions.resetExampleList());
         }
     };
 
     return { startSessionHandler };
-    
+
 };
