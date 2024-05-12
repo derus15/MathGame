@@ -46,6 +46,7 @@ export const HungerTimer = () => {
     }, [time]);
     
     const endSession = () => {
+        dispatch(sessionActions.unexpectedEnd());
         dispatch(hungerModeActions.endRound());
         dispatch(sessionActions.endSession());    
     };

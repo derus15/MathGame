@@ -8,13 +8,15 @@ import { getExample } from 'entities/Example';
 import { getInterfaceGameMode } from 'widgets/Interface';
 import { StateSchema } from 'app/Providers/Store/types';
 import { findDifferencesArray } from 'shared/lib/findDifferencesArray/findDifferencesArray';
+import { getUnexpectedEnd } from 'entities/Session/model/selectors/getUnexpectedEnd';
 
 const ExampleModal = () => {
 
     const [modalExample, setModalExample] = useState(false);
-    const lastExample = useSelector(getExample);
+    const lastUnsolvedExample = useSelector(getExample);
     const exampleList = useSelector(getSessionExampleList);
-    const sprintMode = useSelector(getInterfaceGameMode) === 'Спринт';
+    const unexpectedEnd = useSelector(getUnexpectedEnd);
+    const standardMode = useSelector(getInterfaceGameMode) === 'Стандарт';
     const hungerMode = useSelector(getInterfaceGameMode) === 'Голод';
     const exampleTimeList = useSelector((state: StateSchema) => state.sessionData.sessionIdealTimeFlags);
     const exampleTime = findDifferencesArray(exampleTimeList);
@@ -31,8 +33,9 @@ const ExampleModal = () => {
                     <div className={style.exampleContainer}>
                         <span className={style.exampleTitle}>Примеры</span>
                         {exampleList.map((example) => (<span key={Math.random()}>{example}</span>))}
-                        {!sprintMode && <span>{lastExample} __</span>}
-                        {!exampleList.length && sprintMode && <div>Нет Данных</div>}
+                        {(unexpectedEnd || standardMode) && (
+                            <span>{lastUnsolvedExample} __</span>
+                        )}
                     </div>
                     {!hungerMode && (
 
