@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getHungerPoints } from '../../model/selectors/getHungerPoints';
 import { hungerModeActions } from '../../model/slice/hungerModeSlice';
 import { getSessionPoints } from 'entities/SessionData';
-import { getIsRoundProgress } from '../../model/selectors/getIsRoundProgress';
+import { BaseCounter } from './BaseCounter';
 
 export const HungerPointsCounter = () => {
 
@@ -12,8 +12,6 @@ export const HungerPointsCounter = () => {
 
     const globalPoints = useSelector(getSessionPoints);
     const hungerPoints = useSelector(getHungerPoints);
-    const isRoundProgress = useSelector(getIsRoundProgress);
-
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -23,20 +21,16 @@ export const HungerPointsCounter = () => {
     }, [globalPoints]);
 
     useEffect(() => {
-        if (userPoint >= hungerPoints && isRoundProgress) {
-            setUserPoint(0);
-            dispatch(hungerModeActions.endRound());
-            dispatch(hungerModeActions.incrementRound());
-        }
-    }, [userPoint]);
-
-    useEffect(() => {
         setIsStartNewRound(true);
     }, []);
 
+    const endRound = () => {
+        setUserPoint(0);
+        dispatch(hungerModeActions.endRound());
+        dispatch(hungerModeActions.incrementRound());
+    };
+    
     return (
-        <div>
-            {userPoint} | {hungerPoints}
-        </div>
+        <BaseCounter incrementArg={userPoint} targetArg={hungerPoints} mark="|" callback={endRound} />
     );
 };

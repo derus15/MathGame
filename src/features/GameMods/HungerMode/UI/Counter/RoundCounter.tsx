@@ -2,30 +2,25 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCurrentRound, hungerModeActions } from 'features/GameMods/HungerMode';
 import { getInterfaceRounds } from 'widgets/Interface/model/selectors/getInterfaceRounds';
-import { getIsRoundProgress } from 'features/GameMods/HungerMode/model/selectors/getIsRoundProgress';
 import { sessionActions } from 'entities/Session';
+import { BaseCounter } from './BaseCounter';
 
 export const RoundCounter = () => {
 
     const currentRounds = useSelector(getCurrentRound);
     const rounds = useSelector(getInterfaceRounds);
-    const isRoundProgress = useSelector(getIsRoundProgress);
     const exampleStep = 2;
-
     const dispatch = useDispatch();
 
     useEffect(() => {
-
-        if (currentRounds === rounds && !isRoundProgress) {
-            dispatch(sessionActions.endSession());
-        }
-
         dispatch(hungerModeActions.setHungerPoint(exampleStep * currentRounds + exampleStep));
     }, [rounds]);
 
+    const endRound = () => {
+        dispatch(sessionActions.endSession());
+    };
+
     return (
-        <div>
-            {currentRounds} / {rounds}
-        </div>
+        <BaseCounter incrementArg={currentRounds} targetArg={rounds} mark="/" callback={endRound} />
     );
 };
