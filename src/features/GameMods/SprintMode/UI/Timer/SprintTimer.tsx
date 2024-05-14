@@ -1,43 +1,44 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { getSessionProgress, sessionActions } from 'entities/Session';
 import { getInterfaceNumber } from 'widgets/Interface';
-import { getSessionPoints, sessionDataActions } from 'entities/SessionData';
+import { getSessionPoints, getSessionTime, sessionDataActions } from 'entities/SessionData';
+import { BaseCounter } from 'features/GameMods/HungerMode/UI/Counter/BaseCounter';
 
 export const SprintTimer = () => {
 
     const sessionProgress = useSelector(getSessionProgress);
     const duration = useSelector(getInterfaceNumber);
-    const [seconds, setSeconds] = useState(0);
+    const seconds = useSelector(getSessionTime);
     const userCounter = useSelector(getSessionPoints);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        if (duration <= userCounter) {
-            dispatch(sessionActions.endSession());
-        }
-    }, [userCounter]);
-
-    useEffect(() => {
-        if (sessionProgress) {
-            dispatch(sessionDataActions.saveSessionTime(seconds));
-        }
-    }, [seconds]);
-
-    useEffect(() => {
         let interval: ReturnType<typeof setInterval>;
+            
         if (sessionProgress) {
+
             interval = setInterval(() => {
-                setSeconds((time) => time + 1);
+                dispatch(sessionDataActions.saveSessionTime(seconds + 1));
             }, 1000);
+            
         }
         return () => clearInterval(interval);
-    }, [sessionProgress]);
+
+    }, [seconds, sessionProgress]);
+    
+    const endSession = () => {
+        dispatch(sessionActions.endSession());
+    };
 
     return (
-        <div className={classNames('timer', { timerActive: sessionProgress }, [])}>
-            {userCounter} | {duration}
-        </div>
+        <BaseCounter
+            className={classNames('timer', { timerActive: sessionProgress })} 
+            incrementArg={userCounter}
+            targetArg={duration}
+            mark="|"
+            callback={endSession}
+        />
     );
 };

@@ -1,13 +1,15 @@
 import { useEffect } from 'react';
+import { classNames } from 'shared/lib/classNames/classNames';
 
 interface BaseCounterProps {
     incrementArg: number;
     targetArg: number;
     mark: string;
-    callback: () => void,
+    callback: () => void;
+    className?: string;
 }
 
-export const BaseCounter = ({ incrementArg, targetArg, callback, mark }: BaseCounterProps) => {
+export const BaseCounter = ({ incrementArg, targetArg, callback, mark, className }: BaseCounterProps) => {
 
     useEffect(() => {
         if (incrementArg >= targetArg) {
@@ -16,7 +18,7 @@ export const BaseCounter = ({ incrementArg, targetArg, callback, mark }: BaseCou
     }, [incrementArg]);
     
     return (
-        <div>{incrementArg} {mark} {targetArg}</div>
+        <div className={classNames('', {}, [className])}>{incrementArg} {mark} {targetArg}</div>
     );
 
 };
