@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import style from './Result.module.css';
 import { ExampleButton } from 'shared/UI/Button/ExampleButton/ExampleButton';
-import { sessionActions } from 'entities/Session';
+import { getUnexpectedEndText, sessionActions } from 'entities/Session';
 import {
     getSessionPoints, getSessionTime,
     sendSessionData, sessionDataActions,
@@ -10,7 +10,6 @@ import {
 import { getIsAuth } from 'entities/User';
 import { useAppDispatch } from 'shared/lib/hooks/reduxHooks/reduxHooks';
 import { calculateEPS } from 'shared/lib/calculateEPS/calculateEPS';
-import { getUnexpectedEnd } from 'entities/Session/model/selectors/getUnexpectedEnd';
 import ExampleModal from './ExampleModal/ExampleModal';
 import { PageLayout } from 'shared/UI/PageLayout/PageLayout';
 import { timeNormalization } from 'shared/lib/timeNormalization/timeNormalization';
@@ -30,7 +29,7 @@ export const Result = () => {
     const timeResult = timeNormalization(sessionTime, sessionTime >= 3600);
     const round = useSelector(getCurrentRound);
     const eps = calculateEPS(numberResult, sessionTime);
-    const unexpectedEnd = useSelector(getUnexpectedEnd);
+    const sessionTextEnd = useSelector(getUnexpectedEndText);
 
     const closeResultHandle = () => {
         dispatch(sessionActions.closeResultPage());
@@ -47,13 +46,14 @@ export const Result = () => {
             dispatch(sessionDataActions.resetExampleList());
             dispatch(hungerModeActions.setRounds(0));
             dispatch(sessionDataActions.resetSessionTimeFlags());
+            dispatch(sessionActions.unexpectedEnd(null));
         };
     }, []);
 
     return (
         <PageLayout>
             <div className={style.resultContainer}>
-                <h3 className={style.title}>{unexpectedEnd ? 'Допущена ошибка' : 'Результаты сессии'}</h3>
+                <h3 className={style.title}>{sessionTextEnd}</h3>
                 <div className={style.result}>
                     <ResultItem title="Примеров решено:" value={numberResult} />
                     {gameMode === 'Голод' && <ResultItem title="Раундов завершено:" value={round} />}

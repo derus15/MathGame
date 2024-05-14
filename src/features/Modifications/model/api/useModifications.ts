@@ -21,7 +21,7 @@ export const useModifications = () => {
         if (oneTry && isNumber) {
             const userAnswer = String(e.target.value).length;
             if (userAnswer === answer.length && e.target.value !== answer) {
-                dispatch(sessionActions.unexpectedEnd());
+                dispatch(sessionActions.unexpectedEnd('Допущена ошибка'));
                 if (gameMode === 'Голод') { dispatch(hungerModeActions.endRound()); }
                 dispatch(sessionDataActions.setSessionTimeFlags());
                 dispatch(sessionActions.endSession());

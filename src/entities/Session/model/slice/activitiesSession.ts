@@ -5,6 +5,7 @@ const initialState: SessionSchema = {
     sessionProgress: false,
     result: false,
     unexpectedEnd: false,
+    unexpectedEndText: 'Результаты сессии',
 };
 
 export const sessionSlice = createSlice({
@@ -25,10 +26,19 @@ export const sessionSlice = createSlice({
             }
         },
 
-        unexpectedEnd: (state) => {
+        unexpectedEnd: (state, action) => {
             if (state.sessionProgress) {
                 state.unexpectedEnd = true;
             }
+
+            if (action.payload === null) {
+
+                state.unexpectedEndText = 'Результаты сессии';
+            } else {
+
+                state.unexpectedEndText = action.payload;
+            }
+
         },
 
         resetSessionProgress: (state) => {
