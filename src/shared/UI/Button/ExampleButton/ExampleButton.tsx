@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, FC } from 'react';
+import React, { ButtonHTMLAttributes, FC, memo } from 'react';
 import style from './ExampleButton.module.css';
 import { classNames } from 'shared/lib/classNames/classNames';
 
@@ -7,7 +7,7 @@ interface buttonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string,
 }
 
-export const ExampleButton: FC<buttonProps> = ({ 
+export const ExampleButton: FC<buttonProps> = memo(({
     className, 
     children = 'Кнопка',
     random = false,
@@ -26,4 +26,4 @@ export const ExampleButton: FC<buttonProps> = ({
             </button>
         </div>
     );
-};
+});

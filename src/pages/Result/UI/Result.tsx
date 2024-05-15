@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import style from './Result.module.css';
 import { ExampleButton } from 'shared/UI/Button/ExampleButton/ExampleButton';
@@ -32,9 +32,9 @@ export const Result = () => {
     const sessionTextEnd = useSelector(getUnexpectedEndText);
     const { sendSessionData } = useSendSessionData();
     
-    const closeResultHandle = () => {
+    const closeResultHandle = useCallback(() => {
         dispatch(sessionActions.closeResultPage());
-    };
+    }, []);
 
     useEffect(() => {
         dispatch(sessionDataActions.saveEPS(eps));
