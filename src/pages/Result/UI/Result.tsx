@@ -5,7 +5,7 @@ import { ExampleButton } from 'shared/UI/Button/ExampleButton/ExampleButton';
 import { getUnexpectedEndText, sessionActions } from 'entities/Session';
 import {
     getSessionPoints, getSessionTime,
-    sendSessionData, sessionDataActions,
+    sessionDataActions, useSendSessionData,
 } from 'entities/SessionData';
 import { getIsAuth } from 'entities/User';
 import { useAppDispatch } from 'shared/lib/hooks/reduxHooks/reduxHooks';
@@ -30,7 +30,8 @@ export const Result = () => {
     const round = useSelector(getCurrentRound);
     const eps = calculateEPS(numberResult, sessionTime);
     const sessionTextEnd = useSelector(getUnexpectedEndText);
-
+    const { sendSessionData } = useSendSessionData();
+    
     const closeResultHandle = () => {
         dispatch(sessionActions.closeResultPage());
     };
@@ -38,7 +39,7 @@ export const Result = () => {
     useEffect(() => {
         dispatch(sessionDataActions.saveEPS(eps));
         if (isAuth) {
-            dispatch(sendSessionData(null));
+            sendSessionData();
         }
         // saveSessionDataInLocalStorage();
         return () => {

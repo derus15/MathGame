@@ -9,16 +9,15 @@ import { RegisterSchema } from 'features/RegisterByUsername';
 import { InitAuthDataSchema } from 'widgets/Header';
 import { UpdateUserDataSchema } from 'features/UpdateUserData';
 import { HighlightBoardSchema } from 'widgets/AccountHighlightsBoards';
-import { AccountSchema } from 'widgets/AccountUserInfo';
 import { FactorySchema } from 'features/GameMods/FactoryMode';
 import { InstructionsSchema } from 'widgets/Instructions';
 import { HungerSchema } from 'features/GameMods/HungerMode';
+import { rtkApi } from 'shared/api/rtkApi';
 
 export interface StateSchema {
     sessionData: SessionDataSchema,
     interface: InterfaceSchema,
     example: ExampleSchema,
-    account: AccountSchema,
     session: SessionSchema,
     modifications: ModificationsSchema,
     user: UserSchema,
@@ -30,4 +29,5 @@ export interface StateSchema {
     factoryMode: FactorySchema,
     instructions: InstructionsSchema,
     hungerMode: HungerSchema,
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
 }

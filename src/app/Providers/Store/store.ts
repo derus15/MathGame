@@ -10,17 +10,16 @@ import { registerReducer } from 'features/RegisterByUsername';
 import { initAuthDataReducer } from 'widgets/Header';
 import { userDataReducer } from 'features/UpdateUserData';
 import { highlightBoardReducer } from 'widgets/AccountHighlightsBoards';
-import { accountReducer } from 'widgets/AccountUserInfo';
 import { factoryModeReducer } from 'features/GameMods/FactoryMode';
 import { instructionsReducer } from 'widgets/Instructions';
 import { hungerModeReducer } from 'features/GameMods/HungerMode';
+import { rtkApi } from 'shared/api/rtkApi';
 
 export const store = configureStore({
     reducer: {
         sessionData: sessionDataReducer,
         interface: interfaceReducer,
         example: exampleReducer,
-        account: accountReducer,
         session: sessionReducer,
         modifications: modificationsReducer,
         user: userReducer,
@@ -32,7 +31,9 @@ export const store = configureStore({
         factoryMode: factoryModeReducer,
         instructions: instructionsReducer,
         hungerMode: hungerModeReducer,
+        [rtkApi.reducerPath]: rtkApi.reducer,
     },
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(rtkApi.middleware),
 });
 
 export type AppDispatch = typeof store.dispatch

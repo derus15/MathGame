@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { SessionDataSchema } from './types';
+import { SessionDataSchema } from '../types/types';
 
 const initialState: SessionDataSchema = {
     sessionPoints: 0,

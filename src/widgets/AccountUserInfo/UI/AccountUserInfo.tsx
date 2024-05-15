@@ -2,35 +2,28 @@ import React from 'react';
 import style from './AccountUserInfo.module.css';
 import Avatar from '../../../../public/assets/Avatar.jpg';
 import { UpdateUserButton } from 'features/UpdateUserData';
-import { useSelector } from 'react-redux';
+import { useGetAccountInfoQuery } from '../api/accountUserInfoApi';
 import { timeNormalization } from 'shared/lib/timeNormalization/timeNormalization';
-import { getTotalTime } from '../model/selectors/getTotalTime';
-import { getTotalExample } from '../model/selectors/getTotalExample';
-import { getAccountName } from '../model/selectors/getAccountName';
 
 export const AccountUserInfo = () => {
-    
-    const totalTime = useSelector(getTotalTime);
-    const totalExample = useSelector(getTotalExample);
-    const name = useSelector(getAccountName);
 
-    const normalizeTotalTime = timeNormalization(totalTime);
+    const { data } = useGetAccountInfoQuery();
+    const normalizeTotalTime = timeNormalization(data.counterTime?.[0]?.total_time);
 
     return (
         <div className={style.avatarBackground}>
-
             <div className={style.positionCircleContainer}>
 
                 <div className={style.circleContainer}>
                     <span className={style.circleTitle}>Решено примеров</span>
                     <div className={style.circle}>
-                        {totalExample || 0}
+                        {data.counterExample?.[0]?.total_example || 0}
                     </div>
                 </div>
 
                 <div className={style.circleAvatar}>
                     <img src={Avatar} alt="Аватарка" className={style.avatarImage} />
-                    <div className={style.userName}>{name}</div>
+                    <div className={style.userName}>{data.user?.name}</div>
                 </div>
 
                 <div className={style.circleContainer}>
