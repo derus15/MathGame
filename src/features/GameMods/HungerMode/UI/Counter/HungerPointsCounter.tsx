@@ -8,20 +8,20 @@ import { BaseCounter } from './BaseCounter';
 export const HungerPointsCounter = () => {
 
     const [userPoint, setUserPoint] = useState(0);
-    const [isStartNewRound, setIsStartNewRound] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
 
     const globalPoints = useSelector(getSessionPoints);
     const hungerPoints = useSelector(getHungerPoints);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        if (isStartNewRound) {
+        if (isMounted) {
             setUserPoint((prev) => prev + 1);
         }
     }, [globalPoints]);
 
     useEffect(() => {
-        setIsStartNewRound(true);
+        setIsMounted(true);
     }, []);
 
     const endRound = () => {
