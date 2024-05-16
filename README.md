@@ -9,12 +9,15 @@
 
 **MathGame** - кастомное веб-приложение для тренировки устного счета. Для погружения в состояние потока на сайте отсутствует кнопка подтверждения ответа. При верном решении пример сменится на следующий
 
+![](public/assets/MgExample.gif)
+
 Уже в приложении:
 
 - 3 режима игры
+- Гибкие настройки для игровой сессии
 - Личный аккаунт со статистикой
-- Удобные настройки для игровой сессии
-- 5 тем на выбор
+- Модификаторы для усложнения сессии
+- 5 цветовых тем
 
 Приложение находится на стадии разработки. В ближайшее время будет добавлено:
 
@@ -23,22 +26,29 @@
 - База знаний с советами для устного счета
 - Новые режимы игры
 - Английский язык
+- Сиды для повторения сессий
+- Система достижений
 
 ---
 
 **MathGame** is a custom web application for practicing mental arithmetic. There is no answer confirmation button on the site to dive into the flow state. If the solution is correct, the example will change to the next one
 
+![](public/assets/MgExample.gif)
+
 Already in the app:
 
 - 3 game modes
+- Flexible settings for game session
 - Personal account with statistics
-- Convenient settings for the game session
+- Modifiers to make the session more difficult
 - 5 color themes
 
 Application in development. It will be added soon:
 
 - Account level
-- Detailed statistics in the personal account
+- Detailed statistics in your account
 - Knowledge base with tips for mental math
-- New game mods
+- New game modes
 - English language
+- Seeds for repeating sessions
+- Achievement System
