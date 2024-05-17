@@ -6,7 +6,6 @@ import { SessionDataSchema } from 'entities/SessionData';
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/LoginByUsername';
 import { RegisterSchema } from 'features/RegisterByUsername';
-import { InitAuthDataSchema } from 'widgets/Header';
 import { UpdateUserDataSchema } from 'features/UpdateUserData';
 import { HighlightBoardSchema } from 'widgets/AccountHighlightsBoards';
 import { FactorySchema } from 'features/GameMods/FactoryMode';
@@ -23,7 +22,6 @@ export interface StateSchema {
     user: UserSchema,
     login: LoginSchema,
     register: RegisterSchema,
-    initAuthData: InitAuthDataSchema,
     userData: UpdateUserDataSchema,
     highlightBoard: HighlightBoardSchema,
     factoryMode: FactorySchema,
