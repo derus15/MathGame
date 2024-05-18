@@ -1,13 +1,13 @@
+import { rtkApi } from 'shared/api/rtkApi';
 import { userActions } from 'entities/User';
 import { toast } from 'react-toastify';
-import { LoginParamsData, TokenSchema } from '../types/types';
-import { rtkApi } from 'shared/api/rtkApi';
+import { RegisterParamsData, TokenSchema } from '../types/types';
 
-const authApi = rtkApi.injectEndpoints({
+const registerApi = rtkApi.injectEndpoints({
     endpoints: (builder) => ({
-        loginByUsername: builder.mutation<TokenSchema, LoginParamsData>({
+        registerByUsername: builder.mutation<TokenSchema, RegisterParamsData>({
             query: (body) => ({
-                url: '/auth/login',
+                url: '/auth/register',
                 method: 'POST',
                 body,
             }),
@@ -18,7 +18,7 @@ const authApi = rtkApi.injectEndpoints({
                     const { data } = await queryFulfilled;
                     dispatch(userActions.setAuth(true));
                     localStorage.setItem('token', data.token);
-                    
+
                 } catch (error) {
                     if (error?.error?.data?.message) {
                         toast.error(error.error.data.message);
@@ -31,4 +31,4 @@ const authApi = rtkApi.injectEndpoints({
     }),
 });
 
-export const { useLoginByUsernameMutation } = authApi;
+export const { useRegisterByUsernameMutation } = registerApi;

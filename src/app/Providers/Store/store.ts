@@ -5,7 +5,6 @@ import { modificationsReducer } from 'features/Modifications';
 import { sessionReducer } from 'entities/Session';
 import { sessionDataReducer } from 'entities/SessionData';
 import { userReducer } from 'entities/User';
-import { registerReducer } from 'features/RegisterByUsername';
 import { userDataReducer } from 'features/UpdateUserData';
 import { highlightBoardReducer } from 'widgets/AccountHighlightsBoards';
 import { factoryModeReducer } from 'features/GameMods/FactoryMode';
@@ -21,7 +20,6 @@ export const store = configureStore({
         session: sessionReducer,
         modifications: modificationsReducer,
         user: userReducer,
-        register: registerReducer,
         userData: userDataReducer,
         highlightBoard: highlightBoardReducer,
         factoryMode: factoryModeReducer,

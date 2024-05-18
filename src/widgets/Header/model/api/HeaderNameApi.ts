@@ -5,6 +5,7 @@ const headerNameApi = rtkApi.injectEndpoints({
     endpoints: (build) => ({
         getHeaderName: build.query<HeaderNameSchema, boolean>({
             query: () => '/account/name',
+            providesTags: ['Account'],
         }),
     }),
 });

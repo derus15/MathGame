@@ -6,22 +6,18 @@ import style from './RegisterForm.module.css';
 import AuthInput from 'shared/UI/Input/AuthInput/AuthInput';
 import { LoginButton } from 'shared/UI/Button/LoginButton/LoginButton';
 import Loader from 'shared/UI/Loader/Loader';
-import { getRegisterLoadingStatus, registerByUsername } from 'features/RegisterByUsername';
 import { getIsAuth } from 'entities/User';
-import { RegisterParamsData } from '../../model/slice/types';
-import { useAppDispatch } from 'shared/lib/hooks/reduxHooks/reduxHooks';
+import { RegisterParamsData } from '../../model/types/types';
+import { useRegisterByUsernameMutation } from 'features/RegisterByUsername/model/api/registerByUsernameApi';
 
 export const RegisterForm = () => {
 
-    const dispatch = useAppDispatch();
     const isAuth = useSelector(getIsAuth);
-    const status = useSelector(getRegisterLoadingStatus);
-    const isLoading = status === 'loading';
-
+    const [registerByUsername, { isLoading }] = useRegisterByUsernameMutation();
     const { handleSubmit, register } = useForm({ mode: 'onChange' });
 
     const onSubmit = async (values: RegisterParamsData) => {
-        dispatch(registerByUsername(values));
+        registerByUsername(values);
     };
 
     if (isAuth) {

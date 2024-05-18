@@ -7,7 +7,7 @@ const accountInfo = rtkApi.injectEndpoints({
             query: () => ({
                 url: '/account',
             }),
-            providesTags: ['Session'],
+            providesTags: ['Session', 'Account'],
         }),
     }),
 });

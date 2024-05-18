@@ -16,6 +16,6 @@ export const rtkApi = createApi({
             },
         },
     ),
-    tagTypes: ['Session'],
+    tagTypes: ['Session', 'Account'],
     endpoints: (builder) => ({}),
 });
