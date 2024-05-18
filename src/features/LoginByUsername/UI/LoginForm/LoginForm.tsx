@@ -8,17 +8,15 @@ import Checkbox from 'shared/UI/Checkbox/Checkbox';
 import Loader from 'shared/UI/Loader/Loader';
 import { getIsAuth } from 'entities/User';
 import { Navigate } from 'react-router-dom';
-import { getLoginLoadingStatus } from '../../model/selectors/getLoginLoadingStatus';
-import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
-import { LoginParamsData } from 'features/LoginByUsername/model/slice/types';
-import { useAppDispatch } from 'shared/lib/hooks/reduxHooks/reduxHooks';
+import { useLoginByUsernameMutation } from '../../model/api/loginByUsernameApi';
+import { LoginParamsData } from '../../model/types/types';
+import { toast } from 'react-toastify';
 
 export const LoginForm = memo(() => {
 
     const [isRemember, setIsRemember] = useState(JSON.parse(localStorage.getItem('remember')) || false);
     const isAuth = useSelector(getIsAuth);
-    const dispatch = useAppDispatch();
-    const isLoading = useSelector(getLoginLoadingStatus) === 'loading';
+    const [loginByUsername, { isLoading }] = useLoginByUsernameMutation();
 
     const { handleSubmit, register } = useForm({
         mode: 'onChange',
@@ -27,6 +25,7 @@ export const LoginForm = memo(() => {
             password: isRemember ? localStorage.getItem('password') : '',
         },
     });
+
     const onSubmit = (values: LoginParamsData) => {
 
         if (isRemember) {
@@ -34,9 +33,18 @@ export const LoginForm = memo(() => {
             localStorage.setItem('password', values.password);
         }
 
-        dispatch(loginByUsername(values));
-        localStorage.setItem('remember', isRemember);
+        if (!values.email) {
+            toast.error('Некорректная почта');
+            return;
+        }
 
+        if (!values.password) {
+            toast.error('Некорректный пароль');
+            return;
+        }
+
+        loginByUsername(values);
+        localStorage.setItem('remember', isRemember.toString());
     };
 
     if (isAuth) {

@@ -5,7 +5,6 @@ import { modificationsReducer } from 'features/Modifications';
 import { sessionReducer } from 'entities/Session';
 import { sessionDataReducer } from 'entities/SessionData';
 import { userReducer } from 'entities/User';
-import { loginReducer } from 'features/LoginByUsername';
 import { registerReducer } from 'features/RegisterByUsername';
 import { userDataReducer } from 'features/UpdateUserData';
 import { highlightBoardReducer } from 'widgets/AccountHighlightsBoards';
@@ -22,7 +21,6 @@ export const store = configureStore({
         session: sessionReducer,
         modifications: modificationsReducer,
         user: userReducer,
-        login: loginReducer,
         register: registerReducer,
         userData: userDataReducer,
         highlightBoard: highlightBoardReducer,
