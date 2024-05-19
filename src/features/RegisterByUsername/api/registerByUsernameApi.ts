@@ -1,7 +1,7 @@
 import { rtkApi } from 'shared/api/rtkApi';
 import { userActions } from 'entities/User';
 import { toast } from 'react-toastify';
-import { RegisterParamsData, TokenSchema } from '../types/types';
+import { RegisterParamsData, TokenSchema } from '../model/types/types';
 
 const registerApi = rtkApi.injectEndpoints({
     endpoints: (builder) => ({

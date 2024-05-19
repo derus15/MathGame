@@ -3,16 +3,15 @@ import style from './CheckValidPassword.module.css';
 import AuthInput from 'shared/UI/Input/AuthInput/AuthInput';
 import { LoginButton } from 'shared/UI/Button/LoginButton/LoginButton';
 import { useForm } from 'react-hook-form';
-import { checkValidPassword } from '../../model/services/checkValidPassword';
-import { useAppDispatch } from 'shared/lib/hooks/reduxHooks/reduxHooks';
+import { useCheckValidPasswordMutation } from 'features/UpdateUserData/api/checkValidPasswordApi';
 
 export const CheckValidPassword = () => {
 
-    const dispatch = useAppDispatch();
+    const [checkValidPassword] = useCheckValidPasswordMutation();
     const { handleSubmit, register } = useForm({ mode: 'onChange' });
 
     const checkPassword = (values: string) => {
-        dispatch(checkValidPassword(values));
+        checkValidPassword(values);
     };
     
     return (

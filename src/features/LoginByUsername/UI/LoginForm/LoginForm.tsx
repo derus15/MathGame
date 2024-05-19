@@ -8,7 +8,7 @@ import Checkbox from 'shared/UI/Checkbox/Checkbox';
 import Loader from 'shared/UI/Loader/Loader';
 import { getIsAuth } from 'entities/User';
 import { Navigate } from 'react-router-dom';
-import { useLoginByUsernameMutation } from '../../model/api/loginByUsernameApi';
+import { useLoginByUsernameMutation } from 'features/LoginByUsername/api/loginByUsernameApi';
 import { LoginParamsData } from '../../model/types/types';
 import { toast } from 'react-toastify';
 

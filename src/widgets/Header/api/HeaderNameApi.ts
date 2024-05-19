@@ -1,5 +1,5 @@
 import { rtkApi } from 'shared/api/rtkApi';
-import { HeaderNameSchema } from '../types/types';
+import { HeaderNameSchema } from '../model/types/types';
 
 const headerNameApi = rtkApi.injectEndpoints({
     endpoints: (build) => ({

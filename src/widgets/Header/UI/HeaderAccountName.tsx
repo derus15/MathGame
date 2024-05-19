@@ -7,7 +7,7 @@ import LogoutSvg from '/public/assets/logout.svg';
 import { getIsAuth, userActions } from 'entities/User';
 import { useAppDispatch } from 'shared/lib/hooks/reduxHooks/reduxHooks';
 import Loader from 'shared/UI/Loader/Loader';
-import { useGetHeaderNameQuery } from '../model/api/HeaderNameApi';
+import { useGetHeaderNameQuery } from 'widgets/Header/api/HeaderNameApi';
 
 const HeaderAccountName = () => {
 

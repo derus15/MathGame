@@ -1,6 +1,6 @@
 import { userActions } from 'entities/User';
 import { toast } from 'react-toastify';
-import { LoginParamsData, TokenSchema } from '../types/types';
+import { LoginParamsData, TokenSchema } from '../model/types/types';
 import { rtkApi } from 'shared/api/rtkApi';
 
 const authApi = rtkApi.injectEndpoints({
