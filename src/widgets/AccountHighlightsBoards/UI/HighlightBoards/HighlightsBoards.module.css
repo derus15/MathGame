@@ -28,6 +28,25 @@
     font-size: 18px;
 }
 
+.gameModeTitle {
+    position: absolute;
+    top: -25px;
+    background: var(--interface-background-color);
+    font-size: 14px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    color: var(--active-color);
+    padding: 5px 15px 5px 15px;
+}
+
+.gameModeTitleFocus {
+    animation: enter .250s ease-in-out;
+}
+
+.gameModeTitleBlur {
+    animation: exit .125s ease-in-out;
+}
+
 .descriptionProps {
     position: absolute;
     left: 10px;
@@ -106,4 +125,37 @@
         opacity: 0;
     }
 
+}
+
+@keyframes enter {
+    0% {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes exit {
+    0% {
+        opacity: 1;
+        transform: translateY(0)
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(25px);
+
+    }
 }

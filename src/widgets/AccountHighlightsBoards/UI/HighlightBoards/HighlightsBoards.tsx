@@ -6,6 +6,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 interface HighlightsBoardsProps {
     dataList?: HighlightsBoard[]
     description?: string
+    label?: string
 }
 
 const defaultProps: HighlightsBoard[] = [{
@@ -24,41 +25,62 @@ const defaultProps: HighlightsBoard[] = [{
     additionalParameter: '—', 
 }];
 
-export const HighlightsBoards = ({ dataList = defaultProps, description }: HighlightsBoardsProps) => {
-    
-    const [isFocus, setIsFocus] = useState(false);
-    const [deleteAnimationFlag, setDeleteAnimationFlag] = useState(false);
-    
+export const HighlightsBoards = ({ dataList = defaultProps, description, label }: HighlightsBoardsProps) => {
+
+    const [isVisible, setIsVisible] = useState(false);
+    const [deleteAnimationFlagDescription, setDeleteAnimationFlagDescription] = useState(false);
+    const [deleteAnimationFlagLabels, setDeleteAnimationFlagLabels] = useState(false);
+
     const onMouseEnterHandle = () => {
-        setIsFocus(true);
+        setIsVisible(true);
     };
-    
+
     const onMouseLeaveHandle = () => {
-        setDeleteAnimationFlag(true);
-        setTimeout(() => { setIsFocus(false); setDeleteAnimationFlag(false); }, 100);
+        setDeleteAnimationFlagDescription(true);
+        setDeleteAnimationFlagLabels(true);
+
+        setTimeout(() => {
+            setDeleteAnimationFlagLabels(false);
+        }, 250);
+
+        setTimeout(() => {
+            setDeleteAnimationFlagDescription(false);
+            setIsVisible(false);
+        }, 125);
+
     };
-    
+
     return (
-        <div 
+        <div
             className={style.highlightContainer}
             onMouseEnter={onMouseEnterHandle}
             onMouseLeave={onMouseLeaveHandle}
         >
-            {isFocus && (
-                <span
-                    title="Примеров в секунду"
-                    className={classNames(style.epsDescription, {
-                        [style.descriptionFocus]: isFocus,
-                        [style.descriptionBlur]: deleteAnimationFlag,
-                    })}
-                >
-                    ПВС
-                </span>
+            {isVisible && (
+                <>
+                    <span
+                        title="Примеров в секунду"
+                        className={classNames(style.epsDescription, {
+                            [style.descriptionFocus]: !deleteAnimationFlagDescription,
+                            [style.descriptionBlur]: deleteAnimationFlagDescription,
+                        })}
+                    >
+                        ПВС
+                    </span>
+                    <span
+                        className={classNames(style.gameModeTitle, {
+                            [style.gameModeTitleFocus]: !deleteAnimationFlagLabels,
+                            [style.gameModeTitleBlur]: deleteAnimationFlagLabels,
+                        })}
+                    >
+                        {label}
+                    </span>
+                </>
             )}
-            {isFocus && description && (
+            {isVisible && description && (
                 <span className={classNames(style.descriptionProps, {
-                    [style.descriptionFocus]: isFocus,
-                    [style.descriptionBlur]: deleteAnimationFlag,
+                    [style.descriptionFocus]: isVisible,
+                    [style.descriptionBlur]: deleteAnimationFlagDescription,
                 })}
                 >
                     {description}

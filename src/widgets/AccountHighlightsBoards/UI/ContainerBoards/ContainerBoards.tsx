@@ -12,8 +12,8 @@ export const ContainerBoards = () => {
     
     return (
         <div className={style.containerBoards}>
-            <HighlightsBoards dataList={timeBoardList} />
-            <HighlightsBoards dataList={numberBoardList} />
+            <HighlightsBoards dataList={timeBoardList} label="Стандарт" />
+            <HighlightsBoards dataList={numberBoardList} label="Спринт" />
         </div>
     );
 };
