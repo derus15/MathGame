@@ -39,7 +39,7 @@ export const Result = () => {
     useEffect(() => {
         dispatch(sessionDataActions.saveEPS(eps));
         if (isAuth) {
-            sendSessionData();
+            sendSessionData(eps);
         }
         // saveSessionDataInLocalStorage();
         return () => {

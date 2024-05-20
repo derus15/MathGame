@@ -1,5 +1,3 @@
-import { LoadingStatus } from 'app/types/config';
-
 export interface HighlightsBoard {
     title: string,
     eps: string,
@@ -9,5 +7,4 @@ export interface HighlightsBoard {
 export interface HighlightBoardSchema {
     timeBoard: HighlightsBoard[],
     numberBoard: HighlightsBoard[],
-    loadingStatus: LoadingStatus,
 }

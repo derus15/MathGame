@@ -6,7 +6,6 @@ import { sessionReducer } from 'entities/Session';
 import { sessionDataReducer } from 'entities/SessionData';
 import { userReducer } from 'entities/User';
 import { userDataReducer } from 'features/UpdateUserData';
-import { highlightBoardReducer } from 'widgets/AccountHighlightsBoards';
 import { factoryModeReducer } from 'features/GameMods/FactoryMode';
 import { instructionsReducer } from 'widgets/Instructions';
 import { hungerModeReducer } from 'features/GameMods/HungerMode';
@@ -21,7 +20,6 @@ export const store = configureStore({
         modifications: modificationsReducer,
         user: userReducer,
         userData: userDataReducer,
-        highlightBoard: highlightBoardReducer,
         factoryMode: factoryModeReducer,
         instructions: instructionsReducer,
         hungerMode: hungerModeReducer,

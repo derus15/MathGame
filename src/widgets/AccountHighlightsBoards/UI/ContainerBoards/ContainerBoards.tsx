@@ -1,19 +1,16 @@
 import React from 'react';
 import style from './ContainerBoards.module.css';
 import { HighlightsBoards } from '../HighlightBoards/HighlightsBoards';
-import { useSelector } from 'react-redux';
-import { getTimeBoard } from '../../model/selectors/getTimeBoard';
-import { getNumberBoard } from '../../model/selectors/getNumberBoard';
+import { useGetHighlightBoardQuery } from 'widgets/AccountHighlightsBoards/api/AccountHighlightBoardApi';
 
 export const ContainerBoards = () => {
 
-    const timeBoardList = useSelector(getTimeBoard);
-    const numberBoardList = useSelector(getNumberBoard);
+    const { data: highlightsBoards } = useGetHighlightBoardQuery();
     
     return (
         <div className={style.containerBoards}>
-            <HighlightsBoards dataList={timeBoardList} label="Стандарт" />
-            <HighlightsBoards dataList={numberBoardList} label="Спринт" />
+            <HighlightsBoards highlightBoardValue={highlightsBoards.timeBoard} label="Стандарт" />
+            <HighlightsBoards highlightBoardValue={highlightsBoards.numberBoard} label="Спринт" />
         </div>
     );
 };

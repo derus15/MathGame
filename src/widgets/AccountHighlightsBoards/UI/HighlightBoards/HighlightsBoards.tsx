@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import style from './HighlightsBoards.module.css';
-import { HighlightsBoard } from '../../model/slice/types';
+import { HighlightsBoard } from '../../model/types/types';
 import { classNames } from 'shared/lib/classNames/classNames';
 
 interface HighlightsBoardsProps {
-    dataList?: HighlightsBoard[]
+    highlightBoardValue?: HighlightsBoard[]
     description?: string
     label?: string
 }
@@ -25,12 +25,24 @@ const defaultProps: HighlightsBoard[] = [{
     additionalParameter: '—', 
 }];
 
-export const HighlightsBoards = ({ dataList = defaultProps, description, label }: HighlightsBoardsProps) => {
+const defaultPlaceholder = {
+    title: '—',
+    eps: '—',
+    additionalParameter: '—',
+};
+
+export const HighlightsBoards = (
+    { highlightBoardValue = defaultProps, description, label }: HighlightsBoardsProps,
+) => {
 
     const [isVisible, setIsVisible] = useState(false);
     const [deleteAnimationFlagDescription, setDeleteAnimationFlagDescription] = useState(false);
     const [deleteAnimationFlagLabels, setDeleteAnimationFlagLabels] = useState(false);
 
+    const normalizeBoard = highlightBoardValue.concat(
+        Array(3 - highlightBoardValue.length).fill(defaultPlaceholder),
+    );
+    
     const onMouseEnterHandle = () => {
         setIsVisible(true);
     };
@@ -86,7 +98,7 @@ export const HighlightsBoards = ({ dataList = defaultProps, description, label }
                     {description}
                 </span>
             )}
-            {dataList.map((element) => (
+            {normalizeBoard.map((element) => (
                 <div className={style.columnContainer} key={element.title}>
                     <span className={style.title}>{element.title}</span>
                     <span className={style.eps}>{element.eps}</span>
@@ -96,5 +108,4 @@ export const HighlightsBoards = ({ dataList = defaultProps, description, label }
         </div>
 
     );
-
 };

@@ -1,28 +1,20 @@
-import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import React from 'react';
 import style from './Account.module.css';
 import { AccountUserInfo } from 'widgets/AccountUserInfo';
-import { useAppDispatch } from 'shared/lib/hooks/reduxHooks/reduxHooks';
 import Loading from 'shared/UI/Loading/Loading';
 import {
-    fetchHighlightsBoardData, 
-    getBoardLoadingStatus,
     HighlightsBoards, 
 } from 'widgets/AccountHighlightsBoards';
 import { Footer } from 'widgets/Footer';
 import { PageLayout } from 'shared/UI/PageLayout/PageLayout';
 import { useGetAccountInfoQuery } from 'widgets/AccountUserInfo/api/accountUserInfoApi';
+import { useGetHighlightBoardQuery } from 'widgets/AccountHighlightsBoards/api/AccountHighlightBoardApi';
 
 const Account = () => {
 
-    const dispatch = useAppDispatch();
     const { isLoading: accountLoadingStatus } = useGetAccountInfoQuery();
-    const boardLoadingStatus = useSelector(getBoardLoadingStatus);
-    const isLoading = accountLoadingStatus || boardLoadingStatus === 'loading';
-
-    useEffect(() => {
-        dispatch(fetchHighlightsBoardData());
-    }, []);
+    const { isLoading: boardLoadingStatus } = useGetHighlightBoardQuery();
+    const isLoading = accountLoadingStatus || boardLoadingStatus;
 
     if (isLoading) {
         return <Loading />;

@@ -3,10 +3,10 @@ import { SessionDataSaveSchema } from 'entities/SessionData/model/services/sendS
 import { useSaveSessionDataMutation } from 'entities/SessionData/model/api/saveSessionDataApi';
 import { useSelector } from 'react-redux';
 import { getSessionPoints, getSessionTime } from 'entities/SessionData';
-import { getSessionEPS } from 'entities/SessionData/model/selectors/getSessionEPS';
 import { getModificationsList } from 'features/Modifications';
 import { getUnexpectedEnd } from 'entities/Session/model/selectors/getUnexpectedEnd';
 import { getInterfaceGameMode, getInterfaceSignsList } from 'widgets/Interface';
+import { useCallback } from 'react';
 
 export const useSendSessionData = () => {
 
@@ -14,7 +14,6 @@ export const useSendSessionData = () => {
 
     const sessionPoints = useSelector(getSessionPoints);
     const sessionTime = useSelector(getSessionTime);
-    const sessionEPS = useSelector(getSessionEPS);
     const modificationsList = useSelector(getModificationsList);
     const sessionUnexpectedEnd = useSelector(getUnexpectedEnd);
     const sessionGameMode = useSelector(getInterfaceGameMode);
@@ -29,7 +28,7 @@ export const useSendSessionData = () => {
         }
     };
 
-    const handleSendSessionData = () => {
+    const handleSendSessionData = useCallback((sessionEPS: string) => {
 
         const actualSessionData: SessionDataSaveSchema = {
             mode: sessionGameMode,
@@ -42,7 +41,14 @@ export const useSendSessionData = () => {
         };
 
         sendSessionData(actualSessionData);
-    };
+    }, [
+        sessionGameMode,
+        sessionPoints,
+        sessionTime,
+        sessionSignList,
+        modificationsList,
+        sessionUnexpectedEnd,
+    ]);
 
     return { sendSessionData: handleSendSessionData };
 };
