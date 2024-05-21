@@ -14,9 +14,18 @@ export const sessionDataSlice = createSlice({
     name: 'sessionData',
     initialState,
     reducers: {
-        
+
+        startNewRoundTime: (state) => {
+            state.sessionIdealTimeFlags.push([]);
+        },
+
         setSessionTimeFlags: (state) => {
-            state.sessionIdealTimeFlags = [...state.sessionIdealTimeFlags, Date.now()];
+            if (state.sessionIdealTimeFlags.length > 0) {
+                const currentRound = state.sessionIdealTimeFlags[state.sessionIdealTimeFlags.length - 1];
+                currentRound.push(Date.now());
+            } else {
+                state.sessionIdealTimeFlags.push([Date.now()]);
+            }
         },
 
         resetSessionTimeFlags: (state) => {

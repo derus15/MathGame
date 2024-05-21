@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getHungerPoints } from '../../model/selectors/getHungerPoints';
 import { hungerModeActions } from '../../model/slice/hungerModeSlice';
-import { getSessionPoints } from 'entities/SessionData';
+import { getSessionPoints, sessionDataActions } from 'entities/SessionData';
 import { BaseCounter } from './BaseCounter';
 
 export const HungerPointsCounter = () => {
@@ -26,6 +26,7 @@ export const HungerPointsCounter = () => {
 
     const endRound = () => {
         setUserPoint(0);
+        dispatch(sessionDataActions.startNewRoundTime());
         dispatch(hungerModeActions.endRound());
         dispatch(hungerModeActions.incrementRound());
     };

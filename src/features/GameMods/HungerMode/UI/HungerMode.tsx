@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Example, getExampleAnswer } from 'entities/Example';
 import ExampleInput from 'shared/UI/Input/ExampleInput/ExampleInput';
@@ -9,10 +9,10 @@ import { getIsRoundProgress } from '../model/selectors/getIsRoundProgress';
 import { getSessionProgress } from 'entities/Session';
 import { Placeholder } from '../UI/Placeholder/Placeholder';
 import { RoundCounter } from '../UI/Counter/RoundCounter';
-import { hungerModeActions } from 'features/GameMods/HungerMode';
+import { getCurrentRound, hungerModeActions } from 'features/GameMods/HungerMode';
 import { useCheckAnswer } from 'features/GameMods/hooks/useCheckAnswer';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { getSessionPoints } from 'entities/SessionData';
+import { getSessionPoints, sessionDataActions } from 'entities/SessionData';
 import { useStartSession } from 'features/GameMods/hooks/useStartSession';
 
 export const HungerMode = () => {
@@ -22,6 +22,7 @@ export const HungerMode = () => {
     const sessionProgress = useSelector(getSessionProgress);
     const globalPoints = useSelector(getSessionPoints);
     const answer = useSelector(getExampleAnswer);
+    const currentRounds = useSelector(getCurrentRound);
     const { checkAnswer } = useCheckAnswer();
     const { startSessionHandler } = useStartSession();
 
@@ -30,6 +31,12 @@ export const HungerMode = () => {
         dispatch(hungerModeActions.startRound());
     };
 
+    useEffect(() => {
+        if (currentRounds >= 1 && isRoundProgress) {
+            dispatch(sessionDataActions.setSessionTimeFlags());
+        }
+    }, [isRoundProgress]);
+    
     if (!isRoundProgress && sessionProgress) {
         return (
             <>

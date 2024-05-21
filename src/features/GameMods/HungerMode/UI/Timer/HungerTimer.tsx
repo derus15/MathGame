@@ -24,7 +24,8 @@ export const HungerTimer = () => {
     const endSession = () => {
         dispatch(sessionActions.unexpectedEnd('Время истекло'));
         dispatch(hungerModeActions.endRound());
-        dispatch(sessionActions.endSession());    
+        dispatch(sessionDataActions.setSessionTimeFlags());
+        dispatch(sessionActions.endSession());
     };
 
     useEffect(() => {

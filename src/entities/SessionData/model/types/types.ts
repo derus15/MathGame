@@ -3,5 +3,5 @@ export interface SessionDataSchema {
     sessionTime: number,
     sessionEPS: string,
     sessionExampleList: string[],
-    sessionIdealTimeFlags: number[],
+    sessionIdealTimeFlags: number[][],
 }

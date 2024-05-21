@@ -17,7 +17,6 @@ const ExampleModal = () => {
     const exampleList = useSelector(getSessionExampleList);
     const unexpectedEnd = useSelector(getUnexpectedEnd);
     const standardMode = useSelector(getInterfaceGameMode) === 'Стандарт';
-    const hungerMode = useSelector(getInterfaceGameMode) === 'Голод';
     const exampleTimeList = useSelector((state: StateSchema) => state.sessionData.sessionIdealTimeFlags);
     const exampleTime = findDifferencesArray(exampleTimeList);
 
@@ -37,23 +36,19 @@ const ExampleModal = () => {
                             <span>{lastUnsolvedExample} __</span>
                         )}
                     </div>
-                    {!hungerMode && (
+                    <div className={style.timeContainer}>
+                        <span className={style.timeTitle}>Время</span>
+                        {exampleTime.map((time) => (
 
-                        <div className={style.timeContainer}>
-                            <span className={style.timeTitle}>Время</span>
-                            {exampleTime.map((time) => (
+                            <span key={Math.random()}>
+                                {time < 1000
+                                    ? `~ 0,${time}`
+                                    : `~ ${Math.floor(time / 1000)},${(time % 1000)
+                                        .toString().padStart(3, '0')}`}
+                            </span>
 
-                                <span key={Math.random()}>
-                                    {time < 1000
-                                        ? `~ 0,${time}`
-                                        : `~ ${Math.floor(time / 1000)},${(time % 1000)
-                                            .toString().padStart(3, '0')}`}
-                                </span>
-
-                            ))}
-                        </div>
-
-                    )}
+                        ))}
+                    </div>
                 </div>
             </Modal>
         </>
