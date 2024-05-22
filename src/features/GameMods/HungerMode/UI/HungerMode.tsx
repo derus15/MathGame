@@ -23,6 +23,7 @@ export const HungerMode = () => {
     const globalPoints = useSelector(getSessionPoints);
     const answer = useSelector(getExampleAnswer);
     const currentRounds = useSelector(getCurrentRound);
+
     const { checkAnswer } = useCheckAnswer();
     const { startSessionHandler } = useStartSession();
 

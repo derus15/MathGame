@@ -4,7 +4,6 @@ import { HungerSchema } from 'features/GameMods/HungerMode';
 const initialState: HungerSchema = {
     currentRound: 0,
     isRoundProgress: false,
-    hungerPoints: 0,
 };
 
 const hungerModeSlice = createSlice({
@@ -19,14 +18,6 @@ const hungerModeSlice = createSlice({
         
         setRounds: (state, action) => {
             state.currentRound = action.payload;
-        },
-        
-        setHungerPoint: (state, action) => {
-            state.hungerPoints = action.payload;
-        },
-
-        resetHungerPoints: (state) => {
-            state.hungerPoints = 2;
         },
 
         startRound: (state) => {

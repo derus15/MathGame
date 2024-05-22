@@ -10,6 +10,7 @@ export const useStartSession = () => {
     const startSessionHandler = () => {
         if (!sessionProgress) {
             dispatch(sessionActions.startSession());
+            dispatch(sessionDataActions.resetSessionTimeFlags());
             dispatch(sessionDataActions.setSessionTimeFlags());
             dispatch(sessionDataActions.resetExampleList());
         }

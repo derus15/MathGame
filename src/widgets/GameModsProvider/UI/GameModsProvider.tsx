@@ -21,7 +21,8 @@ export const GameModsProvider = () => {
     useEffect(() => {
         dispatch(sessionDataActions.resetSessionPoints());
         dispatch(sessionDataActions.resetSessionTime());
-        dispatch(hungerModeActions.resetHungerPoints());
+        dispatch(hungerModeActions.endRound());
+        dispatch(hungerModeActions.setRounds(0));
     }, []);
 
     return (

@@ -66,7 +66,7 @@ const ExampleInput = ({
                 onChange={(e) => {
                     checkNumber(e);
                 }}
-                autoFocus={autofocus}
+                autoFocus={autofocus && sessionProgress}
                 ref={inputRef}
                 onFocus={focus}
                 inputMode="numeric"

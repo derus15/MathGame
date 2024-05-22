@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getHungerPoints } from '../../model/selectors/getHungerPoints';
 import { hungerModeActions } from '../../model/slice/hungerModeSlice';
 import { getSessionPoints, sessionDataActions } from 'entities/SessionData';
 import { BaseCounter } from './BaseCounter';
+import { getCurrentRound } from 'features/GameMods/HungerMode';
 
 export const HungerPointsCounter = () => {
 
     const [userPoint, setUserPoint] = useState(0);
     const [isMounted, setIsMounted] = useState(false);
 
-    const globalPoints = useSelector(getSessionPoints);
-    const hungerPoints = useSelector(getHungerPoints);
     const dispatch = useDispatch();
+    const currentRounds = useSelector(getCurrentRound);
+    const globalPoints = useSelector(getSessionPoints);
+    const exampleStep = 2;
+    const hungerPoints = exampleStep * currentRounds + exampleStep;
 
     useEffect(() => {
         if (isMounted) {
