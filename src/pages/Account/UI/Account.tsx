@@ -1,14 +1,12 @@
 import React from 'react';
 import style from './Account.module.css';
-import { AccountUserInfo } from 'widgets/AccountUserInfo';
+import { AccountUserInfo, useGetAccountInfoQuery } from 'widgets/AccountUserInfo';
 import Loading from 'shared/UI/Loading/Loading';
 import {
-    HighlightsBoards, 
+    HighlightsBoards, useGetHighlightBoardQuery,
 } from 'widgets/AccountHighlightsBoards';
 import { Footer } from 'widgets/Footer';
 import { PageLayout } from 'shared/UI/PageLayout/PageLayout';
-import { useGetAccountInfoQuery } from 'widgets/AccountUserInfo/api/accountUserInfoApi';
-import { useGetHighlightBoardQuery } from 'widgets/AccountHighlightsBoards/api/AccountHighlightBoardApi';
 
 const Account = () => {
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './ContainerBoards.module.css';
 import { HighlightsBoards } from '../HighlightBoards/HighlightsBoards';
-import { useGetHighlightBoardQuery } from 'widgets/AccountHighlightsBoards/api/AccountHighlightBoardApi';
+import { useGetHighlightBoardQuery } from 'widgets/AccountHighlightsBoards/api/accountHighlightBoardApi';
 
 export const ContainerBoards = () => {
 

@@ -8,7 +8,7 @@ import { LoginButton } from 'shared/UI/Button/LoginButton/LoginButton';
 import Loader from 'shared/UI/Loader/Loader';
 import { getIsAuth } from 'entities/User';
 import { RegisterParamsData } from '../../model/types/types';
-import { useRegisterByUsernameMutation } from 'features/RegisterByUsername/api/registerByUsernameApi';
+import { useRegisterByUsernameMutation } from '../../api/registerByUsernameApi';
 
 export const RegisterForm = () => {
 
