@@ -59,7 +59,7 @@ const UpdateUserModal = () => {
             />
             <div className={style.loaderContainer}>
                 <Loader isLoading={isLoading} className={style.loader} />
-                <LoginButton>Сохранить</LoginButton>
+                <LoginButton disabled={isLoading}>Сохранить</LoginButton>
             </div>
         </form>
     );
