@@ -106,6 +106,5 @@ export const HighlightsBoards = (
                 </div>
             ))}
         </div>
-
     );
 };

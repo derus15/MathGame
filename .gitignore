@@ -22,3 +22,5 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 /.idea/dictionaries/96082.xml
+
+/build-storybook.log

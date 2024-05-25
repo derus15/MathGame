@@ -62,4 +62,11 @@ export const Chemodan: Story = {
     ],
 };
 
+export const Norton: Story = {
+    decorators: [
+        (Story) => StoreDecorator(Story),
+        ThemeDecorator('norton'),
+    ],
+};
+
 export default meta;

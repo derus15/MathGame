@@ -25,22 +25,22 @@ type Story = StoryObj<typeof meta>;
 
 export const Ocean: Story = {
     decorators: [ThemeDecorator('ocean')],
-    args: {},
 };
 
 export const Black: Story = {
     decorators: [ThemeDecorator('black')],
-    args: {},
 };
 
 export const PP: Story = {
     decorators: [ThemeDecorator('PP')],
-    args: {},
 };
 
 export const Chemodan: Story = {
     decorators: [ThemeDecorator('chemodan')],
-    args: {},
+};
+
+export const Norton: Story = {
+    decorators: [ThemeDecorator('norton')],
 };
 
 export default meta;
