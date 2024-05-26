@@ -5,11 +5,10 @@ import { userActions } from 'entities/User';
 
 export const initAuthData = createAsyncThunk<string>(
     '/auth/init',
-    async (params, { dispatch }) => {
+    async (params, { dispatch, rejectWithValue }) => {
         try {
 
             const { data } = await axios.get('/auth/init');
-            dispatch(userActions.setAuth(true));
             return data.message;
 
         } catch (error) {
@@ -17,6 +16,7 @@ export const initAuthData = createAsyncThunk<string>(
                 toast.error('Ошибка сервера. Перезайдите в аккаунт');
             }
             dispatch(userActions.logout());
+            return rejectWithValue('Нет доступа');
         }
     },
 );
