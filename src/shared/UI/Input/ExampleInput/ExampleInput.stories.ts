@@ -5,6 +5,7 @@ import 'app/styles/Themes.css';
 import 'app/styles/App.css';
 import { StoreDecorator } from '../../../../../config/storybook/Decorators/StoreDecorator';
 import { fn } from '@storybook/test';
+import { DemoWithThemes } from '../../../../../config/storybook/Decorators/DemoWithThemes';
 
 const meta = {
     title: 'shared/Input/ExampleInput',
@@ -34,38 +35,10 @@ const meta = {
 
 type Story = StoryObj<typeof meta>;
 
-export const Black: Story = {
+export const Themes: Story = {
     decorators: [
         (Story) => StoreDecorator(Story),
-        ThemeDecorator('black'),
-    ],
-};
-
-export const PP: Story = {
-    decorators: [
-        (Story) => StoreDecorator(Story),
-        ThemeDecorator('PP'),
-    ],
-};
-
-export const Ocean: Story = {
-    decorators: [
-        (Story) => StoreDecorator(Story),
-        ThemeDecorator('ocean'),
-    ],
-};
-
-export const Chemodan: Story = {
-    decorators: [
-        (Story) => StoreDecorator(Story),
-        ThemeDecorator('chemodan'),
-    ],
-};
-
-export const Norton: Story = {
-    decorators: [
-        (Story) => StoreDecorator(Story),
-        ThemeDecorator('norton'),
+        (Story) => DemoWithThemes(Story),
     ],
 };
 

@@ -5,6 +5,7 @@ import { HighlightsBoards } from './HighlightsBoards';
 import { 
     FlexContainerDecorator,
 } from '../../../../../config/storybook/Decorators/StoryContainer/StoryContainer';
+import { DemoWithThemes } from '../../../../../config/storybook/Decorators/DemoWithThemes';
 
 const meta = {
     title: 'widgets/HighlightBoards',
@@ -21,53 +22,50 @@ const meta = {
         },
     },
     tags: ['autodocs'],
-    args: {
-        label: 'Режим игры',
-        description: '',
-    },
 
 } satisfies Meta<typeof HighlightsBoards>;
 
 type Story = StoryObj<typeof meta>;
 
-export const Ocean: Story = {
-    decorators: 
+export const WithData: Story = {
+    decorators:
         [
             (Story) => FlexContainerDecorator(Story),
             ThemeDecorator('ocean'),
         ],
+    args: {
+        label: 'Спринт',
+        description: '',
+        highlightBoardValue: [
+            {
+                title: '10',
+                eps: '1.00',
+                additionalParameter: '00:10',
+            },
+            {
+                title: '15',
+                eps: '0.83',
+                additionalParameter: '00:18',
+            },
+            {
+                title: '20',
+                eps: '1.00',
+                additionalParameter: '00:20',
+            },
+        ],
+    },
 };
 
-export const Black: Story = {
+export const Themes: Story = {
     decorators: 
         [
             (Story) => FlexContainerDecorator(Story),
-            ThemeDecorator('black'),
+            (Story) => DemoWithThemes(Story),
         ],
-};
-
-export const PP: Story = {
-    decorators: 
-        [
-            (Story) => FlexContainerDecorator(Story),
-            ThemeDecorator('PP'),
-        ],
-};
-
-export const Chemodan: Story = {
-    decorators: 
-        [
-            (Story) => FlexContainerDecorator(Story),
-            ThemeDecorator('chemodan'),
-        ],
-};
-
-export const Norton: Story = {
-    decorators:
-        [
-            (Story) => FlexContainerDecorator(Story),
-            ThemeDecorator('norton'),
-        ],
+    args: {
+        label: 'Режим игры',
+        description: '',
+    },
 };
 
 export default meta;

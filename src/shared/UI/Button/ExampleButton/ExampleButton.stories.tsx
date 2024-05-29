@@ -3,6 +3,7 @@ import { ExampleButton } from 'shared/UI/Button/ExampleButton/ExampleButton';
 import { ThemeDecorator } from '../../../../../config/storybook/Decorators/ThemeDecorator';
 import 'app/styles/Themes.css';
 import 'app/styles/App.css';
+import { DemoWithThemes } from '../../../../../config/storybook/Decorators/DemoWithThemes';
 
 const meta = {
     title: 'shared/Button/ExampleButton',
@@ -23,24 +24,10 @@ const meta = {
 
 type Story = StoryObj<typeof meta>;
 
-export const Ocean: Story = {
-    decorators: [ThemeDecorator('ocean')],
-};
-
-export const Black: Story = {
-    decorators: [ThemeDecorator('black')],
-};
-
-export const PP: Story = {
-    decorators: [ThemeDecorator('PP')],
-};
-
-export const Chemodan: Story = {
-    decorators: [ThemeDecorator('chemodan')],
-};
-
-export const Norton: Story = {
-    decorators: [ThemeDecorator('norton')],
+export const Themes: Story = {
+    decorators: [
+        (Story) => DemoWithThemes(Story),
+    ],
 };
 
 export default meta;
