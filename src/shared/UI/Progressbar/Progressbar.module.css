@@ -1,0 +1,31 @@
+.progressbarContainer {
+    position: relative;
+    background: transparent;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border: 1px var(--base-color) solid;
+    border-radius: 10px;
+    width: 225px;
+    height: 25px;
+    padding: 1px 2px 1px 2px;
+    color: var(--second-active-color);
+    font-size: 16px;
+}
+
+.progressbarCounter {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 225px;
+    color: var(--interface-background-color);
+}
+
+.innerProgress {
+    background: var(--second-active-color);
+    transition-property: width;
+    transition-duration: 1s;
+    height: 85%;
+    width: 99%;
+    border-radius: 8px;
+}

@@ -3,20 +3,38 @@
     box-sizing: border-box;
     align-items: center;
     display: flex;
+    justify-content: space-around;
     top: 41%;
     right: 0;
     width: 450px;
     height: 70px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
     background: var(--interface-background-color);
-    color: var(--active-color);
     animation: init .5s linear;
 }
 
 .picture {
     width: 42px;
     height: 42px;
-    background-image: url("/public/assets/Sprite-0002.png");
-    margin: 10px;
+    border-radius: 10px;
+    background: var(--second-active-color);
+}
+
+.textContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.textTitle {
+    color: var(--active-color);
+    font-size: 18px;
+}
+
+.textDescription {
+    color: var(--base-color);
+    font-size: 14px;
 }
 
 @keyframes init {
