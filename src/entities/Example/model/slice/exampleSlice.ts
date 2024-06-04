@@ -1,11 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { ExampleSchema } from './types';
+import { generateSeed } from 'shared/lib/generateExampleSeed/generateExampleSeed';
 
 const initialState: ExampleSchema = {
     numbersList: [1, 2],
     sign: '+',
     answer: '3',
     example: undefined,
+    seed: null,
+    isRetry: false,
 };
 
 const exampleSlice = createSlice({
@@ -24,6 +27,18 @@ const exampleSlice = createSlice({
         
         setSign: (state, action) => {
             state.sign = action.payload;
+        },
+
+        generateSeed: (state) => {
+            state.seed = generateSeed(['+', '-']);
+        },
+
+        retrySession: (state) => {
+            state.isRetry = true;
+        },
+
+        notRetrySession: (state) => {
+            state.isRetry = false;
         },
 
     },

@@ -5,4 +5,6 @@ export interface ExampleSchema {
     sign: SignList,
     answer: string
     example: string,
+    seed: string,
+    isRetry: boolean,
 }

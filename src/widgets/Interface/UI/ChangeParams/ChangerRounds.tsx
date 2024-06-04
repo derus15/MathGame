@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import style from '../Interface/Interface.module.css';
 import { interfaceActions } from '../../model/slice/interfaceSlice';
 import Select from '../InterfaceSelects/Select/Select';
-import { useRefreshExample } from 'entities/Example';
 import { getSessionProgress } from 'entities/Session';
 import { getInterfaceRounds } from 'widgets/Interface/model/selectors/getInterfaceRounds';
 import { MyRound } from 'features/MyParams';
+import { exampleActions } from 'entities/Example';
 
 const ChangeRounds = () => {
 
@@ -14,12 +14,11 @@ const ChangeRounds = () => {
     const sessionProgress = useSelector(getSessionProgress);
     const roundsList = [3, 5, 7];
     const currentRound = useSelector(getInterfaceRounds);
-    const { refreshExample } = useRefreshExample();
 
     function changeRoundInSession(round: number) {
         if (!sessionProgress) {
             dispatch(interfaceActions.changeRounds(round));
-            refreshExample();
+            dispatch(exampleActions.generateSeed());
         }
     }
 

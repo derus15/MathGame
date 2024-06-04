@@ -7,8 +7,8 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import Modal from 'shared/UI/Modal/Modal';
 import { testNumber } from 'shared/lib/testNumber/testNumber';
 import { getInterfaceNumber, interfaceActions } from 'widgets/Interface';
-import { useRefreshExample } from 'entities/Example';
 import { getSessionProgress } from 'entities/Session';
+import { exampleActions } from 'entities/Example';
 
 interface MyNumberProps {
     standardNumber: number[];
@@ -21,7 +21,6 @@ export const MyNumber = memo(({ standardNumber }: MyNumberProps) => {
     const sessionProgress = useSelector(getSessionProgress);
     const isActive = !standardNumber.includes(duration);
     const dispatch = useDispatch();
-    const { refreshExample } = useRefreshExample();
 
     const showModalMyNumber = () => {
         if (!sessionProgress) {
@@ -35,7 +34,7 @@ export const MyNumber = memo(({ standardNumber }: MyNumberProps) => {
 
         if (isNumber) {
             dispatch(interfaceActions.changeNumber((value === '0') ? 10 : value));
-            refreshExample();
+            dispatch(exampleActions.generateSeed());
         }
     }
 

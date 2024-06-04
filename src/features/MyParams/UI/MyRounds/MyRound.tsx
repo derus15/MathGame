@@ -9,7 +9,7 @@ import { getSessionProgress } from 'entities/Session';
 import { getInterfaceRounds } from 'widgets/Interface/model/selectors/getInterfaceRounds';
 import { testNumber } from 'shared/lib/testNumber/testNumber';
 import { interfaceActions } from 'widgets/Interface';
-import { useRefreshExample } from 'entities/Example';
+import { exampleActions } from 'entities/Example';
 
 interface MyRoundProps {
     standardRound: number[];
@@ -22,7 +22,6 @@ export const MyRound = memo(({ standardRound }: MyRoundProps) => {
     const rounds = useSelector(getInterfaceRounds);
     const isActive = !standardRound.includes(rounds);
     const sessionProgress = useSelector(getSessionProgress);
-    const { refreshExample } = useRefreshExample();
 
     const showModalMyTime = () => {
         if (!sessionProgress) {
@@ -37,7 +36,7 @@ export const MyRound = memo(({ standardRound }: MyRoundProps) => {
 
         if (isNumber) {
             dispatch(interfaceActions.changeRounds((value === '0') ? 3 : value));
-            refreshExample();
+            dispatch(exampleActions.generateSeed());
         }
     }
 

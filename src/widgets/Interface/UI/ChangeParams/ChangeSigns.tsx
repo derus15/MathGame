@@ -1,12 +1,12 @@
-import React, { memo, useEffect } from 'react';
+import React, { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import style from '../Interface/Interface.module.css';
 import { interfaceActions } from '../../model/slice/interfaceSlice';
 import SelectSign from '../InterfaceSelects/SelectSign/SelectSign';
 import { SignList } from 'app/types/config';
 import { getInterfaceSignsList } from '../../model/selectors/getInterfaceSignsList';
-import { useRefreshExample } from 'entities/Example';
 import { getSessionProgress } from 'entities/Session';
+import { exampleActions } from 'entities/Example';
 
 export const ChangeSigns = memo(() => {
 
@@ -14,17 +14,13 @@ export const ChangeSigns = memo(() => {
     const sessionProgress = useSelector(getSessionProgress);
     const signsList: SignList[] = ['+', '-', '*', '/'];
     const currentSigns = useSelector(getInterfaceSignsList);
-    const { refreshExample } = useRefreshExample();
 
     function changeSignInSession(sign: SignList) {
         if (!sessionProgress) {
             dispatch(interfaceActions.changeSign(sign));
+            dispatch(exampleActions.generateSeed());
         }
     }
-
-    useEffect(() => {
-        refreshExample();
-    }, [currentSigns]);
     
     return (
         <div className={style.containerSigns}>

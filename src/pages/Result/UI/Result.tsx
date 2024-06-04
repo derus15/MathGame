@@ -17,6 +17,7 @@ import { ResultItem } from './ResultItem/ResultItem';
 import { InviteRegister } from './InviteRegister/InviteRegister';
 import { getInterfaceGameMode } from 'widgets/Interface';
 import { getCurrentRound, hungerModeActions } from 'features/GameMods/HungerMode';
+import { exampleActions } from 'entities/Example/model/slice/exampleSlice';
 
 export const Result = () => {
 
@@ -34,8 +35,14 @@ export const Result = () => {
     
     const closeResultHandle = useCallback(() => {
         dispatch(sessionActions.closeResultPage());
+        // dispatch(exampleActions.notRetrySession());
     }, []);
 
+    // const retrySessionHandle = useCallback(() => {
+    //     dispatch(sessionActions.closeResultPage());
+    //     dispatch(exampleActions.retrySession());
+    // }, []);
+    
     useEffect(() => {
         dispatch(sessionDataActions.saveEPS(eps));
         if (isAuth) {
@@ -50,6 +57,8 @@ export const Result = () => {
             dispatch(sessionActions.unexpectedEnd(null));
         };
     }, []);
+
+    // <ExampleButton onClick={retrySessionHandle}>Повторить</ExampleButton>
 
     return (
         <PageLayout>

@@ -7,8 +7,8 @@ import { OutlineButton } from 'shared/UI/Button/OutlineButton/OutlineButton';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { interfaceActions, getInterfaceTime } from '../../../../widgets/Interface';
 import { testNumber } from 'shared/lib/testNumber/testNumber';
-import { useRefreshExample } from 'entities/Example';
 import { getSessionProgress } from 'entities/Session';
+import { exampleActions } from 'entities/Example';
 
 interface MyTimeProps {
     standardTime: number[];
@@ -21,7 +21,6 @@ export const MyTime = memo(({ standardTime }: MyTimeProps) => {
     const sessionProgress = useSelector(getSessionProgress);
     const isActive = !standardTime.includes(duration);
     const dispatch = useDispatch();
-    const { refreshExample } = useRefreshExample();
 
     const showModalMyTime = () => {
         if (!sessionProgress) {
@@ -36,7 +35,7 @@ export const MyTime = memo(({ standardTime }: MyTimeProps) => {
 
         if (isNumber) {
             dispatch(interfaceActions.changeTime((value === '0') ? 15 : value));
-            refreshExample();
+            dispatch(exampleActions.generateSeed());
         }
     }
 
