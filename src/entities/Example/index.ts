@@ -5,3 +5,4 @@ export { useRefreshExample } from './api/useRefreshExample';
 export { getExampleAnswer } from './model/selectors/getExampleAnswer';
 export { getExample } from './model/selectors/getExample';
 export { getExampleSign } from './model/selectors/getExampleSign';
+export { getIsRetrySession } from './model/selectors/getIsRetrySession';

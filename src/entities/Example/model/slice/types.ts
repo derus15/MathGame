@@ -7,4 +7,5 @@ export interface ExampleSchema {
     example: string,
     seed: string,
     isRetry: boolean,
+    iterationSeed: number
 }

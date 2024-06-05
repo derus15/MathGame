@@ -35,13 +35,13 @@ export const Result = () => {
     
     const closeResultHandle = useCallback(() => {
         dispatch(sessionActions.closeResultPage());
-        // dispatch(exampleActions.notRetrySession());
+        dispatch(exampleActions.notRetrySession());
     }, []);
 
-    // const retrySessionHandle = useCallback(() => {
-    //     dispatch(sessionActions.closeResultPage());
-    //     dispatch(exampleActions.retrySession());
-    // }, []);
+    const retrySessionHandle = useCallback(() => {
+        dispatch(sessionActions.closeResultPage());
+        dispatch(exampleActions.retrySession());
+    }, []);
     
     useEffect(() => {
         dispatch(sessionDataActions.saveEPS(eps));
@@ -58,8 +58,6 @@ export const Result = () => {
         };
     }, []);
 
-    // <ExampleButton onClick={retrySessionHandle}>Повторить</ExampleButton>
-
     return (
         <PageLayout>
             <div className={style.resultContainer}>
@@ -71,6 +69,7 @@ export const Result = () => {
                     <ResultItem title="ПВС:" value={eps} description="Примеров в секунду" />
                     <div className={style.buttonContainer}>
                         <ExampleModal />
+                        <ExampleButton onClick={retrySessionHandle}>Повторить</ExampleButton>
                         <ExampleButton onClick={closeResultHandle} random />
                     </div>
                     <InviteRegister />
