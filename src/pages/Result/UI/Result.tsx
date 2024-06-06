@@ -18,6 +18,8 @@ import { InviteRegister } from './InviteRegister/InviteRegister';
 import { getInterfaceGameMode } from 'widgets/Interface';
 import { getCurrentRound, hungerModeActions } from 'features/GameMods/HungerMode';
 import { exampleActions } from 'entities/Example/model/slice/exampleSlice';
+import { getIsRetrySession } from 'entities/Example';
+import { toast } from 'react-toastify';
 
 export const Result = () => {
 
@@ -32,7 +34,8 @@ export const Result = () => {
     const eps = calculateEPS(numberResult, sessionTime);
     const sessionTextEnd = useSelector(getUnexpectedEndText);
     const { sendSessionData } = useSendSessionData();
-    
+    const isRetry = useSelector(getIsRetrySession);
+
     const closeResultHandle = useCallback(() => {
         dispatch(sessionActions.closeResultPage());
         dispatch(exampleActions.notRetrySession());
@@ -45,12 +48,15 @@ export const Result = () => {
     
     useEffect(() => {
         dispatch(sessionDataActions.saveEPS(eps));
-        if (isAuth) {
+        if (isAuth && !isRetry) {
             sendSessionData(eps);
+        }
+        if (isRetry) {
+            toast.error('Повторные сессии не сохраняются');
         }
         // saveSessionDataInLocalStorage();
         return () => {
-            closeResultHandle();
+            dispatch(sessionActions.closeResultPage());
             dispatch(sessionDataActions.resetExampleList());
             dispatch(hungerModeActions.setRounds(0));
             dispatch(sessionDataActions.resetSessionTimeFlags());

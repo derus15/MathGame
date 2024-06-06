@@ -6,13 +6,17 @@ import { InstructionsProvider } from 'widgets/Instructions';
 import { Result } from 'pages/Result';
 import { GameModsProvider } from 'widgets/GameModsProvider';
 import { PageLayout } from 'shared/UI/PageLayout/PageLayout';
+import { exampleActions } from 'entities/Example';
 
 const Home = () => {
 
     const isResult = useSelector(getResult);
     const dispatch = useDispatch();
 
-    useEffect(() => () => { dispatch(sessionActions.resetSessionProgress()); }, []);
+    useEffect(() => () => { 
+        dispatch(sessionActions.resetSessionProgress());
+        dispatch(exampleActions.notRetrySession());
+    }, []);
 
     if (isResult) {
         return <Result />;
