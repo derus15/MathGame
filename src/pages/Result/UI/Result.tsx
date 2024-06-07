@@ -24,17 +24,17 @@ import { toast } from 'react-toastify';
 export const Result = () => {
 
     const isAuth = useSelector(getIsAuth);
-    const dispatch = useAppDispatch();
     const gameMode = useSelector(getInterfaceGameMode);
-    
     const numberResult = useSelector(getSessionPoints);
     const sessionTime = useSelector(getSessionTime);
-    const timeResult = timeNormalization(sessionTime, sessionTime >= 3600);
     const round = useSelector(getCurrentRound);
-    const eps = calculateEPS(numberResult, sessionTime);
     const sessionTextEnd = useSelector(getUnexpectedEndText);
-    const { sendSessionData } = useSendSessionData();
     const isRetry = useSelector(getIsRetrySession);
+
+    const dispatch = useAppDispatch();
+    const timeResult = timeNormalization(sessionTime, sessionTime >= 3600);
+    const { sendSessionData } = useSendSessionData();
+    const eps = calculateEPS(numberResult, sessionTime);
 
     const closeResultHandle = useCallback(() => {
         dispatch(sessionActions.closeResultPage());
@@ -51,7 +51,7 @@ export const Result = () => {
         if (isAuth && !isRetry) {
             sendSessionData(eps);
         }
-        if (isRetry) {
+        if (isAuth && isRetry) {
             toast.error('Повторные сессии не сохраняются');
         }
         // saveSessionDataInLocalStorage();

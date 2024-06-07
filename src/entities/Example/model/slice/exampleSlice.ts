@@ -33,6 +33,7 @@ const exampleSlice = createSlice({
         generateSeed: (state) => {
             state.seed = generateSeed(['+', '-']);
             state.iterationSeed = 0;
+            state.isRetry = false;
         },
 
         retrySession: (state) => {
