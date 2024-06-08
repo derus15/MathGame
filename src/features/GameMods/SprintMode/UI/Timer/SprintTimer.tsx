@@ -5,6 +5,7 @@ import { getSessionProgress, sessionActions } from 'entities/Session';
 import { getInterfaceNumber } from 'widgets/Interface';
 import { getSessionPoints, getSessionTime, sessionDataActions } from 'entities/SessionData';
 import { BaseCounter } from 'features/GameMods/HungerMode/UI/Counter/BaseCounter';
+import { RetryFlag } from 'entities/Example';
 
 export const SprintTimer = () => {
 
@@ -33,12 +34,15 @@ export const SprintTimer = () => {
     };
 
     return (
-        <BaseCounter
-            className={classNames('timer', { timerActive: sessionProgress })} 
-            incrementArg={userCounter}
-            targetArg={duration}
-            mark="|"
-            callback={endSession}
-        />
+        <div className="timer">
+            <BaseCounter
+                className={classNames('', { timerActive: sessionProgress })}
+                incrementArg={userCounter}
+                targetArg={duration}
+                mark="|"
+                callback={endSession}
+            />
+            <RetryFlag />
+        </div>
     );
 };

@@ -4,6 +4,8 @@ import { getCurrentRound } from 'features/GameMods/HungerMode';
 import { getInterfaceRounds } from 'widgets/Interface/model/selectors/getInterfaceRounds';
 import { sessionActions } from 'entities/Session';
 import { BaseCounter } from './BaseCounter';
+import { RetryFlag } from 'entities/Example';
+import style from '../HungerMode.module.css';
 
 export const RoundCounter = () => {
 
@@ -16,6 +18,9 @@ export const RoundCounter = () => {
     };
 
     return (
-        <BaseCounter incrementArg={currentRounds} targetArg={rounds} mark="/" callback={endRound} />
+        <div className={style.retryContainer}>
+            <BaseCounter incrementArg={currentRounds} targetArg={rounds} mark="/" callback={endRound} />
+            <RetryFlag />
+        </div>
     );
 };

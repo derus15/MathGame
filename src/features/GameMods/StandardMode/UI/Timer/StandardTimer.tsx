@@ -4,6 +4,7 @@ import { BaseTimer } from './BaseTimer';
 import { getSessionProgress, sessionActions } from 'entities/Session';
 import { getInterfaceTime } from 'widgets/Interface';
 import { sessionDataActions } from 'entities/SessionData';
+import { RetryFlag } from 'entities/Example';
 
 export const StandardTimer = memo(() => {
 
@@ -34,6 +35,7 @@ export const StandardTimer = memo(() => {
                 setTime={setTimerTime}
                 time={timerTime}
             />
+            <RetryFlag />
         </div>
     );
 });

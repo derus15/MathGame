@@ -1,0 +1,5 @@
+.flag {
+    color: var(--second-active-color);
+    opacity: 70%;
+    margin-left: 5px;
+}

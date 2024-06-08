@@ -6,3 +6,4 @@ export { getExampleAnswer } from './model/selectors/getExampleAnswer';
 export { getExample } from './model/selectors/getExample';
 export { getExampleSign } from './model/selectors/getExampleSign';
 export { getIsRetrySession } from './model/selectors/getIsRetrySession';
+export { RetryFlag } from './UI/RetryFlag/RetryFlag';

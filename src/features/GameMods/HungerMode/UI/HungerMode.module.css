@@ -11,7 +11,12 @@
     transition-duration: .3s;
 }
 
+.retryContainer {
+    display: flex;
+}
+
 .roundCounter {
+    display: flex;
     font-size: 2rem;
     color: var(--second-active-color);
     position: absolute;
