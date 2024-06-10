@@ -8,6 +8,6 @@ export const RetryFlag = () => {
     const isRetry = useSelector(getIsRetrySession);
     
     return (
-        isRetry && <span className={style.flag}>- П</span>
+        isRetry && <span className={style.flag} title="Повторная сессия">- П</span>
     );
 };

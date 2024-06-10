@@ -15,7 +15,7 @@ export const ExampleButton: FC<buttonProps> = memo(({
 }) => {
 
     if (random) {
-        const textList = ['Хорошо', 'Ладно', 'Понятно', 'Прекрасно', 'Великолепно', 'Превосходно'];
+        const textList = ['Хорошо', 'Понятно', 'Прекрасно', 'Великолепно', 'Превосходно'];
         children = textList[Math.floor(Math.random() * textList.length)];
     }
 
