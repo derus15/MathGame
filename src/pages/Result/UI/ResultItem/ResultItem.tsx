@@ -6,49 +6,35 @@ interface ResultItemProps {
     description?: string
     title: string,
     value: string | number,
+    isTime?: boolean,
 }
 
-const parseTimeString = (time: string) => {
-    const parts = time.split(':').map(Number);
-    if (parts.length === 3) {
-        const [hours, minutes, seconds] = parts;
-        return hours * 3600 + minutes * 60 + seconds;
-    } if (parts.length === 2) {
-        const [minutes, seconds] = parts;
-        return minutes * 60 + seconds;
-    } 
-    return 0;
-    
-};
-
-export const ResultItem = ({ title, value, description }: ResultItemProps) => {
+export const ResultItem = ({ title, value, description, isTime = false }: ResultItemProps) => {
 
     const [incrementValue, setIncrementValue] = useState<number | string>();
 
     useEffect(() => {
 
         let interval: ReturnType<typeof setInterval>;
-        // eslint-disable-next-line no-unused-vars
-        let current = 0;
-        let targetValue = typeof value === 'number' ? value : parseTimeString(value);
+        let targetValue = Number(value);
+
         const startTime = performance.now();
         const duration = 700;
         const steps = 20;
-        const increment = targetValue / steps;
-        const intervalTime = duration / steps;
+        const stepTime = duration / steps;
 
         const updateValue = () => {
 
             const currentTime = performance.now();
             const elapsedTime = currentTime - startTime;
-            const progress = elapsedTime / duration;
-            return progress * targetValue;
+            return (elapsedTime / duration) * targetValue;
 
         };
 
-        if (typeof value === 'number') {
+        if (typeof value === 'number' && !isTime) {
 
             interval = setInterval(() => {
+
                 const newValue = Math.min(targetValue, updateValue());
                 setIncrementValue(Math.round(newValue));
 
@@ -56,16 +42,13 @@ export const ResultItem = ({ title, value, description }: ResultItemProps) => {
                     clearInterval(interval);
                     setIncrementValue(targetValue);
                 }
-                console.log('time');
-            }, intervalTime);
 
-        } else if (typeof value === 'string' && value.includes(':')) {
+            }, stepTime);
 
-            const stringValue = parseTimeString(value);
-            targetValue = Number(stringValue);
+        } else if (typeof value === 'number' && isTime) {
 
             interval = setInterval(() => {
-                current += increment;
+
                 const newValue = Math.min(targetValue, updateValue());
                 setIncrementValue(timeNormalization(Math.round(newValue), newValue >= 3600));
 
@@ -73,14 +56,15 @@ export const ResultItem = ({ title, value, description }: ResultItemProps) => {
                     clearInterval(interval);
                     setIncrementValue(timeNormalization(targetValue, targetValue >= 3600));
                 }
-            }, intervalTime);
+
+            }, stepTime);
 
         } else if (typeof value === 'string' && value.includes('.')) {
 
             targetValue = parseFloat(value);
-            const increment = targetValue / steps;
 
             interval = setInterval(() => {
+
                 const newValue = Math.min(targetValue, updateValue());
                 setIncrementValue(newValue.toFixed(2));
 
@@ -88,10 +72,13 @@ export const ResultItem = ({ title, value, description }: ResultItemProps) => {
                     clearInterval(interval);
                     setIncrementValue(targetValue.toFixed(2));
                 }
-            }, intervalTime);
+
+            }, stepTime);
 
         } else {
+
             setIncrementValue(value);
+
         }
 
         return () => clearInterval(interval);

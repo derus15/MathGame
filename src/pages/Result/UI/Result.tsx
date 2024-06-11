@@ -12,7 +12,6 @@ import { useAppDispatch } from 'shared/lib/hooks/reduxHooks/reduxHooks';
 import { calculateEPS } from 'shared/lib/calculateEPS/calculateEPS';
 import ExampleModal from './ExampleModal/ExampleModal';
 import { PageLayout } from 'shared/UI/PageLayout/PageLayout';
-import { timeNormalization } from 'shared/lib/timeNormalization/timeNormalization';
 import { ResultItem } from './ResultItem/ResultItem';
 import { InviteRegister } from './InviteRegister/InviteRegister';
 import { getInterfaceGameMode } from 'widgets/Interface';
@@ -32,7 +31,6 @@ export const Result = () => {
     const isRetry = useSelector(getIsRetrySession);
 
     const dispatch = useAppDispatch();
-    const timeResult = timeNormalization(sessionTime, sessionTime >= 3600);
     const { sendSessionData } = useSendSessionData();
     const eps = calculateEPS(numberResult, sessionTime);
 
@@ -71,7 +69,7 @@ export const Result = () => {
                 <div className={style.result}>
                     <ResultItem title="Примеров решено:" value={numberResult} />
                     {gameMode === 'Голод' && <ResultItem title="Раундов завершено:" value={round} />}
-                    <ResultItem title="Ваше время:" value={timeResult} />
+                    <ResultItem title="Ваше время:" value={sessionTime} isTime />
                     <ResultItem title="ПВС:" value={eps} description="Примеров в секунду" />
                     <div className={style.buttonContainer}>
                         <ExampleModal />
