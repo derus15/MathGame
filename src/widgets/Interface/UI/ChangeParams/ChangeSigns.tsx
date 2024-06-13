@@ -32,7 +32,7 @@ export const ChangeSigns = memo(() => {
                     globalState={currentSigns}
                     callback={() => changeSignInSession(sign)}
                 >
-                    {sign === '*' ? 'x' : sign}
+                    {sign === '-' ? '–' : sign === '*' ? 'x' : sign}
                 </SelectSign>
 
             ))}

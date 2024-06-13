@@ -11,7 +11,7 @@ import { exampleActions } from 'entities/Example';
 const instructionsObject: Record<string, string> = {
     'Спринт': 'Решайте примеры, пока они не кончатся',
     'Стандарт': 'Решайте примеры, пока идет время',
-    'Голод': 'Решайте примеры, продлевая время раунда',
+    'Голод': 'Решайте примеры, увеличивая время раунда',
 };
 
 export const ChangeMods = memo(() => {

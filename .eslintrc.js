@@ -54,6 +54,7 @@ module.exports = {
         'react/jsx-wrap-multilines': 'off',
         'jsx-a11y/control-has-associated-label': 'off',
         'consistent-return': 'off',
+        'no-nested-ternary': 'off',
     },
     globals: {
         __IS_DEV__: true,
