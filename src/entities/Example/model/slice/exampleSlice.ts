@@ -9,6 +9,7 @@ const initialState: ExampleSchema = {
     example: undefined,
     seed: null,
     isRetry: false,
+    signList: JSON.parse(localStorage.getItem('signList')) || ['+', '-'],
     iterationSeed: 1,
 };
 
@@ -30,8 +31,22 @@ const exampleSlice = createSlice({
             state.sign = action.payload;
         },
 
+        changeSignSeed: (state, action) => {
+            if (state.signList.includes(action.payload) && state.signList.length > 1) {
+                state.signList = state.signList.filter((sign) => sign !== action.payload);
+            } else if (!state.signList.includes(action.payload)) {
+                state.signList = [...state.signList, action.payload];
+            }
+        },
+
         generateSeed: (state) => {
-            state.seed = generateSeed(['+', '-']);
+            state.seed = generateSeed(state.signList);
+            state.iterationSeed = 0;
+            state.isRetry = false;
+        },
+
+        setSeed: (state, action) => {
+            state.seed = action.payload;
             state.iterationSeed = 0;
             state.isRetry = false;
         },

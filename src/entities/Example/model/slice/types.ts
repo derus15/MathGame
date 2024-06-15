@@ -7,5 +7,6 @@ export interface ExampleSchema {
     example: string,
     seed: string,
     isRetry: boolean,
-    iterationSeed: number
+    iterationSeed: number,
+    signList: SignList[],
 }

@@ -10,17 +10,32 @@ const signFunction:Record<string, (a: number, b: number) => number> = {
 };
 
 interface generateExampleProps {
-    signList: SignList[],
+    signList?: SignList[],
     seed?: string,
     iteration?: number,
 }
 
+const decodeSeedSignList = (seed: string) => {
+
+    const [encodeSignList] = seed.split('.');
+    const signList = atob(encodeSignList);
+    const decodeSignList: string[] = [];
+
+    // eslint-disable-next-line no-restricted-syntax
+    for (const sign of signList) {
+        decodeSignList.push(sign);
+    }
+
+    return decodeSignList;
+};
+
 const incrementSeed = (seed: string, iteration: number) => `${seed}${iteration}`;
 
-const generateExample = ({ signList = [], seed, iteration }: generateExampleProps) => {
+const generateExample = ({ seed, iteration }: generateExampleProps) => {
 
     const incrementedSeed = incrementSeed(seed, iteration);
     const rng = seedrandom(incrementedSeed);
+    const signList = decodeSeedSignList(seed);
 
     let num_1 = Math.floor(rng() * 100);
     let num_2 = Math.floor(rng() * 100);

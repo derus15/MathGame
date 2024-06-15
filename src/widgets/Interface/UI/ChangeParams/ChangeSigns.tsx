@@ -18,6 +18,7 @@ export const ChangeSigns = memo(() => {
     function changeSignInSession(sign: SignList) {
         if (!sessionProgress) {
             dispatch(interfaceActions.changeSign(sign));
+            dispatch(exampleActions.changeSignSeed(sign));
             dispatch(exampleActions.generateSeed());
         }
     }
