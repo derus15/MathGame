@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { getSessionPoints, getSessionTime } from 'entities/SessionData';
 import { getModificationsList } from 'features/Modifications';
 import { getUnexpectedEnd } from 'entities/Session/model/selectors/getUnexpectedEnd';
-import { getInterfaceGameMode, getInterfaceSignsList } from 'widgets/Interface';
+import { getInterfaceGameMode, getExampleSignsList } from 'widgets/Interface';
 import { useCallback } from 'react';
 
 export const useSendSessionData = () => {
@@ -17,7 +17,7 @@ export const useSendSessionData = () => {
     const modificationsList = useSelector(getModificationsList);
     const sessionUnexpectedEnd = useSelector(getUnexpectedEnd);
     const sessionGameMode = useSelector(getInterfaceGameMode);
-    const sessionSignList = useSelector(getInterfaceSignsList);
+    const sessionSignList = useSelector(getExampleSignsList);
 
     const sendSessionData = (actualSessionData: SessionDataSaveSchema) => {
         try {

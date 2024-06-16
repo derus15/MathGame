@@ -1,10 +1,9 @@
 import React, { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import style from '../Interface/Interface.module.css';
-import { interfaceActions } from '../../model/slice/interfaceSlice';
 import SelectSign from '../InterfaceSelects/SelectSign/SelectSign';
 import { SignList } from 'app/types/config';
-import { getInterfaceSignsList } from '../../model/selectors/getInterfaceSignsList';
+import { getExampleSignsList } from '../../../../entities/Session/model/selectors/getExampleSignsList';
 import { getSessionProgress } from 'entities/Session';
 import { exampleActions } from 'entities/Example';
 
@@ -13,12 +12,11 @@ export const ChangeSigns = memo(() => {
     const dispatch = useDispatch();
     const sessionProgress = useSelector(getSessionProgress);
     const signsList: SignList[] = ['+', '-', '*', '/'];
-    const currentSigns = useSelector(getInterfaceSignsList);
+    const currentSigns = useSelector(getExampleSignsList);
 
-    function changeSignInSession(sign: SignList) {
+    function changeSignInSession(signList: SignList[]) {
         if (!sessionProgress) {
-            dispatch(interfaceActions.changeSign(sign));
-            dispatch(exampleActions.changeSignSeed(sign));
+            dispatch(exampleActions.setSignList(signList));
             dispatch(exampleActions.generateSeed());
         }
     }
@@ -31,7 +29,7 @@ export const ChangeSigns = memo(() => {
                     key={sign}
                     currentSign={sign}
                     globalState={currentSigns}
-                    callback={() => changeSignInSession(sign)}
+                    callback={changeSignInSession}
                 >
                     {sign === '-' ? '–' : sign === '*' ? 'x' : sign}
                 </SelectSign>

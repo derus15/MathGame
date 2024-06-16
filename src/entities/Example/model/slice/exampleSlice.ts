@@ -31,12 +31,8 @@ const exampleSlice = createSlice({
             state.sign = action.payload;
         },
 
-        changeSignSeed: (state, action) => {
-            if (state.signList.includes(action.payload) && state.signList.length > 1) {
-                state.signList = state.signList.filter((sign) => sign !== action.payload);
-            } else if (!state.signList.includes(action.payload)) {
-                state.signList = [...state.signList, action.payload];
-            }
+        setSignList: (state, action) => {
+            state.signList = action.payload;
         },
 
         generateSeed: (state) => {

@@ -29,7 +29,7 @@ export const sendSessionData = createAsyncThunk(
             
             const sessionUnexpectedEnd = state.session.unexpectedEnd;
             const sessionGameMode = state.interface.gameMode;
-            const sessionSignList = state.interface.signList;
+            const sessionSignList = state.example.signList;
             
             const actualSessionData: SessionDataSaveSchema = {
                 mode: sessionGameMode,
