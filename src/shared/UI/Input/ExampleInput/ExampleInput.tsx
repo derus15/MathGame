@@ -1,11 +1,11 @@
-import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
+import React, { ChangeEvent, InputHTMLAttributes, useEffect, useRef, useState } from 'react';
 import style from './ExampleInput.module.css';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useSelector } from 'react-redux';
 import { testNumber } from 'shared/lib/testNumber/testNumber';
 import { getSessionProgress } from 'entities/Session';
 
-interface ExampleInputProps {
+interface ExampleInputProps extends InputHTMLAttributes<HTMLInputElement>{
     focus?: () => void;
     onInput?: (e: ChangeEvent<HTMLInputElement>) => void;
     signal?: string | number;
@@ -13,9 +13,9 @@ interface ExampleInputProps {
     autofocus?: boolean;
 }
 
-const ExampleInput = ({ 
+const ExampleInput = ({
     focus,
-    onlyNumber, 
+    onlyNumber,
     autofocus = false,
     signal = null,
     ...props }: ExampleInputProps) => {
@@ -61,19 +61,17 @@ const ExampleInput = ({
     }, [sessionProgress]);
 
     return (
-        <div>
-            <input
-                onChange={(e) => {
-                    checkNumber(e);
-                }}
-                autoFocus={autofocus && sessionProgress}
-                ref={inputRef}
-                onFocus={focus}
-                inputMode="numeric"
-                className={classNames(style.npt, { [style.nptActive]: answerSignal })}
-                {...props}
-            />
-        </div>
+        <input
+            onChange={(e) => {
+                checkNumber(e);
+            }}
+            autoFocus={autofocus && sessionProgress}
+            ref={inputRef}
+            onFocus={focus}
+            inputMode="numeric"
+            className={classNames(style.npt, { [style.nptActive]: answerSignal })}
+            {...props}
+        />
     );
 };
 

@@ -36,6 +36,12 @@
     justify-content: space-between;
 }
 
+.modificationsContainer {
+    display: flex;
+    gap: 15px;
+    margin-left: 15px;
+}
+
 .username {
     font-size: 21px;
     color: var(--second-active-color);

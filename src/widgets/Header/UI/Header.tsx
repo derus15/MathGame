@@ -10,7 +10,9 @@ export const Header = () => (
             <Link to="/">
                 <h1 className={style.logo}>MathGame</h1>
             </Link>
-            <OneTry />
+            <div className={style.modificationsContainer}>
+                <OneTry />
+            </div>
         </div>
         <HeaderAccountName />
     </header>
