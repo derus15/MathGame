@@ -23,6 +23,7 @@ export const useRefreshExample = () => {
             dispatch(exampleActions.setAnswer(answer));
             dispatch(exampleActions.setExample(example));
             dispatch(exampleActions.setSign(sign));
+            // dispatch(exampleActions.setSignList(signList));
 
         }
 
