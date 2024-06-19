@@ -11,6 +11,7 @@ interface ExampleInputProps extends InputHTMLAttributes<HTMLInputElement>{
     signal?: string | number;
     onlyNumber?: boolean;
     autofocus?: boolean;
+    className?: string;
 }
 
 const ExampleInput = ({
@@ -18,6 +19,7 @@ const ExampleInput = ({
     onlyNumber,
     autofocus = false,
     signal = null,
+    className,
     ...props }: ExampleInputProps) => {
 
     const [answerSignal, setAnswerSignal] = useState(false);
@@ -69,7 +71,7 @@ const ExampleInput = ({
             ref={inputRef}
             onFocus={focus}
             inputMode="numeric"
-            className={classNames(style.npt, { [style.nptActive]: answerSignal })}
+            className={classNames(style.npt, { [style.nptActive]: answerSignal }, [className])}
             {...props}
         />
     );

@@ -1,25 +1,54 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ExampleInput from 'shared/UI/Input/ExampleInput/ExampleInput';
 import { OutlineButton } from 'shared/UI/Button/OutlineButton/OutlineButton';
 import { toast } from 'react-toastify';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { exampleActions } from 'entities/Example';
 import { isDecodeBase64 } from 'shared/lib/decodeBase64/isDecodeBase64';
 import { isSeedIncludesSign } from 'shared/lib/decodeBase64/isSeedIncludesSign';
 import { instructionsActions } from 'widgets/Instructions';
 import { debounce } from 'shared/lib/debounce/debounceFunction';
+import style from './PersonalSeed.module.css';
+import SeedIcon from '../../../../public/assets/seedIcon.svg';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { getSessionProgress } from 'entities/Session';
 
 export const PersonalSeed = () => {
 
     const [inputWidth, setInputWidth] = useState(0);
     const [borderWidth, setBorderWidth] = useState(0);
+    const [isVisibleInput, setIsVisibleInput] = useState(false);
+    const sessionProgress = useSelector(getSessionProgress);
     const dispatch = useDispatch();
 
     const openInputMode = () => {
-        setInputWidth(150);
-        setBorderWidth(1);
+        setIsVisibleInput(true);
         dispatch(instructionsActions.setInstruction('Задайте собственный сид сессии'));
     };
+
+    useEffect(() => {
+        if (isVisibleInput) {
+            setInputWidth(150);
+            setBorderWidth(1);
+        }
+    }, [isVisibleInput]);
+
+    useEffect(() => {
+        let timeout: ReturnType<typeof setTimeout>;
+        
+        if (sessionProgress) {
+            setInputWidth(0);
+            setBorderWidth(0);
+        }
+        
+        setTimeout(() => {
+            setIsVisibleInput(false);
+        }, 250);
+        
+        return () => {
+            clearTimeout(timeout);
+        };
+    }, [sessionProgress]);
     
     const validateSeedInput = debounce((e: React.ChangeEvent<HTMLInputElement>) => {
 
@@ -31,8 +60,6 @@ export const PersonalSeed = () => {
             const [encodedPart] = seed.split('.');
             const decodedPart = isDecodeBase64(encodedPart);
 
-            console.log(decodedPart);
-
             if (!isSeedIncludesSign(decodedPart)) {
                 toast.error('Некорректный сид');
             } else {
@@ -42,19 +69,21 @@ export const PersonalSeed = () => {
     });
 
     return (
-        <div style={{ marginTop: '8px' }}>
-            <ExampleInput 
-                onInput={(e) => validateSeedInput(e)}
-                style={{
-                    width: `${inputWidth}px`,
-                    borderBottom: `${borderWidth}px solid var(--base-color)`,
-                    transitionDuration: '.250s',
-                    fontSize: '16px',
-                }}
-                          
-            />
-            <OutlineButton onClick={openInputMode} style={{ color: 'var(--base-color)', fontSize: '20px' }}>
-                Seed
+        <div className={style.seedContainer}>
+            {isVisibleInput 
+                && <ExampleInput
+                    onInput={(e) => validateSeedInput(e)}
+                    className={style.seedInput}
+                    style={{
+                        width: `${inputWidth}px`,
+                        borderBottom: `${borderWidth}px solid var(--base-color)`,
+                    }}
+                />}
+            <OutlineButton onClick={openInputMode} className={style.seedButton}>
+                <SeedIcon className={
+                    classNames(style.seedIcon, { [style.seedIconActive]: isVisibleInput })
+                }
+                />
             </OutlineButton>
         </div>
     );
