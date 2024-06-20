@@ -23,9 +23,9 @@
 }
 
 .seedIconActive {
-    fill: var(--base-color)
+    fill: var(--active-color);
 }
 
 .seedButton:hover {
-    opacity: 70%
+    opacity: 70%;
 }
