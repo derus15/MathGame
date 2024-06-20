@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { hungerModeActions } from '../../model/slice/hungerModeSlice';
 import { getSessionPoints, sessionDataActions } from 'entities/SessionData';
-import { BaseCounter } from './BaseCounter';
+import { BaseCounter } from 'shared/UI/BaseCounter/BaseCounter';
 import { getCurrentRound } from 'features/GameMods/HungerMode';
 import { RetryFlag } from 'entities/Example';
 import style from '../HungerMode.module.css';

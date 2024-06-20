@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getCurrentRound } from 'features/GameMods/HungerMode';
 import { getInterfaceRounds } from 'widgets/Interface/model/selectors/getInterfaceRounds';
 import { sessionActions } from 'entities/Session';
-import { BaseCounter } from './BaseCounter';
+import { BaseCounter } from 'shared/UI/BaseCounter/BaseCounter';
 import { RetryFlag } from 'entities/Example';
 import style from '../HungerMode.module.css';
 

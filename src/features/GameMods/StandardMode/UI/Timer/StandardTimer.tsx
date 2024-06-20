@@ -1,6 +1,6 @@
 import React, { memo, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { BaseTimer } from './BaseTimer';
+import { BaseTimer } from 'shared/UI/BaseTimer/BaseTimer';
 import { getSessionProgress, sessionActions } from 'entities/Session';
 import { getInterfaceTime } from 'widgets/Interface';
 import { sessionDataActions } from 'entities/SessionData';

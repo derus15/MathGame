@@ -4,7 +4,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { getSessionProgress, sessionActions } from 'entities/Session';
 import { getInterfaceNumber } from 'widgets/Interface';
 import { getSessionPoints, getSessionTime, sessionDataActions } from 'entities/SessionData';
-import { BaseCounter } from 'features/GameMods/HungerMode/UI/Counter/BaseCounter';
+import { BaseCounter } from 'shared/UI/BaseCounter/BaseCounter';
 import { RetryFlag } from 'entities/Example';
 
 export const SprintTimer = () => {

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { BaseTimer } from 'features/GameMods/StandardMode/UI/Timer/BaseTimer';
+import { BaseTimer } from 'shared/UI/BaseTimer/BaseTimer';
 import { sessionActions } from 'entities/Session';
 import style from './HungerTimer.module.css';
 import { getSessionTime, sessionDataActions } from 'entities/SessionData';
