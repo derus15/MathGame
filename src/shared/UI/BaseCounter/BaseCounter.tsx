@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
 
 interface BaseCounterProps {
     incrementArg: number;
@@ -18,7 +17,7 @@ export const BaseCounter = ({ incrementArg, targetArg, callback, mark, className
     }, [incrementArg]);
     
     return (
-        <div className={classNames('', {}, [className])}>{incrementArg} {mark} {targetArg}</div>
+        <div className={className}>{incrementArg} {mark} {targetArg}</div>
     );
 
 };

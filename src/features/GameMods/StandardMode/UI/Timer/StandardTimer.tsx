@@ -34,6 +34,7 @@ export const StandardTimer = memo(() => {
                 onFinishCallback={endSession}
                 setTime={setTimerTime}
                 time={timerTime}
+                startCondition={sessionProgress}
             />
             <RetryFlag />
         </div>

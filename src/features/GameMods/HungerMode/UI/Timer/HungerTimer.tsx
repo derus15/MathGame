@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BaseTimer } from 'shared/UI/BaseTimer/BaseTimer';
-import { sessionActions } from 'entities/Session';
+import { getSessionProgress, sessionActions } from 'entities/Session';
 import style from './HungerTimer.module.css';
 import { getSessionTime, sessionDataActions } from 'entities/SessionData';
 import { hungerModeActions } from 'features/GameMods/HungerMode';
@@ -14,6 +14,7 @@ export const HungerTimer = () => {
     const [isMounted, setIsMounted] = useState(false);
 
     const globalTime = useSelector(getSessionTime);
+    const sessionProgress = useSelector(getSessionProgress);
 
     useEffect(() => {
         if (time % 1000 === 0 && isMounted) {
@@ -35,7 +36,12 @@ export const HungerTimer = () => {
     return (
         <div className={style.hungerTimerContainer}>
             <div className={style.hungerTimer}>
-                <BaseTimer time={time} setTime={setTime} onFinishCallback={endSession} />
+                <BaseTimer
+                    time={time}
+                    setTime={setTime}
+                    onFinishCallback={endSession}
+                    startCondition={sessionProgress}
+                />
             </div>
             <HungerTooltip setTime={setTime} isMounted={isMounted} />
         </div>
