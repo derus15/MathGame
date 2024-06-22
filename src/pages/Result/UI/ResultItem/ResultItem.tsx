@@ -7,16 +7,16 @@ interface ResultItemProps {
     title: string,
     value: string | number,
     isTime?: boolean,
+    isEPS?: boolean,
 }
 
-export const ResultItem = ({ title, value, description, isTime = false }: ResultItemProps) => {
+export const ResultItem = ({ title, value, description, isTime = false, isEPS = false }: ResultItemProps) => {
 
     const [incrementValue, setIncrementValue] = useState<number | string>();
 
     useEffect(() => {
 
         let interval: ReturnType<typeof setInterval>;
-        let targetValue = Number(value);
 
         const startTime = performance.now();
         const duration = 700;
@@ -25,6 +25,7 @@ export const ResultItem = ({ title, value, description, isTime = false }: Result
 
         const updateValue = () => {
 
+            const targetValue = Number(value);
             const currentTime = performance.now();
             const elapsedTime = currentTime - startTime;
             return (elapsedTime / duration) * targetValue;
@@ -32,6 +33,7 @@ export const ResultItem = ({ title, value, description, isTime = false }: Result
         };
 
         if (typeof value === 'number' && !isTime) {
+            const targetValue = Number(value);
 
             interval = setInterval(() => {
 
@@ -46,6 +48,7 @@ export const ResultItem = ({ title, value, description, isTime = false }: Result
             }, stepTime);
 
         } else if (typeof value === 'number' && isTime) {
+            const targetValue = Number(value);
 
             interval = setInterval(() => {
 
@@ -59,9 +62,9 @@ export const ResultItem = ({ title, value, description, isTime = false }: Result
 
             }, stepTime);
 
-        } else if (typeof value === 'string' && value.includes('.')) {
+        } else if (typeof value === 'string' && value.includes('.') && isEPS) {
 
-            targetValue = parseFloat(value);
+            const targetValue = parseFloat(value);
 
             interval = setInterval(() => {
 

@@ -28,6 +28,9 @@ export const GameModsProvider = () => {
         dispatch(sessionDataActions.resetSessionTime());
         dispatch(hungerModeActions.endRound());
         dispatch(hungerModeActions.setRounds(0));
+        return () => {
+            dispatch(exampleActions.resetIsPersonalSeed());
+        };
     }, []);
 
     return (

@@ -13,6 +13,12 @@
     font-size: 16px;
 }
 
+.seedInputActive {
+    width: 150px;
+    border-bottom: 1px solid var(--base-color);
+    transition-duration: .250s;
+}
+
 .seedButton {
     height: 26px;
     width: 25px;

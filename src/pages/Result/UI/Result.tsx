@@ -17,7 +17,7 @@ import { InviteRegister } from './InviteRegister/InviteRegister';
 import { getInterfaceGameMode } from 'widgets/Interface';
 import { getCurrentRound, hungerModeActions } from 'features/GameMods/HungerMode';
 import { exampleActions } from 'entities/Example/model/slice/exampleSlice';
-import { getIsRetrySession } from 'entities/Example';
+import { getInitialSeed, getIsRetrySession } from 'entities/Example';
 import { toast } from 'react-toastify';
 
 export const Result = () => {
@@ -29,6 +29,7 @@ export const Result = () => {
     const round = useSelector(getCurrentRound);
     const sessionTextEnd = useSelector(getUnexpectedEndText);
     const isRetry = useSelector(getIsRetrySession);
+    const seed = useSelector(getInitialSeed);
 
     const dispatch = useAppDispatch();
     const { sendSessionData } = useSendSessionData();
@@ -70,7 +71,8 @@ export const Result = () => {
                     <ResultItem title="Примеров решено:" value={numberResult} />
                     {gameMode === 'Голод' && <ResultItem title="Раундов завершено:" value={round} />}
                     <ResultItem title="Ваше время:" value={sessionTime} isTime />
-                    <ResultItem title="ПВС:" value={eps} description="Примеров в секунду" />
+                    <ResultItem title="ПВС:" value={eps} description="Примеров в секунду" isEPS />
+                    <ResultItem title="Сид:" value={seed} />
                     <div className={style.buttonContainer}>
                         <ExampleModal />
                         <ExampleButton onClick={retrySessionHandle}>Повторить</ExampleButton>

@@ -9,6 +9,7 @@ const initialState: ExampleSchema = {
     example: undefined,
     seed: null,
     isRetry: false,
+    isPersonalSeed: false,
     signList: JSON.parse(localStorage.getItem('signList')) || ['+', '-'],
     iterationSeed: 1,
 };
@@ -39,12 +40,21 @@ const exampleSlice = createSlice({
             state.seed = generateSeed(state.signList);
             state.iterationSeed = 0;
             state.isRetry = false;
+            state.isPersonalSeed = false;
         },
 
         setSeed: (state, action) => {
             state.seed = action.payload;
             state.iterationSeed = 0;
             state.isRetry = false;
+        },
+        
+        setIsPersonalSeed: (state) => {
+            state.isPersonalSeed = true;
+        },
+
+        resetIsPersonalSeed: (state) => {
+            state.isPersonalSeed = false;
         },
 
         retrySession: (state) => {

@@ -9,4 +9,5 @@ export interface ExampleSchema {
     isRetry: boolean,
     iterationSeed: number,
     signList: SignList[],
+    isPersonalSeed: boolean,
 }

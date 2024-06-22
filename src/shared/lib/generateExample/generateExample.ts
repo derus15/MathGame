@@ -63,7 +63,7 @@ const generateExample = ({ seed, iteration }: generateExampleProps) => {
     const answerExample = String(signFunction[sign](num_1, num_2));
     const example = `${num_1} ${sign} ${num_2} =`;
 
-    return { example, answer: answerExample, sign, seed: incrementedSeed };
+    return { example, answer: answerExample, sign, seed: incrementedSeed, signList };
 };
 
 export default generateExample;

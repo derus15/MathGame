@@ -3,7 +3,7 @@ import ExampleInput from 'shared/UI/Input/ExampleInput/ExampleInput';
 import { OutlineButton } from 'shared/UI/Button/OutlineButton/OutlineButton';
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
-import { exampleActions } from 'entities/Example';
+import { exampleActions, getIsPersonalSeed } from 'entities/Example';
 import { isDecodeBase64 } from 'shared/lib/decodeBase64/isDecodeBase64';
 import { isSeedIncludesSign } from 'shared/lib/decodeBase64/isSeedIncludesSign';
 import { instructionsActions } from 'widgets/Instructions';
@@ -15,16 +15,26 @@ import { getSessionProgress } from 'entities/Session';
 
 export const PersonalSeed = () => {
 
+    const dispatch = useDispatch();
     const [inputWidth, setInputWidth] = useState(0);
     const [borderWidth, setBorderWidth] = useState(0);
     const [isVisibleInput, setIsVisibleInput] = useState(false);
+
+    const isActive = useSelector(getIsPersonalSeed);
     const sessionProgress = useSelector(getSessionProgress);
-    const dispatch = useDispatch();
 
     const openInputMode = () => {
         setIsVisibleInput(true);
         dispatch(instructionsActions.setInstruction('Задайте собственный сид сессии'));
     };
+
+    useEffect(() => {
+        if (!isActive && isVisibleInput) {
+            setInputWidth(0);
+            setBorderWidth(0);
+            setIsVisibleInput(false);
+        }
+    }, [isActive]);
 
     useEffect(() => {
         if (isVisibleInput) {
@@ -35,16 +45,16 @@ export const PersonalSeed = () => {
 
     useEffect(() => {
         let timeout: ReturnType<typeof setTimeout>;
-        
+
         if (sessionProgress) {
             setInputWidth(0);
             setBorderWidth(0);
         }
-        
+
         setTimeout(() => {
             setIsVisibleInput(false);
         }, 250);
-        
+
         return () => {
             clearTimeout(timeout);
         };
@@ -53,9 +63,9 @@ export const PersonalSeed = () => {
     const validateSeedInput = debounce((e: React.ChangeEvent<HTMLInputElement>) => {
 
         const seed = e.target.value;
-        const isDot = seed.includes('.');
+        const isValid = seed.includes('.');
         
-        if (isDot) {
+        if (isValid) {
 
             const [encodedPart] = seed.split('.');
             const decodedPart = isDecodeBase64(encodedPart);
@@ -64,14 +74,17 @@ export const PersonalSeed = () => {
                 toast.error('Некорректный сид');
             } else {
                 dispatch(exampleActions.setSeed(seed));
+                dispatch(exampleActions.setIsPersonalSeed());
             }
         }
+
     });
 
     return (
         <div className={style.seedContainer}>
             {isVisibleInput 
                 && <ExampleInput
+                    maxLength={30}
                     onInput={(e) => validateSeedInput(e)}
                     className={style.seedInput}
                     style={{
@@ -81,7 +94,7 @@ export const PersonalSeed = () => {
                 />}
             <OutlineButton onClick={openInputMode} className={style.seedButton}>
                 <SeedIcon className={
-                    classNames(style.seedIcon, { [style.seedIconActive]: isVisibleInput })
+                    classNames(style.seedIcon, { [style.seedIconActive]: isActive })
                 }
                 />
             </OutlineButton>
