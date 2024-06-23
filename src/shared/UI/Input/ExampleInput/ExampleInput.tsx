@@ -10,14 +10,12 @@ interface ExampleInputProps extends InputHTMLAttributes<HTMLInputElement>{
     onInput?: (e: ChangeEvent<HTMLInputElement>) => void;
     signal?: string | number;
     onlyNumber?: boolean;
-    autofocus?: boolean;
     className?: string;
 }
 
 const ExampleInput = ({
     focus,
     onlyNumber,
-    autofocus = false,
     signal = null,
     className,
     ...props }: ExampleInputProps) => {
@@ -67,7 +65,6 @@ const ExampleInput = ({
             onChange={(e) => {
                 checkNumber(e);
             }}
-            autoFocus={autofocus && sessionProgress}
             ref={inputRef}
             onFocus={focus}
             inputMode="numeric"

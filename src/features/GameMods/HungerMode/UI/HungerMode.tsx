@@ -61,7 +61,7 @@ export const HungerMode = () => {
             </div>
             <Example />
             <ExampleInput
-                autofocus={isRoundProgress}
+                autoFocus={isRoundProgress}
                 onlyNumber
                 focus={startHungerMode}
                 onInput={checkAnswer}
