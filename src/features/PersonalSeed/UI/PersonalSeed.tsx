@@ -36,6 +36,7 @@ export const PersonalSeed = () => {
     };
     
     const closeInputMode = () => {
+
         if (isVisibleInput) {
             setIsAnimateInput(false);
 
@@ -53,7 +54,6 @@ export const PersonalSeed = () => {
     const validateSeedInput = debounce((e: React.ChangeEvent<HTMLInputElement>) => {
         
         const seed = e.target.value;
-
         const [encodedPart] = seed.split('.');
         const decodedPart = isDecodeBase64(encodedPart);
 
@@ -65,7 +65,7 @@ export const PersonalSeed = () => {
 
             toast.error('Некорректный сид');
 
-        } else if (initialSeed !== seed) { // в повторной сессии при вводе ее же сид генерирует пример заново
+        } else if (initialSeed !== seed) {
 
             dispatch(exampleActions.setSeed(seed));
             dispatch(exampleActions.setIsPersonalSeed());

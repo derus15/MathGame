@@ -17,7 +17,7 @@ import { InviteRegister } from './InviteRegister/InviteRegister';
 import { getInterfaceGameMode } from 'widgets/Interface';
 import { getCurrentRound, hungerModeActions } from 'features/GameMods/HungerMode';
 import { exampleActions } from 'entities/Example/model/slice/exampleSlice';
-import { getInitialSeed, getIsRetrySession } from 'entities/Example';
+import { getInitialSeed, getIsPersonalSeed, getIsRetrySession } from 'entities/Example';
 import { toast } from 'react-toastify';
 
 export const Result = () => {
@@ -30,10 +30,12 @@ export const Result = () => {
     const sessionTextEnd = useSelector(getUnexpectedEndText);
     const isRetry = useSelector(getIsRetrySession);
     const seed = useSelector(getInitialSeed);
+    const isPersonalSeed = useSelector(getIsPersonalSeed);
 
     const dispatch = useAppDispatch();
     const { sendSessionData } = useSendSessionData();
     const eps = calculateEPS(numberResult, sessionTime);
+    const isCustomSession = isPersonalSeed || isRetry;
 
     const closeResultHandle = useCallback(() => {
         dispatch(sessionActions.closeResultPage());
@@ -47,13 +49,11 @@ export const Result = () => {
     
     useEffect(() => {
         dispatch(sessionDataActions.saveEPS(eps));
-        if (isAuth && !isRetry) {
+        if (isAuth && isCustomSession) {
+            toast.error('Повторные сессии не сохраняются');
+        } else if (isAuth) {
             sendSessionData(eps);
         }
-        if (isAuth && isRetry) {
-            toast.error('Повторные сессии не сохраняются');
-        }
-        // saveSessionDataInLocalStorage();
         return () => {
             dispatch(sessionActions.closeResultPage());
             dispatch(sessionDataActions.resetExampleList());
