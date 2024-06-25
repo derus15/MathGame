@@ -10,6 +10,8 @@
     "lint": "eslint \"**/*.{js,jsx,ts,tsx}\" ",
     "lint:fix": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix",
     "test:unit": "jest --config ./config/jest/jest.config.ts",
+    "test:e2e": "npx playwright test",
+    "test:e2e:record": "npx playwright codegen http://localhost:3000/",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "build-storybook": "storybook build -c ./config/storybook"
   },
@@ -21,6 +23,7 @@
     "@babel/preset-react": "^7.23.3",
     "@babel/preset-typescript": "^7.23.3",
     "@chromatic-com/storybook": "^1.4.0",
+    "@playwright/test": "^1.45.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.11",
     "@storybook/addon-essentials": "^7.6.10",
     "@storybook/addon-interactions": "^7.6.10",
