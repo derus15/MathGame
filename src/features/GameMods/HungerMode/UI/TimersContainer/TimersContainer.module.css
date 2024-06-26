@@ -1,0 +1,38 @@
+.timersContainer {
+    display: flex;
+    width: 100%;
+    position: absolute;
+    transition-duration: .3s;
+    animation: init ease-in-out .2s;
+    bottom: 127px;
+    color: var(--second-active-color);
+    font-size: 20px;
+}
+
+.roundProgressTimer {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    gap: 420px;
+}
+
+.roundCounter {
+    display: flex;
+    position: relative;
+    left: 15%;
+}
+
+@keyframes init {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: .5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
+}

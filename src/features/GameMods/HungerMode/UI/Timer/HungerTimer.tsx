@@ -4,8 +4,8 @@ import { BaseTimer } from 'shared/UI/BaseTimer/BaseTimer';
 import { getSessionProgress, sessionActions } from 'entities/Session';
 import style from './HungerTimer.module.css';
 import { getSessionTime, sessionDataActions } from 'entities/SessionData';
-import { hungerModeActions } from 'features/GameMods/HungerMode';
-import { HungerTooltip } from 'features/GameMods/HungerMode/UI/Tooltip/HungerTooltip';
+import { hungerModeActions } from '../../model/slice/hungerModeSlice';
+import { HungerTooltip } from '../Tooltip/HungerTooltip';
 
 export const HungerTimer = () => {
 

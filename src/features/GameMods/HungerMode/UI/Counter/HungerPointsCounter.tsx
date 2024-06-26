@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { hungerModeActions } from '../../model/slice/hungerModeSlice';
 import { getSessionPoints, sessionDataActions } from 'entities/SessionData';
 import { BaseCounter } from 'shared/UI/BaseCounter/BaseCounter';
-import { getCurrentRound } from 'features/GameMods/HungerMode';
+import { getCurrentRound } from '../../model/selectors/getCurrentRound';
 import { RetryFlag } from 'entities/Example';
-import style from '../HungerMode.module.css';
+import style from './Counter.module.css';
 
 export const HungerPointsCounter = () => {
 
@@ -36,7 +36,7 @@ export const HungerPointsCounter = () => {
     };
 
     return (
-        <div className={style.retryContainer}>
+        <div className={style.counterRetryContainer}>
             <BaseCounter incrementArg={userPoint} targetArg={hungerPoints} mark="|" callback={endRound} />
             <RetryFlag />
         </div>

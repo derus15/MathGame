@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import style from './Placeholder.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCurrentRound, hungerModeActions } from 'features/GameMods/HungerMode';
+import { RoundCounter } from 'features/GameMods/HungerMode/UI/Counter/RoundCounter';
 
 export const Placeholder = () => {
 
@@ -27,9 +28,14 @@ export const Placeholder = () => {
     }, []);
     
     return (
-        <div className={style.placeholderContainer}>
-            <span>Раунд {currentRound} завершен</span>
-            <span className={style.textUntil}>Следующий начнется через {timeUntil}</span>
-        </div>
+        <>
+            <div className={style.timerContainer}>
+                <RoundCounter />
+            </div>
+            <div className={style.placeholderContainer}>
+                <span>Раунд {currentRound} завершен</span>
+                <span className={style.textUntil}>Следующий начнется через {timeUntil}</span>
+            </div>
+        </>
     );
 };

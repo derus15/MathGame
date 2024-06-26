@@ -2,18 +2,14 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Example, getExampleAnswer } from 'entities/Example';
 import ExampleInput from 'shared/UI/Input/ExampleInput/ExampleInput';
-import style from './HungerMode.module.css';
-import { HungerTimer } from './Timer/HungerTimer';
-import { HungerPointsCounter } from './Counter/HungerPointsCounter';
 import { getIsRoundProgress } from '../model/selectors/getIsRoundProgress';
 import { getSessionProgress } from 'entities/Session';
 import { Placeholder } from '../UI/Placeholder/Placeholder';
-import { RoundCounter } from '../UI/Counter/RoundCounter';
 import { getCurrentRound, hungerModeActions } from 'features/GameMods/HungerMode';
 import { useCheckAnswer } from 'features/GameMods/hooks/useCheckAnswer';
-import { classNames } from 'shared/lib/classNames/classNames';
 import { getSessionPoints, sessionDataActions } from 'entities/SessionData';
 import { useStartSession } from 'features/GameMods/hooks/useStartSession';
+import { TimersContainer } from './TimersContainer/TimersContainer';
 
 export const HungerMode = () => {
 
@@ -39,26 +35,12 @@ export const HungerMode = () => {
     }, [isRoundProgress]);
     
     if (!isRoundProgress && sessionProgress) {
-        return (
-            <>
-                <div className={style.timerContainer}>
-                    <RoundCounter />
-                </div>
-                <Placeholder />
-            </>
-        );
+        return <Placeholder />;
     }
 
     return (
         <>
-            <div className={classNames('', {
-                [style.timerContainer]: isRoundProgress,
-                [style.roundCounter]: !isRoundProgress,
-            })}
-            >
-                {isRoundProgress ? <HungerTimer /> : <RoundCounter />}
-                {isRoundProgress && <HungerPointsCounter />}
-            </div>
+            <TimersContainer />
             <Example />
             <ExampleInput
                 autoFocus={isRoundProgress}
