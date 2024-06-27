@@ -50,7 +50,7 @@ const AuthInput = forwardRef((props: LoginInputProps, ref: ForwardedRef<HTMLInpu
             {password && isMouseEnter && (
                 <OutlineButton
                     onClick={handleShowPassword}
-                    className={style.passBtn}
+                    className={classNames(style.passBtn, { [style.passBtnActive]: isVisiblePassword })}
                     title={isVisiblePassword ? 'Показать пароль' : 'Скрыть пароль'}
                 />)}
         </div>

@@ -57,6 +57,10 @@
     opacity: 60%;
 }
 
+.passBtnActive {
+    background: var(--base-color);
+}
+
 .passBtn:hover {
     border-color: var(--active-color);
 }
