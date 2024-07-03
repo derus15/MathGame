@@ -1,5 +1,4 @@
 import { toast } from 'react-toastify';
-import { SessionDataSaveSchema } from 'entities/SessionData/model/services/sendSessionData';
 import { useSaveSessionDataMutation } from 'entities/SessionData/model/api/saveSessionDataApi';
 import { useSelector } from 'react-redux';
 import { getSessionPoints, getSessionTime } from 'entities/SessionData';
@@ -7,6 +6,8 @@ import { getModificationsList } from 'features/Modifications';
 import { getUnexpectedEnd } from 'entities/Session/model/selectors/getUnexpectedEnd';
 import { getInterfaceGameMode, getExampleSignsList } from 'widgets/Interface';
 import { useCallback } from 'react';
+import { SessionDataSaveSchema } from '../types/types';
+import { getSessionEPS } from 'entities/SessionData/model/selectors/getSessionEPS';
 
 export const useSendSessionData = () => {
 
@@ -18,6 +19,7 @@ export const useSendSessionData = () => {
     const sessionUnexpectedEnd = useSelector(getUnexpectedEnd);
     const sessionGameMode = useSelector(getInterfaceGameMode);
     const sessionSignList = useSelector(getExampleSignsList);
+    const sessionEps = useSelector(getSessionEPS);
 
     const sendSessionData = (actualSessionData: SessionDataSaveSchema) => {
         try {
@@ -28,14 +30,14 @@ export const useSendSessionData = () => {
         }
     };
 
-    const handleSendSessionData = useCallback((sessionEPS: string) => {
+    const handleSendSessionData = useCallback(() => {
 
         const actualSessionData: SessionDataSaveSchema = {
             mode: sessionGameMode,
             number: sessionPoints,
             time: sessionTime,
             sign: sessionSignList,
-            eps: sessionEPS,
+            eps: sessionEps,
             modifications: modificationsList,
             unexpectedEnd: sessionUnexpectedEnd,
         };

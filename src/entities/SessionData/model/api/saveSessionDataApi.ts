@@ -1,5 +1,5 @@
 import { rtkApi } from 'shared/api/rtkApi';
-import { SessionDataSaveSchema } from 'entities/SessionData/model/services/sendSessionData';
+import { SessionDataSaveSchema } from '../types/types';
 
 const saveSessionData = rtkApi.injectEndpoints({
     endpoints: (build) => ({

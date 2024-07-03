@@ -9,16 +9,13 @@ export const InviteRegister = () => {
     const isAuth = useSelector(getIsAuth);
     
     return (
-        // eslint-disable-next-line react/jsx-no-useless-fragment
-        <>
-            {!isAuth && (
-                <div className={style.instruction}>
-                    <Link to="/auth" className={style.instructionLink}>
-                        Создайте аккаунт,
-                    </Link>
-                    чтобы сохранять результаты
-                </div>
-            )}
-        </>
+        !isAuth && (
+            <div className={style.instruction}>
+                <Link to="/auth" className={style.instructionLink}>
+                    Создайте аккаунт,
+                </Link>
+                чтобы сохранять результаты
+            </div>
+        )
     );
 };

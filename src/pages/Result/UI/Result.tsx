@@ -9,7 +9,6 @@ import {
 } from 'entities/SessionData';
 import { getIsAuth } from 'entities/User';
 import { useAppDispatch } from 'shared/lib/hooks/reduxHooks/reduxHooks';
-import { calculateEPS } from 'shared/lib/calculateEPS/calculateEPS';
 import ExampleModal from './ExampleModal/ExampleModal';
 import { PageLayout } from 'shared/UI/PageLayout/PageLayout';
 import { ResultItem } from './ResultItem/ResultItem';
@@ -19,6 +18,7 @@ import { getCurrentRound, hungerModeActions } from 'features/GameMods/HungerMode
 import { exampleActions } from 'entities/Example/model/slice/exampleSlice';
 import { getInitialSeed, getIsPersonalSeed, getIsRetrySession } from 'entities/Example';
 import { toast } from 'react-toastify';
+import { useCalculateEPS } from 'shared/lib/hooks/useCalculateEPS';
 
 export const Result = () => {
 
@@ -33,8 +33,8 @@ export const Result = () => {
     const isPersonalSeed = useSelector(getIsPersonalSeed);
 
     const dispatch = useAppDispatch();
+    const eps = useCalculateEPS();
     const { sendSessionData } = useSendSessionData();
-    const eps = calculateEPS(numberResult, sessionTime);
     const isCustomSession = isPersonalSeed || isRetry;
 
     const closeResultHandle = useCallback(() => {
@@ -48,11 +48,10 @@ export const Result = () => {
     }, []);
     
     useEffect(() => {
-        dispatch(sessionDataActions.saveEPS(eps));
         if (isAuth && isCustomSession) {
             toast.error('Повторные сессии не сохраняются');
         } else if (isAuth) {
-            sendSessionData(eps);
+            sendSessionData();
         }
         return () => {
             dispatch(sessionActions.closeResultPage());

@@ -32,10 +32,8 @@ export const sessionSlice = createSlice({
             }
 
             if (action.payload === null) {
-
                 state.unexpectedEndText = 'Результаты сессии';
             } else {
-
                 state.unexpectedEndText = action.payload;
             }
 
