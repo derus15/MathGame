@@ -8,6 +8,7 @@ export const useCalculateHungerTime = (answer: string, sign: SignList) => {
 
         return 4;
 
+        // eslint-disable-next-line
     } else if (hardDifficultSigns.includes(sign) && answer.length <= 2 && answer !== '0') {
 
         return 3;

@@ -1,3 +1,4 @@
+/* eslint-disable react/function-component-definition */
 import React, { FC } from 'react';
 import { ThemeList } from 'app/types/config';
 
