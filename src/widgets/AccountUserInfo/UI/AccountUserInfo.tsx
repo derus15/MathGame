@@ -4,6 +4,7 @@ import Avatar from '../../../../public/assets/Avatar.jpg';
 import { UpdateUserButton } from 'features/UpdateUserData';
 import { useGetAccountInfoQuery } from '../api/accountUserInfoApi';
 import { timeNormalization } from 'shared/lib/timeNormalization/timeNormalization';
+import { Circle } from 'shared/UI/Circle/Circle';
 
 export const AccountUserInfo = () => {
 
@@ -16,9 +17,7 @@ export const AccountUserInfo = () => {
 
                 <div className={style.circleContainer}>
                     <span className={style.circleTitle}>Решено примеров</span>
-                    <div className={style.circle}>
-                        {data.counterExample?.[0]?.total_example || 0}
-                    </div>
+                    <Circle info={data.counterExample?.[0]?.total_example || 0} />
                 </div>
 
                 <div className={style.circleAvatar}>
@@ -28,7 +27,7 @@ export const AccountUserInfo = () => {
 
                 <div className={style.circleContainer}>
                     <span className={style.circleTitle}>Часов в игре</span>
-                    <div className={style.circle}>{normalizeTotalTime}</div>
+                    <Circle info={normalizeTotalTime} />
                 </div>
             </div>
 
