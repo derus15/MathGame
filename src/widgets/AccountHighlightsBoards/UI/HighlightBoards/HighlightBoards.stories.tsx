@@ -27,6 +27,12 @@ const meta = {
 
 type Story = StoryObj<typeof meta>;
 
+const defaultPlaceholder = {
+    title: '—',
+    eps: '—',
+    additionalParameter: '—',
+};
+
 export const WithData: Story = {
     decorators:
         [
@@ -65,6 +71,7 @@ export const Themes: Story = {
     args: {
         label: 'Режим игры',
         description: '',
+        highlightBoardValue: [defaultPlaceholder, defaultPlaceholder, defaultPlaceholder],
     },
 };
 
