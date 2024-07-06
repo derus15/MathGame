@@ -8,14 +8,11 @@ interface HintButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string,
 }
 
-export const HintButton = ({ title = '>>', text, className }: HintButtonProps) => {
-
-    return (
-        <button
-            type="button"
-            className={classNames(style.hintButton, {}, [className])}
-        >
-            {title}
-        </button>
-    );
-};
+export const HintButton = ({ title = '>>', text, className }: HintButtonProps) => (
+    <button
+        type="button"
+        className={classNames(style.hintButton, {}, [className])}
+    >
+        {title}
+    </button>
+);

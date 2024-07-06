@@ -7,7 +7,7 @@ import { useCheckValidPasswordMutation } from 'features/UpdateUserData/api/check
 
 export const CheckValidPassword = () => {
 
-    const [checkValidPassword, {isLoading}] = useCheckValidPasswordMutation();
+    const [checkValidPassword, { isLoading }] = useCheckValidPasswordMutation();
     const { handleSubmit, register } = useForm({ mode: 'onChange' });
 
     const checkPassword = (values: string) => {
