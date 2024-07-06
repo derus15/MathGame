@@ -7,7 +7,7 @@ import { useCheckValidPasswordMutation } from 'features/UpdateUserData/api/check
 
 export const CheckValidPassword = () => {
 
-    const [checkValidPassword] = useCheckValidPasswordMutation();
+    const [checkValidPassword, {isLoading}] = useCheckValidPasswordMutation();
     const { handleSubmit, register } = useForm({ mode: 'onChange' });
 
     const checkPassword = (values: string) => {
@@ -24,7 +24,7 @@ export const CheckValidPassword = () => {
                 password
                 {...register('password')}
             />
-            <LoginButton>Подтвердить</LoginButton>
+            <LoginButton disabled={isLoading}>Подтвердить</LoginButton>
         </form>
     );
 };

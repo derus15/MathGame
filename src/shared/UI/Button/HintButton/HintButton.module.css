@@ -1,0 +1,42 @@
+.hintButton {
+    background-color: var(--interface-background-color);
+    color: var(--base-color);
+    border: var(--interface-background-color), solid, 1px;
+    cursor: pointer;
+    font-size: 18px;
+    width: 50px;
+    border-radius: 10px;
+    padding: 5px 10px;
+    transition-property: width;
+    transition-duration: .125s;
+}
+
+.hintButton:hover::before {
+    content: 'Продолжить';
+    color: var(--active-color);
+    width: 150px;
+    padding: 10px 5px;
+    font-size: 18px;
+    opacity: 1;
+    animation: init .150s linear;
+}
+
+.hintButton:hover {
+    color: var(--interface-background-color);
+    width: 150px;
+    font-size: 1px;
+}
+
+.hintButton:active {
+    color: var(--base-color);
+}
+
+@keyframes init {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
