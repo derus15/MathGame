@@ -12,13 +12,13 @@
 }
 
 .hintButton:hover::before {
-    content: 'Продолжить';
+    content: var(--hint-content);
     color: var(--active-color);
     width: 150px;
     padding: 10px 5px;
     font-size: 18px;
     opacity: 1;
-    animation: init .150s linear;
+    animation: init .200s linear;
 }
 
 .hintButton:hover {
