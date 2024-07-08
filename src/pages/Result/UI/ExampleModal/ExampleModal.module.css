@@ -38,7 +38,7 @@
     gap: 3px;
     font-size: 28px;
     text-align: start;
-    width: 120px;
+    width: 125px;
     color: var(--second-active-color);
 }
 
@@ -47,6 +47,21 @@
     text-align: center;
     color: var(--base-color);
     margin-bottom: 20px;
+}
+
+.exampleTimeContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
+.exampleTime {
+    width: 100%;
+}
+
+.exampleArrow {
+    color: var(--base-color);
 }
 
 .answer {

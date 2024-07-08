@@ -6,7 +6,7 @@ export interface SessionDataSchema {
     sessionTime: number,
     sessionEPS: string,
     sessionExampleList: string[],
-    sessionIdealTimeFlags: number[][],
+    sessionTimeFlags: number[][],
 }
 
 export interface SessionDataSaveSchema {

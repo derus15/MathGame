@@ -6,7 +6,7 @@ const initialState: SessionDataSchema = {
     sessionTime: 0,
     sessionEPS: '0.00',
     sessionExampleList: [],
-    sessionIdealTimeFlags: [],
+    sessionTimeFlags: [],
 };
 
 export const sessionDataSlice = createSlice({
@@ -16,20 +16,20 @@ export const sessionDataSlice = createSlice({
     reducers: {
 
         startNewRoundTime: (state) => {
-            state.sessionIdealTimeFlags.push([]);
+            state.sessionTimeFlags.push([]);
         },
 
         setSessionTimeFlags: (state) => {
-            if (state.sessionIdealTimeFlags.length > 0) {
-                const currentRound = state.sessionIdealTimeFlags[state.sessionIdealTimeFlags.length - 1];
+            if (state.sessionTimeFlags.length > 0) {
+                const currentRound = state.sessionTimeFlags[state.sessionTimeFlags.length - 1];
                 currentRound.push(Date.now());
             } else {
-                state.sessionIdealTimeFlags.push([Date.now()]);
+                state.sessionTimeFlags.push([Date.now()]);
             }
         },
 
         resetSessionTimeFlags: (state) => {
-            state.sessionIdealTimeFlags = [];
+            state.sessionTimeFlags = [];
         },
 
         incrementSessionPoints: (state) => {

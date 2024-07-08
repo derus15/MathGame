@@ -9,7 +9,7 @@ import {
 } from 'entities/SessionData';
 import { getIsAuth } from 'entities/User';
 import { useAppDispatch } from 'shared/lib/hooks/reduxHooks/reduxHooks';
-import ExampleModal from './ExampleModal/ExampleModal';
+import { ExampleModal } from './ExampleModal/ExampleModal';
 import { PageLayout } from 'shared/UI/PageLayout/PageLayout';
 import { ResultItem } from './ResultItem/ResultItem';
 import { InviteRegister } from './InviteRegister/InviteRegister';

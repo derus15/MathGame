@@ -55,6 +55,7 @@ module.exports = {
         'jsx-a11y/control-has-associated-label': 'off',
         'consistent-return': 'off',
         'no-nested-ternary': 'off',
+        'react/no-array-index-key': 'off',
     },
     globals: {
         __IS_DEV__: true,
