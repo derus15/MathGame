@@ -13,8 +13,10 @@
     transition-duration: .125s;
 }
 
-.disabled {
+.btn:disabled {
+    pointer-events: none;
     opacity: 50%;
+    cursor: auto;
 }
 
 .btn:hover {
