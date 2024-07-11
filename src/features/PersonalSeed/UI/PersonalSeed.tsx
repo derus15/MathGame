@@ -9,7 +9,7 @@ import { isSeedIncludesSign } from 'shared/lib/decodeBase64/isSeedIncludesSign';
 import { instructionsActions } from 'widgets/Instructions';
 import { debounce } from 'shared/lib/debounce/debounceFunction';
 import style from './PersonalSeed.module.css';
-import SeedIcon from '../../../../public/assets/seedIcon.svg';
+import SeedIcon from '../../../../public/assets/seed.svg';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { getSessionProgress } from 'entities/Session';
 

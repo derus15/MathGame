@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './OneTry.module.css';
-import OneIcon from '/public/assets/oneIcon.svg';
+import OneIcon from '/public/assets/oneTry.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { modificationsActions } from '../../model/slice/modificationsSlice';

@@ -44,7 +44,7 @@ input:checked {
 }
 
 input:checked::before {
-    content: url("/public/assets/checkV2.svg");
+    content: url("/public/assets/check.svg");
     font-size: 1em;
     color: var(--interface-background-color);
     position: absolute;

@@ -1,4 +1,4 @@
-[![img_1.png](public/assets/Logo.png)](https://math-game-sepia.vercel.app/)
+[![img_1.png](public/assets/logoReadMe.png)](https://math-game-sepia.vercel.app/)
 
 ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
@@ -9,7 +9,7 @@
 
 **MathGame** - кастомное веб-приложение для тренировки устного счета. Для погружения в состояние потока на сайте отсутствует кнопка подтверждения ответа. При верном решении пример сменится на следующий
 
-![](public/assets/MgExample.gif)
+![](public/assets/workExample.gif)
 
 Уже в приложении:
 
@@ -33,7 +33,7 @@
 
 **MathGame** is a custom web application for practicing mental arithmetic. There is no answer confirmation button on the site to dive into the flow state. If the solution is correct, the example will change to the next one
 
-![](public/assets/MgExample.gif)
+![](public/assets/workExample.gif)
 
 Already in the app:
 

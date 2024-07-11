@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './AccountUserInfo.module.css';
-import Avatar from '../../../../public/assets/Avatar.jpg';
+import Avatar from '../../../../public/assets/avatar.jpg';
 import { UpdateUserButton } from 'features/UpdateUserData';
 import { useGetAccountInfoQuery } from '../api/accountUserInfoApi';
 import { timeNormalization } from 'shared/lib/timeNormalization/timeNormalization';
