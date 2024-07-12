@@ -23,7 +23,7 @@ const ChangeNumber = () => {
     }
 
     return (
-        <div className={style.containerNumber}>
+        <div className={style.containerParams}>
             {numbersList.map((number) => (
 
                 <Select

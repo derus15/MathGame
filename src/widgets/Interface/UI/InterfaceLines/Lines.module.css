@@ -1,12 +1,12 @@
 .rightLine {
     position: relative;
-    right: 10px;
+    right: 5px;
     transition-duration: .3s;
 }
 
 .leftLine {
     position: relative;
-    right: 545px;
+    right: 540px;
     transition-duration: .3s;
 }
 

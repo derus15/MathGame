@@ -23,7 +23,7 @@ const ChangeRounds = () => {
     }
 
     return (
-        <div className={style.containerTime}>
+        <div className={style.containerParams}>
             {roundsList.map((round) => (
 
                 <Select

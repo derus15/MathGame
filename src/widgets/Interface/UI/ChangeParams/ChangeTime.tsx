@@ -23,7 +23,7 @@ const ChangeTime = () => {
     }
 
     return (
-        <div className={style.containerTime}>
+        <div className={style.containerParams}>
             {timesList.map((time) => (
 
                 <Select

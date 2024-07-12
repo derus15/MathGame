@@ -1,6 +1,7 @@
 .signs {
     background-color: inherit;
     font-size: 19px;
+    min-width: 20px;
     color: var(--base-color);
     transition-duration: .125s;
 }

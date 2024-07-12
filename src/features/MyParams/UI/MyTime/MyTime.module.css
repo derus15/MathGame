@@ -1,6 +1,7 @@
 .time {
     font-size: 16px;
     background-color: transparent;
+    min-width: 20px;
     color: var(--base-color);
 }
 
