@@ -7,7 +7,7 @@
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
 
-**MathGame** - кастомное веб-приложение для тренировки устного счета. Для погружения в состояние потока на сайте отсутствует кнопка подтверждения ответа. При верном решении пример сменится на следующий
+**MathGame** - веб-приложение для тренировки устного счета. Для погружения в состояние потока на сайте отсутствует кнопка подтверждения ответа. При верном решении пример сменится на следующий
 
 ![](public/assets/workExample.gif)
 
@@ -17,21 +17,21 @@
 - Гибкие настройки для игровой сессии
 - Личный аккаунт со статистикой
 - Модификаторы для усложнения сессии
+- Сиды для повторения и воспроизведения сессий
 - 5 цветовых тем
 
-Приложение находится на стадии разработки. В ближайшее время будет добавлено:
+Приложение в разработке. Скоро будут добавлены:
 
 - Уровень профиля
 - Подробная статистика в личном кабинете
 - База знаний с советами для устного счета
 - Новые режимы игры
 - Английский язык
-- Сиды для повторения сессий
 - Система достижений
 
 ---
 
-**MathGame** is a custom web application for practicing mental arithmetic. There is no answer confirmation button on the site to dive into the flow state. If the solution is correct, the example will change to the next one
+**MathGame** is a web application for practicing mental arithmetic. There is no answer confirmation button on the site to dive into the flow state. If the solution is correct, the example will change to the next one
 
 ![](public/assets/workExample.gif)
 
@@ -41,6 +41,7 @@ Already in the app:
 - Flexible settings for game session
 - Personal account with statistics
 - Modifiers to make the session more difficult
+- Seeds for repeating sessions
 - 5 color themes
 
 Application in development. It will be added soon:
@@ -48,7 +49,6 @@ Application in development. It will be added soon:
 - Account level
 - Detailed statistics in your account
 - Knowledge base with tips for mental math
-- New game modes
+- New game mods
 - English language
-- Seeds for repeating sessions
 - Achievement System
