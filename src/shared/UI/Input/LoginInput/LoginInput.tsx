@@ -1,5 +1,5 @@
 import React, { ForwardedRef, forwardRef, InputHTMLAttributes, useState } from 'react';
-import style from './AuthInput.module.css';
+import style from './LoginInput.module.css';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { OutlineButton } from 'shared/UI/Button/OutlineButton/OutlineButton';
 
@@ -9,7 +9,7 @@ interface LoginInputProps extends InputHTMLAttributes<HTMLInputElement> {
     password?: boolean,
 }
 
-const AuthInput = forwardRef((props: LoginInputProps, ref: ForwardedRef<HTMLInputElement>) => {
+const LoginInput = forwardRef((props: LoginInputProps, ref: ForwardedRef<HTMLInputElement>) => {
 
     const { name, className, password, ...otherProps } = props;
     const [isVisiblePassword, setIsVisiblePassword] = useState(password);
@@ -57,4 +57,4 @@ const AuthInput = forwardRef((props: LoginInputProps, ref: ForwardedRef<HTMLInpu
     );
 });
 
-export default AuthInput;
+export default LoginInput;

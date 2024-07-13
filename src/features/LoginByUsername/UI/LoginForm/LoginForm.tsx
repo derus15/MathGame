@@ -2,7 +2,7 @@ import React, { memo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import style from './Loginform.module.css';
-import AuthInput from 'shared/UI/Input/AuthInput/AuthInput';
+import LoginInput from 'shared/UI/Input/LoginInput/LoginInput';
 import { LoginButton } from 'shared/UI/Button/LoginButton/LoginButton';
 import Checkbox from 'shared/UI/Checkbox/Checkbox';
 import Loader from 'shared/UI/Loader/Loader';
@@ -58,8 +58,8 @@ export const LoginForm = memo(() => {
                     <Loader isLoading={isLoading} className={style.positionLoginLoader} />
                     <div className={style.loginHeader}>Логин</div>
                 </div>
-                <AuthInput placeholder="Почта" {...register('email')} type="email" />
-                <AuthInput placeholder="Пароль" {...register('password')} password />
+                <LoginInput placeholder="Почта" {...register('email')} type="email" />
+                <LoginInput placeholder="Пароль" {...register('password')} password />
                 <Checkbox label="Запомни меня" checked={isRemember} setIsChecked={setIsRemember} />
                 <LoginButton disabled={isLoading}>Войти</LoginButton>
             </div>

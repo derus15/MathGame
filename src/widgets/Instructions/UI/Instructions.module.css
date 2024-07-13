@@ -24,6 +24,11 @@
     cursor: pointer;
     padding: 0;
     margin-left: 5px;
+    transition-duration: .125s;
+}
+
+.btn:hover {
+    opacity: 50%;
 }
 
 @keyframes delete {

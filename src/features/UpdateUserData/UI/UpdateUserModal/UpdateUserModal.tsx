@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './UpdateUserModal.module.css';
-import AuthInput from 'shared/UI/Input/AuthInput/AuthInput';
+import LoginInput from 'shared/UI/Input/LoginInput/LoginInput';
 import { LoginButton } from 'shared/UI/Button/LoginButton/LoginButton';
 import { useForm } from 'react-hook-form';
 import { UpdateUserDataParams } from 'features/UpdateUserData/model/types/types';
@@ -44,14 +44,14 @@ const UpdateUserModal = () => {
                 <span className={style.header}>Редактирование профиля</span>
                 <span className={style.title}>Заполните поля, которые хотите изменить</span>
             </div>
-            <AuthInput placeholder="Новое имя" {...register('name')} />
-            <AuthInput
+            <LoginInput placeholder="Новое имя" {...register('name')} />
+            <LoginInput
                 key="passwordFirst"
                 placeholder="Новый пароль"
                 password
                 {...register('passwordFirst')}
             />
-            <AuthInput
+            <LoginInput
                 key="passwordConfirm"
                 placeholder="Повторите пароль"
                 password

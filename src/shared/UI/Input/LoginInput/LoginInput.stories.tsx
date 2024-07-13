@@ -3,11 +3,11 @@ import 'app/styles/Themes.css';
 import 'app/styles/App.css';
 import { StoreDecorator } from '../../../../../config/storybook/Decorators/StoreDecorator';
 import { DemoWithThemes } from '../../../../../config/storybook/Decorators/DemoWithThemes';
-import AuthInput from 'shared/UI/Input/AuthInput/AuthInput';
+import LoginInput from 'shared/UI/Input/LoginInput/LoginInput';
 
 const meta = {
-    title: 'shared/Input/AuthInput',
-    component: AuthInput,
+    title: 'shared/Input/LoginInput',
+    component: LoginInput,
     parameters: {
         layout: 'centered',
         backgrounds: {
@@ -27,7 +27,7 @@ const meta = {
         password: true,
     },
 
-} satisfies Meta<typeof AuthInput>;
+} satisfies Meta<typeof LoginInput>;
 
 type Story = StoryObj<typeof meta>;
 
