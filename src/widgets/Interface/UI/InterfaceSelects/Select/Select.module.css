@@ -1,4 +1,4 @@
-.element {
+.select {
     font-size: 16px;
     background-color: transparent;
     color: var(--base-color);
@@ -6,14 +6,14 @@
     transition-duration: .125s;
 }
 
-.element:hover {
+.select:hover {
     color: var(--active-color);
 }
 
-.element:active {
+.select:active {
     color: var(--base-color);
 }
 
-.elementActive {
+.selectActive {
     color: var(--active-color);
 }

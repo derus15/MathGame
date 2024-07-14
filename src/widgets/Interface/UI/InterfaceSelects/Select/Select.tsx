@@ -16,7 +16,7 @@ const Select = ({ children = '', currentState, callback, globalState }: SelectPr
 
     return (
         <OutlineButton
-            className={classNames(style.element, { [style.elementActive]: isActive }, [])}
+            className={classNames(style.select, { [style.selectActive]: isActive }, [])}
             // @ts-ignore
             onClick={callback}
         >
