@@ -13,46 +13,38 @@ const LoginInput = forwardRef((props: LoginInputProps, ref: ForwardedRef<HTMLInp
 
     const { name, className, password, ...otherProps } = props;
     const [isVisiblePassword, setIsVisiblePassword] = useState(password);
-    const [isMouseEnter, setIsMouseEnter] = useState(false);
-    
-    const handleShowButton = () => {
-        setIsMouseEnter(true);
-    }; 
 
-    const handleHideButton = () => {
-        setIsMouseEnter(false);
-    };
-    
     const handleShowPassword = () => {
         setIsVisiblePassword((prevState) => !prevState);
     };
 
     return (
-        <div
-            className={style.authContainer}
-            onMouseEnter={handleShowButton}
-            onMouseLeave={handleHideButton}
-        >
+        <div className={style.authContainer}>
             <input
                 className={classNames(
                     style.npt,
-                    { [style.visiblePassword]: isVisiblePassword,
+                    {
+                        [style.visiblePassword]: isVisiblePassword,
                         [style.notVisiblePassword]: !isVisiblePassword,
                     },
                     [className],
                 )}
                 ref={ref}
                 name={name}
-                type={isVisiblePassword && 'password'}
+                type={isVisiblePassword ? 'password' : 'text'}
                 {...otherProps}
                 autoComplete="off"
             />
-            {password && isMouseEnter && (
+            {password && (
                 <OutlineButton
                     onClick={handleShowPassword}
-                    className={classNames(style.passBtn, { [style.passBtnActive]: isVisiblePassword })}
+                    className={classNames(style.passBtn, {
+                        [style.passBtnActive]: isVisiblePassword,
+                    })}
+                    type="button"
                     title={isVisiblePassword ? 'Показать пароль' : 'Скрыть пароль'}
-                />)}
+                />
+            )}
         </div>
     );
 });

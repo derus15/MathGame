@@ -30,12 +30,17 @@
     transition: box-shadow 0.2s;
 }
 
-.npt:hover {
-    box-shadow: 0 0 0 1px var(--base-color);
+.npt:focus + .passBtn,
+.authContainer:hover .passBtn {
+    display: inline-block;
 }
 
 .npt:focus {
     box-shadow: 0 0 0 1px var(--active-color);
+}
+
+.npt:hover {
+    box-shadow: 0 0 0 1px var(--base-color);
 }
 
 .visiblePassword:not(:placeholder-shown) {
@@ -48,6 +53,7 @@
 }
 
 .passBtn {
+    display: none;
     position: absolute;
     width: 12px;
     height: 12px;
