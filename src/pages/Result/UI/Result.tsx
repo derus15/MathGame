@@ -15,8 +15,7 @@ import { ResultItem } from './ResultItem/ResultItem';
 import { InviteRegister } from './InviteRegister/InviteRegister';
 import { getInterfaceGameMode } from 'widgets/Interface';
 import { getCurrentRound, hungerModeActions } from 'features/GameMods/HungerMode';
-import { exampleActions } from 'entities/Example/model/slice/exampleSlice';
-import { getInitialSeed, getIsPersonalSeed, getIsRetrySession } from 'entities/Example';
+import { exampleActions, getInitialSeed, getIsPersonalSeed, getIsRetrySession } from 'entities/Example';
 import { toast } from 'react-toastify';
 import { useCalculateEPS } from 'shared/lib/hooks/useCalculateEPS';
 
