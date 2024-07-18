@@ -16,7 +16,7 @@ describe('Select', () => {
         const params = 'test';
 
         renderProviders(<Select globalState={globalState} currentState={params} />);
-        expect(screen.getByRole('button')).toHaveClass('elementActive');
+        expect(screen.getByRole('button')).toHaveClass('selectActive');
     });
 
     test('element inactive', () => {
@@ -25,7 +25,7 @@ describe('Select', () => {
         const params = 'test_1';
 
         renderProviders(<Select globalState={globalState} currentState={params} />);
-        expect(screen.getByRole('button')).not.toHaveClass('elementActive');
+        expect(screen.getByRole('button')).not.toHaveClass('selectActive');
     });
 
 });
