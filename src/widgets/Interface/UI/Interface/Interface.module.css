@@ -56,10 +56,6 @@
         width: 120px;
     }
 
-    .containerParams {
-        width: 150px;;
-    }
-
 }
 
 @keyframes init {

@@ -16,7 +16,7 @@ const hungerModeSlice = createSlice({
             state.currentRound += 1;
         },
         
-        setRounds: (state, action) => {
+        resetRounds: (state, action) => {
             state.currentRound = action.payload;
         },
 

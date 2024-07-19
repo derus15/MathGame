@@ -33,6 +33,11 @@ export const HungerMode = () => {
             dispatch(sessionDataActions.setSessionTimeFlags());
         }
     }, [isRoundProgress]);
+
+    useEffect(() => () => { 
+        dispatch(hungerModeActions.endRound());
+        dispatch(hungerModeActions.resetRounds(0));
+    }, []);
     
     if (!isRoundProgress && sessionProgress) {
         return <Placeholder />;

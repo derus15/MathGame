@@ -11,7 +11,6 @@ import { useAppDispatch } from 'shared/lib/hooks/reduxHooks/reduxHooks';
 import { ExampleModal } from './ExampleModal/ExampleModal';
 import { PageLayout } from 'shared/UI/PageLayout/PageLayout';
 import { InviteRegister } from './InviteRegister/InviteRegister';
-import { hungerModeActions } from 'features/GameMods/HungerMode';
 import { exampleActions, getIsPersonalSeed, getIsRetrySession } from 'entities/Example';
 import { toast } from 'react-toastify';
 import { ResultStat } from 'pages/Result/UI/ResultStat/ResultStat';
@@ -46,8 +45,8 @@ export const Result = () => {
         return () => {
             dispatch(sessionActions.closeResultPage());
             dispatch(sessionDataActions.resetExampleList());
-            dispatch(hungerModeActions.setRounds(0));
             dispatch(sessionDataActions.resetSessionTimeFlags());
+            dispatch(sessionDataActions.resetSessionHungerRounds());
             dispatch(sessionActions.unexpectedEnd(null));
         };
     }, []);

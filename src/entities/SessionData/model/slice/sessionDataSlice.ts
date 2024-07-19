@@ -7,6 +7,7 @@ const initialState: SessionDataSchema = {
     sessionEPS: '0.00',
     sessionExampleList: [],
     sessionTimeFlags: [],
+    sessionHungerRounds: 0,
 };
 
 export const sessionDataSlice = createSlice({
@@ -21,8 +22,8 @@ export const sessionDataSlice = createSlice({
 
         setSessionTimeFlags: (state) => {
             if (state.sessionTimeFlags.length > 0) {
-                const currentRound = state.sessionTimeFlags[state.sessionTimeFlags.length - 1];
-                currentRound.push(Date.now());
+                const currentTime = state.sessionTimeFlags[state.sessionTimeFlags.length - 1];
+                currentTime.push(Date.now());
             } else {
                 state.sessionTimeFlags.push([Date.now()]);
             }
@@ -60,6 +61,14 @@ export const sessionDataSlice = createSlice({
         
         resetExampleList: (state) => {
             state.sessionExampleList = [];
+        },
+        
+        incrementSessionHungerRounds: (state) => {
+            state.sessionHungerRounds += 1;
+        },
+
+        resetSessionHungerRounds: (state) => {
+            state.sessionHungerRounds = 0;
         },
 
     },

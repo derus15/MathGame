@@ -32,6 +32,7 @@ export const HungerPointsCounter = () => {
         setUserPoint(0);
         dispatch(sessionDataActions.startNewRoundTime());
         dispatch(hungerModeActions.endRound());
+        dispatch(sessionDataActions.incrementSessionHungerRounds());
         dispatch(hungerModeActions.incrementRound());
     };
 

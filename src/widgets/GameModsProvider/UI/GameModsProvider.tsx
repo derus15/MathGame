@@ -5,7 +5,7 @@ import { getInterfaceGameMode } from 'widgets/Interface';
 import { sessionDataActions } from 'entities/SessionData';
 import { StandardMode } from 'features/GameMods/StandardMode';
 import { SprintMode } from 'features/GameMods/SprintMode';
-import { HungerMode, hungerModeActions } from 'features/GameMods/HungerMode';
+import { HungerMode } from 'features/GameMods/HungerMode';
 import { StateSchema } from 'app/Providers/Store/types';
 import { exampleActions } from 'entities/Example';
 
@@ -26,8 +26,7 @@ export const GameModsProvider = () => {
         !isRetry ? dispatch(exampleActions.generateSeed()) : null;
         dispatch(sessionDataActions.resetSessionPoints());
         dispatch(sessionDataActions.resetSessionTime());
-        dispatch(hungerModeActions.endRound());
-        dispatch(hungerModeActions.setRounds(0));
+        dispatch(sessionDataActions.resetSessionHungerRounds());
         return () => {
             dispatch(exampleActions.resetIsPersonalSeed());
         };
