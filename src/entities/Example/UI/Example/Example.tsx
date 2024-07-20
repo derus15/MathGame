@@ -8,7 +8,7 @@ export const Example = memo(() => {
     const example = useSelector(getExample);
 
     return (
-        <div className={style.example}>
+        <div className={style.example} data-testid="example">
             {example}
         </div>
     );
