@@ -17,6 +17,7 @@ export const sessionSlice = createSlice({
         startSession: (state) => {
             state.sessionProgress = true;
             state.unexpectedEnd = false;
+            state.unexpectedEndText = 'Результаты сессии';
         },
 
         endSession: (state) => {

@@ -3,9 +3,7 @@ import { useSelector } from 'react-redux';
 import style from './Result.module.css';
 import { ExampleButton } from 'shared/UI/Button/ExampleButton/ExampleButton';
 import { getUnexpectedEndText, sessionActions } from 'entities/Session';
-import {
-    sessionDataActions, useSendSessionData,
-} from 'entities/SessionData';
+import { useSendSessionData } from 'entities/SessionData';
 import { getIsAuth } from 'entities/User';
 import { useAppDispatch } from 'shared/lib/hooks/reduxHooks/reduxHooks';
 import { ExampleModal } from './ExampleModal/ExampleModal';
@@ -44,10 +42,6 @@ export const Result = () => {
         }
         return () => {
             dispatch(sessionActions.closeResultPage());
-            dispatch(sessionDataActions.resetExampleList());
-            dispatch(sessionDataActions.resetSessionTimeFlags());
-            dispatch(sessionDataActions.resetSessionHungerRounds());
-            dispatch(sessionActions.unexpectedEnd(null));
         };
     }, []);
 
