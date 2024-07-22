@@ -8,6 +8,7 @@ export interface SessionDataSchema {
     sessionExampleList: string[],
     sessionTimeFlags: number[][],
     sessionHungerRounds: number,
+    sessionErrors: number,
 }
 
 export interface SessionDataSaveSchema {

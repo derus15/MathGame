@@ -4,6 +4,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useSelector } from 'react-redux';
 import { testNumber } from 'shared/lib/testNumber/testNumber';
 import { getSessionProgress } from 'entities/Session';
+import { getSessionErrors } from 'entities/SessionData';
 
 interface ExampleInputProps extends InputHTMLAttributes<HTMLInputElement>{
     focus?: () => void;
@@ -21,6 +22,8 @@ const ExampleInput = ({
     ...props }: ExampleInputProps) => {
 
     const [answerSignal, setAnswerSignal] = useState(false);
+    const [isError, setIsError] = useState(false);
+    const error = useSelector(getSessionErrors);
     const sessionProgress = useSelector(getSessionProgress);
     const inputRef = useRef(null);
 
@@ -32,7 +35,21 @@ const ExampleInput = ({
         }
     };
 
-    const changeInputColor = () => {
+    useEffect(() => {
+        let timeout: ReturnType<typeof setTimeout>;
+        
+        if (sessionProgress) {
+            setIsError(true);
+
+            timeout = setTimeout(() => {
+                setIsError(false);
+            }, 300);
+        }
+
+        return () => clearTimeout(timeout);
+    }, [error]);
+    
+    useEffect(() => {
         if (sessionProgress) {
             setAnswerSignal(true);
 
@@ -40,10 +57,6 @@ const ExampleInput = ({
                 setAnswerSignal(false);
             }, 800);
         }
-    };
-
-    useEffect(() => {
-        changeInputColor();
     }, [signal]);
 
     const actionWithSpace = (e: KeyboardEvent): null => {
@@ -68,7 +81,10 @@ const ExampleInput = ({
             ref={inputRef}
             onFocus={focus}
             inputMode="numeric"
-            className={classNames(style.npt, { [style.nptActive]: answerSignal }, [className])}
+            className={classNames(style.npt, { 
+                [style.nptActive]: answerSignal,
+                [style.nptError]: isError,
+            }, [className])}
             {...props}
         />
     );

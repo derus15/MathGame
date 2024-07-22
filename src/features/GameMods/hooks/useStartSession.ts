@@ -13,6 +13,7 @@ export const useStartSession = () => {
             dispatch(sessionDataActions.resetSessionTimeFlags());
             dispatch(sessionDataActions.setSessionTimeFlags());
             dispatch(sessionDataActions.resetExampleList());
+            dispatch(sessionDataActions.resetSessionErrors());
         }
     };
 

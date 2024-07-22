@@ -8,6 +8,7 @@ const initialState: SessionDataSchema = {
     sessionExampleList: [],
     sessionTimeFlags: [],
     sessionHungerRounds: 0,
+    sessionErrors: 0,
 };
 
 export const sessionDataSlice = createSlice({
@@ -69,6 +70,14 @@ export const sessionDataSlice = createSlice({
 
         resetSessionHungerRounds: (state) => {
             state.sessionHungerRounds = 0;
+        },
+
+        incrementSessionErrors: (state) => {
+            state.sessionErrors += 1;
+        },
+
+        resetSessionErrors: (state) => {
+            state.sessionErrors = 0;
         },
 
     },

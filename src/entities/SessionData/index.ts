@@ -6,3 +6,4 @@ export { useSendSessionData } from './model/hooks/useSendSessionData';
 export { getSessionTimeFlags } from './model/selectors/getSessionTimeFlags';
 export { useGetSessionData } from './model/hooks/useGetSessionData';
 export { getSessionHungerRounds } from './model/selectors/getSessionHungerRounds';
+export { getSessionErrors } from './model/selectors/getSessionErrors';
