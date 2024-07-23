@@ -4,25 +4,18 @@ import style from './Result.module.css';
 import { ExampleButton } from 'shared/UI/Button/ExampleButton/ExampleButton';
 import { getUnexpectedEndText, sessionActions } from 'entities/Session';
 import { useSendSessionData } from 'entities/SessionData';
-import { getIsAuth } from 'entities/User';
 import { useAppDispatch } from 'shared/lib/hooks/reduxHooks/reduxHooks';
 import { ExampleModal } from './ExampleModal/ExampleModal';
 import { PageLayout } from 'shared/UI/PageLayout/PageLayout';
 import { InviteRegister } from './InviteRegister/InviteRegister';
-import { exampleActions, getIsPersonalSeed, getIsRetrySession } from 'entities/Example';
-import { toast } from 'react-toastify';
+import { exampleActions } from 'entities/Example';
 import { ResultStat } from 'pages/Result/UI/ResultStat/ResultStat';
 
 export const Result = () => {
 
-    const isAuth = useSelector(getIsAuth);
-    const sessionTextEnd = useSelector(getUnexpectedEndText);
-    const isRetry = useSelector(getIsRetrySession);
-    const isPersonalSeed = useSelector(getIsPersonalSeed);
-
     const dispatch = useAppDispatch();
     const { sendSessionData } = useSendSessionData();
-    const isCustomSession = isPersonalSeed || isRetry;
+    const sessionTextEnd = useSelector(getUnexpectedEndText);
 
     const closeResultHandle = useCallback(() => {
         dispatch(sessionActions.closeResultPage());
@@ -35,11 +28,7 @@ export const Result = () => {
     }, []);
     
     useEffect(() => {
-        if (isAuth && isCustomSession) {
-            toast.error('Повторные сессии не сохраняются');
-        } else if (isAuth) {
-            sendSessionData();
-        }
+        sendSessionData();
         return () => {
             dispatch(sessionActions.closeResultPage());
         };
