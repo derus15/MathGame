@@ -1,6 +1,5 @@
 import React from 'react';
-import { Example, getExampleAnswer } from 'entities/Example';
-import ExampleInput from 'shared/UI/Input/ExampleInput/ExampleInput';
+import { Example, ExampleInput, getExampleAnswer } from 'entities/Example';
 import { useSelector } from 'react-redux';
 import { SprintTimer } from '../UI/Timer/SprintTimer';
 import { useCheckAnswer } from 'features/GameMods/hooks/useCheckAnswer';
@@ -17,10 +16,8 @@ export const SprintMode = () => {
             <SprintTimer />
             <Example />
             <ExampleInput
-                onlyNumber
-                focus={startSessionHandler}
+                onFocus={startSessionHandler}
                 onInput={checkAnswer}
-                signal={answer}
             />
             {__IS_DEV__ && <div style={{ fontSize: '2rem', color: 'white' }}>{answer}</div>}
         </>

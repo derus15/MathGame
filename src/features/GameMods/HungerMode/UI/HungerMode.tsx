@@ -1,13 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Example, getExampleAnswer } from 'entities/Example';
-import ExampleInput from 'shared/UI/Input/ExampleInput/ExampleInput';
+import { Example, ExampleInput, getExampleAnswer } from 'entities/Example';
 import { getIsRoundProgress } from '../model/selectors/getIsRoundProgress';
 import { getSessionProgress } from 'entities/Session';
 import { Placeholder } from '../UI/Placeholder/Placeholder';
 import { getCurrentRound, hungerModeActions } from 'features/GameMods/HungerMode';
 import { useCheckAnswer } from 'features/GameMods/hooks/useCheckAnswer';
-import { getSessionPoints, sessionDataActions } from 'entities/SessionData';
+import { sessionDataActions } from 'entities/SessionData';
 import { useStartSession } from 'features/GameMods/hooks/useStartSession';
 import { TimersContainer } from './TimersContainer/TimersContainer';
 
@@ -16,7 +15,6 @@ export const HungerMode = () => {
     const isRoundProgress = useSelector(getIsRoundProgress);
     const dispatch = useDispatch();
     const sessionProgress = useSelector(getSessionProgress);
-    const globalPoints = useSelector(getSessionPoints);
     const answer = useSelector(getExampleAnswer);
     const currentRounds = useSelector(getCurrentRound);
 
@@ -49,10 +47,8 @@ export const HungerMode = () => {
             <Example />
             <ExampleInput
                 autoFocus={isRoundProgress}
-                onlyNumber
-                focus={startHungerMode}
+                onFocus={startHungerMode}
                 onInput={checkAnswer}
-                signal={globalPoints}
             />
             {__IS_DEV__ && <div style={{ fontSize: '2rem', color: 'white' }}>{answer}</div>}
         </>

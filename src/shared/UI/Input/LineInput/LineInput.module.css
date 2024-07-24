@@ -11,26 +11,6 @@
     cursor: text;
 }
 
-.nptActive {
-    border-bottom-color: #0FBE26;
-}
-
-.nptError {
-    animation: vibrate 0.250s ease-in-out;
-}
-
-@keyframes vibrate {
-    0%, 100% {
-        transform: translateX(0);
-    }
-    20%, 60% {
-        transform: translateX(-5px);
-    }
-    40%, 80% {
-        transform: translateX(5px);
-    }
-}
-
 [contenteditable="true"]:focus,
 input:focus,
 select:focus,
@@ -43,5 +23,3 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
-
-

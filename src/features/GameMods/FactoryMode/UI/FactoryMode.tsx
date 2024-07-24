@@ -2,7 +2,7 @@ import React, { ChangeEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getExampleAnswer, getExample, useRefreshExample } from 'entities/Example';
 import style from './FactoryMode.module.css';
-import ExampleInput from 'shared/UI/Input/ExampleInput/ExampleInput';
+import { ExampleInput } from 'entities/Example/UI/ExampleInput/ExampleInput';
 import { FactoryCounter } from '../UI/Counter/FactoryCounter';
 import { factoryModeActions } from '../model/slice/factoryModeSlice';
 

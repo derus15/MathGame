@@ -4,40 +4,33 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useSelector } from 'react-redux';
 import { testNumber } from 'shared/lib/testNumber/testNumber';
 import { getSessionProgress } from 'entities/Session';
-import { getSessionErrors } from 'entities/SessionData';
+import { getSessionErrors, getSessionPoints } from 'entities/SessionData';
+import { LineInput } from 'shared/UI/Input/LineInput/LineInput';
 
 interface ExampleInputProps extends InputHTMLAttributes<HTMLInputElement>{
-    focus?: () => void;
-    onInput?: (e: ChangeEvent<HTMLInputElement>) => void;
-    signal?: string | number;
-    onlyNumber?: boolean;
     className?: string;
 }
 
-const ExampleInput = ({
-    focus,
-    onlyNumber,
-    signal = null,
-    className,
-    ...props }: ExampleInputProps) => {
+export const ExampleInput = ({ className, ...props }: ExampleInputProps) => {
 
-    const [answerSignal, setAnswerSignal] = useState(false);
+    const [isAnswer, setIsAnswer] = useState(false);
     const [isError, setIsError] = useState(false);
     const error = useSelector(getSessionErrors);
+    const points = useSelector(getSessionPoints);
     const sessionProgress = useSelector(getSessionProgress);
     const inputRef = useRef(null);
 
     const checkNumber = (e: ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target;
         const isNumber = testNumber(value);
-        if (!isNumber && onlyNumber) {
+        if (!isNumber) {
             e.target.value = '';
         }
     };
 
     useEffect(() => {
         let timeout: ReturnType<typeof setTimeout>;
-        
+
         if (sessionProgress) {
             setIsError(true);
 
@@ -48,16 +41,20 @@ const ExampleInput = ({
 
         return () => clearTimeout(timeout);
     }, [error]);
-    
-    useEffect(() => {
-        if (sessionProgress) {
-            setAnswerSignal(true);
 
-            setTimeout(() => {
-                setAnswerSignal(false);
+    useEffect(() => {
+        let timeout: ReturnType<typeof setTimeout>;
+
+        if (sessionProgress) {
+            setIsAnswer(true);
+
+            timeout = setTimeout(() => {
+                setIsAnswer(false);
             }, 800);
         }
-    }, [signal]);
+
+        return () => clearTimeout(timeout);
+    }, [points]);
 
     const actionWithSpace = (e: KeyboardEvent): null => {
         if (!sessionProgress && e.keyCode === 32 && inputRef.current) {
@@ -74,20 +71,17 @@ const ExampleInput = ({
     }, [sessionProgress]);
 
     return (
-        <input
+        <LineInput
             onChange={(e) => {
                 checkNumber(e);
             }}
             ref={inputRef}
-            onFocus={focus}
             inputMode="numeric"
-            className={classNames(style.npt, { 
-                [style.nptActive]: answerSignal,
+            className={classNames('', {
+                [style.nptActive]: isAnswer,
                 [style.nptError]: isError,
             }, [className])}
             {...props}
         />
     );
 };
-
-export default ExampleInput;

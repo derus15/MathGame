@@ -9,3 +9,4 @@ export { getIsRetrySession } from './model/selectors/getIsRetrySession';
 export { RetryFlag } from './UI/RetryFlag/RetryFlag';
 export { getIsPersonalSeed } from './model/selectors/getIsPersonalSeed';
 export { getInitialSeed } from './model/selectors/getInitialSeed';
+export { ExampleInput } from './UI/ExampleInput/ExampleInput';

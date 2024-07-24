@@ -1,0 +1,21 @@
+input.nptActive {
+    border-bottom-color: #0FBE26;
+}
+
+input.nptError {
+    animation: vibrate 0.250s ease-in-out;
+}
+
+@keyframes vibrate {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    20%, 60% {
+        transform: translateX(-5px);
+    }
+    40%, 80% {
+        transform: translateX(5px);
+    }
+}
+
+
