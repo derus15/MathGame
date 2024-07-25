@@ -2,13 +2,13 @@ import React from 'react';
 import { Example, ExampleInput, getExampleAnswer } from 'entities/Example';
 import { useSelector } from 'react-redux';
 import { StandardTimer } from '../UI/Timer/StandardTimer';
-import { useCheckAnswer } from 'features/GameMods/hooks/useCheckAnswer';
-import { useStartSession } from 'features/GameMods/hooks/useStartSession';
+import { useCheckAnswer } from '../../hooks/useCheckAnswer';
+import { useStartSession } from '../../hooks/useStartSession';
 
 export const StandardMode = () => {
 
     const answer = useSelector(getExampleAnswer);
-    const { checkAnswer } = useCheckAnswer();
+    const { checkAnswer, isCorrect, isIncorrect } = useCheckAnswer();
     const { startSessionHandler } = useStartSession();
 
     return (
@@ -16,6 +16,8 @@ export const StandardMode = () => {
             <StandardTimer />
             <Example />
             <ExampleInput
+                answerSignal={isCorrect}
+                errorSignal={isIncorrect}
                 onFocus={startSessionHandler}
                 onInput={checkAnswer}
             />

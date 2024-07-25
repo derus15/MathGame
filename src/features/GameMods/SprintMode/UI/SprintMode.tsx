@@ -2,13 +2,13 @@ import React from 'react';
 import { Example, ExampleInput, getExampleAnswer } from 'entities/Example';
 import { useSelector } from 'react-redux';
 import { SprintTimer } from '../UI/Timer/SprintTimer';
-import { useCheckAnswer } from 'features/GameMods/hooks/useCheckAnswer';
-import { useStartSession } from 'features/GameMods/hooks/useStartSession';
+import { useCheckAnswer } from '../../hooks/useCheckAnswer';
+import { useStartSession } from '../../hooks/useStartSession';
 
 export const SprintMode = () => {
 
     const answer = useSelector(getExampleAnswer);
-    const { checkAnswer } = useCheckAnswer();
+    const { checkAnswer, isCorrect, isIncorrect } = useCheckAnswer();
     const { startSessionHandler } = useStartSession();
     
     return (
@@ -16,6 +16,8 @@ export const SprintMode = () => {
             <SprintTimer />
             <Example />
             <ExampleInput
+                answerSignal={isCorrect}
+                errorSignal={isIncorrect}
                 onFocus={startSessionHandler}
                 onInput={checkAnswer}
             />

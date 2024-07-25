@@ -4,10 +4,11 @@ import { Example, ExampleInput, getExampleAnswer } from 'entities/Example';
 import { getIsRoundProgress } from '../model/selectors/getIsRoundProgress';
 import { getSessionProgress } from 'entities/Session';
 import { Placeholder } from '../UI/Placeholder/Placeholder';
-import { getCurrentRound, hungerModeActions } from 'features/GameMods/HungerMode';
-import { useCheckAnswer } from 'features/GameMods/hooks/useCheckAnswer';
+import { getCurrentRound } from '../model/selectors/getCurrentRound';
+import { hungerModeActions } from '../model/slice/hungerModeSlice';
+import { useCheckAnswer } from '../../hooks/useCheckAnswer';
 import { sessionDataActions } from 'entities/SessionData';
-import { useStartSession } from 'features/GameMods/hooks/useStartSession';
+import { useStartSession } from '../../hooks/useStartSession';
 import { TimersContainer } from './TimersContainer/TimersContainer';
 
 export const HungerMode = () => {
@@ -18,7 +19,7 @@ export const HungerMode = () => {
     const answer = useSelector(getExampleAnswer);
     const currentRounds = useSelector(getCurrentRound);
 
-    const { checkAnswer } = useCheckAnswer();
+    const { checkAnswer, isCorrect, isIncorrect } = useCheckAnswer();
     const { startSessionHandler } = useStartSession();
 
     const startHungerMode = () => {
@@ -46,6 +47,8 @@ export const HungerMode = () => {
             <TimersContainer />
             <Example />
             <ExampleInput
+                answerSignal={isCorrect}
+                errorSignal={isIncorrect}
                 autoFocus={isRoundProgress}
                 onFocus={startHungerMode}
                 onInput={checkAnswer}
