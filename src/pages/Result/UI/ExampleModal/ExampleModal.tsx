@@ -45,9 +45,9 @@ export const ExampleModal = () => {
                         {exampleTime.map((time, i) => (
 
                             <div className={style.exampleTimeContainer} key={i}>
-                                <div className={style.exampleTime}>
+                                <span className={style.exampleTime}>
                                     ~ {conversionMilliToSec(time)}
-                                </div>
+                                </span>
                                 {time === bestResult && <span className={style.exampleArrow}>↑</span>}
                                 {time === worstResult && time !== bestResult
                                     && <span className={style.exampleArrow}>↓</span>}
