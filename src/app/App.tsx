@@ -1,6 +1,6 @@
 import './styles/App.css';
 import 'app/styles/Themes.css';
-import React, { Suspense, useEffect } from 'react';
+import React, { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Loading from 'shared/UI/Loading/Loading';
 import { NotFound } from 'pages/NotFound';
@@ -10,18 +10,12 @@ import { Home } from 'pages/Home';
 import { PrivateRoute } from 'shared/lib/PrivateRoute/PrivateRoute';
 import Toast from 'shared/UI/Toaster/Toast';
 import { Header } from 'widgets/Header';
-import { useAppDispatch } from 'shared/lib/hooks/reduxHooks/reduxHooks';
-import { initAuthData } from 'entities/User';
+import { useGetInitAuthDataQuery } from 'entities/User';
 
 const App = () => {
 
-    const dispatch = useAppDispatch();
-
-    useEffect(() => {
-        if (localStorage.getItem('token')) {
-            dispatch(initAuthData());
-        }
-    }, []);
+    const token = localStorage.getItem('token');
+    useGetInitAuthDataQuery(undefined, { skip: !token });
 
     return (
         <div className="mainContainer">
