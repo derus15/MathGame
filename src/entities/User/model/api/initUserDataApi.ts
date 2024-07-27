@@ -19,6 +19,8 @@ const initAuthData = rtkApi.injectEndpoints({
                         toast.error('Ошибка сервера. Перезайдите в аккаунт');
                     } else if (error?.error?.data?.message) {
                         toast.error('Время сессии истекло, перезайдите в аккаунт');
+                    } else {
+                        toast.error('Сервер не отвечает. Попробуйте позже');
                     }
                     dispatch(userActions.logout());
                 }
