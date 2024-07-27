@@ -15,7 +15,7 @@
     display: flex;
     justify-content: space-between;
     margin-right: 20px;
-    margin-left: 50px;
+    margin-left: 32px;
     width: 490px;
     height: 100%;
     flex-direction: row;
@@ -39,10 +39,8 @@
     display: flex;
     justify-content: space-between;
     margin-top: 2px;
-    width: 135px;
     height: 100%;
-    padding-left: 20px;
-    gap: 21px;
+    padding-left: 10px;
     font-size: 19px;
     background-color: transparent;
 }
@@ -50,10 +48,6 @@
 @media screen and (max-width:990px) {
     .containerMods {
         width: 350px
-    }
-
-    .containerSigns {
-        width: 120px;
     }
 
 }
