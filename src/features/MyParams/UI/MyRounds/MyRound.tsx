@@ -46,7 +46,9 @@ export const MyRound = memo(({ standardRound }: MyRoundProps) => {
                 className={classNames(style.round, { [style.roundActive]: isActive })}
                 onClick={showModalMyTime}
             >
-                __
+                <span>
+                    __
+                </span>
             </OutlineButton>
             <Modal visible={isModal} setVisible={setIsModal}>
                 Задайте свое количество раундов:

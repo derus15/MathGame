@@ -45,7 +45,9 @@ export const MyTime = memo(({ standardTime }: MyTimeProps) => {
                 className={classNames(style.time, { [style.timeActive]: isActive })}
                 onClick={showModalMyTime}
             >
-                __
+                <span>
+                    __
+                </span>
             </OutlineButton>
             <Modal visible={isModal} setVisible={setIsModal}>
                 Задайте собственное время сессии:

@@ -44,7 +44,9 @@ export const MyNumber = memo(({ standardNumber }: MyNumberProps) => {
                 className={classNames(style.number, { [style.numberActive]: isActive })}
                 onClick={showModalMyNumber}
             >
-                __
+                <span>
+                    __
+                </span>
             </OutlineButton>
             <Modal visible={isModal} setVisible={setIsModal}>
                 Задайте собственное количество примеров:

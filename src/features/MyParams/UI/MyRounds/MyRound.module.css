@@ -1,6 +1,8 @@
 .round {
     color: var(--base-color);
     min-width: 20px;
+    width: 100%;
+    padding-left: 11px;
 }
 
 .round:hover {

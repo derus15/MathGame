@@ -7,20 +7,27 @@ interface SelectProps {
     globalState?: string | number;
     callback?: (a: string | number) => void;
     currentState?: string | number;
+    isMods?: boolean;
     children?: ReactNode;
 }
 
-const Select = ({ children = '', currentState, callback, globalState }: SelectProps) => {
+const Select = ({ children = style.select, currentState, callback, isMods, globalState }: SelectProps) => {
 
     const isActive = Boolean(globalState === currentState);
 
     return (
         <OutlineButton
-            className={classNames(style.select, { [style.selectActive]: isActive }, [])}
+            className={classNames(style.select, {
+                [style.selectActive]: isActive,
+                [style.selectMode]: isMods,
+                [style.selectParams]: !isMods,
+            }, [])}
             // @ts-ignore
             onClick={callback}
         >
-            {children}
+            <span>
+                {children}
+            </span>
         </OutlineButton>
     );
 };

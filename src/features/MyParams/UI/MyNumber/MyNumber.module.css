@@ -3,6 +3,8 @@
     background-color: transparent;
     color: var(--base-color);
     min-width: 20px;
+    width: 100%;
+    padding-left: 11px;
 }
 
 .number:hover {

@@ -2,8 +2,16 @@
     font-size: 16px;
     background-color: transparent;
     color: var(--base-color);
-    min-width: 20px;
     transition-duration: .125s;
+}
+
+.selectParams {
+    width: 100%;
+    padding: 0 11px;
+}
+
+.selectMode {
+    min-width: 50px;
 }
 
 .select:hover {

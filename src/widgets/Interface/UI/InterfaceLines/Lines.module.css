@@ -1,6 +1,6 @@
 .rightLine {
     position: relative;
-    right: 5px;
+    right: -2px;
     transition-duration: .3s;
 }
 
