@@ -10,6 +10,7 @@ import { factoryModeReducer } from 'features/GameMods/FactoryMode';
 import { instructionsReducer } from 'widgets/Instructions';
 import { hungerModeReducer } from 'features/GameMods/HungerMode';
 import { rtkApi } from 'shared/api/rtkApi';
+import { previousSessionDataReducer } from 'features/SessionDataComparison';
 
 export const store = configureStore({
     reducer: {
@@ -23,6 +24,7 @@ export const store = configureStore({
         factoryMode: factoryModeReducer,
         instructions: instructionsReducer,
         hungerMode: hungerModeReducer,
+        previousData: previousSessionDataReducer,
         [rtkApi.reducerPath]: rtkApi.reducer,
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(rtkApi.middleware),

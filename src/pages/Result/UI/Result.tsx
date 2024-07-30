@@ -10,11 +10,13 @@ import { PageLayout } from 'shared/UI/PageLayout/PageLayout';
 import { InviteRegister } from './InviteRegister/InviteRegister';
 import { exampleActions } from 'entities/Example';
 import { ResultStat } from 'pages/Result/UI/ResultStat/ResultStat';
+import { useSavePreviousSessionData } from 'features/SessionDataComparison';
 
 export const Result = () => {
 
     const dispatch = useAppDispatch();
     const { sendSessionData } = useSendSessionData();
+    const { savePreviousSessionData } = useSavePreviousSessionData();
     const sessionTextEnd = useSelector(getUnexpectedEndText);
 
     const closeResultHandle = useCallback(() => {
@@ -25,6 +27,7 @@ export const Result = () => {
     const retrySessionHandle = useCallback(() => {
         dispatch(sessionActions.closeResultPage());
         dispatch(exampleActions.retrySession());
+        savePreviousSessionData();
     }, []);
     
     useEffect(() => {

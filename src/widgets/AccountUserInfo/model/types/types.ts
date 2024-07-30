@@ -1,5 +1,3 @@
-import { LoadingStatus } from 'app/types/config';
-
 interface UserSchema {
     _id: string,
     name: string,
@@ -19,9 +17,4 @@ export interface AccountDataSchema {
     counterExample: CounterExampleSchema[],
     counterTime: CounterTimeSchema[],
     user: UserSchema,
-}
-
-export interface AccountSchema {
-    data: AccountDataSchema,
-    loadingStatus: LoadingStatus,
 }

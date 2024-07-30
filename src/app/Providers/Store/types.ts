@@ -9,6 +9,7 @@ import { FactorySchema } from 'features/GameMods/FactoryMode';
 import { InstructionsSchema } from 'widgets/Instructions';
 import { HungerSchema } from 'features/GameMods/HungerMode';
 import { rtkApi } from 'shared/api/rtkApi';
+import { PreviousSessionDataSchema } from 'features/SessionDataComparison';
 
 export interface StateSchema {
     sessionData: SessionDataSchema,
@@ -21,5 +22,6 @@ export interface StateSchema {
     factoryMode: FactorySchema,
     instructions: InstructionsSchema,
     hungerMode: HungerSchema,
+    previousData: PreviousSessionDataSchema,
     [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
 }
