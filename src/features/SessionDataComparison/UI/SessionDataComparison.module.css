@@ -1,0 +1,24 @@
+.comparisonContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.comparisonNumber {
+    transition-duration: .5s;
+    color: var(--active-color);
+    animation: init .5s ease;
+}
+
+@keyframes init {
+
+    from {
+        opacity: .3;
+        transform: translateX(-15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

@@ -2,7 +2,15 @@ import { createSlice } from '@reduxjs/toolkit';
 import { PreviousSessionDataSchema } from '../types/types';
 
 const initialState: PreviousSessionDataSchema = {
-    data: null,
+    data: {
+        mode: 'Стандарт',
+        number: 0,
+        time: 0,
+        sign: ['+', '-'],
+        eps: '0.00',
+        modifications: [],
+        unexpectedEnd: false,
+    },
 };
 
 const previousSessionDataSlice = createSlice({

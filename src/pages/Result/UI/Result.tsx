@@ -9,7 +9,7 @@ import { ExampleModal } from './ExampleModal/ExampleModal';
 import { PageLayout } from 'shared/UI/PageLayout/PageLayout';
 import { InviteRegister } from './InviteRegister/InviteRegister';
 import { exampleActions } from 'entities/Example';
-import { ResultStat } from 'pages/Result/UI/ResultStat/ResultStat';
+import { ResultStat } from './ResultStat/ResultStat';
 import { useSavePreviousSessionData } from 'features/SessionDataComparison';
 
 export const Result = () => {
