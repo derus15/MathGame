@@ -10,6 +10,8 @@ import { InstructionsSchema } from 'widgets/Instructions';
 import { HungerSchema } from 'features/GameMods/HungerMode';
 import { rtkApi } from 'shared/api/rtkApi';
 import { PreviousSessionDataSchema } from 'features/SessionDataComparison';
+import { Reducer } from '@reduxjs/toolkit';
+import { store } from 'app/Providers/Store/store';
 
 export interface StateSchema {
     sessionData: SessionDataSchema,
@@ -25,3 +27,7 @@ export interface StateSchema {
     previousData: PreviousSessionDataSchema,
     [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
 }
+
+export type RootReducers = Record<keyof StateSchema, Reducer>
+
+export type AppDispatch = typeof store.dispatch
