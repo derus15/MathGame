@@ -12,7 +12,8 @@
 }
 
 .instruction {
+    position: relative;
+    top: 50px;
     font-size: 16px;
-    margin-top: 45px;
     color: var(--base-color);
 }

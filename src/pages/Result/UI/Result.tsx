@@ -50,8 +50,8 @@ export const Result = () => {
                         <ExampleButton onClick={retrySessionHandle}>Повторить</ExampleButton>
                         <ExampleButton onClick={closeResultHandle} random />
                     </div>
-                    <InviteRegister />
                 </div>
+                <InviteRegister />
             </div>
         </PageLayout>
     );

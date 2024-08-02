@@ -1,9 +1,8 @@
 .resultContainer{
     display: flex;
     flex-direction: column;
-    position: relative;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     height: 85%;
     animation: init ease-in-out .2s;
     color: var(--second-active-color);
@@ -21,7 +20,8 @@
 }
 
 .resultTitle {
-
+    position: relative;
+    bottom: 15%;
 }
 
 .buttonContainer {
