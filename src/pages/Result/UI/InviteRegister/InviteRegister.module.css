@@ -3,6 +3,7 @@
     margin-right: 6px;
     text-decoration: underline;
     cursor: pointer;
+    font-size: 16px;
     transition-duration: .125s;
 }
 
@@ -11,7 +12,7 @@
 }
 
 .instruction {
-    font-size: 17px;
+    font-size: 16px;
     margin-top: 45px;
     color: var(--base-color);
 }

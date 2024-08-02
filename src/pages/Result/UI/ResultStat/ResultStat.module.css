@@ -1,10 +1,6 @@
 .result {
     display: flex;
     flex-direction: column;
-    text-align: center;
-    margin-top: 180px;
-    font-size: 22px;
-    min-width: 400px;
     gap: 12px;
-    user-select: text;
+    width: 90%;
 }

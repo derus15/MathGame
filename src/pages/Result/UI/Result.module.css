@@ -1,9 +1,12 @@
 .resultContainer{
     display: flex;
+    flex-direction: column;
     position: relative;
-    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
     height: 85%;
     animation: init ease-in-out .2s;
+    color: var(--second-active-color);
     font-size: 25px;
 }
 
@@ -11,20 +14,14 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    margin-top: 180px;
     font-size: 22px;
     min-width: 400px;
     gap: 12px;
     user-select: text;
 }
 
-.title {
-    position: absolute;
-    top: 10%;
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    color: var(--second-active-color);
+.resultTitle {
+
 }
 
 .buttonContainer {
@@ -33,6 +30,12 @@
     justify-content: space-between;
     width: 100%;
     margin-top: 60px;
+}
+
+.resultStatContainer {
+    display: flex;
+    gap: 8px;
+    width: 111%;
 }
 
 @keyframes init {

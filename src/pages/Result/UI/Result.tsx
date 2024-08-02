@@ -40,9 +40,11 @@ export const Result = () => {
     return (
         <PageLayout>
             <div className={style.resultContainer}>
-                <h3 className={style.title}>{sessionTextEnd}</h3>
+                <h3 className={style.resultTitle}>{sessionTextEnd}</h3>
                 <div className={style.result}>
-                    <ResultStat />
+                    <div className={style.resultStatContainer}>
+                        <ResultStat />
+                    </div>
                     <div className={style.buttonContainer}>
                         <ExampleModal />
                         <ExampleButton onClick={retrySessionHandle}>Повторить</ExampleButton>
