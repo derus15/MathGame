@@ -1,13 +1,25 @@
 .comparisonContainer {
     display: flex;
+    position: absolute;
     flex-direction: column;
     align-items: flex-start;
+    gap: 12px;
+    min-width: 125px;
+    left: 100%;
 }
 
-.comparisonNumber {
+.betterResultNumber, .worseResultNumber{
     transition-duration: .5s;
-    color: var(--active-color);
+    padding-left: 10px;
     animation: init .5s ease;
+}
+
+.betterResultNumber {
+    color: var(--active-color);
+}
+
+.worseResultNumber {
+    color: var(--base-color);
 }
 
 @keyframes init {

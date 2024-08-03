@@ -9,12 +9,9 @@ export const SessionDataComparison = () => {
     return (
         <div className={style.comparisonContainer}>
             {comparisonList.map((number, index) => (
-                <span 
-                    className={style.comparisonNumber}
-                    key={index}
-                >
-                    {number}
-                </span>
+                number.includes('+')
+                    ? <span className={style.betterResultNumber} key={index}>{number}</span>
+                    : <span key={index} className={style.worseResultNumber}>{number}</span>
             ))}
         </div>
 
