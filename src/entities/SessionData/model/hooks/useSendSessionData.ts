@@ -39,6 +39,7 @@ export const useSendSessionData = () => {
             mode: sessionData.mode,
             number: sessionData.number,
             time: sessionData.time,
+            rounds: sessionData.rounds,
             sign: sessionData.sign,
             eps: sessionData.eps,
             modifications: sessionData.modifications,

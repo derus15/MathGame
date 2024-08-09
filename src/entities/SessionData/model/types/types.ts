@@ -15,6 +15,7 @@ export interface SessionDataSaveSchema {
     mode: string;
     number: number;
     time: number;
+    rounds: number;
     sign: SignList[];
     eps: string;
     modifications: Modifications[],

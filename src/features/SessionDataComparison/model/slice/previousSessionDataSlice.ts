@@ -6,6 +6,7 @@ const initialState: PreviousSessionDataSchema = {
         mode: 'Стандарт',
         number: 0,
         time: 0,
+        rounds: 0,
         sign: ['+', '-'],
         eps: '0.00',
         modifications: [],
