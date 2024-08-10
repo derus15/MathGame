@@ -10,7 +10,7 @@ import { PageLayout } from 'shared/UI/PageLayout/PageLayout';
 import { InviteRegister } from './InviteRegister/InviteRegister';
 import { exampleActions } from 'entities/Example';
 import { ResultStat } from './ResultStat/ResultStat';
-import { useSavePreviousSessionData } from 'features/SessionDataComparison';
+import { SessionDataComparison, useSavePreviousSessionData } from 'features/SessionDataComparison';
 
 export const Result = () => {
 
@@ -44,6 +44,7 @@ export const Result = () => {
                 <div className={style.result}>
                     <div className={style.resultStatContainer}>
                         <ResultStat />
+                        <SessionDataComparison />
                     </div>
                     <div className={style.buttonContainer}>
                         <ExampleModal />
