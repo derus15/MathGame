@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { OutlineButton } from 'shared/UI/Button/OutlineButton/OutlineButton';
-import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
-import { exampleActions, getInitialSeed, getIsPersonalSeed } from 'entities/Example';
-import { isDecodeBase64 } from 'shared/lib/decodeBase64/isDecodeBase64';
-import { isSeedIncludesSign } from 'shared/lib/decodeBase64/isSeedIncludesSign';
+import { exampleActions, getIsPersonalSeed } from 'entities/Example';
 import { instructionsActions } from 'widgets/Instructions';
 import { debounce } from 'shared/lib/debounce/debounceFunction';
 import style from './PersonalSeed.module.css';
@@ -21,7 +18,6 @@ export const PersonalSeed = () => {
 
     const isActive = useSelector(getIsPersonalSeed);
     const sessionProgress = useSelector(getSessionProgress);
-    const initialSeed = useSelector(getInitialSeed);
 
     const openInputMode = () => {
 
@@ -54,23 +50,13 @@ export const PersonalSeed = () => {
     const validateSeedInput = debounce((e: React.ChangeEvent<HTMLInputElement>) => {
         
         const seed = e.target.value;
-        const [encodedPart] = seed.split('.');
-        const decodedPart = isDecodeBase64(encodedPart);
-
+        
         if (seed.trim() === '') {
             return null;
         }
 
-        if (!isSeedIncludesSign(decodedPart)) {
-
-            toast.error('Некорректный сид');
-
-        } else if (initialSeed !== seed) {
-
-            dispatch(exampleActions.setSeed(seed));
-            dispatch(exampleActions.setIsPersonalSeed());
-
-        }
+        dispatch(exampleActions.setSeed(seed));
+        dispatch(exampleActions.setIsPersonalSeed());
 
     }, 1000);
 

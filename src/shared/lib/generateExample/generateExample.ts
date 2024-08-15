@@ -17,16 +17,25 @@ interface generateExampleProps {
 
 const decodeSeedSignList = (seed: string) => {
 
-    const [encodeSignList] = seed.split('.');
-    const signList = atob(encodeSignList);
-    const decodeSignList: string[] = [];
+    const defaultSignList: SignList[] = ['+', '-', '*', '/'];
 
-    // eslint-disable-next-line no-restricted-syntax
-    for (const sign of signList) {
-        decodeSignList.push(sign);
+    try {
+        
+        const [encodeSignList] = seed.split('.');
+
+        const availableSign = atob(encodeSignList);
+        const signList = availableSign.split('');
+
+        if (defaultSignList.some((operator) => signList.includes(operator))) {
+            return signList;
+        } 
+        
+        return defaultSignList;
+
+    } catch (e) {
+
+        return defaultSignList;
     }
-
-    return decodeSignList;
 };
 
 const incrementSeed = (seed: string, iteration: number) => `${seed}${iteration}`;
