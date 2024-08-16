@@ -1,13 +1,13 @@
-import { SignList } from 'app/types/config';
+import { Sign } from 'app/types/config';
 
 export interface ExampleSchema {
     numbersList: number[],
-    sign: SignList,
+    sign: Sign,
     answer: string
     example: string,
     seed: string,
     isRetry: boolean,
     iterationSeed: number,
-    signList: SignList[],
+    signList: Sign[],
     isPersonalSeed: boolean,
 }

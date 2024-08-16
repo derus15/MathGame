@@ -1,6 +1,6 @@
-import { SignList } from 'app/types/config';
+import { Sign } from 'app/types/config';
 
-export const useCalculateHungerTime = (answer: string, sign: SignList) => {
+export const useCalculateHungerTime = (answer: string, sign: Sign) => {
 
     const hardDifficultSigns = ['*', '/'];
 

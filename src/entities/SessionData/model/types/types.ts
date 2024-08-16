@@ -1,4 +1,4 @@
-import { SignList } from 'app/types/config';
+import { Sign } from 'app/types/config';
 import { Modifications } from 'features/Modifications/model/slice/types';
 
 export interface SessionDataSchema {
@@ -16,7 +16,7 @@ export interface SessionDataSaveSchema {
     number: number;
     time: number;
     rounds: number;
-    sign: SignList[];
+    sign: Sign[];
     eps: string;
     modifications: Modifications[],
     unexpectedEnd: boolean,

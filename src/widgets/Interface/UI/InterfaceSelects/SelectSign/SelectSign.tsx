@@ -2,12 +2,12 @@ import React, { memo, ReactNode } from 'react';
 import style from './SelectSign.module.css';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { OutlineButton } from 'shared/UI/Button/OutlineButton/OutlineButton';
-import { SignList } from 'app/types/config';
+import { Sign } from 'app/types/config';
 
 interface SelectProps {
-    globalState?: SignList[];
-    callback?: (a: SignList[]) => void;
-    currentSign?: SignList;
+    globalState?: Sign[];
+    callback?: (a: Sign[]) => void;
+    currentSign?: Sign;
     children?: ReactNode;
 }
 
@@ -16,7 +16,7 @@ const SelectSign = ({ children = '', callback, currentSign, globalState = [] }: 
     const isSelectedSigns = Boolean(globalState.includes(currentSign));
 
     const changeSignList = () => {
-        let newSignList: SignList[];
+        let newSignList: Sign[];
 
         if (globalState.includes(currentSign) && globalState.length > 1) {
 

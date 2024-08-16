@@ -1,8 +1,8 @@
 import seedrandom from 'seedrandom';
-import { SignList } from 'app/types/config';
+import { Sign } from 'app/types/config';
 
 // eslint-disable-next-line no-unused-vars
-const signFunction:Record<string, (a: number, b: number) => number> = {
+const signFunction:Record<Sign, (a: number, b: number) => number> = {
     '+': (a, b) => a + b,
     '-': (a, b) => a - b,
     '*': (a, b) => a * b,
@@ -10,31 +10,25 @@ const signFunction:Record<string, (a: number, b: number) => number> = {
 };
 
 interface generateExampleProps {
-    signList?: SignList[],
+    signList?: Sign[],
     seed?: string,
     iteration?: number,
 }
 
-const decodeSeedSignList = (seed: string) => {
-
-    const defaultSignList: SignList[] = ['+', '-', '*', '/'];
+const decodeSeedSignList = (seed: string): Sign[] => {
 
     try {
-        
+
         const [encodeSignList] = seed.split('.');
+        const decoded = atob(encodeSignList);
+        const signList = decoded.split('')
+            .filter((char): char is Sign => ['+', '-', '*', '/'].includes(char));
 
-        const availableSign = atob(encodeSignList);
-        const signList = availableSign.split('');
+        return signList.length > 0 ? signList : ['+', '-', '*', '/'];
 
-        if (defaultSignList.some((operator) => signList.includes(operator))) {
-            return signList;
-        } 
-        
-        return defaultSignList;
+    } catch {
 
-    } catch (e) {
-
-        return defaultSignList;
+        return ['+', '-', '*', '/'];
     }
 };
 
