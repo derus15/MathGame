@@ -6,32 +6,3 @@
     align-items: center;
     justify-content: center;
 }
-
-.seedInput {
-    height: 13px;
-    transition-duration: .250s;
-    font-size: 16px;
-    width: 0;
-}
-
-.seedInputActive {
-    width: 150px;
-    border-bottom: 1px solid var(--base-color);
-}
-
-.seedButton {
-    height: 26px;
-    width: 25px;
-}
-
-.seedIcon {
-    fill: var(--modification-unactive);
-}
-
-.seedIconActive {
-    fill: var(--active-color);
-}
-
-.seedButton:hover {
-    opacity: 70%;
-}
