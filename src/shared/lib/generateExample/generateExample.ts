@@ -15,6 +15,25 @@ interface generateExampleProps {
     iteration?: number,
 }
 
+const generateSignList = (seed: string): Sign[] => {
+
+    const randomSignList: Sign[] = [];
+    const defaultSignList: Sign[] = ['+', '-', '*', '/'];
+
+    // eslint-disable-next-line no-plusplus
+    for (let i = 0; i < defaultSignList.length; i++) {
+
+        const rng = seedrandom(`${seed}${i}`);
+        const random = rng();
+
+        if (random >= 0.5) {
+            randomSignList.push(defaultSignList[i]);
+        }
+    }
+
+    return randomSignList.length > 0 ? randomSignList : defaultSignList;
+};
+
 const decodeSeedSignList = (seed: string): Sign[] => {
 
     try {
@@ -24,11 +43,11 @@ const decodeSeedSignList = (seed: string): Sign[] => {
         const signList = decoded.split('')
             .filter((char): char is Sign => ['+', '-', '*', '/'].includes(char));
 
-        return signList.length > 0 ? signList : ['+', '-', '*', '/'];
+        return signList.length > 0 ? signList : generateSignList(seed);
 
     } catch {
 
-        return ['+', '-', '*', '/'];
+        return generateSignList(seed);
     }
 };
 
