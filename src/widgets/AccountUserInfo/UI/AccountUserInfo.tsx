@@ -17,7 +17,7 @@ export const AccountUserInfo = () => {
 
                 <div className={style.circleContainer}>
                     <span className={style.circleTitle}>Решено примеров</span>
-                    <Circle info={data.counterExample?.[0]?.total_example || 0} />
+                    <Circle info={data.counterExample?.[0]?.total_example || 0} className={style.circle} />
                 </div>
 
                 <div className={style.circleAvatar}>
@@ -27,7 +27,7 @@ export const AccountUserInfo = () => {
 
                 <div className={style.circleContainer}>
                     <span className={style.circleTitle}>Часов в игре</span>
-                    <Circle info={normalizeTotalTime} />
+                    <Circle info={normalizeTotalTime} className={style.circle} />
                 </div>
             </div>
 

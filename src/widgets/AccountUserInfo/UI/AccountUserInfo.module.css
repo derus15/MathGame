@@ -13,7 +13,6 @@
 .positionCircleContainer {
     display: flex;
     width: 100%;
-    margin-top: 10px;
     justify-content: space-around;
 }
 
@@ -33,13 +32,15 @@
 
 .circleContainer {
     display: flex;
-    justify-content: space-around;
+    margin-top: 12px;
+    flex-direction: column;
+    align-items: center;
 }
 
 .circleAvatar {
     display: flex;
+    margin-top: 20px;
     justify-content: center;
-    margin-top: 10px;
     border-radius: 50%;
     width: 120px;
     height: 120px;
@@ -50,20 +51,10 @@
     position: absolute;
     color: var(--second-active-color);
     font-size: 2.4rem;
-    margin-top: 3px;
     transition-duration: .3s;
 }
 
 .circle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    background-color: var(--background-color);
-    width: 130px;
-    height: 130px;
-    font-size: 26px;
-    color: var(--second-active-color);
     margin-top: 50px;
     transition-duration: .3s;
 }
