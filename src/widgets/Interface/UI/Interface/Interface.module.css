@@ -24,13 +24,11 @@
 
 .containerParams {
     display: flex;
-    /*justify-content: space-between;*/
     margin-bottom: 0;
     padding-right: 20px;
     width: 170px;
     height: 100%;
     flex-direction: row;
-    /*gap: 30px;*/
     background-color: transparent;
     animation: init ease-in-out .3s;
 }
