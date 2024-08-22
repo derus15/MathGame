@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import style from '../Footer.module.css';
+import style from '../../../widgets/Footer/UI/Footer.module.css';
 import { OutlineButton } from 'shared/UI/Button/OutlineButton/OutlineButton';
-import { ThemeList } from 'app/types/config';
 
-const ThemeSwitcher = () => {
+export type ThemeList = 'black' | 'PP' | 'ocean' | 'chemodan' | 'norton';
+
+export const ThemeSwitcher = () => {
 
     const themesList: ThemeList[] = ['black', 'ocean', 'PP', 'chemodan', 'norton'];
     const [themeIndex, setThemeIndex] = useState(() => {
@@ -39,5 +40,3 @@ const ThemeSwitcher = () => {
         </OutlineButton>
     );
 };
-
-export default ThemeSwitcher;

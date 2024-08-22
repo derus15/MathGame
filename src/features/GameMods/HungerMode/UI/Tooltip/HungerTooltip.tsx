@@ -1,5 +1,5 @@
 import React, { Dispatch, memo, SetStateAction, useEffect, useState } from 'react';
-import style from 'features/GameMods/HungerMode/UI/Timer/HungerTimer.module.css';
+import style from '../Timer/HungerTimer.module.css';
 import { useCalculateHungerTime } from '../../../hooks/useCalculateHungerTime/useCalculateHungerTime';
 import { useSelector } from 'react-redux';
 import { getSessionPoints } from 'entities/SessionData';

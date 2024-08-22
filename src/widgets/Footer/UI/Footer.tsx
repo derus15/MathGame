@@ -1,7 +1,7 @@
 import React from 'react';
 import SupportMe from './elements/SupportMe';
 import KnowledgeBase from './elements/KnowledgeBase';
-import ThemeSwitcher from './elements/ThemeSwitcher';
+import { ThemeSwitcher } from 'features/ThemeSwitcher';
 import VersionHistory from './elements/VersionHistory';
 import style from './Footer.module.css';
 import GithubLink from './elements/GithubLink';
