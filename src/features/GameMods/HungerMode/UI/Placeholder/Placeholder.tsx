@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import style from './Placeholder.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCurrentRound, hungerModeActions } from 'features/GameMods/HungerMode';
-import { RoundCounter } from 'features/GameMods/HungerMode/UI/Counter/RoundCounter';
+import { getCurrentRound } from '../../model/selectors/getCurrentRound';
+import { RoundCounter } from '../Counter/RoundCounter';
+import { hungerModeActions } from '../../model/slice/hungerModeSlice';
 
 export const Placeholder = () => {
 

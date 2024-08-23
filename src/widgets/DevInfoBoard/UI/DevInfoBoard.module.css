@@ -1,0 +1,12 @@
+.devInfoContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 25px;
+    color: var(--active-color);
+    font-size: 20px;
+}
+
+.devInfoContainer span {
+    margin-left: 10px;
+}
