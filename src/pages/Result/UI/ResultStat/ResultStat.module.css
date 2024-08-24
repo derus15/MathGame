@@ -4,3 +4,17 @@
     gap: 12px;
     width: 100%;
 }
+
+.resultSeed {
+    cursor: pointer;
+    transition-duration: .125s;
+
+    &:hover {
+        opacity: .7;
+    }
+
+    &:active {
+        opacity: 1;
+    }
+
+}

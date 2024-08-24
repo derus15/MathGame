@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import style from './ResultItem.module.css';
 import { timeNormalization } from 'shared/lib/timeNormalization/timeNormalization';
+import { classNames } from 'shared/lib/classNames/classNames';
 
 interface ResultItemProps {
     description?: string
@@ -8,9 +9,19 @@ interface ResultItemProps {
     value: string | number,
     isTime?: boolean,
     isEPS?: boolean,
+    onClick?: () => void,
+    className?: string,
 }
 
-export const ResultItem = ({ title, value, description, isTime = false, isEPS = false }: ResultItemProps) => {
+export const ResultItem = ({
+    title,
+    value,
+    onClick,
+    description,
+    isTime = false, 
+    isEPS = false,
+    className,
+}: ResultItemProps) => {
 
     const [incrementValue, setIncrementValue] = useState<number | string>();
 
@@ -88,7 +99,7 @@ export const ResultItem = ({ title, value, description, isTime = false, isEPS = 
     }, [value]);
 
     return (
-        <div className={style.itemContainer}>
+        <div className={classNames(style.itemContainer, {}, [className])} onClick={onClick}>
             <span title={description}>{title}</span>
             <span className={style.itemValue}>{incrementValue}</span>
         </div>
