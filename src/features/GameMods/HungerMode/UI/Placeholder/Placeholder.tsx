@@ -1,33 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import style from './Placeholder.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCurrentRound } from '../../model/selectors/getCurrentRound';
 import { RoundCounter } from '../Counter/RoundCounter';
 import { hungerModeActions } from '../../model/slice/hungerModeSlice';
+import { BaseTimer } from 'shared/UI/BaseTimer/BaseTimer';
+import { getIsRoundProgress } from '../../model/selectors/getIsRoundProgress';
 
 export const Placeholder = () => {
 
-    const [timeUntil, setTimeUntil] = useState(3);
+    const [timeUntil, setTimeUntil] = useState(3000);
     const currentRound = useSelector(getCurrentRound);
+    const isRoundProgress = useSelector(getIsRoundProgress);
     const dispatch = useDispatch();
     
-    useEffect(() => {
+    const startRound = () => {
+        dispatch(hungerModeActions.startRound());
+    };
 
-        const timeout = setTimeout(() => {
-            dispatch(hungerModeActions.startRound());
-        }, 3000);
-
-        const interval = setInterval(() => {
-            setTimeUntil((time) => time - 1);
-        }, 1000);
-        
-        return () => {
-            clearTimeout(timeout);
-            clearInterval(interval);
-        };
-
-    }, []);
-    
     return (
         <>
             <div className={style.timerContainer}>
@@ -35,7 +25,17 @@ export const Placeholder = () => {
             </div>
             <div className={style.placeholderContainer}>
                 <span>Раунд {currentRound} завершен</span>
-                <span className={style.textUntil}>Следующий начнется через {timeUntil}</span>
+                <div className={style.textUntil}>
+                    <span>
+                        Следующий начнется через
+                    </span>
+                    <BaseTimer
+                        time={timeUntil}
+                        startCondition={!isRoundProgress}
+                        setTime={setTimeUntil}
+                        onFinishCallback={startRound}
+                    />
+                </div>
             </div>
         </>
     );
