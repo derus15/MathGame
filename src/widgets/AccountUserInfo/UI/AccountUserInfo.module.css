@@ -44,7 +44,7 @@
     border-radius: 50%;
     width: 120px;
     height: 120px;
-    background-color: var(--background-color);
+    background-color: black;
 }
 
 .circleTitle {

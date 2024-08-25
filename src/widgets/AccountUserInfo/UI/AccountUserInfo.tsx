@@ -1,10 +1,10 @@
 import React from 'react';
 import style from './AccountUserInfo.module.css';
-import Avatar from '../../../../public/assets/avatar.jpg';
 import { UpdateUserButton } from 'features/UpdateUserData';
 import { useGetAccountInfoQuery } from '../api/accountUserInfoApi';
 import { timeNormalization } from 'shared/lib/timeNormalization/timeNormalization';
 import { Circle } from 'shared/UI/Circle/Circle';
+import { AvatarGenerator } from 'features/GenerateAvatar';
 
 export const AccountUserInfo = () => {
 
@@ -21,7 +21,7 @@ export const AccountUserInfo = () => {
                 </div>
 
                 <div className={style.circleAvatar}>
-                    <img src={Avatar} alt="Аватарка" className={style.avatarImage} />
+                    <AvatarGenerator />
                     <div className={style.userName}>{data.user?.name}</div>
                 </div>
 
