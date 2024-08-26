@@ -11,7 +11,7 @@ import { HungerSchema } from 'features/GameMods/HungerMode';
 import { rtkApi } from 'shared/api/rtkApi';
 import { PreviousSessionDataSchema } from 'features/SessionDataComparison';
 import { Reducer } from '@reduxjs/toolkit';
-import { store } from 'app/Providers/Store/store';
+import { store } from './store';
 
 export interface StateSchema {
     sessionData: SessionDataSchema,

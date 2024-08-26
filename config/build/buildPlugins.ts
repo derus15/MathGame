@@ -6,7 +6,7 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import { BuildOptions } from './types/types';
 
-export function buildPlugins({ paths, isDev }: BuildOptions): webpack.Configuration['plugins'] {
+export function buildPlugins({ paths, isDev, isAnalyzer }: BuildOptions): webpack.Configuration['plugins'] {
 
     const plugins: webpack.Configuration['plugins'] = [
         // ниже без указания template, html создается заново
@@ -25,8 +25,11 @@ export function buildPlugins({ paths, isDev }: BuildOptions): webpack.Configurat
         new ForkTsCheckerWebpackPlugin(),
     ];
 
+    if (isAnalyzer) {
+        plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: true }));
+    }
+
     if (isDev) {
-        plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }));
         plugins.push(new webpack.ProgressPlugin());
     }
 
