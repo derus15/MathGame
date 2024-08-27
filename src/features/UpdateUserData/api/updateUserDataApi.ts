@@ -1,10 +1,10 @@
 import { toast } from 'react-toastify';
 import { rtkApi } from 'shared/api/rtkApi';
-import { ResponseMessage, UpdateUserDataParams } from '../model/types/types';
+import { ResponseUpdateMessage, UpdateUserDataParams } from '../model/types/types';
 
 const updateDataApi = rtkApi.injectEndpoints({
     endpoints: (builder) => ({
-        updateUserData: builder.mutation<ResponseMessage, UpdateUserDataParams>({
+        updateUserData: builder.mutation<ResponseUpdateMessage, UpdateUserDataParams>({
             query: (params) => ({
                 url: '/user/changeData',
                 method: 'PATCH',

@@ -3,6 +3,7 @@ import { UpdateUserDataSchema } from '../types/types';
 
 const initialState: UpdateUserDataSchema = {
     isValid: false,
+    message: 'asd',
 };
 
 const userDataSlice = createSlice({

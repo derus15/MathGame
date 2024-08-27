@@ -3,13 +3,13 @@ import style from './UpdateUserModal.module.css';
 import LoginInput from 'shared/UI/Input/LoginInput/LoginInput';
 import { LoginButton } from 'shared/UI/Button/LoginButton/LoginButton';
 import { useForm } from 'react-hook-form';
-import { UpdateUserDataParams } from 'features/UpdateUserData/model/types/types';
+import { UpdateUserDataParams } from '../../model/types/types';
 import { toast } from 'react-toastify';
-import { useSelector } from 'react-redux';
-import { getIsValidPassword } from '../../model/selectors/getIsValidPassword';
 import { CheckValidPassword } from '../CheckValidPassword/CheckValidPassword';
 import Loader from 'shared/UI/Loader/Loader';
-import { useUpdateUserDataMutation } from 'features/UpdateUserData/api/updateUserDataApi';
+import { useUpdateUserDataMutation } from '../../api/updateUserDataApi';
+import { useSelector } from 'react-redux';
+import { getIsValidPassword } from '../../model/selectors/getIsValidPassword';
 
 const UpdateUserModal = () => {
 
@@ -33,7 +33,7 @@ const UpdateUserModal = () => {
         
         updateUserData(userData);
     };
-    
+
     if (!isValidPassword) {
         return <CheckValidPassword />;
     }

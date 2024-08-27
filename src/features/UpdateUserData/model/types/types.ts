@@ -3,10 +3,11 @@ export interface UpdateUserDataParams {
     password: string;
 }
 
-export interface ResponseMessage {
+export interface ResponseUpdateMessage {
     message: string;
 }
 
 export interface UpdateUserDataSchema {
     isValid: boolean;
+    message: string;
 }
