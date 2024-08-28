@@ -1,68 +1,17 @@
 import React from 'react';
-import style from './UpdateUserModal.module.css';
-import LoginInput from 'shared/UI/Input/LoginInput/LoginInput';
-import { LoginButton } from 'shared/UI/Button/LoginButton/LoginButton';
-import { useForm } from 'react-hook-form';
-import { UpdateUserDataParams } from '../../model/types/types';
-import { toast } from 'react-toastify';
 import { CheckValidPassword } from '../CheckValidPassword/CheckValidPassword';
-import Loader from 'shared/UI/Loader/Loader';
-import { useUpdateUserDataMutation } from '../../api/updateUserDataApi';
-import { useSelector } from 'react-redux';
-import { getIsValidPassword } from '../../model/selectors/getIsValidPassword';
+import { useCheckValidPassword } from '../../hooks/useCheckValidPassword';
+import { UpdateUserData } from '../UpdateUserData/UpdateUserData';
 
-const UpdateUserModal = () => {
+export const UpdateUserModal = () => {
 
-    const { handleSubmit, register, watch } = useForm({ mode: 'onChange' });
-    const [updateUserData, { isLoading }] = useUpdateUserDataMutation();
-    const isValidPassword = useSelector(getIsValidPassword);
-    
-    const onSubmit = (values: UpdateUserDataParams) => {
-        
-        const passwordFirst = watch('passwordFirst');
-        const passwordConfirm = watch('passwordConfirm');
+    const { handleCheckValidPassword, data, isLoading } = useCheckValidPassword();
 
-        const userData = {
-            name: values.name,
-            password: passwordFirst,
-        };
-
-        if (passwordFirst !== passwordConfirm) {
-            return toast.error('Пароли не совпадают');
-        }
-        
-        updateUserData(userData);
-    };
-
-    if (!isValidPassword) {
-        return <CheckValidPassword />;
+    if (!data?.isValid) {
+        return <CheckValidPassword action={handleCheckValidPassword} isLoading={isLoading} />;
     }
 
     return (
-        <form className={style.inputContainer} onSubmit={handleSubmit(onSubmit)}>
-            <div className={style.textContainer}>
-                <span className={style.header}>Редактирование профиля</span>
-                <span className={style.title}>Заполните поля, которые хотите изменить</span>
-            </div>
-            <LoginInput placeholder="Новое имя" {...register('name')} />
-            <LoginInput
-                key="passwordFirst"
-                placeholder="Новый пароль"
-                password
-                {...register('passwordFirst')}
-            />
-            <LoginInput
-                key="passwordConfirm"
-                placeholder="Повторите пароль"
-                password
-                {...register('passwordConfirm')}
-            />
-            <div className={style.loaderContainer}>
-                <Loader isLoading={isLoading} className={style.loader} />
-                <LoginButton disabled={isLoading}>Сохранить</LoginButton>
-            </div>
-        </form>
+        <UpdateUserData />
     );
 };
-
-export default UpdateUserModal;

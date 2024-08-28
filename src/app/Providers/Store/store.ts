@@ -5,7 +5,6 @@ import { modificationsReducer } from 'features/Modifications';
 import { sessionReducer } from 'entities/Session';
 import { sessionDataReducer } from 'entities/SessionData';
 import { userReducer } from 'entities/User';
-import { userDataReducer } from 'features/UpdateUserData';
 import { factoryModeReducer } from 'features/GameMods/FactoryMode';
 import { instructionsReducer } from 'widgets/Instructions';
 import { hungerModeReducer } from 'features/GameMods/HungerMode';
@@ -20,7 +19,6 @@ const rootReducers: RootReducers = {
     session: sessionReducer,
     modifications: modificationsReducer,
     user: userReducer,
-    userData: userDataReducer,
     factoryMode: factoryModeReducer,
     instructions: instructionsReducer,
     hungerMode: hungerModeReducer,

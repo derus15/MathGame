@@ -3,15 +3,19 @@ import style from './CheckValidPassword.module.css';
 import LoginInput from 'shared/UI/Input/LoginInput/LoginInput';
 import { LoginButton } from 'shared/UI/Button/LoginButton/LoginButton';
 import { useForm } from 'react-hook-form';
-import { useCheckValidPassword } from '../../hooks/useCheckValidPassword';
+import { UpdateUserDataParams } from '../../model/types/types';
 
-export const CheckValidPassword = () => {
+interface CheckValidPasswordProps {
+    action: (a: UpdateUserDataParams) => void;
+    isLoading: boolean
+}
+
+export const CheckValidPassword = ({ action, isLoading }: CheckValidPasswordProps) => {
 
     const { handleSubmit, register } = useForm({ mode: 'onChange' });
-    const { handleCheckValidPassword, isLoading } = useCheckValidPassword();
     
     return (
-        <form className={style.inputPasswordContainer} onSubmit={handleSubmit(handleCheckValidPassword)}>
+        <form className={style.inputPasswordContainer} onSubmit={handleSubmit(action)}>
             <span className={style.header}>Редактирование профиля</span>
             <LoginInput
                 key="password"

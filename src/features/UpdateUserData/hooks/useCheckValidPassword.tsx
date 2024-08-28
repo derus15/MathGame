@@ -1,19 +1,15 @@
 import { useCheckValidPasswordMutation } from '../api/checkValidPasswordApi';
 import { UpdateUserDataParams } from '../model/types/types';
 import { toast } from 'react-toastify';
-import { useDispatch } from 'react-redux';
-import { userDataActions } from '../model/slice/userDataSlice';
 
 export const useCheckValidPassword = () => {
 
-    const dispatch = useDispatch();
-    const [checkValidPassword, { isLoading }] = useCheckValidPasswordMutation();
+    const [checkValidPassword, { isLoading, data, error }] = useCheckValidPasswordMutation();
 
     const handleCheckValidPassword = async (data: UpdateUserDataParams) => {
         try {
 
             await checkValidPassword(data).unwrap();
-            dispatch(userDataActions.setIsValidPassword());
 
         } catch (error) {
 
@@ -23,11 +19,12 @@ export const useCheckValidPassword = () => {
                 toast.error('Сервер не отвечает. Попробуйте позже');
             }
 
-            dispatch(userDataActions.resetIsValidPassword());
         }
     };
 
     return {
+        data,
+        error,
         isLoading,
         handleCheckValidPassword,
     };

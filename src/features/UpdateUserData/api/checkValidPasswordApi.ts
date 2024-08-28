@@ -1,6 +1,5 @@
 import { rtkApi } from 'shared/api/rtkApi';
-import { UpdateUserDataSchema } from 'features/UpdateUserData';
-import { UpdateUserDataParams } from 'features/UpdateUserData/model/types/types';
+import { UpdateUserDataParams, UpdateUserDataSchema } from '../model/types/types';
 
 const checkPassword = rtkApi.injectEndpoints({
     endpoints: (builder) => ({
