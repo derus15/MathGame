@@ -6,6 +6,8 @@
 
 html {
     font-size: 62.5%;
+    margin-right: calc(-1 * (100vw - 100%));
+    overflow-x: hidden;
 }
 
 body {
