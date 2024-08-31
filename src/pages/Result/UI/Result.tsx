@@ -11,9 +11,11 @@ import { InviteRegister } from './InviteRegister/InviteRegister';
 import { exampleActions } from 'entities/Example';
 import { ResultStat } from './ResultStat/ResultStat';
 import { SessionDataComparison, useSavePreviousSessionData } from 'features/SessionDataComparison';
+import { useCalculateEPS } from 'shared/lib/hooks/useCalculateEPS';
 
 export const Result = () => {
 
+    useCalculateEPS();
     const dispatch = useAppDispatch();
     const { sendSessionData } = useSendSessionData();
     const { savePreviousSessionData } = useSavePreviousSessionData();

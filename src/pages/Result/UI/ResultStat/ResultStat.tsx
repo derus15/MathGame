@@ -3,9 +3,13 @@ import { ResultItem } from 'pages/Result/UI/ResultItem/ResultItem';
 import { useSelector } from 'react-redux';
 import style from './ResultStat.module.css';
 import { getInterfaceGameMode } from 'widgets/Interface';
-import { getSessionHungerRounds, getSessionPoints, getSessionTime } from 'entities/SessionData';
+import { 
+    getSessionEPS,
+    getSessionHungerRounds,
+    getSessionPoints,
+    getSessionTime, 
+} from 'entities/SessionData';
 import { getInitialSeed } from 'entities/Example';
-import { useCalculateEPS } from 'shared/lib/hooks/useCalculateEPS';
 import { copyTextToClipboard } from 'shared/lib/copyTextToClipboard/copyTextToClipboard';
 import { toast } from 'react-toastify';
 
@@ -16,7 +20,7 @@ export const ResultStat = () => {
     const sessionTime = useSelector(getSessionTime);
     const round = useSelector(getSessionHungerRounds);
     const seed = useSelector(getInitialSeed);
-    const eps = useCalculateEPS();
+    const eps = useSelector(getSessionEPS);
 
     const handleCopyToClipboard = (text: string) => {
         copyTextToClipboard(text);

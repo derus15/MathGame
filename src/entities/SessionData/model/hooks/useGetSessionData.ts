@@ -5,8 +5,7 @@ import { getSessionPoints } from '../selectors/getSessionPoints';
 import { getModificationsList } from 'features/Modifications';
 import { getExampleSignsList, getInterfaceGameMode } from 'widgets/Interface';
 import { getUnexpectedEnd } from 'entities/Session';
-import { useCalculateEPS } from 'shared/lib/hooks/useCalculateEPS';
-import { getSessionHungerRounds } from 'entities/SessionData';
+import { getSessionEPS, getSessionHungerRounds } from 'entities/SessionData';
 
 export const useGetSessionData = () => {
 
@@ -17,7 +16,7 @@ export const useGetSessionData = () => {
     const sessionUnexpectedEnd = useSelector(getUnexpectedEnd);
     const sessionGameMode = useSelector(getInterfaceGameMode);
     const sessionSignList = useSelector(getExampleSignsList);
-    const sessionEps = useCalculateEPS();
+    const sessionEps = useSelector(getSessionEPS);
     
     const sessionData: SessionDataSaveSchema = {
         mode: sessionGameMode,
