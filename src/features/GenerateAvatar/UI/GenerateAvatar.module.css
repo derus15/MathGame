@@ -1,10 +1,7 @@
-.avatarContainer,
 .avatarCircle {
     display: grid;
-    grid-template-columns: repeat(10, 12px);
-}
-
-.avatarCircle {
+    grid-template-columns: repeat(12, 10px);
+    grid-template-rows: repeat(10, 10px);
     width: 120px;
     height: 120px;
     border-radius: 50%;
@@ -12,6 +9,7 @@
 }
 
 .square {
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
 }
+
