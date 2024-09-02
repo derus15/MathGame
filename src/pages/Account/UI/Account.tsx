@@ -23,14 +23,12 @@ const Account = () => {
             <div className={style.mainContainer}>
                 <AccountUserInfo />
                 <HighlightsBoards />
-                <div className={style.anotherTiles}>
-                    <div className={style.tiles} />
+                <div className={style.comingSoonContainer}>
+                    <div className={style.comingSoonTiles} />
+                    <span className={style.comingSoonTitle}>Скоро будет добавлено...</span>
                 </div>
-                <div className={style.soonContainer}>
-                    <span className={style.comingSoon}>Скоро будет добавлено...</span>
-                </div>
-                <Footer className={style.footer} />
             </div>
+            <Footer className={style.footer} />
         </PageLayout>
     );
 };
