@@ -1,23 +1,22 @@
 import React, { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import style from '../Interface/Interface.module.css';
-import { interfaceActions } from '../../model/slice/interfaceSlice';
 import Select from '../InterfaceSelects/Select/Select';
-import { getInterfaceNumber } from '../../model/selectors/getInterfaceNumber';
 import { getSessionProgress } from 'entities/Session';
 import { MyNumber } from 'features/MyParams';
 import { exampleActions } from 'entities/Example';
+import { getParamsNumber, sessionParamsActions } from 'entities/SessionParams';
 
 const ChangeNumber = () => {
 
     const dispatch = useDispatch();
     const sessionProgress = useSelector(getSessionProgress);
     const numbersList = [10, 15, 20];
-    const currentNumber = useSelector(getInterfaceNumber);
+    const currentNumber = useSelector(getParamsNumber);
     
     function changeNumberInSession(number: number) {
         if (!sessionProgress) {
-            dispatch(interfaceActions.changeNumber(number));
+            dispatch(sessionParamsActions.changeNumber(number));
             dispatch(exampleActions.generateSeed());
         }
     }

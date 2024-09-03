@@ -1,9 +1,8 @@
 import React from 'react';
-import { ResultItem } from 'pages/Result/UI/ResultItem/ResultItem';
+import { ResultItem } from '../ResultItem/ResultItem';
 import { useSelector } from 'react-redux';
 import style from './ResultStat.module.css';
-import { getInterfaceGameMode } from 'widgets/Interface';
-import { 
+import {
     getSessionEPS,
     getSessionHungerRounds,
     getSessionPoints,
@@ -12,10 +11,11 @@ import {
 import { getInitialSeed } from 'entities/Example';
 import { copyTextToClipboard } from 'shared/lib/copyTextToClipboard/copyTextToClipboard';
 import { toast } from 'react-toastify';
+import { getParamsGameMode } from 'entities/SessionParams';
 
 export const ResultStat = () => {
 
-    const gameMode = useSelector(getInterfaceGameMode);
+    const gameMode = useSelector(getParamsGameMode);
     const numberResult = useSelector(getSessionPoints);
     const sessionTime = useSelector(getSessionTime);
     const round = useSelector(getSessionHungerRounds);

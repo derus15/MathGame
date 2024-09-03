@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react';
 import style from './GameModsProvider.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { getInterfaceGameMode } from 'widgets/Interface';
 import { sessionDataActions } from 'entities/SessionData';
 import { StandardMode } from 'features/GameMods/StandardMode';
 import { SprintMode } from 'features/GameMods/SprintMode';
 import { HungerMode } from 'features/GameMods/HungerMode';
 import { exampleActions, getIsRetrySession } from 'entities/Example';
+import { getParamsGameMode } from 'entities/SessionParams';
 
 export const GameModsProvider = () => {
 
-    const gameMode = useSelector(getInterfaceGameMode);
+    const gameMode = useSelector(getParamsGameMode);
     const dispatch = useDispatch();
     const isRetry = useSelector(getIsRetrySession);
     

@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { getPreviousSessionData } from '../selectors/getPreviousSessionData';
 import { useGetSessionData } from 'entities/SessionData';
 import { timeNormalization } from 'shared/lib/timeNormalization/timeNormalization';
-import { getInterfaceGameMode } from 'widgets/Interface';
+import { getParamsGameMode } from 'entities/SessionParams';
 
 interface ComparisonObject {
     value: string,
@@ -13,7 +13,7 @@ export const useCalculateComparison = () => {
 
     const previousSessionData = useSelector(getPreviousSessionData);
     const currentSessionData = useGetSessionData();
-    const isHunger = useSelector(getInterfaceGameMode) === 'Голод';
+    const isHunger = useSelector(getParamsGameMode) === 'Голод';
     const {
         time: currentTime,
         number: currentNumber,

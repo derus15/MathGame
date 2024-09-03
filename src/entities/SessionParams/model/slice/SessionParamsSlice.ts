@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { InterfaceSchema } from './types';
+import { SessionParamsSchema } from '../types/types';
 
-const initialState: InterfaceSchema = {
+const initialState: SessionParamsSchema = {
     time: Number(localStorage.getItem('durationTime')) || 15,
     number: Number(localStorage.getItem('durationNumber')) || 10,
     gameMode: localStorage.getItem('mode') || 'Стандарт',
@@ -9,9 +9,9 @@ const initialState: InterfaceSchema = {
     rounds: Number(localStorage.getItem('rounds')) || 3,
 };
 
-export const interfaceSlice = createSlice({
+const sessionParamsSlice = createSlice({
 
-    name: 'interface',
+    name: 'sessionParams',
     initialState,
     reducers: {
 
@@ -34,7 +34,7 @@ export const interfaceSlice = createSlice({
             state.gameMode = action.payload;
             localStorage.setItem('mode', action.payload);
         },
-        
+
         incrementSecretCounter: (state) => {
             state.secretCounter += 1;
         },
@@ -42,6 +42,5 @@ export const interfaceSlice = createSlice({
     },
 });
 
-export const { actions: interfaceActions } = interfaceSlice;
-
-export const { reducer: interfaceReducer } = interfaceSlice;
+export const { actions: sessionParamsActions } = sessionParamsSlice;
+export const { reducer: sessionParamsReducer } = sessionParamsSlice;

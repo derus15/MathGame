@@ -3,14 +3,13 @@ import Modal from 'shared/UI/Modal/Modal';
 import style from './ExampleModal.module.css';
 import { useSelector } from 'react-redux';
 import { ExampleButton } from 'shared/UI/Button/ExampleButton/ExampleButton';
-import { getSessionExampleList } from 'entities/SessionData/model/selectors/getSessionExampleList';
+import { getSessionExampleList, getSessionTimeFlags } from 'entities/SessionData';
 import { getExample } from 'entities/Example';
-import { getInterfaceGameMode } from 'widgets/Interface';
 import { findDifferencesArray } from 'shared/lib/findDifferencesArray/findDifferencesArray';
-import { getUnexpectedEnd } from 'entities/Session/model/selectors/getUnexpectedEnd';
 import { calculateMinMaxNumber } from 'shared/lib/calculateMinMaxNumber/calculateMinMaxNumber';
-import { getSessionTimeFlags } from 'entities/SessionData';
 import { conversionMilliToSec } from 'shared/lib/conversionMilliToSec/conversionMilliToSec';
+import { getParamsGameMode } from 'entities/SessionParams';
+import { getUnexpectedEnd } from 'entities/Session';
 
 export const ExampleModal = () => {
 
@@ -18,7 +17,7 @@ export const ExampleModal = () => {
     const lastUnsolvedExample = useSelector(getExample);
     const exampleList = useSelector(getSessionExampleList);
     const unexpectedEnd = useSelector(getUnexpectedEnd);
-    const standardMode = useSelector(getInterfaceGameMode) === 'Стандарт';
+    const standardMode = useSelector(getParamsGameMode) === 'Стандарт';
     const isShowLastExample = unexpectedEnd || standardMode;
     const exampleTimeList = useSelector(getSessionTimeFlags);
     const exampleTime = findDifferencesArray(exampleTimeList);

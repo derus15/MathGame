@@ -2,13 +2,13 @@ import React, { memo, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BaseTimer } from 'shared/UI/BaseTimer/BaseTimer';
 import { getSessionProgress, sessionActions } from 'entities/Session';
-import { getInterfaceTime } from 'widgets/Interface';
 import { sessionDataActions } from 'entities/SessionData';
 import { RetryFlag } from 'entities/Example';
+import { getParamsTime } from 'entities/SessionParams';
 
 export const StandardTimer = memo(() => {
 
-    const duration = useSelector(getInterfaceTime);
+    const duration = useSelector(getParamsTime);
     const sessionProgress = useSelector(getSessionProgress);
     const [timerTime, setTimerTime] = useState(0);
     const dispatch = useDispatch();

@@ -6,9 +6,9 @@ import { OutlineButton } from 'shared/UI/Button/OutlineButton/OutlineButton';
 import { classNames } from 'shared/lib/classNames/classNames';
 import Modal from 'shared/UI/Modal/Modal';
 import { testNumber } from 'shared/lib/testNumber/testNumber';
-import { getInterfaceNumber, interfaceActions } from 'widgets/Interface';
 import { getSessionProgress } from 'entities/Session';
 import { exampleActions } from 'entities/Example';
+import { getParamsNumber, sessionParamsActions } from 'entities/SessionParams';
 
 interface MyNumberProps {
     standardNumber: number[];
@@ -17,7 +17,7 @@ interface MyNumberProps {
 export const MyNumber = memo(({ standardNumber }: MyNumberProps) => {
 
     const [isModal, setIsModal] = useState(false);
-    const duration = useSelector(getInterfaceNumber);
+    const duration = useSelector(getParamsNumber);
     const sessionProgress = useSelector(getSessionProgress);
     const isActive = !standardNumber.includes(duration);
     const dispatch = useDispatch();
@@ -33,7 +33,7 @@ export const MyNumber = memo(({ standardNumber }: MyNumberProps) => {
         const isNumber = testNumber(value);
 
         if (isNumber) {
-            dispatch(interfaceActions.changeNumber((value === '0') ? 10 : value));
+            dispatch(sessionParamsActions.changeNumber((value === '0') ? 10 : value));
             dispatch(exampleActions.generateSeed());
         }
     }

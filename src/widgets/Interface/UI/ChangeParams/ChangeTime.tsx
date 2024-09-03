@@ -1,23 +1,22 @@
 import React, { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import style from '../Interface/Interface.module.css';
-import { interfaceActions } from '../../model/slice/interfaceSlice';
 import Select from '../InterfaceSelects/Select/Select';
-import { getInterfaceTime } from '../../model/selectors/getInterfaceTime';
 import { getSessionProgress } from 'entities/Session';
 import { MyTime } from 'features/MyParams';
 import { exampleActions } from 'entities/Example';
+import { getParamsTime, sessionParamsActions } from 'entities/SessionParams';
 
 const ChangeTime = () => {
 
     const dispatch = useDispatch();
     const sessionProgress = useSelector(getSessionProgress);
     const timesList = [15, 30, 60];
-    const currentTime = useSelector(getInterfaceTime);
+    const currentTime = useSelector(getParamsTime);
 
     function changeTimeInSession(time: number) {
         if (!sessionProgress) {
-            dispatch(interfaceActions.changeTime(time));
+            dispatch(sessionParamsActions.changeTime(time));
             dispatch(exampleActions.generateSeed());
         }
     }

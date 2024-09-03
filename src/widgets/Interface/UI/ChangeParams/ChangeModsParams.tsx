@@ -2,8 +2,8 @@ import React, { memo } from 'react';
 import { useSelector } from 'react-redux';
 import ChangeTime from './ChangeTime';
 import ChangeNumber from './ChangeNumber';
-import { getInterfaceGameMode } from '../../model/selectors/getInterfaceGameMode';
-import ChangeRounds from 'widgets/Interface/UI/ChangeParams/ChangerRounds';
+import ChangeRounds from './ChangerRounds';
+import { getParamsGameMode } from 'entities/SessionParams';
 
 const gameModsList: Record<string, React.ReactElement> = {
     'Стандарт': <ChangeTime />,
@@ -13,7 +13,7 @@ const gameModsList: Record<string, React.ReactElement> = {
 
 export const ChangeModsParams = memo(() => {
 
-    const gameMode = useSelector(getInterfaceGameMode);
+    const gameMode = useSelector(getParamsGameMode);
 
     return gameModsList[gameMode];
 

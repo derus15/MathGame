@@ -1,12 +1,11 @@
 import React, { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import style from '../Interface/Interface.module.css';
-import { interfaceActions } from '../../model/slice/interfaceSlice';
 import Select from '../InterfaceSelects/Select/Select';
-import { getInterfaceGameMode } from '../../model/selectors/getInterfaceGameMode';
 import { getSessionProgress } from 'entities/Session';
 import { instructionsActions } from 'widgets/Instructions';
 import { exampleActions } from 'entities/Example';
+import { sessionParamsActions, getParamsGameMode } from 'entities/SessionParams';
 
 const instructionsObject: Record<string, string> = {
     'Спринт': 'Решайте примеры, пока они не кончатся',
@@ -19,11 +18,11 @@ export const ChangeMods = memo(() => {
     const dispatch = useDispatch();
     const sessionProgress = useSelector(getSessionProgress);
     const ModsList = ['Спринт', 'Стандарт', 'Голод'];
-    const currentMode = useSelector(getInterfaceGameMode);
+    const currentMode = useSelector(getParamsGameMode);
 
     function changeGameModeInSession(mode: string) {
         if (!sessionProgress) {
-            dispatch(interfaceActions.changeGameMode(mode));
+            dispatch(sessionParamsActions.changeGameMode(mode));
             dispatch(instructionsActions.setInstruction(instructionsObject[mode]));
             dispatch(exampleActions.generateSeed());
         }

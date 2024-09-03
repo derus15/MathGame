@@ -5,10 +5,10 @@ import Modal from 'shared/UI/Modal/Modal';
 import PersonParamsInput from 'shared/UI/Input/PersonParamsInput/PersonParamsInput';
 import { OutlineButton } from 'shared/UI/Button/OutlineButton/OutlineButton';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { interfaceActions, getInterfaceTime } from '../../../../widgets/Interface';
 import { testNumber } from 'shared/lib/testNumber/testNumber';
 import { getSessionProgress } from 'entities/Session';
 import { exampleActions } from 'entities/Example';
+import { getParamsTime, sessionParamsActions } from 'entities/SessionParams';
 
 interface MyTimeProps {
     standardTime: number[];
@@ -17,7 +17,7 @@ interface MyTimeProps {
 export const MyTime = memo(({ standardTime }: MyTimeProps) => {
 
     const [isModal, setIsModal] = useState(false);
-    const duration = useSelector(getInterfaceTime);
+    const duration = useSelector(getParamsTime);
     const sessionProgress = useSelector(getSessionProgress);
     const isActive = !standardTime.includes(duration);
     const dispatch = useDispatch();
@@ -34,7 +34,7 @@ export const MyTime = memo(({ standardTime }: MyTimeProps) => {
         const isNumber = testNumber(value);
 
         if (isNumber) {
-            dispatch(interfaceActions.changeTime((value === '0') ? 15 : value));
+            dispatch(sessionParamsActions.changeTime((value === '0') ? 15 : value));
             dispatch(exampleActions.generateSeed());
         }
     }

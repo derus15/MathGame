@@ -1,23 +1,22 @@
 import React, { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import style from '../Interface/Interface.module.css';
-import { interfaceActions } from '../../model/slice/interfaceSlice';
 import Select from '../InterfaceSelects/Select/Select';
 import { getSessionProgress } from 'entities/Session';
-import { getInterfaceRounds } from 'widgets/Interface/model/selectors/getInterfaceRounds';
 import { MyRound } from 'features/MyParams';
 import { exampleActions } from 'entities/Example';
+import { getParamsRounds, sessionParamsActions } from 'entities/SessionParams';
 
 const ChangeRounds = () => {
 
     const dispatch = useDispatch();
     const sessionProgress = useSelector(getSessionProgress);
     const roundsList = [3, 5, 7];
-    const currentRound = useSelector(getInterfaceRounds);
+    const currentRound = useSelector(getParamsRounds);
 
     function changeRoundInSession(round: number) {
         if (!sessionProgress) {
-            dispatch(interfaceActions.changeRounds(round));
+            dispatch(sessionParamsActions.changeRounds(round));
             dispatch(exampleActions.generateSeed());
         }
     }

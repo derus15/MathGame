@@ -6,10 +6,9 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import Modal from 'shared/UI/Modal/Modal';
 import PersonParamsInput from 'shared/UI/Input/PersonParamsInput/PersonParamsInput';
 import { getSessionProgress } from 'entities/Session';
-import { getInterfaceRounds } from 'widgets/Interface/model/selectors/getInterfaceRounds';
 import { testNumber } from 'shared/lib/testNumber/testNumber';
-import { interfaceActions } from 'widgets/Interface';
 import { exampleActions } from 'entities/Example';
+import { getParamsRounds, sessionParamsActions } from 'entities/SessionParams';
 
 interface MyRoundProps {
     standardRound: number[];
@@ -19,7 +18,7 @@ export const MyRound = memo(({ standardRound }: MyRoundProps) => {
     
     const dispatch = useDispatch();
     const [isModal, setIsModal] = useState(false);
-    const rounds = useSelector(getInterfaceRounds);
+    const rounds = useSelector(getParamsRounds);
     const isActive = !standardRound.includes(rounds);
     const sessionProgress = useSelector(getSessionProgress);
 
@@ -35,7 +34,7 @@ export const MyRound = memo(({ standardRound }: MyRoundProps) => {
         const isNumber = testNumber(value);
 
         if (isNumber) {
-            dispatch(interfaceActions.changeRounds((value === '0') ? 3 : value));
+            dispatch(sessionParamsActions.changeRounds((value === '0') ? 3 : value));
             dispatch(exampleActions.generateSeed());
         }
     }

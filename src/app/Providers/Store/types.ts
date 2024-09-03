@@ -1,4 +1,3 @@
-import { InterfaceSchema } from 'widgets/Interface';
 import { ExampleSchema } from 'entities/Example';
 import { ModificationsSchema } from 'features/Modifications';
 import { SessionSchema } from 'entities/Session';
@@ -11,10 +10,11 @@ import { rtkApi } from 'shared/api/rtkApi';
 import { PreviousSessionDataSchema } from 'features/SessionDataComparison';
 import { Reducer } from '@reduxjs/toolkit';
 import { store } from './store';
+import { SessionParamsSchema } from 'entities/SessionParams';
 
 export interface StateSchema {
     sessionData: SessionDataSchema,
-    interface: InterfaceSchema,
+    sessionParams: SessionParamsSchema,
     example: ExampleSchema,
     session: SessionSchema,
     modifications: ModificationsSchema,

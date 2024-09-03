@@ -4,16 +4,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getExampleAnswer } from 'entities/Example';
 import { getModificationsList } from '../selectors/getModificationsList';
 import { sessionActions } from 'entities/Session';
-import { getInterfaceGameMode } from 'widgets/Interface';
 import { hungerModeActions } from 'features/GameMods/HungerMode';
 import { sessionDataActions } from 'entities/SessionData';
+import { getParamsGameMode } from 'entities/SessionParams';
 
 export const useModifications = () => {
 
     const answer = useSelector(getExampleAnswer);
     const dispatch = useDispatch();
     const modsList = useSelector(getModificationsList);
-    const gameMode = useSelector(getInterfaceGameMode);
+    const gameMode = useSelector(getParamsGameMode);
     const oneTry = modsList.includes('one');
 
     const onyTry = (e: ChangeEvent<HTMLInputElement>) => {

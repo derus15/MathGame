@@ -1,6 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { exampleReducer } from 'entities/Example';
-import { interfaceReducer } from 'widgets/Interface';
 import { modificationsReducer } from 'features/Modifications';
 import { sessionReducer } from 'entities/Session';
 import { sessionDataReducer } from 'entities/SessionData';
@@ -11,10 +10,11 @@ import { hungerModeReducer } from 'features/GameMods/HungerMode';
 import { rtkApi } from 'shared/api/rtkApi';
 import { previousSessionDataReducer } from 'features/SessionDataComparison';
 import { RootReducers } from './types';
+import { sessionParamsReducer } from 'entities/SessionParams';
 
 const rootReducers: RootReducers = {
     sessionData: sessionDataReducer,
-    interface: interfaceReducer,
+    sessionParams: sessionParamsReducer,
     example: exampleReducer,
     session: sessionReducer,
     modifications: modificationsReducer,

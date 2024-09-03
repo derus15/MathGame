@@ -2,9 +2,9 @@ import React, { memo, useEffect, useState } from 'react';
 import style from './Lines.module.css';
 import { Line } from 'shared/UI/Line/Line';
 import { useDispatch, useSelector } from 'react-redux';
-import { interfaceActions } from 'widgets/Interface';
 import { StateSchema } from 'app/Providers/Store/types';
 import { getSessionProgress } from 'entities/Session';
+import { sessionParamsActions } from 'entities/SessionParams';
 
 export const Lines = memo(() => {
 
@@ -21,7 +21,7 @@ export const Lines = memo(() => {
 
     function handleClick() {
         setRotate((prevState) => !prevState);
-        dispatch(interfaceActions.incrementSecretCounter());
+        dispatch(sessionParamsActions.incrementSecretCounter());
     }
 
     function rotation(direction: string) {
