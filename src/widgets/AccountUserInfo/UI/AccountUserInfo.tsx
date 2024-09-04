@@ -21,7 +21,7 @@ export const AccountUserInfo = () => {
                 </div>
 
                 <div className={style.circleAvatar}>
-                    <AvatarGenerator />
+                    <AvatarGenerator seed="mmmmmjmm" />
                     <div className={style.userName}>{data.user?.name}</div>
                 </div>
 

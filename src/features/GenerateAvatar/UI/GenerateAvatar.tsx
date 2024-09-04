@@ -1,20 +1,14 @@
 import React from 'react';
 import style from './GenerateAvatar.module.css';
+import { useGenerateAvatarSeed } from '../hooks/useGenerateAvatarSeed';
 
-const generateRandomColor = (isMono: boolean = false) => {
+interface AvatarGeneratorProps {
+    seed: string;
+}
 
-    const letters = isMono ? '000000000000000' : '0123456789ABCDEF';
-    let color = '#';
-    // eslint-disable-next-line no-plusplus
-    for (let i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-};
+export const AvatarGenerator = ({ seed = 'mmmmmjmm' }: AvatarGeneratorProps) => {
 
-export const AvatarGenerator = () => {
-
-    const squares = Array.from({ length: 145 }, () => generateRandomColor(true));
+    const squares = useGenerateAvatarSeed(seed, true);
 
     return (
         <div className={style.avatarCircle}>
