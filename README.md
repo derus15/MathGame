@@ -1,4 +1,5 @@
-[![img_1.png](public/assets/logoReadMe.png)](https://math-game-sepia.vercel.app/)
+![image](https://github.com/user-attachments/assets/aeecbe03-cee0-4622-9653-c0247d5c1dc9)
+
 
 ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
