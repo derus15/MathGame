@@ -4,16 +4,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getExampleAnswer } from 'entities/Example';
 import { getModificationsList } from '../selectors/getModificationsList';
 import { sessionActions } from 'entities/Session';
-import { hungerModeActions } from 'features/GameMods/HungerMode';
 import { sessionDataActions } from 'entities/SessionData';
-import { getParamsGameMode } from 'entities/SessionParams';
 
 export const useModifications = () => {
 
     const answer = useSelector(getExampleAnswer);
     const dispatch = useDispatch();
     const modsList = useSelector(getModificationsList);
-    const gameMode = useSelector(getParamsGameMode);
     const oneTry = modsList.includes('one');
 
     const onyTry = (e: ChangeEvent<HTMLInputElement>) => {
@@ -22,7 +19,6 @@ export const useModifications = () => {
             const userAnswer = String(e.target.value).length;
             if (userAnswer === answer.length && e.target.value !== answer) {
                 dispatch(sessionActions.unexpectedEnd('Допущена ошибка'));
-                if (gameMode === 'Голод') { dispatch(hungerModeActions.endRound()); }
                 dispatch(sessionDataActions.setSessionTimeFlags());
                 dispatch(sessionActions.endSession());
             }
