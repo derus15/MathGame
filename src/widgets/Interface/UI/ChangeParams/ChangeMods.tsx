@@ -8,7 +8,7 @@ import { exampleActions } from 'entities/Example';
 import { sessionParamsActions, getParamsGameMode } from 'entities/SessionParams';
 
 const instructionsObject: Record<string, string> = {
-    'Спринт': 'Решайте примеры, пока они не кончатся',
+    'Спринт': 'Решайте примеры, пока они не закончатся',
     'Стандарт': 'Решайте примеры, пока идет время',
     'Голод': 'Решайте примеры, увеличивая время раунда',
 };
