@@ -1,1 +1,2 @@
-export { AvatarGenerator } from './UI/GenerateAvatar';
+export { AvatarGenerator } from './UI/AvatarGenerator';
+export { useGetUserAvatarQuery } from './api/getUserAvatar';

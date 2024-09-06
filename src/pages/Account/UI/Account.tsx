@@ -7,12 +7,14 @@ import {
 } from 'widgets/AccountHighlightsBoards';
 import { Footer } from 'widgets/Footer';
 import { PageLayout } from 'shared/UI/PageLayout/PageLayout';
+import { useGetUserAvatarQuery } from 'features/GenerateAvatar';
 
 const Account = () => {
 
     const { isLoading: accountLoadingStatus } = useGetAccountInfoQuery();
     const { isLoading: boardLoadingStatus } = useGetHighlightBoardQuery();
-    const isLoading = accountLoadingStatus || boardLoadingStatus;
+    const { isLoading: userAvatarLoadingStatus } = useGetUserAvatarQuery();
+    const isLoading = accountLoadingStatus || boardLoadingStatus || userAvatarLoadingStatus;
 
     if (isLoading) {
         return <Loading />;

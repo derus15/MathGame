@@ -4,11 +4,12 @@ import { UpdateUserButton } from 'features/UpdateUserData';
 import { useGetAccountInfoQuery } from '../api/accountUserInfoApi';
 import { timeNormalization } from 'shared/lib/timeNormalization/timeNormalization';
 import { Circle } from 'shared/UI/Circle/Circle';
-import { AvatarGenerator } from 'features/GenerateAvatar';
+import { AvatarGenerator, useGetUserAvatarQuery } from 'features/GenerateAvatar';
 
 export const AccountUserInfo = () => {
 
     const { data } = useGetAccountInfoQuery();
+    const { data: seed } = useGetUserAvatarQuery();
     const normalizeTotalTime = timeNormalization(data.counterTime?.[0]?.total_time);
 
     return (
@@ -21,7 +22,7 @@ export const AccountUserInfo = () => {
                 </div>
 
                 <div className={style.circleAvatar}>
-                    <AvatarGenerator seed="mmmmmjmm" />
+                    <AvatarGenerator seed={seed.avatarSeed} />
                     <div className={style.userName}>{data.user?.name}</div>
                 </div>
 

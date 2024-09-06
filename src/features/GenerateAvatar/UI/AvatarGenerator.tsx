@@ -1,6 +1,6 @@
 import React from 'react';
-import style from './GenerateAvatar.module.css';
-import { useGenerateAvatarSeed } from '../hooks/useGenerateAvatarSeed';
+import style from './AvatarGenerator.module.css';
+import { useGenerateAvatar } from '../hooks/useGenerateAvatarSeed';
 
 interface AvatarGeneratorProps {
     seed: string;
@@ -8,11 +8,11 @@ interface AvatarGeneratorProps {
 
 export const AvatarGenerator = ({ seed = 'mmmmmjmm' }: AvatarGeneratorProps) => {
 
-    const squares = useGenerateAvatarSeed(seed, true);
+    const { avatarSquares, userSeed } = useGenerateAvatar(seed, true);
 
     return (
         <div className={style.avatarCircle}>
-            {squares.map((color, index) => (
+            {avatarSquares.map((color, index) => (
                 <div key={index} className={style.square} style={{ backgroundColor: color }} />
             ))}
         </div>
