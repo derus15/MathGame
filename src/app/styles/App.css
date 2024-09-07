@@ -57,7 +57,7 @@ body::-webkit-scrollbar-thumb:active {
 .authContainer {
     position: relative;
     text-align: center;
-    top: 150px;
+    top: 22vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
     animation: init ease-in-out .2s;
