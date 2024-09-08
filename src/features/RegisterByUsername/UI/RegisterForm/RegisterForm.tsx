@@ -5,7 +5,7 @@ import { Navigate } from 'react-router-dom';
 import style from './RegisterForm.module.css';
 import LoginInput from 'shared/UI/Input/LoginInput/LoginInput';
 import { LoginButton } from 'shared/UI/Button/LoginButton/LoginButton';
-import Loader from 'shared/UI/Loader/Loader';
+import { Loader } from 'shared/UI/Loader/Loader';
 import { getIsAuth } from 'entities/User';
 import { RegisterParamsData } from '../../model/types/types';
 import { useRegisterByUsernameMutation } from '../../api/registerByUsernameApi';

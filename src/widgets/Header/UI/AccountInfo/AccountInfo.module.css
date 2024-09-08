@@ -1,0 +1,79 @@
+.containerAccountInfo {
+    display: flex;
+    height: 42px;
+    animation: init ease-in-out .3s;
+    align-items: center;
+}
+
+.linkAccount,
+.linkProfile {
+    display: flex;
+    height: 42px;
+    align-items: center;
+    transition-duration: .125s;
+    animation: init ease-in-out .2s;
+}
+
+.linkAccount {
+    padding: 0 7px;
+}
+
+.loader {
+    padding-right: 7px;
+}
+
+.username {
+    font-size: 21px;
+    color: var(--second-active-color);
+    cursor: pointer;
+    transition-duration: .125s;
+}
+
+.linkAccount:hover,
+.logoutContainer:hover,
+.linkProfile:hover,
+.logoutContainer:hover {
+    opacity: 50%;
+}
+
+.linkAccount:active,
+.logoutContainer:active,
+.linkProfile:active,
+.logoutContainer:active {
+    opacity: 100%;
+}
+
+.profile {
+    width: 30px;
+    height: 30px;
+    animation: inherit;
+    cursor: pointer;
+    fill: var(--active-color);
+    transition-duration: .125s;
+}
+
+.logoutContainer {
+    cursor: pointer;
+    display: flex;
+    height: 42px;
+    align-items: center;
+    fill: var(--active-color);
+    transition-duration: .125s;
+    animation: init ease-in-out .3s;
+}
+
+@keyframes init {
+
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: .5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
+}

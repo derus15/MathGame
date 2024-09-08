@@ -7,9 +7,9 @@ interface loaderProps {
     className?: string,
 }
 
-const Loader:FC<loaderProps> = ({ isLoading, className }) => (
-
-    <div className={classNames(style.loader, { [style.loaderActive]: isLoading }, [className])} />
+export const Loader:FC<loaderProps> = ({ isLoading, className }) => (
+        
+    <div className={classNames('', {}, [className])}>
+        <div className={classNames(style.loader, { [style.loaderActive]: isLoading })} />
+    </div>
 );
-
-export default Loader;

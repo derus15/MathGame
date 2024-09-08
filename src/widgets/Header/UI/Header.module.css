@@ -11,25 +11,6 @@
     transition-duration: .3s;
 }
 
-.link {
-    display: flex;
-    gap: 10px;
-    height: 25px;
-    transition-duration: .125s;
-    animation: init ease-in-out .2s;
-}
-
-.loader {
-    margin-top: 4px;
-}
-
-.containerAccount {
-    display: flex;
-    animation: init ease-in-out .3s;
-    justify-content: center;
-    align-items: center;
-}
-
 .logoModsContainer {
     display: flex;
     transition-duration: .125s;
@@ -41,42 +22,6 @@
     gap: 15px;
     margin-left: 15px;
 }
-
-.username {
-    font-size: 21px;
-    color: var(--second-active-color);
-    animation: inherit;
-    cursor: pointer;
-    transition-duration: .125s;
-}
-
-.username:hover, .logout:hover, .profile:hover, .logoutContainer:hover {
-    opacity: 50%;
-}
-
-.username:active, .logout:active, .profile:active, .logoutContainer:active {
-    opacity: 100%;
-}
-
-.profile {
-    width: 30px;
-    height: 30px;
-    animation: inherit;
-    cursor: pointer;
-    fill: var(--active-color);
-    transition-duration: .125s;
-}
-
-.logoutContainer {
-    cursor: pointer;
-    margin-left: 7px;
-    width: 22px;
-    height: 22px;
-    animation: inherit;
-    fill: var(--active-color);
-    transition-duration: .125s;
-}
-
 
 @keyframes init {
 

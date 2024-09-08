@@ -5,7 +5,7 @@ import style from './Loginform.module.css';
 import LoginInput from 'shared/UI/Input/LoginInput/LoginInput';
 import { LoginButton } from 'shared/UI/Button/LoginButton/LoginButton';
 import Checkbox from 'shared/UI/Checkbox/Checkbox';
-import Loader from 'shared/UI/Loader/Loader';
+import { Loader } from 'shared/UI/Loader/Loader';
 import { getIsAuth } from 'entities/User';
 import { Navigate } from 'react-router-dom';
 import { useLoginByUsernameMutation } from '../../api/loginByUsernameApi';

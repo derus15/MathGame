@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import style from './Header.module.css';
-import HeaderAccountName from './HeaderAccountName';
+import { AccountInfo } from './AccountInfo/AccountInfo';
 import { OneTry } from 'features/Modifications';
 import { PersonalSeed } from 'features/PersonalSeed';
 import { DevInfoBoard } from 'widgets/DevInfoBoard';
@@ -18,6 +18,6 @@ export const Header = () => (
             </div>
             {__IS_DEV__ && <DevInfoBoard />}
         </div>
-        <HeaderAccountName />
+        <AccountInfo />
     </header>
 );

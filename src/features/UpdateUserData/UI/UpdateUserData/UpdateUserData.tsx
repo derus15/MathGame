@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './UpdateUserData.module.css';
 import LoginInput from 'shared/UI/Input/LoginInput/LoginInput';
-import Loader from 'shared/UI/Loader/Loader';
+import { Loader } from 'shared/UI/Loader/Loader';
 import { LoginButton } from 'shared/UI/Button/LoginButton/LoginButton';
 import { useForm } from 'react-hook-form';
 import { UpdateUserDataParams } from '../../model/types/types';
