@@ -11,8 +11,11 @@
 }
 
 .seedButton {
-    height: 26px;
-    width: 25px;
+
+    &:hover {
+        opacity: 70%;
+    }
+
 }
 
 .seedIcon {
@@ -21,8 +24,4 @@
 
 .seedIconActive {
     fill: var(--active-color);
-}
-
-.seedButton:hover {
-    opacity: 70%;
 }

@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { exampleActions, getIsPersonalSeed } from 'entities/Example';
-import style from './PersonalSeed.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { PersonalSeedInput } from './PersonalSeedInput/PersonalSeedInput';
 import { debounce } from 'shared/lib/debounce/debounceFunction';
@@ -38,15 +37,13 @@ export const PersonalSeed = () => {
     };
 
     return (
-        <div className={style.seedContainer}>
-            <PersonalSeedInput
-                onInput={(e:React.ChangeEvent<HTMLInputElement>) => {
-                    handleChangeInput(e);
-                }}
-                value={inputValue}
-                maxLength={30}
-                autoFocus
-            />
-        </div>
+        <PersonalSeedInput
+            onInput={(e:React.ChangeEvent<HTMLInputElement>) => {
+                handleChangeInput(e);
+            }}
+            value={inputValue}
+            maxLength={30}
+            autoFocus
+        />
     );
 };

@@ -17,10 +17,12 @@
     justify-content: space-between;
 }
 
-.modificationsContainer {
-    display: flex;
-    gap: 15px;
-    margin-left: 15px;
+.modificationsContainer > button {
+    padding: 19px 10px 5px 10px;
+}
+
+.modificationsContainer > button:first-child {
+    padding: 19px 10px 5px 20px;
 }
 
 @keyframes init {
