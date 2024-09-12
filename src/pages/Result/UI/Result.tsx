@@ -6,7 +6,6 @@ import { getUnexpectedEndText, sessionActions } from 'entities/Session';
 import { useSendSessionData } from 'entities/SessionData';
 import { useAppDispatch } from 'shared/lib/hooks/reduxHooks/reduxHooks';
 import { ExampleModal } from './ExampleModal/ExampleModal';
-import { PageLayout } from 'shared/UI/PageLayout/PageLayout';
 import { InviteRegister } from './InviteRegister/InviteRegister';
 import { exampleActions } from 'entities/Example';
 import { ResultStat } from './ResultStat/ResultStat';
@@ -40,22 +39,20 @@ export const Result = () => {
     }, []);
 
     return (
-        <PageLayout>
-            <div className={style.resultContainer}>
-                <h3 className={style.resultTitle}>{sessionTextEnd}</h3>
-                <div className={style.result}>
-                    <div className={style.resultStatContainer}>
-                        <ResultStat />
-                        <SessionDataComparison />
-                    </div>
-                    <div className={style.buttonContainer}>
-                        <ExampleModal />
-                        <ExampleButton onClick={retrySessionHandle}>Повторить</ExampleButton>
-                        <ExampleButton onClick={closeResultHandle} random />
-                    </div>
+        <div className={style.resultContainer}>
+            <h3 className={style.resultTitle}>{sessionTextEnd}</h3>
+            <div className={style.result}>
+                <div className={style.resultStatContainer}>
+                    <ResultStat />
+                    <SessionDataComparison />
                 </div>
-                <InviteRegister />
+                <div className={style.buttonContainer}>
+                    <ExampleModal />
+                    <ExampleButton onClick={retrySessionHandle}>Повторить</ExampleButton>
+                    <ExampleButton onClick={closeResultHandle} random />
+                </div>
             </div>
-        </PageLayout>
+            <InviteRegister />
+        </div>
     );
 };

@@ -5,7 +5,6 @@ import { getResult, sessionActions } from 'entities/Session';
 import { InstructionsProvider } from 'widgets/Instructions';
 import { Result } from 'pages/Result';
 import { GameModsProvider } from 'widgets/GameModsProvider';
-import { PageLayout } from 'shared/UI/PageLayout/PageLayout';
 import { exampleActions } from 'entities/Example';
 
 const Home = () => {
@@ -23,7 +22,7 @@ const Home = () => {
     }
     
     return (
-        <PageLayout>
+        <>
             <div className="interfaceContainer">
                 <Interface />
             </div>
@@ -31,7 +30,7 @@ const Home = () => {
             <div className="instructionsContainer">
                 <InstructionsProvider />
             </div>
-        </PageLayout>
+        </>
     );
 };
 

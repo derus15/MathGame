@@ -9,12 +9,7 @@ interface PrivateRouteProps {
 }
 
 export const PrivateRoute:FC<PrivateRouteProps> = ({ children, redirect }) => {
-    
+
     const isAuth = useSelector(getIsAuth);
-
-    if (isAuth) {
-        return children;
-    }
-
-    return <Navigate to={redirect} />;
+    return isAuth ? children : <Navigate to={redirect} />;
 };

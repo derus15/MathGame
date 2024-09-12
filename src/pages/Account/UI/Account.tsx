@@ -1,12 +1,11 @@
 import React from 'react';
 import style from './Account.module.css';
 import { AccountUserInfo, useGetAccountInfoQuery } from 'widgets/AccountUserInfo';
-import Loading from 'shared/UI/Loading/Loading';
+import { Loading } from 'shared/UI/Loading/Loading';
 import {
     HighlightsBoards, useGetHighlightBoardQuery,
 } from 'widgets/AccountHighlightsBoards';
 import { Footer } from 'widgets/Footer';
-import { PageLayout } from 'shared/UI/PageLayout/PageLayout';
 
 const Account = () => {
 
@@ -19,7 +18,7 @@ const Account = () => {
     }
 
     return (
-        <PageLayout hideFooter>
+        <>
             <div className={style.mainContainer}>
                 <AccountUserInfo />
                 <HighlightsBoards />
@@ -29,7 +28,7 @@ const Account = () => {
                 </div>
             </div>
             <Footer className={style.footer} />
-        </PageLayout>
+        </>
     );
 };
 
