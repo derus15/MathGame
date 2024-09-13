@@ -1,14 +1,14 @@
 import React from 'react';
 import style from './AvatarGenerator.module.css';
-import { useGenerateAvatar } from '../hooks/useGenerateAvatarSeed';
+import { useGenerateAvatar } from '../hooks/useGenerateAvatar';
 
 interface AvatarGeneratorProps {
     seed: string;
 }
 
-export const AvatarGenerator = ({ seed = 'mmmmmjmm' }: AvatarGeneratorProps) => {
-
-    const { avatarSquares, userSeed } = useGenerateAvatar(seed, true);
+export const AvatarGenerator = ({ seed }: AvatarGeneratorProps) => {
+  
+    const avatarSquares = useGenerateAvatar(seed, true) || [];
 
     return (
         <div className={style.avatarCircle}>
