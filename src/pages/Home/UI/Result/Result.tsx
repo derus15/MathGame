@@ -5,10 +5,10 @@ import { ExampleButton } from 'shared/UI/Button/ExampleButton/ExampleButton';
 import { getUnexpectedEndText, sessionActions } from 'entities/Session';
 import { useSendSessionData } from 'entities/SessionData';
 import { useAppDispatch } from 'shared/lib/hooks/reduxHooks/reduxHooks';
-import { ExampleModal } from './ExampleModal/ExampleModal';
-import { InviteRegister } from './InviteRegister/InviteRegister';
+import { ExampleModal } from '../ExampleModal/ExampleModal';
+import { InviteRegister } from '../InviteRegister/InviteRegister';
 import { exampleActions } from 'entities/Example';
-import { ResultStat } from './ResultStat/ResultStat';
+import { ResultStat } from '../ResultStat/ResultStat';
 import { SessionDataComparison, useSavePreviousSessionData } from 'features/SessionDataComparison';
 import { useCalculateEPS } from 'shared/lib/hooks/useCalculateEPS';
 

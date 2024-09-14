@@ -3,7 +3,7 @@ import { Interface } from 'widgets/Interface';
 import { useDispatch, useSelector } from 'react-redux';
 import { getResult, sessionActions } from 'entities/Session';
 import { InstructionsProvider } from 'widgets/Instructions';
-import { Result } from 'pages/Result';
+import { Result } from './Result/Result';
 import { GameModsProvider } from 'widgets/GameModsProvider';
 import { exampleActions } from 'entities/Example';
 
