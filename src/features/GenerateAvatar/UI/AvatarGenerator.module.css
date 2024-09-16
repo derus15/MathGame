@@ -1,0 +1,15 @@
+.avatarCircle {
+    display: grid;
+    grid-template-columns: repeat(12, 10px);
+    grid-template-rows: repeat(10, 10px);
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.square {
+    width: 10px;
+    height: 10px;
+}
+
