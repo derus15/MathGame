@@ -8,6 +8,7 @@ const saveUserAvatarApi = rtkApi.injectEndpoints({
                 url: '/user/saveUserAvatar',
                 method: 'POST',
                 body,
+                providesTags: ['Account'],
             }),
         }),
     }),

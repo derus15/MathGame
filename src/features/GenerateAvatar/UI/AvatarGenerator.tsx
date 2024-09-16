@@ -8,7 +8,7 @@ interface AvatarGeneratorProps {
 
 export const AvatarGenerator = ({ seed }: AvatarGeneratorProps) => {
   
-    const avatarSquares = useGenerateAvatar(seed, true) || [];
+    const avatarSquares = useGenerateAvatar(seed) || [];
 
     return (
         <div className={style.avatarCircle}>

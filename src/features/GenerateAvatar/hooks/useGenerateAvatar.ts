@@ -2,20 +2,19 @@ import seedrandom from 'seedrandom';
 import { useEffect, useState } from 'react';
 import { useSaveUserAvatarMutation } from '../api/saveUserAvatar';
 
-const generateRandomColor = (seed: string, index: number, isMono: boolean = false) => {
-    
-    const letters = isMono ? '00000000000000' : '0123456789ABCDEF';
+const generateRandomColor = (seed: string, index: number) => {
     const rng = seedrandom(seed + index);
-    let color = '#';
+    const randomNumber = Math.round(rng());
 
-    // eslint-disable-next-line no-plusplus
-    for (let i = 0; i < 6; i++) {
-        color += letters[Math.floor(rng() * 16)];
-    }
-    return color;
+    return randomNumber === 0 ? '#000000' : '#FFFFFF';
 };
 
-export const useGenerateAvatar = (seed: string, isMono = false) => {
+const generateSeed = () => {
+    const randomString = Math.random().toString(36).substring(2, 15);
+    return btoa(randomString);
+};
+
+export const useGenerateAvatar = (seed: string) => {
 
     const [avatarSquares, setAvatarSquares] = useState([]);
     const [saveUserAvatar] = useSaveUserAvatarMutation();
@@ -24,18 +23,18 @@ export const useGenerateAvatar = (seed: string, isMono = false) => {
         let userSeed = seed;
 
         if (seed === 'none') {
-            userSeed = String(Math.random());
+            userSeed = generateSeed();
             saveUserAvatar({ seed: userSeed });
         }
 
         const squares = Array.from(
             { length: 145 },
-            (_, index) => generateRandomColor(userSeed, index, isMono),
+            (_, index) => generateRandomColor(userSeed, index),
         );
 
         setAvatarSquares(squares);
 
-    }, [seed, isMono, saveUserAvatar]);
+    }, [seed, saveUserAvatar]);
 
     return avatarSquares;
 };
