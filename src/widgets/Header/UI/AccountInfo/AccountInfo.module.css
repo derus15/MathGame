@@ -18,7 +18,11 @@
     padding: 0 7px;
 }
 
-.loader {
+.loaderName {
+    padding-right: 15px;
+}
+
+.loaderInit {
     padding-right: 7px;
 }
 
