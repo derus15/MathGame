@@ -6,6 +6,7 @@ import { App } from 'app/App';
 import { store } from 'app/Providers/Store/store';
 import ErrorBoundary from 'app/Providers/ErrorBoundary/ErrorBoundary';
 import { Toast } from 'shared/UI/Toaster/Toast';
+import { AppInit } from 'app/Providers/AppInit/AppInit';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -13,7 +14,9 @@ root.render(
         <BrowserRouter>
             <ErrorBoundary>
                 <Toast />
-                <App />
+                <AppInit>
+                    <App />
+                </AppInit>
             </ErrorBoundary>
         </BrowserRouter>
     </Provider>,
