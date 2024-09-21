@@ -6,11 +6,12 @@ import { BaseCounter } from 'shared/UI/BaseCounter/BaseCounter';
 import { getCurrentRound } from '../../model/selectors/getCurrentRound';
 import { RetryFlag } from 'entities/Example';
 import style from './Counter.module.css';
+import { useFirstRender } from 'shared/lib/hooks/useFirstRender';
 
 export const HungerPointsCounter = () => {
 
     const [userPoint, setUserPoint] = useState(0);
-    const [isMounted, setIsMounted] = useState(false);
+    const isFirstRender = useFirstRender();
 
     const dispatch = useDispatch();
     const currentRounds = useSelector(getCurrentRound);
@@ -19,14 +20,10 @@ export const HungerPointsCounter = () => {
     const hungerPoints = exampleStep * currentRounds + exampleStep;
 
     useEffect(() => {
-        if (isMounted) {
+        if (!isFirstRender) {
             setUserPoint((prev) => prev + 1);
         }
     }, [globalPoints]);
-
-    useEffect(() => {
-        setIsMounted(true);
-    }, []);
 
     const endRound = () => {
         setUserPoint(0);

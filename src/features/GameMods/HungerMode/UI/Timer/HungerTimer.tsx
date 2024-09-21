@@ -6,18 +6,19 @@ import style from './HungerTimer.module.css';
 import { getSessionTime, sessionDataActions } from 'entities/SessionData';
 import { hungerModeActions } from '../../model/slice/hungerModeSlice';
 import { HungerTooltip } from '../Tooltip/HungerTooltip';
+import { useFirstRender } from 'shared/lib/hooks/useFirstRender';
 
 export const HungerTimer = () => {
 
     const dispatch = useDispatch();
     const [time, setTime] = useState(10_000);
-    const [isMounted, setIsMounted] = useState(false);
+    const isFirstRender = useFirstRender();
 
     const globalTime = useSelector(getSessionTime);
     const sessionProgress = useSelector(getSessionProgress);
 
     useEffect(() => {
-        if (time % 1000 === 0 && isMounted) {
+        if (time % 1000 === 0 && !isFirstRender) {
             dispatch(sessionDataActions.saveSessionTime(globalTime + 1));
         }
     }, [time]);
@@ -29,10 +30,6 @@ export const HungerTimer = () => {
         dispatch(sessionActions.endSession());
     };
 
-    useEffect(() => {
-        setIsMounted(true);
-    }, []);
-
     return (
         <div className={style.hungerTimerContainer}>
             <div className={style.hungerTimer}>
@@ -43,7 +40,7 @@ export const HungerTimer = () => {
                     startCondition={sessionProgress}
                 />
             </div>
-            <HungerTooltip setTime={setTime} isMounted={isMounted} />
+            <HungerTooltip setTime={setTime} isFirstRender={isFirstRender} />
         </div>
     );
 };

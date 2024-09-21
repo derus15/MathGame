@@ -7,10 +7,10 @@ import { getExampleAnswer, getExampleSign } from 'entities/Example';
 
 interface HungerTooltipProps {
     setTime: Dispatch<SetStateAction<number>>,
-    isMounted: boolean,
+    isFirstRender: boolean,
 }
 
-export const HungerTooltip = memo(({ setTime, isMounted }: HungerTooltipProps) => {
+export const HungerTooltip = memo(({ setTime, isFirstRender }: HungerTooltipProps) => {
     
     const [isShowTooltip, setIsShowTooltip] = useState(false);
     const [extraTime, setExtraTime] = useState(2);
@@ -24,7 +24,7 @@ export const HungerTooltip = memo(({ setTime, isMounted }: HungerTooltipProps) =
         let timeout: ReturnType<typeof setTimeout>;
         setExtraTime(useCalculateHungerTime(answer, sign));
 
-        if (globalPoints > 0 && isMounted) {
+        if (globalPoints > 0 && !isFirstRender) {
 
             setIsShowTooltip(true);
             timeout = setTimeout(() => {
