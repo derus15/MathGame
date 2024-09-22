@@ -1,5 +1,5 @@
 import React from 'react';
-import SupportMe from './elements/SupportMe';
+import { SupportMe } from './elements/SuppportMe/SupportMe';
 import KnowledgeBase from './elements/KnowledgeBase';
 import { ThemeSwitcher } from 'features/ThemeSwitcher';
 import VersionHistory from './elements/VersionHistory';

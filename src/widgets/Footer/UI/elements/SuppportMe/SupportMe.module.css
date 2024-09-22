@@ -1,0 +1,61 @@
+.supportButton {
+    display: inline-block;
+    color: var(--footer-color);
+    font-size: 1.8rem;
+    transition-duration: .125s;
+
+    &:hover {
+        color: var(--active-color);
+
+    }
+
+    &:active {
+        color: var(--footer-color);
+    }
+
+}
+
+.heartContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 220px;
+    height: 200px;
+}
+
+.heartTitle {
+    color: var(--base-color);
+    margin-top: 25px;
+    font-size: 30px;
+}
+
+.heart {
+    cursor: pointer;
+    box-shadow: none;
+
+    &:hover {
+        transform: scale(105%);
+    }
+
+    &:active {
+        transform: scale(100%);
+    }
+
+}
+
+@media screen and (max-width:950px) {
+
+    .supportButton {
+        font-size: 1.5rem;
+    }
+
+}
+
+@media screen and (max-width: 1200px) {
+
+    .supportButton {
+        font-size: 1.6rem;
+    }
+
+}
