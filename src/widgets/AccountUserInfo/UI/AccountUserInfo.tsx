@@ -18,17 +18,21 @@ export const AccountUserInfo = () => {
 
                 <div className={style.circleContainer}>
                     <span className={style.circleTitle}>Решено примеров</span>
-                    <Circle info={data.counterExample?.[0]?.total_example || 0} className={style.circle} />
+                    <Circle front={data.counterExample?.[0]?.total_example || 0} className={style.circle} />
                 </div>
 
-                <div className={style.circleAvatar}>
-                    <AvatarGenerator seed={seed.avatarSeed} />
+                <div className={style.circleAvatarContainer}>
+                    <Circle
+                        className={style.circleAvatar}
+                        front={<AvatarGenerator seed={seed.avatarSeed} />}
+                        back={<AvatarGenerator seed={seed.avatarSeed} isInvertColor />}
+                    />
                     <div className={style.userName}>{data.user?.name}</div>
                 </div>
 
                 <div className={style.circleContainer}>
                     <span className={style.circleTitle}>Часов в игре</span>
-                    <Circle info={normalizeTotalTime} className={style.circle} />
+                    <Circle front={normalizeTotalTime} className={style.circle} />
                 </div>
             </div>
 

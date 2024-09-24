@@ -15,12 +15,6 @@
     justify-content: space-around;
 }
 
-.avatarImage {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-}
-
 .userName {
     font-size: 31px;
     position: absolute;
@@ -36,14 +30,19 @@
     align-items: center;
 }
 
-.circleAvatar {
+.circleAvatarContainer {
     display: flex;
     margin-top: 20px;
     justify-content: center;
     border-radius: 50%;
     width: 120px;
     height: 120px;
-    background-color: white;
+    background-color: transparent;
+}
+
+.circleAvatar > div{
+    width: 120px;
+    height: 120px;
 }
 
 .circleTitle {

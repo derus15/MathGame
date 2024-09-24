@@ -8,6 +8,10 @@
     overflow: hidden;
 }
 
+.isInvert {
+    filter: invert(1);
+}
+
 .square {
     width: 10px;
     height: 10px;

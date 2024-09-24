@@ -31,7 +31,7 @@ export const Themes: Story = {
         (Story) => DemoWithThemes(Story),
     ],
     args: {
-        info: 'Info',
+        front: 'Info',
         className: '',
     },
 };
