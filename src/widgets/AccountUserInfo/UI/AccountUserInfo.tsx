@@ -8,9 +8,9 @@ import { AvatarGenerator, useGetUserAvatarQuery } from 'features/GenerateAvatar'
 
 export const AccountUserInfo = () => {
 
-    const { data } = useGetAccountInfoQuery();
+    const { data: accountInfo } = useGetAccountInfoQuery();
     const { data: seed } = useGetUserAvatarQuery();
-    const normalizeTotalTime = timeNormalization(data.counterTime?.[0]?.total_time);
+    const normalizeTotalTime = timeNormalization(accountInfo?.totalTimeInfo);
 
     return (
         <div className={style.avatarBackground}>
@@ -18,7 +18,7 @@ export const AccountUserInfo = () => {
 
                 <div className={style.circleContainer}>
                     <span className={style.circleTitle}>Решено примеров</span>
-                    <Circle front={data.counterExample?.[0]?.total_example || 0} className={style.circle} />
+                    <Circle front={accountInfo?.totalExampleInfo} className={style.circle} />
                 </div>
 
                 <div className={style.circleAvatarContainer}>
@@ -27,7 +27,7 @@ export const AccountUserInfo = () => {
                         front={<AvatarGenerator seed={seed.avatarSeed} />}
                         back={<AvatarGenerator seed={seed.avatarSeed} isInvertColor />}
                     />
-                    <div className={style.userName}>{data.user?.name}</div>
+                    <div className={style.userName}>{accountInfo?.user?.name}</div>
                 </div>
 
                 <div className={style.circleContainer}>

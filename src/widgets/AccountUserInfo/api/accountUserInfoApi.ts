@@ -7,7 +7,7 @@ const accountInfo = rtkApi.injectEndpoints({
     endpoints: (build) => ({
         getAccountInfo: build.query<AccountDataSchema, void>({
             query: () => ({
-                url: '/account',
+                url: '/account/info',
             }),
             providesTags: ['Session', 'Account'],
             onQueryStarted: async (arg, { queryFulfilled, dispatch }) => {

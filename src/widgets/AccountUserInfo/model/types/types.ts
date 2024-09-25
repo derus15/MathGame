@@ -3,18 +3,8 @@ interface UserSchema {
     name: string,
 }
 
-interface CounterTimeSchema {
-    _id: string,
-    total_time: number,
-}
-
-interface CounterExampleSchema {
-    _id: string,
-    total_example: number,
-}
-
 export interface AccountDataSchema {
-    counterExample: CounterExampleSchema[],
-    counterTime: CounterTimeSchema[],
+    totalTimeInfo: number,
+    totalExampleInfo: number,
     user: UserSchema,
 }
