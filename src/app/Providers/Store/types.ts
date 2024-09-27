@@ -3,7 +3,6 @@ import { ModificationsSchema } from 'features/Modifications';
 import { SessionSchema } from 'entities/Session';
 import { SessionDataSchema } from 'entities/SessionData';
 import { UserSchema } from 'entities/User';
-import { FactorySchema } from 'features/GameMods/FactoryMode';
 import { InstructionsSchema } from 'widgets/Instructions';
 import { HungerSchema } from 'features/GameMods/HungerMode';
 import { rtkApi } from 'shared/api/rtkApi';
@@ -19,7 +18,6 @@ export interface StateSchema {
     session: SessionSchema,
     modifications: ModificationsSchema,
     user: UserSchema,
-    factoryMode: FactorySchema,
     instructions: InstructionsSchema,
     hungerMode: HungerSchema,
     previousData: PreviousSessionDataSchema,
