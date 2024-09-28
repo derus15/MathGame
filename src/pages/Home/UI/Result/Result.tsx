@@ -11,11 +11,14 @@ import { exampleActions } from 'entities/Example';
 import { ResultStat } from '../ResultStat/ResultStat';
 import { SessionDataComparison, useSavePreviousSessionData } from 'features/SessionDataComparison';
 import { useCalculateEPS } from 'shared/lib/hooks/useCalculateEPS';
+import { useCalculateTime } from 'features/GameMods/hooks/useCalculateTime';
 
 export const Result = () => {
 
     useCalculateEPS();
     const dispatch = useAppDispatch();
+    const { saveSessionTime } = useCalculateTime();
+    saveSessionTime();
     const { sendSessionData } = useSendSessionData();
     const { savePreviousSessionData } = useSavePreviousSessionData();
     const sessionTextEnd = useSelector(getUnexpectedEndText);

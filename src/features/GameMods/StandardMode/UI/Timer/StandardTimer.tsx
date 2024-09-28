@@ -14,12 +14,6 @@ export const StandardTimer = memo(() => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        if (sessionProgress && timerTime % 1000 === 0) {
-            dispatch(sessionDataActions.saveSessionTime(duration - Math.floor(timerTime / 1000)));
-        }
-    }, [timerTime]);
-
-    useEffect(() => {
         setTimerTime(duration * 1000);
     }, [duration]);
 

@@ -1,4 +1,5 @@
 import React, { Dispatch, SetStateAction, useEffect } from 'react';
+import { setInterval, clearInterval } from 'worker-timers';
 
 interface TimerProps {
     onFinishCallback?: () => void;
@@ -11,22 +12,24 @@ export const BaseTimer = ({ time, onFinishCallback, setTime, startCondition }: T
 
     useEffect(() => {
         let interval: ReturnType<typeof setInterval>;
+        let startTime: number;
 
         if (startCondition) {
+            startTime = performance.now();
             interval = setInterval(() => {
+                const elapsed = performance.now() - startTime;
 
                 setTime((prevTime) => {
-
-                    if (prevTime <= 100) {
+                    if (prevTime <= elapsed) {
                         onFinishCallback();
                         clearInterval(interval);
                         return 0;
                     }
 
-                    return prevTime - 100;
+                    return prevTime - elapsed;
 
                 });
-
+                startTime = performance.now();
             }, 100);
         }
 
