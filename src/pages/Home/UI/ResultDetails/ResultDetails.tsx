@@ -1,22 +1,23 @@
 import React, { useState } from 'react';
 import Modal from 'shared/UI/Modal/Modal';
-import style from './ExampleModal.module.css';
+import style from './ResultDetails.module.css';
 import { useSelector } from 'react-redux';
 import { ExampleButton } from 'shared/UI/Button/ExampleButton/ExampleButton';
 import { getSessionExampleList, getSessionTimeFlags } from 'entities/SessionData';
-import { getExample } from 'entities/Example';
+import { getExample, getExampleAnswer } from 'entities/Example';
 import { findDifferencesArray } from 'shared/lib/findDifferencesArray/findDifferencesArray';
 import { calculateMinMaxNumber } from 'shared/lib/calculateMinMaxNumber/calculateMinMaxNumber';
 import { conversionMilliToSec } from 'shared/lib/conversionMilliToSec/conversionMilliToSec';
 import { getParamsGameMode } from 'entities/SessionParams';
 import { getUnexpectedEnd } from 'entities/Session';
 
-export const ExampleModal = () => {
+export const ResultDetails = () => {
 
     const [modalExample, setModalExample] = useState(false);
     const lastUnsolvedExample = useSelector(getExample);
     const exampleList = useSelector(getSessionExampleList);
     const unexpectedEnd = useSelector(getUnexpectedEnd);
+    const lastAnswer = useSelector(getExampleAnswer);
     const standardMode = useSelector(getParamsGameMode) === 'Стандарт';
     const isShowLastExample = unexpectedEnd || standardMode;
     const exampleTimeList = useSelector(getSessionTimeFlags);
@@ -37,7 +38,14 @@ export const ExampleModal = () => {
                     <div className={style.exampleContainer}>
                         <span className={style.exampleTitle}>Примеры</span>
                         {exampleList.map((example, i) => <span key={i}>{example}</span>)}
-                        {isShowLastExample && <span>{lastUnsolvedExample} __</span>}
+                        {isShowLastExample 
+                            && (
+                                <span>{lastUnsolvedExample}
+                                    <span className={style.spoiler}>
+                                        {lastAnswer}
+                                    </span>
+                                </span>
+                            )}
                     </div>
                     <div className={style.timeContainer}>
                         <span className={style.timeTitle}>Время</span>
