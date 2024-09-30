@@ -8,18 +8,18 @@ interface HighlightsBoardsProps {
     label?: string
 }
 
-const defaultPlaceholder = {
-    title: '—',
-    eps: '—',
-    additionalParameter: '—',
-};
+const defaultPlaceholder = '—';
 
 export const HighlightsBoards = (
     { highlightBoardValue, description, label }: HighlightsBoardsProps,
 ) => {
 
-    const normalizeBoard = highlightBoardValue.concat(
-        Array(3 - highlightBoardValue.length).fill(defaultPlaceholder),
+    const normalizeBoard: HighlightsBoard[] = highlightBoardValue.map(
+        ({ title, eps, additionalParameter }) => ({
+            title: title || defaultPlaceholder,
+            eps: eps || defaultPlaceholder,
+            additionalParameter: additionalParameter || defaultPlaceholder,
+        }),
     );
 
     return (
@@ -35,11 +35,11 @@ export const HighlightsBoards = (
                     {description}
                 </span>
             )}
-            {normalizeBoard.map((element) => (
-                <div className={style.columnContainer} key={element.title}>
-                    <span className={style.title}>{element.title}</span>
-                    <span className={style.eps}>{element.eps}</span>
-                    <span className={style.additionalParameter}>{element.additionalParameter}</span>
+            {normalizeBoard.map(({ title, eps, additionalParameter }) => (
+                <div className={style.columnContainer} key={title}>
+                    <span className={style.title}>{title}</span>
+                    <span className={style.eps}>{eps}</span>
+                    <span className={style.additionalParameter}>{additionalParameter}</span>
                 </div>
             ))}
         </div>
