@@ -15,10 +15,10 @@ import { ResultDetails } from '../ResultDetails/ResultDetails';
 
 export const Result = () => {
 
-    useCalculateEPS();
     const dispatch = useAppDispatch();
     const { saveSessionTime } = useCalculateTime();
     saveSessionTime();
+    useCalculateEPS();
     const { sendSessionData } = useSendSessionData();
     const { savePreviousSessionData } = useSavePreviousSessionData();
     const sessionTextEnd = useSelector(getUnexpectedEndText);
