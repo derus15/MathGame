@@ -12,7 +12,7 @@ const KnowledgeBase = () => {
 
     return (
         <>
-            <OutlineButton onClick={showModalBase} className={style.extra}>База знаний</OutlineButton>
+            <OutlineButton onClick={showModalBase} className={style.element}>База знаний</OutlineButton>
             <Modal
                 setVisible={setModalBase}
                 visible={modalBase}

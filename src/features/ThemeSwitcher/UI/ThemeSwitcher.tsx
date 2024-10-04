@@ -34,7 +34,7 @@ export const ThemeSwitcher = () => {
     return (
         <OutlineButton
             onClick={changeTheme}
-            className={style.extra}
+            className={style.element}
         >
             {themesList[themeIndex]}
         </OutlineButton>

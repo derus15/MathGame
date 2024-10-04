@@ -1,8 +1,9 @@
 .footer {
     position: absolute;
     display: flex;
+    justify-content: space-between;
     width: 100%;
-    bottom: 12px;
+    bottom: 0;
 }
 
 a {
@@ -16,19 +17,19 @@ a:active {
     color: var(--base-color);
 }
 
-.extra {
+.element {
     display: inline-block;
     color: var(--footer-color);
     font-size: 1.8rem;
     transition-duration: .125s;
-}
 
-.extra:hover {
-    color: var(--active-color);
-}
+    &:hover {
+        color: var(--active-color);
+    }
 
-.extra:active {
-    color: var(--footer-color);
+    &:active {
+        color: var(--footer-color);
+    }
 }
 
 .errorEmail {
@@ -51,21 +52,34 @@ a:active {
 
 .leftBlock {
     display: flex;
-    gap: 90px;
+    gap: 70px;
     width: 100%;
     justify-content: space-between;
     z-index: 2;
 }
 
 .leftBlock > * {
+    padding: 10px 10px 12px 10px;
     flex-shrink: 0;
+}
+
+.leftBlock > button:first-child {
+    padding-left: 0;
 }
 
 .rightBlock {
     display: flex;
     justify-content: flex-end;
-    gap: 120px;
+    gap: 100px;
     width: 100%;
+}
+
+.rightBlock > button {
+    padding: 10px 10px 12px 10px;
+}
+
+.rightBlock > button:last-child {
+    padding-right: 0;
 }
 
 .versionModal::-webkit-scrollbar {
@@ -112,7 +126,7 @@ a:active {
 
 @media screen and (max-width: 1200px) {
 
-    .extra {
+    .element {
         font-size: 1.6rem;
     }
 
@@ -121,18 +135,18 @@ a:active {
 @media screen and (max-width:1080px){
 
     .leftBlock {
-        gap: 60px;
+        gap: 40px;
     }
 
     .rightBlock {
-        gap: 90px;
+        gap: 70px;
     }
 
 }
 
 @media screen and (max-width:950px){
 
-    .extra {
+    .element {
         font-size: 1.5rem;
     }
 

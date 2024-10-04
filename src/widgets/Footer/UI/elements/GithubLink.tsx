@@ -5,7 +5,7 @@ const GithubLink = () => (
     <a
         href="https://github.com/derus15/MathGame"
         rel="noreferrer"
-        className={style.extra}
+        className={style.element}
         target="_blank"
     >
         ГитХаб
