@@ -9,6 +9,8 @@
 
 .comingSoonContainer {
     position: relative;
+    border: var(--modal-border);
+    border-radius: 10px;
 }
 
 .comingSoonTiles {

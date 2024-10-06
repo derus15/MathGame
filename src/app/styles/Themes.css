@@ -52,3 +52,15 @@
     --modification-unactive: #007f7f;
     --footer-color: #fdfdfd;
 }
+
+[data-theme='matrix'] {
+    --background-color: #000000;
+    --base-color: #009d00;
+    --active-color: #00ff00;
+    --second-active-color: #00cc00;
+    --interface-background-color: transparent;
+    --line-color: #008000;
+    --modification-unactive: #005500;
+    --footer-color: #008000;
+    --modal-border: 1px solid var(--base-color);
+}

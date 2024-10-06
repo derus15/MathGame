@@ -11,6 +11,7 @@
     background-color: var(--background-color);
     border-radius: 15px;
     box-sizing: border-box;
+    border: var(--modal-border);
     min-width: 200px;
     color: var(--base-color);
     font-size: 20px;

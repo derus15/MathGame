@@ -7,6 +7,7 @@
     flex-direction: row;
     justify-content: space-around;
     border-radius: 10px;
+    border: var(--modal-border);
     transition: .3s;
 }
 

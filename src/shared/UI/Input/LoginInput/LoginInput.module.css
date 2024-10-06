@@ -21,6 +21,7 @@
     cursor: text;
     box-sizing: border-box;
     border-radius: 10px;
+    border: var(--modal-border);
     background-color: var(--interface-background-color);
     font-family: inherit;
     font-size: 17px;

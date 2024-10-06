@@ -19,7 +19,7 @@
 - Личный аккаунт со статистикой
 - Модификаторы для усложнения сессии
 - Сиды для повторения и воспроизведения сессий
-- 5 цветовых тем
+- 6 цветовых тем
 
 Приложение в разработке. Скоро будут добавлены:
 
@@ -43,7 +43,7 @@ Already in the app:
 - Personal account with statistics
 - Modifiers to make the session more difficult
 - Seeds for repeating sessions
-- 5 color themes
+- 6 color themes
 
 Application in development. It will be added soon:
 

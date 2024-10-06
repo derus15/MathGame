@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import style from '../../../widgets/Footer/UI/Footer.module.css';
 import { OutlineButton } from 'shared/UI/Button/OutlineButton/OutlineButton';
 
-export type ThemeList = 'black' | 'PP' | 'ocean' | 'chemodan' | 'norton';
+export type ThemeList = 'black' | 'PP' | 'ocean' | 'chemodan' | 'norton' | 'matrix';
 
 export const ThemeSwitcher = () => {
 
-    const themesList: ThemeList[] = ['black', 'ocean', 'PP', 'chemodan', 'norton'];
+    const themesList: ThemeList[] = ['black', 'ocean', 'PP', 'chemodan', 'norton', 'matrix'];
     const [themeIndex, setThemeIndex] = useState(() => {
         const savedThemeIndex = localStorage.getItem('theme');
         return savedThemeIndex ? Number(savedThemeIndex) : 1;

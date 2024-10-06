@@ -1,5 +1,6 @@
 .checkbox {
     border-radius: 10px;
+    border: var(--modal-border);
     background-color: var(--interface-background-color);
     width: 230px;
     height: 35px;

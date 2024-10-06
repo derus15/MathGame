@@ -5,6 +5,7 @@
     justify-content: space-between;
     background: var(--interface-background-color);
     border-radius: 12px;
+    border: var(--modal-border);
     height: 31px;
     user-select: none;
     animation: init ease-in-out .2s;
