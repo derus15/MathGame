@@ -35,18 +35,18 @@ a:active {
 .errorEmail {
     color: var(--active-color);
     user-select: text;
-    background-color: var(--background-color);
+    background-color: transparent;
 }
 
 .versionNumber {
     font-size: 2.5rem;
-    background-color: var(--background-color);
+    background-color: transparent;
     color: var(--active-color);
 }
 
 .versionText {
     color: var(--footer-color);
-    background-color: var(--background-color);
+    background-color: transparent;
     margin-top: 10px;
 }
 
@@ -87,7 +87,7 @@ a:active {
 }
 
 .versionModal::-webkit-scrollbar-track {
-    background: var(--background-color);
+    background: transparent;
 }
 
 .versionModal::-webkit-scrollbar-thumb {
