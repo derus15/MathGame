@@ -7,6 +7,8 @@
     --line-color: #646669;
     --modification-unactive: #808080;
     --footer-color: #808080;
+    --modal-background-opacity: transparent;
+    --modal-blur: blur(15px);
 }
 
 [data-theme='PP'] {
@@ -29,6 +31,8 @@
     --line-color: #6d7a85;
     --modification-unactive: #93A3B1;
     --footer-color: #93A3B1;
+    --modal-background-opacity: transparent;
+    --modal-blur: blur(15px);
 }
 
 [data-theme='chemodan'] {
@@ -51,6 +55,8 @@
     --line-color: #00557f;
     --modification-unactive: #007f7f;
     --footer-color: #fdfdfd;
+    --modal-background-opacity: transparent;
+    --modal-blur: blur(15px);
 }
 
 [data-theme='matrix'] {
@@ -63,4 +69,6 @@
     --modification-unactive: #005500;
     --footer-color: #008000;
     --modal-border: 1px solid var(--base-color);
+    --modal-background-opacity: transparent;
+    --modal-blur: blur(15px);
 }
