@@ -86,7 +86,7 @@
 }
 
 .exampleModal::-webkit-scrollbar-track {
-    background: var(--background-color);
+    background: transparent;
 }
 
 .exampleModal::-webkit-scrollbar-thumb {
