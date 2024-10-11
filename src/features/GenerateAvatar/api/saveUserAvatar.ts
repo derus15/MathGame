@@ -10,6 +10,7 @@ const saveUserAvatarApi = rtkApi.injectEndpoints({
                 body,
                 providesTags: ['Account'],
             }),
+            invalidatesTags: ['Avatar'],
         }),
     }),
 });

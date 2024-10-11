@@ -5,7 +5,7 @@ const userAvatarApi = rtkApi.injectEndpoints({
     endpoints: (build) => ({
         getUserAvatar: build.query<GenerateAvatarData, void>({
             query: () => '/user/userAvatar',
-            providesTags: ['Account'],
+            providesTags: ['Account', 'Avatar'],
         }),
     }),
 });
