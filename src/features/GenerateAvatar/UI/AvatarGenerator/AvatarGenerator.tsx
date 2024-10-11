@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { memo } from 'react';
 import style from './AvatarGenerator.module.css';
-import { useGenerateAvatar } from '../hooks/useGenerateAvatar';
+import { useGenerateAvatar } from '../../hooks/useGenerateAvatar';
 import { classNames } from 'shared/lib/classNames/classNames';
 
 interface AvatarGeneratorProps {
@@ -8,8 +8,8 @@ interface AvatarGeneratorProps {
     isInvertColor?: boolean;
 }
 
-export const AvatarGenerator = ({ seed, isInvertColor }: AvatarGeneratorProps) => {
-  
+export const AvatarGenerator = memo(({ seed, isInvertColor }: AvatarGeneratorProps) => {
+
     const avatarSquares = useGenerateAvatar(seed) || [];
 
     return (
@@ -19,4 +19,4 @@ export const AvatarGenerator = ({ seed, isInvertColor }: AvatarGeneratorProps) =
             ))}
         </div>
     );
-};
+});

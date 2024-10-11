@@ -4,7 +4,7 @@ import { UpdateUserButton } from 'features/UpdateUserData';
 import { useGetAccountInfoQuery } from '../api/accountUserInfoApi';
 import { timeNormalization } from 'shared/lib/timeNormalization/timeNormalization';
 import { Circle } from 'shared/UI/Circle/Circle';
-import { AvatarGenerator, useGetUserAvatarQuery } from 'features/GenerateAvatar';
+import { AvatarCircle, useGetUserAvatarQuery } from 'features/GenerateAvatar';
 
 export const AccountUserInfo = () => {
 
@@ -22,11 +22,7 @@ export const AccountUserInfo = () => {
                 </div>
 
                 <div className={style.circleAvatarContainer}>
-                    <Circle
-                        className={style.circleAvatar}
-                        front={<AvatarGenerator seed={seed.avatarSeed} />}
-                        back={<AvatarGenerator seed={seed.avatarSeed} isInvertColor />}
-                    />
+                    <AvatarCircle seed={seed.avatarSeed} />
                     <div className={style.userName}>{accountInfo?.user?.name}</div>
                 </div>
 
