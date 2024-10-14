@@ -1,6 +1,8 @@
 import { calculateEPS } from 'shared/lib/calculateEPS/calculateEPS';
 import { useDispatch, useSelector } from 'react-redux';
-import { getSessionPoints, getSessionTime, sessionDataActions } from 'entities/SessionData';
+import { sessionDataActions } from '../slice/sessionDataSlice';
+import { getSessionPoints } from '../selectors/getSessionPoints';
+import { getSessionTime } from '../selectors/getSessionTime';
 
 export const useCalculateEPS = () => {
     

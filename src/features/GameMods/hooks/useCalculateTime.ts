@@ -31,8 +31,6 @@ export const useCalculateTime = () => {
     const sessionTimeFlags = useSelector(getSessionTimeFlags);
     const sessionTime = calculateDifference(sessionTimeFlags);
 
-    console.log(sessionTime);
-
     const saveSessionTime = () => {
         dispatch(sessionDataActions.saveSessionTime(sessionTime));
     };

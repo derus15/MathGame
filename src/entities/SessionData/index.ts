@@ -9,3 +9,4 @@ export { getSessionHungerRounds } from './model/selectors/getSessionHungerRounds
 export { getSessionErrors } from './model/selectors/getSessionErrors';
 export { getSessionEPS } from './model/selectors/getSessionEPS';
 export { getSessionExampleList } from './model/selectors/getSessionExampleList';
+export { useCalculateEPS } from './model/hooks/useCalculateEPS';

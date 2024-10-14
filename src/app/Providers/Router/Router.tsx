@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Home } from 'pages/Home';
 import { Auth } from 'pages/Auth';
-import { PrivateRoute } from 'shared/lib/PrivateRoute/PrivateRoute';
+import { PrivateRoute } from './PrivateRoute/PrivateRoute';
 import { Account } from 'pages/Account';
 import { NotFound } from 'pages/NotFound';
 

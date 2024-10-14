@@ -3,13 +3,12 @@ import { useSelector } from 'react-redux';
 import style from './Result.module.css';
 import { ExampleButton } from 'shared/UI/Button/ExampleButton/ExampleButton';
 import { getUnexpectedEndText, sessionActions } from 'entities/Session';
-import { useSendSessionData } from 'entities/SessionData';
+import { useSendSessionData, useCalculateEPS } from 'entities/SessionData';
 import { useAppDispatch } from 'shared/lib/hooks/reduxHooks/reduxHooks';
 import { InviteRegister } from '../InviteRegister/InviteRegister';
 import { exampleActions } from 'entities/Example';
 import { ResultStat } from '../ResultStat/ResultStat';
 import { SessionDataComparison, useSavePreviousSessionData } from 'features/SessionDataComparison';
-import { useCalculateEPS } from 'shared/lib/hooks/useCalculateEPS';
 import { useCalculateTime } from 'features/GameMods/hooks/useCalculateTime';
 import { ResultDetails } from '../ResultDetails/ResultDetails';
 
