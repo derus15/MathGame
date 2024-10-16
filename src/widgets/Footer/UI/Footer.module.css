@@ -35,7 +35,19 @@ a:active {
 .errorEmail {
     color: var(--active-color);
     user-select: text;
+    cursor: pointer;
+    padding-left: 10px;
+    transition-duration: .250s;
     background-color: transparent;
+
+    &:hover {
+        opacity: 70%;
+    }
+
+    &:active {
+        opacity: 100%;
+    }
+
 }
 
 .versionNumber {
