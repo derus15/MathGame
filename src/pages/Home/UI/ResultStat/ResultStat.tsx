@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ResultItem } from '../ResultItem/ResultItem';
 import { useSelector } from 'react-redux';
 import style from './ResultStat.module.css';
@@ -15,12 +15,18 @@ import { getParamsGameMode } from 'entities/SessionParams';
 
 export const ResultStat = () => {
 
+    const [numberInitialState, setNumberInitialState] = useState(0);
+
     const gameMode = useSelector(getParamsGameMode);
     const numberResult = useSelector(getSessionPoints);
     const sessionTime = useSelector(getSessionTime);
     const round = useSelector(getSessionHungerRounds);
     const seed = useSelector(getInitialSeed);
     const eps = useSelector(getSessionEPS);
+
+    useEffect(() => {
+        setNumberInitialState(numberResult);
+    }, []);
 
     const handleCopyToClipboard = (text: string) => {
         copyTextToClipboard(text);
@@ -32,8 +38,9 @@ export const ResultStat = () => {
             <ResultItem title="Примеров решено:" value={numberResult} />
             {gameMode === 'Голод' && <ResultItem title="Раундов завершено:" value={round} />}
             <ResultItem title="Ваше время:" value={sessionTime} isTime />
-            <ResultItem title="ПВС:" value={eps} description="Примеров в секунду" isEPS />
-            <ResultItem 
+            <ResultItem title="ПВС:" value={eps} description="Примеров в секунду" isEps />
+            <ResultItem
+                isSeed
                 title="Сид:" 
                 value={seed}
                 onClick={() => handleCopyToClipboard(seed)}
