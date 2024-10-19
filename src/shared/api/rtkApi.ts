@@ -20,9 +20,18 @@ const baseQueryWithReauth: BaseQueryFn = async (args, api, extraOptions) => {
     if (result.error?.status === 403 && args.url !== '/auth/refresh') {
 
         const { data }: any = await baseQuery('/auth/refresh', api, extraOptions);
-        localStorage.setItem('token', data.accessToken);
 
-        result = await baseQuery(args, api, extraOptions);
+        if (data?.accessToken) {
+
+            localStorage.setItem('token', data.accessToken);
+            result = await baseQuery(args, api, extraOptions);
+
+        } else {
+
+            await baseQuery('/auth/logout', api, extraOptions);
+            localStorage.removeItem('token');
+
+        }
 
     }
 
