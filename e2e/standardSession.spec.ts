@@ -1,6 +1,20 @@
 import { test, expect } from '@playwright/test';
 
-test('"Standard" session in 15 seconds', async ({ page }) => {
+test('"Standard" Auth session in 15 seconds', async ({ page }) => {
+
+    const emailValue = '9608212667i@gmail.com';
+    const passwordValue = '12345690';
+    
+    await page.goto('http://localhost:3000/auth');
+
+    const EmailInput = page.locator('form').filter({ hasText: 'Логин' }).getByPlaceholder('Почта');
+    const PasswordInput = page.locator('form').filter({ hasText: 'Логин' }).getByPlaceholder('Пароль');
+
+    await EmailInput.fill(emailValue);
+    await PasswordInput.fill(passwordValue);
+
+    await page.getByRole('button', { name: 'Войти' }).click();
+    await page.waitForURL('http://localhost:3000/account');
 
     await page.goto('http://localhost:3000');
 
