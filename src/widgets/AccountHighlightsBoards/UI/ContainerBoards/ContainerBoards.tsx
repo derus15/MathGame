@@ -1,16 +1,25 @@
 import React from 'react';
 import style from './ContainerBoards.module.css';
 import { HighlightsBoards } from '../HighlightBoards/HighlightsBoards';
-import { useGetHighlightBoardQuery } from 'widgets/AccountHighlightsBoards/api/accountHighlightBoardApi';
+import { useGetHighlightBoardQuery } from '../../api/accountHighlightBoardApi';
 
 export const ContainerBoards = () => {
 
     const { data: highlightsBoards } = useGetHighlightBoardQuery();
+    const boards = [
+        { id: 'time', value: highlightsBoards.timeBoard, label: 'Стандарт' },
+        { id: 'number', value: highlightsBoards.numberBoard, label: 'Спринт' },
+    ];
     
     return (
         <div className={style.containerBoards}>
-            <HighlightsBoards highlightBoardValue={highlightsBoards.timeBoard} label="Стандарт" />
-            <HighlightsBoards highlightBoardValue={highlightsBoards.numberBoard} label="Спринт" />
+            {boards.map((board) => (
+                <HighlightsBoards
+                    highlightBoardValue={board.value}
+                    label={board.label}
+                    key={board.label}
+                />
+            ))}
         </div>
     );
 };
