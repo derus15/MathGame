@@ -21,6 +21,8 @@ export const useModifications = () => {
                 dispatch(sessionActions.unexpectedEnd('Допущена ошибка'));
                 dispatch(sessionDataActions.setSessionTimeFlags());
                 dispatch(sessionActions.endSession());
+                dispatch(sessionDataActions.calculateSessionTime());
+                dispatch(sessionDataActions.calculateEPS());
             }
         }
     };

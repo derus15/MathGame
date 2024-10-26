@@ -6,6 +6,7 @@ import { sessionActions } from 'entities/Session';
 import { BaseCounter } from 'shared/UI/BaseCounter/BaseCounter';
 import { RetryFlag } from 'entities/Example';
 import { getParamsRounds } from 'entities/SessionParams';
+import { sessionDataActions } from 'entities/SessionData';
 
 export const RoundCounter = () => {
 
@@ -15,6 +16,8 @@ export const RoundCounter = () => {
 
     const endRound = () => {
         dispatch(sessionActions.endSession());
+        dispatch(sessionDataActions.calculateSessionTime());
+        dispatch(sessionDataActions.calculateEPS());
     };
 
     return (

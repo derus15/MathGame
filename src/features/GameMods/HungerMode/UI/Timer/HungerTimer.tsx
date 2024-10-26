@@ -21,6 +21,8 @@ export const HungerTimer = () => {
         dispatch(hungerModeActions.endRound());
         dispatch(sessionDataActions.setSessionTimeFlags());
         dispatch(sessionActions.endSession());
+        dispatch(sessionDataActions.calculateSessionTime());
+        dispatch(sessionDataActions.calculateEPS());
     };
 
     return (

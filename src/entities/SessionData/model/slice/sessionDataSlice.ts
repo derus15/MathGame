@@ -1,5 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { SessionDataSchema } from '../types/types';
+import { calculateEPS } from 'shared/lib/calculateEPS/calculateEPS';
+import {
+    calculateDifferenceExtremes,
+} from 'shared/lib/calculateDifferenceExtremes/calculateDifferenceExtremes';
 
 const initialState: SessionDataSchema = {
     sessionPoints: 0,
@@ -78,6 +82,14 @@ export const sessionDataSlice = createSlice({
 
         resetSessionErrors: (state) => {
             state.sessionErrors = 0;
+        },
+        
+        calculateEPS: (state) => {
+            state.sessionEPS = calculateEPS(state.sessionPoints, state.sessionTime);
+        },
+
+        calculateSessionTime: (state) => {
+            state.sessionTime = calculateDifferenceExtremes(state.sessionTimeFlags);
         },
 
     },

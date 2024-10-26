@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { getSessionProgress, sessionActions } from 'entities/Session';
-import { getSessionPoints } from 'entities/SessionData';
+import { getSessionPoints, sessionDataActions } from 'entities/SessionData';
 import { BaseCounter } from 'shared/UI/BaseCounter/BaseCounter';
 import { RetryFlag } from 'entities/Example';
 import { getParamsNumber } from 'entities/SessionParams';
@@ -16,6 +16,8 @@ export const SprintTimer = () => {
 
     const endSession = () => {
         dispatch(sessionActions.endSession());
+        dispatch(sessionDataActions.calculateSessionTime());
+        dispatch(sessionDataActions.calculateEPS());
     };
 
     return (

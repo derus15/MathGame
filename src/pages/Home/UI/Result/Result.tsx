@@ -3,21 +3,17 @@ import { useSelector } from 'react-redux';
 import style from './Result.module.css';
 import { ExampleButton } from 'shared/UI/Button/ExampleButton/ExampleButton';
 import { getUnexpectedEndText, sessionActions } from 'entities/Session';
-import { useSendSessionData, useCalculateEPS } from 'entities/SessionData';
+import { useSendSessionData } from 'entities/SessionData';
 import { useAppDispatch } from 'shared/lib/hooks/reduxHooks/reduxHooks';
 import { InviteRegister } from '../InviteRegister/InviteRegister';
 import { exampleActions } from 'entities/Example';
 import { ResultStat } from '../ResultStat/ResultStat';
 import { SessionDataComparison, useSavePreviousSessionData } from 'features/SessionDataComparison';
-import { useCalculateTime } from 'features/GameMods/hooks/useCalculateTime';
 import { ResultDetails } from '../ResultDetails/ResultDetails';
 
 export const Result = () => {
 
     const dispatch = useAppDispatch();
-    const { saveSessionTime } = useCalculateTime();
-    saveSessionTime();
-    useCalculateEPS();
     const { sendSessionData } = useSendSessionData();
     const { savePreviousSessionData } = useSavePreviousSessionData();
     const sessionTextEnd = useSelector(getUnexpectedEndText);

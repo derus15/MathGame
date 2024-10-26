@@ -20,6 +20,8 @@ export const StandardTimer = memo(() => {
     const endSession = () => {
         dispatch(sessionDataActions.setSessionTimeFlags());
         dispatch(sessionActions.endSession());
+        dispatch(sessionDataActions.calculateSessionTime());
+        dispatch(sessionDataActions.calculateEPS());
     };
 
     return (
