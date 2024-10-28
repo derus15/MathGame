@@ -1,0 +1,32 @@
+.packContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 150px;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: black;
+    border: 4px solid white;
+    overflow: hidden;
+    cursor: pointer;
+    transition-duration: .3s;
+
+    &:hover {
+        transform: scale(110%);
+    }
+
+    &:active {
+        transform: scale(100%);
+    }
+}
+
+.cardContainer {
+    display: flex;
+    gap: 15px;
+}
+
+.packTitle {
+    color: white;
+    font-size: 35px;
+}
