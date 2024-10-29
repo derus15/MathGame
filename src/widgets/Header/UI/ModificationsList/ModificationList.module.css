@@ -1,0 +1,60 @@
+.homeLinkContainer {
+    display: flex;
+    align-items: center;
+}
+
+.homeLinkContainerAnimation {
+    animation: enter ease-in-out .15s;
+}
+
+.homeLink {
+    position: relative;
+    top: 10%;
+    font-size: 34px;
+    padding-left: 20px;
+    padding-right: 10px;
+    transition-duration: .125s;
+    color: var(--base-color);
+
+    &:hover {
+        color: var(--active-color);
+    }
+
+    &:active {
+        color: var(--base-color);
+    }
+}
+
+.modificationsContainer > button {
+    padding: 19px 10px 5px 10px;
+}
+
+.modificationsContainer > button:first-child {
+    padding: 19px 10px 5px 20px;
+}
+
+.modificationsContainerAnimation {
+    animation: enter ease-in-out .15s;
+}
+
+@keyframes out {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+}
+
+@keyframes enter {
+    from {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
