@@ -10,6 +10,7 @@ import { useCheckAnswer } from '../../hooks/useCheckAnswer';
 import { sessionDataActions } from 'entities/SessionData';
 import { useStartSession } from '../../hooks/useStartSession';
 import { TimersContainer } from './TimersContainer/TimersContainer';
+import { useEndSession } from '../../hooks/useEndSession';
 
 export const HungerMode = () => {
 
@@ -21,6 +22,7 @@ export const HungerMode = () => {
 
     const { checkAnswer, isCorrect, isIncorrect } = useCheckAnswer();
     const { startSessionHandler } = useStartSession();
+    const { endSessionHandler } = useEndSession();
 
     const startHungerMode = () => {
         startSessionHandler();
@@ -39,12 +41,12 @@ export const HungerMode = () => {
     }, []);
     
     if (!isRoundProgress && sessionProgress) {
-        return <Placeholder />;
+        return <Placeholder endSessionCallback={endSessionHandler} />;
     }
 
     return (
         <>
-            <TimersContainer />
+            <TimersContainer endSessionCallback={endSessionHandler} />
             <Example />
             <ExampleInput
                 answerSignal={isCorrect}

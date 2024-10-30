@@ -1,12 +1,16 @@
 import React, { memo, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BaseTimer } from 'shared/UI/BaseTimer/BaseTimer';
-import { getSessionProgress, sessionActions } from 'entities/Session';
+import { getSessionProgress } from 'entities/Session';
 import { sessionDataActions } from 'entities/SessionData';
 import { RetryFlag } from 'entities/Example';
 import { getParamsTime } from 'entities/SessionParams';
 
-export const StandardTimer = memo(() => {
+interface StandardTimerProps {
+    endSessionCallback?: () => void
+}
+
+export const StandardTimer = memo(({ endSessionCallback }: StandardTimerProps) => {
 
     const duration = useSelector(getParamsTime);
     const sessionProgress = useSelector(getSessionProgress);
@@ -19,9 +23,7 @@ export const StandardTimer = memo(() => {
 
     const endSession = () => {
         dispatch(sessionDataActions.setSessionTimeFlags());
-        dispatch(sessionActions.endSession());
-        dispatch(sessionDataActions.calculateSessionTime());
-        dispatch(sessionDataActions.calculateEPS());
+        endSessionCallback();
     };
 
     return (

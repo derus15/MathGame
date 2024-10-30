@@ -6,7 +6,11 @@ import { HungerPointsCounter } from '../Counter/HungerPointsCounter';
 import { useSelector } from 'react-redux';
 import { getIsRoundProgress } from '../../model/selectors/getIsRoundProgress';
 
-export const TimersContainer = () => {
+interface TimersContainerProps {
+    endSessionCallback?: () => void
+}
+
+export const TimersContainer = ({ endSessionCallback }: TimersContainerProps) => {
 
     const isRoundProgress = useSelector(getIsRoundProgress);
     
@@ -15,12 +19,12 @@ export const TimersContainer = () => {
             {isRoundProgress
                 ? (
                     <div className={style.roundProgressTimer}>
-                        <HungerTimer />
+                        <HungerTimer endSessionCallback={endSessionCallback} />
                         <HungerPointsCounter />
                     </div>
                 ) : (
                     <div className={style.roundCounter}> 
-                        <RoundCounter /> 
+                        <RoundCounter endSessionCallback={endSessionCallback} />
                     </div>
                 )}
         </div>

@@ -4,16 +4,18 @@ import { useSelector } from 'react-redux';
 import { SprintTimer } from '../UI/Timer/SprintTimer';
 import { useCheckAnswer } from '../../hooks/useCheckAnswer';
 import { useStartSession } from '../../hooks/useStartSession';
+import { useEndSession } from '../../hooks/useEndSession';
 
 export const SprintMode = () => {
 
     const answer = useSelector(getExampleAnswer);
     const { checkAnswer, isCorrect, isIncorrect } = useCheckAnswer();
     const { startSessionHandler } = useStartSession();
+    const { endSessionHandler } = useEndSession();
     
     return (
         <>
-            <SprintTimer />
+            <SprintTimer endSessionCallback={endSessionHandler} />
             <Example />
             <ExampleInput
                 answerSignal={isCorrect}

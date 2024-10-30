@@ -8,7 +8,11 @@ import { hungerModeActions } from '../../model/slice/hungerModeSlice';
 import { HungerTooltip } from '../Tooltip/HungerTooltip';
 import { useFirstRender } from 'shared/lib/hooks/useFirstRender';
 
-export const HungerTimer = () => {
+interface HungerTimerProps {
+    endSessionCallback?: () => void
+}
+
+export const HungerTimer = ({ endSessionCallback }:HungerTimerProps) => {
 
     const dispatch = useDispatch();
     const [time, setTime] = useState(10_000);
@@ -20,9 +24,7 @@ export const HungerTimer = () => {
         dispatch(sessionActions.unexpectedEnd('Время истекло'));
         dispatch(hungerModeActions.endRound());
         dispatch(sessionDataActions.setSessionTimeFlags());
-        dispatch(sessionActions.endSession());
-        dispatch(sessionDataActions.calculateSessionTime());
-        dispatch(sessionDataActions.calculateEPS());
+        endSessionCallback();
     };
 
     return (

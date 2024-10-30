@@ -7,7 +7,11 @@ import { hungerModeActions } from '../../model/slice/hungerModeSlice';
 import { BaseTimer } from 'shared/UI/BaseTimer/BaseTimer';
 import { getIsRoundProgress } from '../../model/selectors/getIsRoundProgress';
 
-export const Placeholder = () => {
+interface PlaceholderProps {
+    endSessionCallback?: () => void
+}
+
+export const Placeholder = ({ endSessionCallback }:PlaceholderProps) => {
 
     const [timeUntil, setTimeUntil] = useState(3000);
     const currentRound = useSelector(getCurrentRound);
@@ -21,7 +25,7 @@ export const Placeholder = () => {
     return (
         <>
             <div className={style.timerContainer}>
-                <RoundCounter />
+                <RoundCounter endSessionCallback={endSessionCallback} />
             </div>
             <div className={style.placeholderContainer}>
                 <span>Раунд {currentRound} завершен</span>

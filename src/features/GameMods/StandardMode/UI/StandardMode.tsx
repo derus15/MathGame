@@ -4,16 +4,18 @@ import { useSelector } from 'react-redux';
 import { StandardTimer } from '../UI/Timer/StandardTimer';
 import { useCheckAnswer } from '../../hooks/useCheckAnswer';
 import { useStartSession } from '../../hooks/useStartSession';
+import { useEndSession } from '../../hooks/useEndSession';
 
 export const StandardMode = () => {
 
     const answer = useSelector(getExampleAnswer);
     const { checkAnswer, isCorrect, isIncorrect } = useCheckAnswer();
     const { startSessionHandler } = useStartSession();
+    const { endSessionHandler } = useEndSession();
 
     return (
         <>
-            <StandardTimer />
+            <StandardTimer endSessionCallback={endSessionHandler} />
             <Example />
             <ExampleInput
                 answerSignal={isCorrect}
