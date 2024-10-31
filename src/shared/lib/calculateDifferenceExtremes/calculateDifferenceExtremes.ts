@@ -4,20 +4,15 @@ export const calculateDifferenceExtremes = (array: number[][]) => {
         return;
     }
 
-    const firstElement = array[0][0];
-    let lastElement;
+    return array.reduce((totalTime, arr) => {
 
-    // eslint-disable-next-line no-plusplus
-    for (let i = array.length - 1; i >= 0; i--) {
-        if (array[i].length > 0) {
-            lastElement = array[i][array[i].length - 1];
-            break;
+        if (arr.length > 0) {
+            const startTime = arr[0];
+            const finalTime = arr[arr.length - 1];
+            return totalTime + Math.floor((finalTime - startTime) / 1000);
         }
-    }
 
-    if (lastElement === undefined) {
-        return;
-    }
+        return totalTime;
 
-    return Math.floor((lastElement - firstElement) / 1000);
+    }, 0);
 };
