@@ -85,7 +85,7 @@ export const sessionDataSlice = createSlice({
         },
         
         calculateEPS: (state) => {
-            state.sessionEPS = calculateEPS(state.sessionPoints, state.sessionTime);
+            state.sessionEPS = calculateEPS(state.sessionPoints, state.sessionTimeFlags);
         },
 
         calculateSessionTime: (state) => {
