@@ -5,14 +5,14 @@ import {
     getSessionErrors,
     getSessionHungerRounds,
     getSessionPoints,
-    getSessionTime,
+    getSessionTimeSeconds,
 } from 'entities/SessionData';
 import style from './DevInfoBoard.module.css';
 
 export const DevInfoBoard = () => {
 
     const points = useSelector(getSessionPoints);
-    const time = useSelector(getSessionTime);
+    const time = useSelector(getSessionTimeSeconds);
     const hungerRounds = useSelector(getSessionHungerRounds);
     const eps = useSelector(getSessionEPS);
     const error = useSelector(getSessionErrors);

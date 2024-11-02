@@ -6,7 +6,7 @@ import {
     getSessionEPS,
     getSessionHungerRounds,
     getSessionPoints,
-    getSessionTime,
+    getSessionTimeSeconds,
 } from 'entities/SessionData';
 import { getInitialSeed } from 'entities/Example';
 import { copyTextToClipboard } from 'shared/lib/copyTextToClipboard/copyTextToClipboard';
@@ -17,7 +17,7 @@ export const ResultStat = () => {
 
     const gameMode = useSelector(getParamsGameMode);
     const numberResult = useSelector(getSessionPoints);
-    const sessionTime = useSelector(getSessionTime);
+    const sessionTime = useSelector(getSessionTimeSeconds);
     const round = useSelector(getSessionHungerRounds);
     const seed = useSelector(getInitialSeed);
     const eps = useSelector(getSessionEPS);

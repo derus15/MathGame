@@ -9,7 +9,7 @@ export const calculateDifferenceExtremes = (array: number[][]) => {
         if (arr.length > 0) {
             const startTime = arr[0];
             const finalTime = arr[arr.length - 1];
-            return totalTime + Math.floor((finalTime - startTime) / 1000);
+            return totalTime + Math.floor((finalTime - startTime));
         }
 
         return totalTime;

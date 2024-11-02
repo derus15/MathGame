@@ -1,6 +1,7 @@
 export { sessionDataActions, sessionDataReducer } from './model/slice/sessionDataSlice';
 export type { SessionDataSchema } from './model/types/types';
-export { getSessionTime } from './model/selectors/getSessionTime';
+export { getSessionTimeSeconds } from './model/selectors/getSessionTimeSeconds';
+export { getSessionTimeMilliseconds } from './model/selectors/getSessionTimeMilliseconds';
 export { getSessionPoints } from './model/selectors/getSessionPoints';
 export { useSendSessionData } from './model/hooks/useSendSessionData';
 export { getSessionTimeFlags } from './model/selectors/getSessionTimeFlags';

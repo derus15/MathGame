@@ -1,6 +1,6 @@
 import { SessionDataSaveSchema } from '../types/types';
 import { useSelector } from 'react-redux';
-import { getSessionTime } from '../selectors/getSessionTime';
+import { getSessionTimeSeconds } from '../selectors/getSessionTimeSeconds';
 import { getSessionPoints } from '../selectors/getSessionPoints';
 import { getModificationsList } from 'features/Modifications';
 import { getUnexpectedEnd } from 'entities/Session';
@@ -12,7 +12,7 @@ import { getSessionHungerRounds } from '../selectors/getSessionHungerRounds';
 export const useGetSessionData = () => {
 
     const sessionPoints = useSelector(getSessionPoints);
-    const sessionTime = useSelector(getSessionTime);
+    const sessionTime = useSelector(getSessionTimeSeconds);
     const sessionRounds = useSelector(getSessionHungerRounds);
     const modificationsList = useSelector(getModificationsList);
     const sessionUnexpectedEnd = useSelector(getUnexpectedEnd);
