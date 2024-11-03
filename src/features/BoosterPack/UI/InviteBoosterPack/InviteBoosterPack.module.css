@@ -1,0 +1,41 @@
+.inviteContainer {
+    position: absolute;
+    bottom: 20%;
+}
+
+.inviteModal {
+    min-width: 480px;
+    min-height: 380px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inviteTitle {
+    font-size: 20px;
+    cursor: pointer;
+    animation: blink infinite 1.5s;
+    transition-duration: 0.125s;
+    color: var(--base-color);
+
+    &:hover {
+        color: var(--active-color);
+        animation: none;
+    }
+
+    &:active {
+        color: var(--base-color);
+    }
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: .5;
+    }
+    100% {
+        opacity: 1;
+    }
+}

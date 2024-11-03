@@ -1,1 +1,1 @@
-export { BoosterPack } from './UI/BoosterPack/BoosterPack';
+export { CollectableCard } from './UI/CollectibleCard/CollectableCard';
