@@ -3,7 +3,13 @@ import Modal from 'shared/UI/Modal/Modal';
 import style from './ResultDetails.module.css';
 import { useSelector } from 'react-redux';
 import { ExampleButton } from 'shared/UI/Button/ExampleButton/ExampleButton';
-import { getSessionExampleList, getSessionTimeFlags } from 'entities/SessionData';
+import {
+    getSessionEPS,
+    getSessionExampleList,
+    getSessionPoints,
+    getSessionTimeFlags,
+    getSessionTimeMilliseconds,
+} from 'entities/SessionData';
 import { getExample, getExampleAnswer } from 'entities/Example';
 import { findDifferencesArray } from 'shared/lib/findDifferencesArray/findDifferencesArray';
 import { calculateMinMaxNumber } from 'shared/lib/calculateMinMaxNumber/calculateMinMaxNumber';
@@ -22,6 +28,9 @@ export const ResultDetails = () => {
     const isShowLastExample = unexpectedEnd || standardMode;
     const exampleTimeList = useSelector(getSessionTimeFlags);
     const exampleTime = findDifferencesArray(exampleTimeList);
+    const sessionPoints = useSelector(getSessionPoints);
+    const sessionTime = useSelector(getSessionTimeMilliseconds);
+    const sessionEps = useSelector(getSessionEPS);
 
     const worstResult = calculateMinMaxNumber(exampleTime, 'max', isShowLastExample);
     const bestResult = calculateMinMaxNumber(exampleTime, 'min', isShowLastExample);
@@ -63,6 +72,10 @@ export const ResultDetails = () => {
                         ))}
                     </div>
                 </div>
+                <hr className={style.separator} />
+                <span>
+                    {sessionPoints} / {sessionTime / 1000} = {sessionEps} eps
+                </span>
             </Modal>
         </>
     );
