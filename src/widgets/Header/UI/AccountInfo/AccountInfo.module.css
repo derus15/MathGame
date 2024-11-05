@@ -1,7 +1,7 @@
 .containerAccountInfo {
     display: flex;
     height: 42px;
-    animation: init ease-in-out .3s;
+    animation: var(--animation-init);
     align-items: center;
 }
 
@@ -11,7 +11,7 @@
     height: 42px;
     align-items: center;
     transition-duration: .125s;
-    animation: init ease-in-out .2s;
+    animation: var(--animation-init);
 }
 
 .linkAccount {
@@ -63,21 +63,5 @@
     align-items: center;
     fill: var(--active-color);
     transition-duration: .125s;
-    animation: init ease-in-out .3s;
-}
-
-@keyframes init {
-
-    0% {
-        opacity: 0;
-    }
-
-    50% {
-        opacity: .5;
-    }
-
-    100% {
-        opacity: 1;
-    }
-
+    animation: var(--animation-init);
 }

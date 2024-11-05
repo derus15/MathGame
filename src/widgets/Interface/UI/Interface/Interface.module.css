@@ -8,7 +8,7 @@
     border: var(--modal-border);
     height: 31px;
     user-select: none;
-    animation: init ease-in-out .2s;
+    animation: var(--animation-init);
     transition-duration: .3s;
 }
 
@@ -31,7 +31,7 @@
     height: 100%;
     flex-direction: row;
     background-color: transparent;
-    animation: init ease-in-out .3s;
+    animation: var(--animation-init);
 }
 
 .containerParams:first-child {
@@ -51,21 +51,6 @@
 @media screen and (max-width:990px) {
     .containerMods {
         width: 350px
-    }
-
-}
-
-@keyframes init {
-    0% {
-        opacity: 0;
-    }
-
-    50% {
-        opacity: .5;
-    }
-
-    100% {
-        opacity: 1;
     }
 
 }

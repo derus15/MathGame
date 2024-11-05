@@ -6,22 +6,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    animation: init ease-in-out .2s;
-}
-
-@keyframes init {
-    0% {
-        opacity: 0;
-    }
-
-    50% {
-        opacity: .5;
-    }
-
-    100% {
-        opacity: 1;
-    }
-
+    animation: var(--animation-init);
 }
 
 .title_num {

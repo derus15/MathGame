@@ -5,7 +5,7 @@
     flex-direction: column;
     align-items: center;
     gap: 25px;
-    animation: init ease-in-out .2s;
+    animation: var(--animation-init);
 }
 
 .textContainer {
@@ -33,19 +33,4 @@
 .loader{
     margin-right: 15px;
     margin-top: 16px;
-}
-
-@keyframes init {
-    0% {
-        opacity: 0;
-    }
-
-    50% {
-        opacity: .5;
-    }
-
-    100% {
-        opacity: 1;
-    }
-
 }

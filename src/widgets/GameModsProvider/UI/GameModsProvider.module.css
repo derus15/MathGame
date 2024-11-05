@@ -7,5 +7,4 @@
     display: flex;
     gap: 5px;
     width: 100%;
-    animation: init ease-in-out .2s;
 }

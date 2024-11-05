@@ -36,7 +36,7 @@
     height: 1em;
     border-radius: 0.3em;
     margin-right: 1.8em;
-    animation: init ease-in-out .2s;
+    animation: var(--animation-init);
     background: transparent;
 }
 
@@ -51,20 +51,5 @@ input:checked::before {
     position: absolute;
     right: -.5px;
     top: -2px;
-    animation: init ease-in-out .3s;
-}
-
-@keyframes init {
-    0% {
-        opacity: 0;
-    }
-
-    50% {
-        opacity: .5;
-    }
-
-    100% {
-        opacity: 1;
-    }
-
+    animation: var(--animation-init);
 }

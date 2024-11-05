@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: center;
     height: 89%;
-    animation: init ease-in-out .2s;
+    animation: var(--animation-init);
     color: var(--second-active-color);
     font-size: 25px;
 }
@@ -37,19 +37,4 @@
     position: relative;
     gap: 8px;
     width: 100%;
-}
-
-@keyframes init {
-    0% {
-        opacity: 0;
-    }
-
-    50% {
-        opacity: .5;
-    }
-
-    100% {
-        opacity: 1;
-    }
-
 }

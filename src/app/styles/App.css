@@ -1,3 +1,7 @@
+:root {
+    --animation-init: init ease-in-out .2s;
+}
+
 * {
     /*box-shadow: 0 0 0 1px red;*/
     margin: 0;
@@ -51,7 +55,7 @@ body::-webkit-scrollbar-thumb:active {
     height: 96vh;
     margin: 25px auto 0;
     user-select: none;
-    animation: init ease-in-out .2s;
+    animation: var(--animation-init);
 }
 
 .authContainer {
@@ -60,7 +64,7 @@ body::-webkit-scrollbar-thumb:active {
     top: 22vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    animation: init ease-in-out .2s;
+    animation: var(--animation-init);
 }
 
 .interfaceContainer {
@@ -108,7 +112,7 @@ body::-webkit-scrollbar-thumb:active {
     position: absolute;
     bottom: 128px;
     left: 190px;
-    animation: init ease-in-out .2s;
+    animation: var(--animation-init);
     transition-duration: .3s;
 }
 

@@ -4,7 +4,7 @@
     align-items: center;
     font-size: 24px;
     color: var(--second-active-color);
-    animation: init ease-in-out .2s;
+    animation: var(--animation-init);
 }
 
 .timerContainer {
@@ -18,22 +18,8 @@
 .textUntil {
     display: flex;
     font-size: 20px;
-    animation: init ease-in-out .2s;
+    animation: var(--animation-init);
     margin-top: 15px;
     gap: 10px;
     color: var(--base-color);
-}
-
-@keyframes init {
-    0% {
-        opacity: 0;
-    }
-
-    50% {
-        opacity: .5;
-    }
-
-    100% {
-        opacity: 1;
-    }
 }

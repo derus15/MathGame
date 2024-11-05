@@ -9,11 +9,9 @@ export const InviteBoosterPack = () => {
 
     const isAuth = useSelector(getIsAuth);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [isOpen, setIsOpen] = useState(false);
 
     const handleOpenBoosterPack = () => {
         setIsModalOpen(true);
-        setIsOpen(true);
     };
     
     return (
@@ -26,7 +24,7 @@ export const InviteBoosterPack = () => {
                     Вам доступно открытие пака
                 </span>
                 <Modal visible={isModalOpen} setVisible={setIsModalOpen} className={style.inviteModal}>
-                    { isOpen && <BoosterPack />}
+                    <BoosterPack />
                 </Modal>
             </div>
         )

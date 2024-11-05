@@ -14,7 +14,7 @@
 }
 
 .init {
-    animation: init ease-in-out .15s;
+    animation: var(--animation-init)
 }
 
 .btn {
@@ -38,19 +38,4 @@
     100% {
         opacity: 0;
     }
-}
-
-@keyframes init {
-    0% {
-        opacity: 0;
-    }
-
-    50% {
-        opacity: .5;
-    }
-
-    100% {
-        opacity: 1;
-    }
-
 }

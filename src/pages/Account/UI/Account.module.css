@@ -4,7 +4,7 @@
     flex-direction: column;
     margin-bottom: 50px;
     gap: 30px;
-    animation: init ease-in-out .2s;
+    animation: var(--animation-init);
 }
 
 .comingSoonContainer {
@@ -37,22 +37,6 @@
     &:hover {
         color: var(--active-color);
     }
-}
-
-@keyframes init {
-
-    0% {
-        opacity: 0;
-    }
-
-    50% {
-        opacity: .5;
-    }
-
-    100% {
-        opacity: 1;
-    }
-
 }
 
 .footer {
