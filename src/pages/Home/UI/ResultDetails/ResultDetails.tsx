@@ -73,8 +73,8 @@ export const ResultDetails = () => {
                     </div>
                 </div>
                 <hr className={style.separator} />
-                <span>
-                    {sessionPoints} / {sessionTime / 1000} = {sessionEps} eps
+                <span title="Примеров в секунду">
+                    {sessionPoints} / {sessionTime / 1000} = {sessionEps} ПВС
                 </span>
             </Modal>
         </>
