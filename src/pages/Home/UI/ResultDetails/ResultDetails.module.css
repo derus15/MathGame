@@ -4,7 +4,6 @@
     min-width: 25vw;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     gap: 12px;
     overflow-y: scroll;
     font-size: 26px;
