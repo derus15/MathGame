@@ -13,9 +13,16 @@ export const CollectableCard = ({ id }: CollectibleCardProps) => {
 
     return (
         <div className={style.cardContainer}>
-            <span className={style.cardTitle}>{id}</span>
-            <div className={style.cardBorder}>
-                <div className={style.cardArt} />
+            <div className={style.cardFront}>
+                <span className={style.cardTitle}>{id}</span>
+                <div className={style.cardBorder}>
+                    <div className={style.cardArt} />
+                </div>
+            </div>
+            <div className={style.cardBack}>
+                <div className={style.cardBorder}>
+                    Card back
+                </div>
             </div>
         </div>
     );

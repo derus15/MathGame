@@ -19,6 +19,7 @@ export const BoosterPack = () => {
                     <div className={style.cardContainer}>
                         <CollectableCard id={generateId()} />
                         <CollectableCard id={generateId()} />
+                        <CollectableCard id={generateId()} />
                     </div>)
                 : (
                     <div className={style.packContainer}>
