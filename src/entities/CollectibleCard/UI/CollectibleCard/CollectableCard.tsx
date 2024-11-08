@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import style from './CollectableCard.module.css';
+import { CardBack } from '../СardBack/CardBack';
 
 interface CollectibleCardProps {
     id: number
@@ -7,12 +8,40 @@ interface CollectibleCardProps {
 
 export const CollectableCard = ({ id }: CollectibleCardProps) => {
 
+    const titleRef = useRef(null);
+
     useEffect(() => {
-        console.log('placeholder');
+
+        const title = titleRef.current;
+
+        const handleMouseMove = (event: MouseEvent) => {
+
+            const { offsetX, offsetY, target } = event;
+            const { offsetWidth, offsetHeight } = target as HTMLElement;
+
+            const rotateX = ((offsetY / offsetHeight) - 0.5) * -30;
+            const rotateY = ((offsetX / offsetWidth) - 0.5) * 30;
+
+            title.style.transform = `perspective(500px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        };
+
+        const handleMouseLeave = () => {
+            title.classList.add(style.reset);
+            title.style.transform = '';
+            title.classList.remove(style.reset);
+        };
+
+        title.addEventListener('mousemove', handleMouseMove);
+        title.addEventListener('mouseleave', handleMouseLeave);
+
+        return () => {
+            title.removeEventListener('mousemove', handleMouseMove);
+            title.removeEventListener('mouseleave', handleMouseLeave);
+        };
     }, []);
 
     return (
-        <div className={style.cardContainer}>
+        <div className={style.cardContainer} ref={titleRef}>
             <div className={style.cardFront}>
                 <span className={style.cardTitle}>{id}</span>
                 <div className={style.cardBorder}>
@@ -20,9 +49,7 @@ export const CollectableCard = ({ id }: CollectibleCardProps) => {
                 </div>
             </div>
             <div className={style.cardBack}>
-                <div className={style.cardBorder}>
-                    Card back
-                </div>
+                <CardBack />
             </div>
         </div>
     );
