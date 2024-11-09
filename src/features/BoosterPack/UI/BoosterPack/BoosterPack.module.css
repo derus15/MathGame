@@ -21,6 +21,14 @@
     }
 }
 
+.boosterModal {
+    min-width: 480px;
+    min-height: 380px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .cardContainer {
     display: flex;
     gap: 20px;
