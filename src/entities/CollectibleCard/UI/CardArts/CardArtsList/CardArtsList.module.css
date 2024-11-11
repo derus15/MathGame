@@ -1,0 +1,108 @@
+.cardBorder {
+    width: 75%;
+    height: 85%;
+    text-align: center;
+    align-content: center;
+    border: 2px white solid;
+    pointer-events: none;
+}
+
+.cardTitle {
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    font-size: 24px;
+    color: white;
+    pointer-events: none;
+}
+
+.cardArtZero {
+    height: 55%;
+    margin: 0 auto;
+    text-align: center;
+    background: transparent;
+    pointer-events: none;
+}
+
+.cardArtFirst {
+    height: 55%;
+    margin: 0 auto;
+    text-align: center;
+    background: white;
+    width: 1px;
+    border: 1px white solid;
+    pointer-events: none;
+}
+
+.cardArtSecondContainer {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+}
+
+.cardArtSecondsVerticalLine {
+    position: relative;
+    top: 20%;
+    height: 55%;
+    text-align: center;
+    background: white;
+    width: 1px;
+    border: 1px white solid;
+    pointer-events: none;
+}
+
+.cardArtSecondsHorizontalLine {
+    position: absolute;
+    height: 30%;
+    top: 32%;
+    text-align: center;
+    background: white;
+    width: 1px;
+    transform: rotate(90deg);
+    border: 1px white solid;
+    pointer-events: none;
+}
+
+.cardArtThirdContainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.cardArtThirdTopLeftLine {
+    height: 25%;
+    position: absolute;
+    top: 7%;
+    left: 17%;
+    background: white;
+    width: 1px;
+    transform: rotate(-25deg);
+    border: 1px white solid;
+    pointer-events: none;
+}
+
+.cardArtThirdTopRightLine {
+    height: 25%;
+    position: absolute;
+    top: 7%;
+    right: 17%;
+    background: white;
+    width: 1px;
+    transform: rotate(25deg);
+    border: 1px white solid;
+    pointer-events: none;
+}
+
+.cardArtThirdBottomLine {
+    height: 40%;
+    position: relative;
+    top: 50%;
+    background: white;
+    width: 1px;
+    border: 1px white solid;
+    pointer-events: none;
+}

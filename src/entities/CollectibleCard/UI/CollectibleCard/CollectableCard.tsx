@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import style from './CollectableCard.module.css';
 import { CardBack } from '../СardBack/CardBack';
+import { CardArtsList } from '../CardArts/CardArtsList/CardArtsList';
 
 interface CollectibleCardProps {
     id: number
@@ -43,10 +44,7 @@ export const CollectableCard = ({ id }: CollectibleCardProps) => {
     return (
         <div className={style.cardContainer} ref={titleRef}>
             <div className={style.cardFront}>
-                <span className={style.cardTitle}>{id}</span>
-                <div className={style.cardBorder}>
-                    <div className={style.cardArt} />
-                </div>
+                {CardArtsList[id]}
             </div>
             <div className={style.cardBack}>
                 <CardBack />

@@ -5,7 +5,6 @@
     align-items: center;
     width: 120px;
     height: 170px;
-    transition-duration: .5s;
     transition: transform .125s linear;
     cursor: pointer;
     animation: cardInit ease-in-out .5s;
@@ -15,34 +14,6 @@
 .cardContainer.reset {
     transition: transform .5s linear;
     transform: perspective(500px) rotateX(0) rotateY(0);
-}
-
-.cardBorder {
-    width: 75%;
-    height: 85%;
-    text-align: center;
-    align-content: center;
-    border: 2px white solid;
-    pointer-events: none;
-}
-
-.cardArt {
-    height: 55%;
-    margin: 0 auto;
-    text-align: center;
-    background: white;
-    width: 1px;
-    border: 1px white solid;
-    pointer-events: none;
-}
-
-.cardTitle {
-    position: absolute;
-    top: 2%;
-    left: 2%;
-    font-size: 24px;
-    color: white;
-    pointer-events: none;
 }
 
 .cardFront, .cardBack {

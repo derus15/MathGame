@@ -3,7 +3,7 @@ import style from './BoosterPack.module.css';
 import { CollectableCard } from 'entities/CollectibleCard';
 import Modal from 'shared/UI/Modal/Modal';
 
-const generateId = () => Math.floor(Math.random() * (9 - 1)) + 1;
+const generateId = () => Math.floor(Math.random() * (5 - 1)) + 1;
 
 interface BoosterPackProps {
     isOpenPack: boolean,
