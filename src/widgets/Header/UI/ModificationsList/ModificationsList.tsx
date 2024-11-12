@@ -16,7 +16,7 @@ export const ModificationsList = () => {
         isHome ? (
             <div className={classNames(
                 style.modificationsContainer, 
-                { [style.modificationsContainerAnimation]: !isFirstRender },
+                { [style.modificationsContainerAnimation]: isHome },
             )}
             >
                 <OneTry />
