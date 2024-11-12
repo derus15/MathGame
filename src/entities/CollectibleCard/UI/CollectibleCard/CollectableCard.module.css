@@ -11,11 +11,6 @@
     z-index: 10;
 }
 
-.cardContainer.reset {
-    transition: transform .5s linear;
-    transform: perspective(500px) rotateX(0) rotateY(0);
-}
-
 .cardFront, .cardBack {
     box-sizing: border-box;
     width: 100%;
