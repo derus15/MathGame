@@ -74,6 +74,12 @@ body::-webkit-scrollbar-thumb:active {
     top: 38px;
 }
 
+.collectionContainer {
+    position: relative;
+    margin-top: 65px;
+    width: 100%;
+}
+
 @keyframes blink {
     0% {
         opacity: 1;
