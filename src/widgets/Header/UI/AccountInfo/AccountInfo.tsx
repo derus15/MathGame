@@ -30,7 +30,7 @@ export const AccountInfo = () => {
                     <span className={style.username}>{user?.name}</span>
                 </Link>
                 {isLoadingName && <Loader isLoading={isLoadingName} className={style.loaderName} />}
-                <Link to="/account" onClick={Logout} className={style.logoutContainer}>
+                <Link to="/auth" onClick={Logout} className={style.logoutContainer}>
                     <LogoutSvg />
                 </Link>
             </div>

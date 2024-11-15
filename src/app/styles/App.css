@@ -49,6 +49,8 @@ body::-webkit-scrollbar-thumb:active {
 }
 
 .mainContainer {
+    display: flex;
+    flex-direction: column;
     position: relative;
     width: 90%;
     max-width: 1270px;
@@ -58,10 +60,19 @@ body::-webkit-scrollbar-thumb:active {
     animation: var(--animation-init);
 }
 
+.homeContainer {
+    flex-grow: 1;
+}
+
+.accountContainer {
+    flex-grow: 1;
+}
+
 .authContainer {
     position: relative;
+    flex-grow: 1;
     text-align: center;
-    top: 22vh;
+    margin-top: 22vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
     animation: var(--animation-init);
@@ -75,6 +86,7 @@ body::-webkit-scrollbar-thumb:active {
 }
 
 .collectionContainer {
+    flex-grow: 1;
     position: relative;
     margin-top: 65px;
     width: 100%;

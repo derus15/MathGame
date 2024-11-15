@@ -22,7 +22,7 @@ const Home = () => {
     }
     
     return (
-        <>
+        <main className="homeContainer">
             <div className="interfaceContainer">
                 <Interface />
             </div>
@@ -30,7 +30,7 @@ const Home = () => {
             <div className="instructionsContainer">
                 <InstructionsProvider />
             </div>
-        </>
+        </main>
     );
 };
 

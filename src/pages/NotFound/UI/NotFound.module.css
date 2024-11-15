@@ -1,7 +1,7 @@
 .container {
     display: flex;
     position: relative;
-    top: 28%;
+    flex-grow: 1;
     color: var(--active-color);
     flex-direction: column;
     justify-content: center;

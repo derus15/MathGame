@@ -1,5 +1,6 @@
 .mainContainer {
     display: flex;
+    flex-grow: 1;
     margin-top: 65px;
     flex-direction: column;
     margin-bottom: 50px;
@@ -37,8 +38,4 @@
     &:hover {
         color: var(--active-color);
     }
-}
-
-.footer {
-    position: relative;
 }

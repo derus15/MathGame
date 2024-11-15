@@ -5,7 +5,6 @@ import { Loading } from 'shared/UI/Loading/Loading';
 import {
     HighlightsBoards, useGetHighlightBoardQuery,
 } from 'widgets/AccountHighlightsBoards';
-import { Footer } from 'widgets/Footer';
 import { useGetUserAvatarQuery } from 'features/GenerateAvatar';
 
 const Account = () => {
@@ -20,17 +19,14 @@ const Account = () => {
     }
 
     return (
-        <>
-            <div className={style.mainContainer}>
-                <AccountUserInfo />
-                <HighlightsBoards />
-                <div className={style.comingSoonContainer}>
-                    <div className={style.comingSoonTiles} />
-                    <span className={style.comingSoonTitle}>Скоро будет добавлено...</span>
-                </div>
+        <main className={style.mainContainer}>
+            <AccountUserInfo />
+            <HighlightsBoards />
+            <div className={style.comingSoonContainer}>
+                <div className={style.comingSoonTiles} />
+                <span className={style.comingSoonTitle}>Скоро будет добавлено...</span>
             </div>
-            <Footer className={style.footer} />
-        </>
+        </main>
     );
 };
 

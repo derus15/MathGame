@@ -1,6 +1,7 @@
 .content {
-    position: absolute;
-    top: 45%;
+    position: relative;
+    flex-grow: 1;
+    align-items: center;
     display: flex;
     justify-content: center;
     width: 100%;
