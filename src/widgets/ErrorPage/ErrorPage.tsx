@@ -12,16 +12,14 @@ const ErrorPage = () => {
     };
     
     return (
-        <div className="mainContainer">
-            <PageLayout>
-                <div className={style.container}>
-                    <span>Произошла непредвиденная ошибка</span>
-                    <ExampleButton className={style.btn} onClick={clearLocalStorage}>
-                        Обновить страницу
-                    </ExampleButton>
-                </div>
-            </PageLayout>
-        </div>
+        <PageLayout>
+            <div className={style.container}>
+                <span>Произошла непредвиденная ошибка</span>
+                <ExampleButton className={style.btn} onClick={clearLocalStorage}>
+                    Обновить страницу
+                </ExampleButton>
+            </div>
+        </PageLayout>
     );
 };
 
