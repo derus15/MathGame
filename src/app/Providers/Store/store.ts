@@ -10,6 +10,7 @@ import { rtkApi } from 'shared/api/rtkApi';
 import { previousSessionDataReducer } from 'features/SessionDataComparison';
 import { RootReducers } from './types';
 import { sessionParamsReducer } from 'entities/SessionParams';
+import { boosterPackReducer } from 'features/BoosterPack';
 
 const rootReducers: RootReducers = {
     sessionData: sessionDataReducer,
@@ -21,6 +22,7 @@ const rootReducers: RootReducers = {
     instructions: instructionsReducer,
     hungerMode: hungerModeReducer,
     previousData: previousSessionDataReducer,
+    boosterPack: boosterPackReducer,
     [rtkApi.reducerPath]: rtkApi.reducer,
 };
 

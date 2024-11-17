@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getIsAuth } from 'entities/User';
-import { BoosterPack } from '../BoosterPack/BoosterPack';
 import style from './InviteBoosterPack.module.css';
 import { useCalculateChanceBooster } from '../../hooks/useCalculateChanceBooster';
 import { OutlineButton } from 'shared/UI/Button/OutlineButton/OutlineButton';
+import { boosterPackActions } from '../../model/slice/boosterPackSlice';
 
 export const InviteBoosterPack = () => {
 
-    const [isOpen, setIsOpen] = useState(false);
     const [isTextVisible, setIsTextVisible] = useState(true);
     const { calculateBoosterPackChance } = useCalculateChanceBooster();
     const [isVisibleBoosterPack, setIsVisibleBoosterPack] = useState(calculateBoosterPackChance);
     const isAuth = useSelector(getIsAuth);
+    const dispatch = useDispatch();
 
     const handleOpenBoosterPack = () => {
-        setIsOpen(true);
+        dispatch(boosterPackActions.openBoosterPack());
         setIsTextVisible(false);
     };
 
@@ -30,7 +30,6 @@ export const InviteBoosterPack = () => {
                         Вам доступно открытие пака
                     </OutlineButton>
                 )}
-                <BoosterPack isOpenPack={isOpen} />
             </div>
         )
     );

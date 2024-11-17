@@ -23,6 +23,11 @@
 
 .notificationTitle {
     animation: blink infinite 1.5s;
+
+    &:hover {
+        animation: none;
+    }
+
 }
 
 @keyframes blink {

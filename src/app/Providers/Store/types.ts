@@ -10,6 +10,7 @@ import { PreviousSessionDataSchema } from 'features/SessionDataComparison';
 import { Reducer } from '@reduxjs/toolkit';
 import { store } from './store';
 import { SessionParamsSchema } from 'entities/SessionParams';
+import { BoosterPackSchema } from 'features/BoosterPack';
 
 export interface StateSchema {
     sessionData: SessionDataSchema,
@@ -21,6 +22,7 @@ export interface StateSchema {
     instructions: InstructionsSchema,
     hungerMode: HungerSchema,
     previousData: PreviousSessionDataSchema,
+    boosterPack: BoosterPackSchema,
     [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
 }
 

@@ -1,7 +1,8 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getSessionPoints, getSessionTimeSeconds } from 'entities/SessionData';
 import { getModificationsList } from 'features/Modifications';
 import { getExampleSignList } from 'entities/Example';
+import { boosterPackActions } from 'features/BoosterPack';
 
 export const useCalculateChanceBooster = () => {
     
@@ -22,11 +23,14 @@ export const useCalculateChanceBooster = () => {
             * sessionModifications + sessionNumber + sessionSign) * unexpectedEnd);
 
     const resultChance = Math.min(chance, maxChance);
-
+    const dispatch = useDispatch();
+    
     const calculateBoosterPackChance = () => {
 
         const randomNumber = Math.random() * 100;
-        return randomNumber <= resultChance;
+        const isAvailablePack = randomNumber <= resultChance;
+        if (isAvailablePack) dispatch(boosterPackActions.incrementBoosterCount());
+        return isAvailablePack;
         
     };
 

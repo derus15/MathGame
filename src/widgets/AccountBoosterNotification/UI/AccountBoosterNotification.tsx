@@ -1,24 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 import style from './AccountBoosterNotification.module.css';
-import { useDispatch } from 'react-redux';
-import { BoosterPack } from 'features/BoosterPack/UI/BoosterPack/BoosterPack';
+import { useDispatch, useSelector } from 'react-redux';
+import { boosterPackActions, getBoosterCount } from 'features/BoosterPack';
 
 export const AccountBoosterNotification = () => {
 
-    const [isOpen, setIsOpen] = useState(false);
+    const boosterNumber = useSelector(getBoosterCount);
     const dispatch = useDispatch();
-    const boosterNumber = 1;
 
     const handleOpenPack = () => {
-        setIsOpen(true);
+        dispatch(boosterPackActions.openBoosterPack());
     };
 
     return (
-        <div className={style.notificationContainer} onClick={handleOpenPack}>
-            <span className={style.notificationTitle}>
-                Вам доступно открытие паков ({boosterNumber})
-            </span>
-            <BoosterPack isOpenPack={isOpen} />
-        </div>
+        (boosterNumber > 0) && (
+            <div className={style.notificationContainer} onClick={handleOpenPack}>
+                <span className={style.notificationTitle}>
+                    Вам доступно открытие паков ({boosterNumber})
+                </span>
+            </div>
+        )
     );
 };
