@@ -28,8 +28,8 @@ export const AccountInfo = () => {
             <div className={style.containerAccountInfo}>
                 <Link className={style.linkAccount} to="/account">
                     <span className={style.username}>{user?.name}</span>
+                    {isLoadingName && <Loader isLoading={isLoadingName} className={style.loaderName} />}
                 </Link>
-                {isLoadingName && <Loader isLoading={isLoadingName} className={style.loaderName} />}
                 <Link to="/auth" onClick={Logout} className={style.logoutContainer}>
                     <LogoutSvg />
                 </Link>
