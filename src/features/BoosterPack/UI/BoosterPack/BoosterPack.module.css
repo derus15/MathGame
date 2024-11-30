@@ -31,7 +31,43 @@
 
 .cardContainer {
     display: flex;
+    transition-duration: .150s;
     gap: 20px;
+    animation: openCard linear .2s;
+}
+
+@keyframes openCard {
+    0% {
+        transform: scale(140%);
+        opacity: .4;
+    }
+
+    100% {
+        transform: scale(100%);
+        opacity: 1;
+    }
+}
+
+.packContainerOpen {
+    transition-duration: .150s;
+    animation: openPack linear .2s;
+}
+
+@keyframes openPack {
+    0% {
+        transform: scale(110%);
+    }
+
+    50% {
+        transform: scale(150%);
+        opacity: .4;
+    }
+
+    100% {
+        background-color: darkgray;
+        transform: scale(170%);
+        opacity: 0;
+    }
 }
 
 .packTitle {
