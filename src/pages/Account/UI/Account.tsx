@@ -19,7 +19,7 @@ const Account = () => {
     }
 
     return (
-        <main className={style.mainContainer}>
+        <main className="accountContainer">
             <AccountUserInfo />
             <HighlightsBoards />
             <div className={style.comingSoonContainer}>

@@ -65,7 +65,11 @@ body::-webkit-scrollbar-thumb:active {
 }
 
 .accountContainer {
+    display: flex;
     flex-grow: 1;
+    flex-direction: column;
+    gap: 30px;
+    animation: var(--animation-init);
 }
 
 .authContainer {

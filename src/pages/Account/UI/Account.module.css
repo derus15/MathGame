@@ -1,17 +1,8 @@
-.mainContainer {
-    display: flex;
-    flex-grow: 1;
-    margin-top: 65px;
-    flex-direction: column;
-    margin-bottom: 50px;
-    gap: 30px;
-    animation: var(--animation-init);
-}
-
 .comingSoonContainer {
     position: relative;
     border: var(--modal-border);
     border-radius: 10px;
+    margin-bottom: 50px;
 }
 
 .comingSoonTiles {

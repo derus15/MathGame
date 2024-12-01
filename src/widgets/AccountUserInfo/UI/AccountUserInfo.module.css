@@ -1,5 +1,6 @@
 .avatarBackground {
     display: flex;
+    margin-top: 65px;
     justify-content: center;
     position: relative;
     width: 100%;
