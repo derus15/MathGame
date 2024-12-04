@@ -46,9 +46,22 @@ export const CardThird = () => (
     </NumberCollectionPattern>
 );
 
+export const CardFourth = () => (
+    <NumberCollectionPattern>
+        <span className={style.cardTitle}>{4}</span>
+        <div className={style.cardArtFourthContainer}>
+            <div className={style.cardArtFourthLine} />
+            <div className={style.cardArtFourthLine} />
+            <div className={style.cardArtFourthLine} />
+            <div className={style.cardArtFourthLine} />
+        </div>
+    </NumberCollectionPattern>
+);
+
 export const CardArtsList: Record<number, ReactNode> = {
     1: <CardZero />,
     2: <CardFirst />,
     3: <CardSecond />,
     4: <CardThird />,
+    5: <CardFourth />,
 };

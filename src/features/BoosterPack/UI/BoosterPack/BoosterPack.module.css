@@ -50,7 +50,7 @@
 
 .packContainerOpen {
     transition-duration: .150s;
-    animation: openPack linear .2s;
+    animation: openPack linear .150s;
 }
 
 @keyframes openPack {
