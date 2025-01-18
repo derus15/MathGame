@@ -27,8 +27,7 @@ const ChangeRounds = () => {
 
                 <Select
                     key={round}
-                    currentState={round}
-                    globalState={currentRound}
+                    isActive={round === currentRound}
                     callback={() => changeRoundInSession(round)}
                 >
                     {round}

@@ -18,16 +18,13 @@ const SelectSign = ({ children = '', callback, currentSign, globalState = [] }: 
     const changeSignList = () => {
         let newSignList: Sign[];
 
-        if (globalState.includes(currentSign) && globalState.length > 1) {
-
-            newSignList = globalState.filter((sign) => sign !== currentSign);
-
-        } else if (!globalState.includes(currentSign)) {
-
-            newSignList = [...globalState, currentSign];
+        if (globalState.includes(currentSign)) {
+            
+            newSignList = globalState.length > 1 ? globalState.filter((sign) => sign !== currentSign)
+                : [...globalState];
         } else {
-
-            newSignList = [...globalState];
+            
+            newSignList = [...globalState, currentSign];
         }
 
         callback(newSignList);
@@ -36,7 +33,7 @@ const SelectSign = ({ children = '', callback, currentSign, globalState = [] }: 
     
     return (
         <OutlineButton
-            className={classNames(style.signs, { [style.signsActive]: isSelectedSigns }, [])}
+            className={classNames(style.signs, { [style.signsActive]: isSelectedSigns })}
             onClick={changeSignList}
         >
             {children}

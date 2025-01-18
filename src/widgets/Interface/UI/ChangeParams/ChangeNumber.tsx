@@ -27,9 +27,8 @@ const ChangeNumber = () => {
 
                 <Select
                     key={number}
-                    globalState={currentNumber}
                     callback={() => changeNumberInSession(number)}
-                    currentState={number}
+                    isActive={number === currentNumber}
                 >
                     {number}
                 </Select>

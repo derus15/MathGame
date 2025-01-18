@@ -15,16 +15,16 @@ describe('Select', () => {
         const globalState = 'test';
         const params = 'test';
 
-        renderProviders(<Select globalState={globalState} currentState={params} />);
+        renderProviders(<Select isActive={params === globalState} />);
         expect(screen.getByRole('button')).toHaveClass('selectActive');
     });
 
     test('element inactive', () => {
 
-        const globalState = 'test';
-        const params = 'test_1';
+        const globalState: string = 'test';
+        const params: string = 'test_1';
 
-        renderProviders(<Select globalState={globalState} currentState={params} />);
+        renderProviders(<Select isActive={params === globalState} />);
         expect(screen.getByRole('button')).not.toHaveClass('selectActive');
     });
 

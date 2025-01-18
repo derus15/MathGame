@@ -35,9 +35,8 @@ export const ChangeMods = memo(() => {
                 <Select
                     isMods
                     key={mode}
-                    globalState={currentMode}
+                    isActive={mode === currentMode}
                     callback={() => changeGameModeInSession(mode)}
-                    currentState={mode}
                 >
                     {mode}
                 </Select>

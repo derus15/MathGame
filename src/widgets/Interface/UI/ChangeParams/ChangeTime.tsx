@@ -27,9 +27,8 @@ const ChangeTime = () => {
 
                 <Select
                     key={time}
-                    globalState={time}
                     callback={() => changeTimeInSession(time)}
-                    currentState={currentTime}
+                    isActive={time === currentTime}
                 >
                     {time === 60 ? '1:00' : `0:${time}`}
                 </Select>
