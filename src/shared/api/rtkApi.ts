@@ -1,6 +1,6 @@
 import { BaseQueryFn, createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const url = __IS_DEV__ ? 'http://localhost:3020' : 'https://math-game.ru/';
+const url = __IS_DEV__ ? 'http://localhost:3020' : 'https://api.math-game.ru';
 
 export const baseQuery = fetchBaseQuery({
     baseUrl: url,
